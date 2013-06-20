@@ -1,0 +1,90 @@
+EBNF:
+
+Chocolate 			::= (declaration* statement)+
+
+CompoundExpression 	::= Statement? (Declaration+ Statement+)*
+					|   ClosedCompoundExpression
+					
+ClosedCompoundExpression ::= LCURLY Statement? (Declaration+ Statement+)* RCURLY
+
+Declaration 		::= (ConstDeclaration | VarDeclaration) SEMICOLON
+Statement			::= (Droste | Verkade | Milka) SEMICOLON
+
+Assignment			::= Expression
+					|   IDENTIFIER milka Assignment
+
+Reep			 	::= reep IDENTIFIER BECOMES Expression
+Bonbon				::= bonbon Type IDENTIFIER (BECOMES Expression)?
+
+Expression 			::= Arithmetic
+
+Arithmetic			::= Arith2 (TWIX Arith2)*	
+
+Arith2				::= Arith3 (M&M Arith3)*
+
+Arith3				::= Arith4 ((SNICKERS | KINDER | BUENO | LION | KITKAT | BROS) Arith4 )*
+
+Arith4				::= Arith5 ((BOUNTY | MARS) Arith5)*
+
+Arith5				::= Arith6 ((MILKYWAY | DOVE | MALTESERS) Arith6)*
+
+Arith6				::= ((BOUNTY | MARS | NUTS) Operand)*
+					| 	Operand
+					
+Identifier			::= Letter(Letter | Digit)*
+
+Operand				::= IDENTIFIER
+					|   NUMBER
+					|   LPAREN Expression RPAREN
+					
+Number				::= DIGIT+
+
+Type				::= WIT | MELK | PUUR
+
+Droste				::= droste LPAREN IDENTIFIER (COMMA IDENTFIER)* RPAREN
+
+Verkade				::= verkade (Expression | String)+
+
+String				::= DQUOTATION Graphic* DQUOTATION
+
+Graphic				::= Letter | Digit | space | tab | . | : | ; | , | ~ | ( | ) | [ | ] | { | } | _ | | | ! | ' | ` | " | # | $ | € | @ | ^ | & | * | ? | + | - | / | = | < | > | \ | %
+
+Letter				::= LOWER | UPPER
+
+LOWER				::= a | b | c | d | e | f | g | h | i | j | k | l | m | n | o | p | q | r | s | t | u | v | w | x | y | z
+
+UPPER				::= A | B | C | D | E | F | G | H | I | J | K | L | M | N | O | P | Q | R | S | T | U | V | W | X | Y | Z
+
+DIGIT				::= 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+
+BOUNTY				::= bounty
+MARS				::= mars
+NUTS				::= nuts
+MILKYWAY			::= milkyway
+DOVE				::= dove
+MALTESERS			::= maltesers
+SNICKERS			::= snickers
+KINDER				::= kinder
+BUENO				::= bueno
+LION				::= lion
+KITKAT				::= kitkat
+BROS				::= bros
+ROLO				::= rolo
+TWIX				::= twix
+ 
+WIT					::= wit
+MELK				::= melk
+PUUR				::= puur
+
+SEMICOLON			::= ;
+LPAREN				::= (
+RPAREN				::= )
+LCURLY				::= {
+RCURLY				::= }
+COMMA				::= ,
+
+DROSTE				::= droste
+MILKA				::= milka
+VERKADE				::= verkade
+
+| space | tab | '.' | ':' | ';' | ',' | '~' | '(' | ')' | '[' | ']' | '{' | '}' | '_' | '|' | '!' | ''' | '`' | '"' | '#' | '$' | '€' | '@' | '^' | '&' | '*' | '?' | '+' | '-' | '/' | '=' | '<' | '>' | '\' | '%'

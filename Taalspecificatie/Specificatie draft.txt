@@ -1,0 +1,58 @@
+Vertalerbouw
+
+Taalelementen:
+
+Basic expression language
+- declarations					
+	- constant declarations		:
+	- variable declarations
+- expressions
+	- arithmetic expression		+, -, *, /, %, ||, &&, !, <, >, ==
+	- assignment statement		becomes
+	- read statement			read
+	- print statement			print
+- compound expression: sequence of expressions and declarations, seperated by semicolons -> must end in an expression
+	
+Every variable and constant must be declared (defining occurence) before its use (applied occurrence)
+
+Declarations:
+
+constant = reep
+variable = bonbon
+
+Expressions:
+arithmetic:
+	- + = bounty
+	- - = mars
+	- ! = nuts
+	- * = milkyway
+	- / = dove
+	- % = maltesers
+	- < = snickers
+	- <= = kinder
+	- >= = bueno
+	- >  = lion
+	- == = kitkat
+	- <> = bros
+	- && = m&m
+	- || = twix
+	
+assignment: milka
+read: droste
+print: verkade
+
+comment: cacao
+
+integer = wit
+char	= melk
+boolean	= puur
+
+{
+}
+(
+)
+:
+;
+,
+'	QUOTATION
+"	DQUOTATION

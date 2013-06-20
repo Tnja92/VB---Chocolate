@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="ASCII"?>
-<cache:CacheIndex xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:cache="http://eclipse.org/dltk/cache_model" lastIndex="4" environment="org.eclipse.dltk.core.environment.localEnvironment">
-  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/ContextualAnalyzer/ChocChecker.g" timestamp="1371473444000" lastAccessTime="1371730909997"/>
-  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/ContextualAnalyzer" timestamp="1371730753643" lastAccessTime="1371730909998">
+<cache:CacheIndex xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:cache="http://eclipse.org/dltk/cache_model" lastIndex="22" environment="org.eclipse.dltk.core.environment.localEnvironment">
+  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/ContextualAnalyzer" timestamp="1371730753643" lastAccessTime="1371740206303">
     <attributes name=".dltk.core.archive.cache.lastaccess" location="2838196607/3726465486/3.idx"/>
   </entries>
+  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/ContextualAnalyzer/IdEntry.java" timestamp="1371730753772" lastAccessTime="1371740187736"/>
+  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/ContextualAnalyzer/SymbolTable.java" timestamp="1371730753800" lastAccessTime="1371740187736"/>
+  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/ContextualAnalyzer/SymbolTableException.java" timestamp="1371730753816" lastAccessTime="1371740187736"/>
+  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/SyntacticAnalyzer/Chocolate.tokens" timestamp="1371738025680" lastAccessTime="1371740187774"/>
+  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/SyntacticAnalyzer/ChocolateLexer.java" timestamp="1371738026217" lastAccessTime="1371740187774"/>
+  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/SyntacticAnalyzer/ChocolateParser.java" timestamp="1371738025667" lastAccessTime="1371740187774"/>
 </cache:CacheIndex>

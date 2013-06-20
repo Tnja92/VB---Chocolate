@@ -78,7 +78,12 @@ constant
     ;
     
 variable
-    :   VAR^ type IDENTIFIER (BECOMES single_expr)?
+    :   VAR^ type IDENTIFIER variable_becomes
+    ;
+    
+variable_becomes
+    :
+    |   (BECOMES single_expr)
     ;
    
 // STATEMENTS    
@@ -93,15 +98,30 @@ statement
     ;
 
 read
-    :   READ^ LPAREN! IDENTIFIER (COMMA! IDENTIFIER)* RPAREN!
+    :   READ^ LPAREN! IDENTIFIER readmore RPAREN!
+    ;
+    
+readmore
+    :   
+    |   COMMA! IDENTIFIER readmore
     ;
 
 assign
-    :   (ASSIGN^ IDENTIFIER )+ single_expr
+    :   ASSIGN^ IDENTIFIER assignmore expr
+    ;
+    
+assignmore
+    :   
+    |   ASSIGN^ IDENTIFIER
     ;
     
 print
-    :   PRINT^ LPAREN! ((single_expr | string) COMMA)+ RPAREN!
+    :   PRINT^ LPAREN! (single_expr | string) printmore RPAREN!
+    ;
+    
+printmore
+    :
+    |   (COMMA! (single_expr | string)) printmore
     ;
     
 // EXPRESSIONS    
@@ -111,7 +131,12 @@ expr
     ;
     
 compound_expr
-    :   LCURLY! ((declarations | statements)* single_expr SEMICOLON!)+ RCURLY!
+    :   LCURLY! ((declarations | statements) single_expr SEMICOLON!)+ RCURLY!
+    ;
+    
+compound_exprmore
+    :
+    |   (declarations | statements) compound_exprmore
     ;
     
 single_expr
@@ -144,7 +169,12 @@ arith6
     ;
     
 ifelsethen
-    :   IF^ arithmetic THEN! LCURLY! statement+ RCURLY! (ELSE! LCURLY! statement+ RCURLY!)?
+    :   IF^ arithmetic THEN! LCURLY! statement+ RCURLY! ifelsethen_else
+    ;
+    
+ifelsethen_else
+    :
+    |   (ELSE^ LCURLY! statement+ RCURLY!)
     ;
 
 // OTHER
@@ -163,7 +193,7 @@ string
     ;
     
 graphic
-    :   LETTER | DIGIT ;
+    :   LETTER | DIGIT;
 
 // Lexer rules
 

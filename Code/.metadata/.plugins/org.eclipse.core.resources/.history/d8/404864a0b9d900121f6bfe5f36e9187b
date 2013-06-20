@@ -1,0 +1,142 @@
+tree grammar ChocChecker;
+
+options {
+    tokenVocab=Chocolate;                    // import tokens from Chocolate.tokens
+    ASTLabelType=CommonTree;                 // AST nodes are of type CommonTree
+}
+
+@header {
+package ContextualAnalyzer;
+import java.util.Set;
+import java.util.HashSet;
+}
+
+// Alter code generation so catch-clauses get replaced with this action. 
+// This disables ANTLR error handling: ChocExceptions are propagated upwards.
+@rulecatch { 
+    catch (RecognitionException e) { 
+        throw e; 
+    } 
+}
+
+@members {
+    // idset - a set of declared identifiers.
+    private SymbolTable symtab = new SymbolTable();   
+    
+    public boolean  isDeclared(String s)        { return symtab.contains(s); }
+    public void     declare(String s, String t, boolean c) { symtab.enter(s, new IdEntry(t, c));   }
+}
+
+program
+    :   ^(PROGRAM (declarations | statements)+)
+    ;
+    
+declarations
+    :   constant | var
+    ;
+
+constant
+    :   ^(CONSTANT t=type id=IDENTIFIER BECOMES single_expr)
+        {   if (isDeclared($id.text))
+                throw new ChocException($id, "is already declared");
+            else { 
+                declare($id.text(), $t.text(), true); 
+                }
+        }
+    ;
+
+var
+    :   ^(VAR t=type id=IDENTIFIER (BECOMES single_expr)?)
+        {   if (isDeclared($id.text))
+                throw new ChocException($id, "is already declared");
+            else { 
+                declare($id.text(), $t.text(), false); 
+                }
+        }
+    ;
+    
+statements
+    :   read | assign | print
+    ;
+    
+read
+    :   ^(READ IDENTIFIER+)
+    ;
+
+assign
+    :   ^(ASSIGN IDENTIFIER (ASSIGN IDENTIFIER)* arithmetic)
+      {   if (!isDeclared($id.text))
+                throw new CalcException($id, "is not declared");
+        }
+    ;
+ 
+print
+    :   ^(PRINT (single_expr | string)+)
+    ;
+
+expr
+    :   LCURLY ((declarations | statements)* single_expr)+ RCURLY
+    |   single_expr
+    ;
+    
+single_expr
+    :   arithmetic
+    |   ^(IF arithmetic a=THEN statements+ (b=ELSE statements+)?)
+    ;
+    
+    
+arithmetic
+    :   ^(OR arith2 arith2)
+    ;
+    
+arith2
+    :   ^(AND arith3 arith3)
+    ;
+    
+arith3
+    :   ^(LESS arith4 arith4)
+    |   ^(LESSEQ arith4 arith4)
+    |   ^(GREATEQ arith4 arith4)
+    |   ^(GREAT arith4 arith4)
+    |   ^(EQ arith4 arith4)
+    |   ^(NOTEQ arith4 arith4)
+    ;
+
+arith4        
+    :   ^(PLUS arith5 arith5)
+    |   ^(MIN arith5 arith5)
+    ;
+
+arith5       
+    :   ^(MULT arith6 arith6)
+    |   ^(DIV arith6 arith6)
+    |   ^(MOD arith6 arith6)
+    ;
+    
+arith6        
+    :   ^(PLUS operand)
+    |   ^(MIN operand)
+    |   ^(NOT operand)
+    ;
+
+operand
+    :   id=IDENTIFIER         
+        {   if (!isDeclared($id.text))
+                throw new ChocException($id, "is not declared");
+        }
+    |   n=NUMBER
+    |   single_expr
+    ;
+
+type
+    :   INTEGER | CHAR | BOOLEAN
+    ;
+    
+string
+    :   DQUOTATION graphic* DQUOTATION
+    ;
+    
+graphic
+    :   LETTER | DIGIT 
+    ;
+   

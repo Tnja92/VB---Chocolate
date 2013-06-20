@@ -40,7 +40,7 @@ constant
         {   if (isDeclared($id.text))
                 throw new ChocException($id, "is already declared");
             else { 
-                declare($id.getText(), $t.getText(), true); 
+                declare($id.text(), $t.text(), true); 
                 }
         }
     ;
@@ -50,7 +50,7 @@ var
         {   if (isDeclared($id.text))
                 throw new ChocException($id, "is already declared");
             else { 
-                declare($id.getText(), $t.getText(), false); 
+                declare($id.text(), $t.text(), false); 
                 }
         }
     ;
@@ -60,58 +60,107 @@ statements
     ;
     
 read
+    :   ^(READ IDENTIFIER readmore)
+    ;
+
+readmore
     :
+    |   IDENTIFIER readmore
     ;
 
 assign
+    :   ^(ASSIGN id=IDENTIFIER assignmore arithmetic)
+        {   if (!isDeclared($id.text))
+                throw new CalcException($id, "is not declared");
+        }
+    ;
+    
+assignmore
     :
+    |   ^(ASSIGN id=IDENTIFIER assignmore)
+        {   if (!isDeclared($id.text))
+                throw new CalcException($id, "is not declared");
+        }
     ;
  
 print
-    :
-    ;
-
-
-expr 
-    :   LCURLY! ((declarations | statements)* single_expr SEMICOLON!)+ RCURLY!
-    |   arithmetic
-    |   ifelsethen
+    :   ^(PRINT (single_expr | string) printmore )
     ;
     
+printmore
+    :
+    |   single_expr printmore
+    |   string printmore
+    ;
+
+expr
+    :   ((declarations | statements) single_expr)+
+    |   single_expr
+    ;
+    
+compound_exprmore
+    :
+    |   declarations compound_exprmore
+    |   statements compound_exprmore
+    ;
+
+single_expr
+    :   arithmetic
+    |   ^(IF arithmetic a=THEN statements+ ifelsethen_else)
+    ;
+    
+ifelsethen_else
+    :
+    |   (b=ELSE statements+)
+    ;
+    
+    
 arithmetic
-    :   arith2 (OR^ arith2)*
+    :   arith2
+    |   ^(OR arithmetic arithmetic)
     ;
     
 arith2
-    :   arith3 (AND^ arith3)*
+    :   arith3
+    |   ^(AND arith2 arith2)
     ;
     
 arith3
-    :   arith4 ((LESS^ | LESSEQ^ | GREATEQ^ | GREAT^ | EQ^ | NOTEQ^) arith4 )*
+    :   arith4
+    |   ^(LESS arith3 arith3)
+    |   ^(LESSEQ arith3 arith3)
+    |   ^(GREATEQ arith3 arith3)
+    |   ^(GREAT arith3 arith3)
+    |   ^(EQ arith3 arith3)
+    |   ^(NOTEQ arith3 arith3)
     ;
 
 arith4        
-    :   arith5 ((PLUS^ | MIN^) arith5)*   
+    :   arith5
+    |   ^(PLUS arith4 arith4)
+    |   ^(MIN arith4 arith4)
     ;
 
 arith5       
-    :   arith6 ((MULT^ | DIV^ | MOD^) arith6)*
+    :   arith6
+    |   ^(MULT arith5 arith5)
+    |   ^(DIV arith5 arith5)
+    |   ^(MOD arith5 arith5)
     ;
     
 arith6        
-    :   ((PLUS^ | MIN^ | NOT^)? operand)
+    :   operand
+    |   ^(PLUS arith6)
+    |   ^(MIN arith6)
+    |   ^(NOT arith6)
     ;
-    
-ifelsethen
-    :   IF^ arithmetic THEN! LCURLY! statement+ RCURLY! (ELSE! LCURLY! statement+ RCURLY!)?
-    ;
+
 operand
     :   id=IDENTIFIER         
         {   if (!isDeclared($id.text))
                 throw new ChocException($id, "is not declared");
         }
     |   n=NUMBER
-    |   LPAREN! single_expr RPAREN!
     ;
 
 type
@@ -119,7 +168,7 @@ type
     ;
     
 string
-    :   DQUOTATION! graphic* DQUOTATION!
+    :   graphic string
     ;
     
 graphic

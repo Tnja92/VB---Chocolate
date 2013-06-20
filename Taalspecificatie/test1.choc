@@ -1,2 +1,11 @@
-cacao Test 1: declaratie van een constant en het gebruik ervan
+cacao GOED Test 1: declaratie en gebruik van constanten
 
+cacao Declareren van constanten
+reep wit een = 6;
+reep melk twee = 'm';
+reep puur drie = true;
+
+cacao Gebruik van constanten, printen
+verkade(een);
+verkade(twee);
+verkade(drie);

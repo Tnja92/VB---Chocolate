@@ -13,7 +13,7 @@ Statement			::= (Droste | Verkade | Milka) SEMICOLON
 Assignment			::= Expression
 					|   IDENTIFIER milka Assignment
 
-Reep			 	::= reep IDENTIFIER BECOMES Expression
+Reep			 	::= reep Type IDENTIFIER BECOMES Expression
 Bonbon				::= bonbon Type IDENTIFIER (BECOMES Expression)?
 
 Expression 			::= Arithmetic

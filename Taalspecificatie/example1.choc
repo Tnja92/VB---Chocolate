@@ -1,0 +1,40 @@
+cacao voorbeeldje
+
+cacao declaraties
+reep i milka 7;
+reep c milka 'r';
+reep h milka true;
+bonbon puur c;
+
+cacao statements
+bonbon wit a;
+bonbon melk b;
+verkade("Geef een cijfer en een letter: ");
+droste(a, b);
+bonbon wit d;
+bonbon melk e;
+verkade("Geef opnieuw een cijfer en een letter: ");
+droste(d, e);
+bonbon wit f;
+bonbon melk g;
+verkade("Geef nogmaals een cijfer en een letter: ");
+droste(f,g);
+verkade("Uw woord: ",b,e,g);
+
+a milka a+i;
+d milka d-i;
+f milka a+d;
+c milka a<f;
+verkade(c);
+
+cacao closed compound expression
+bonbon wit t milka {
+	d+2*a-f*4%9;
+}
+verkade (t);
+
+bonbon wit p milka {
+	5*9+8/4-4+50%10;
+}
+cacao uit volgende print-statement zou 43 moeten komen
+verkade (p);

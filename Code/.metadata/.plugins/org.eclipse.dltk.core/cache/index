@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="ASCII"?>
+<cache:CacheIndex xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:cache="http://eclipse.org/dltk/cache_model" lastIndex="4" environment="org.eclipse.dltk.core.environment.localEnvironment">
+  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/ContextualAnalyzer/ChocChecker.g" timestamp="1371473444000" lastAccessTime="1371730909997"/>
+  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/ContextualAnalyzer" timestamp="1371730753643" lastAccessTime="1371730909998">
+    <attributes name=".dltk.core.archive.cache.lastaccess" location="2838196607/3726465486/3.idx"/>
+  </entries>
+</cache:CacheIndex>

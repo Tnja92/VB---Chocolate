@@ -1,4 +1,4 @@
-// $ANTLR 3.5 C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g 2013-06-20 17:12:47
+// $ANTLR 3.5 C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g 2013-06-26 20:49:24
 
 package SyntacticAnalyzer;
 
@@ -657,10 +657,10 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = PROGRAM;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:39:9: ( 'chocolate' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:39:11: 'chocolate'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:39:9: ( 'program' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:39:11: 'program'
 			{
-			match("chocolate"); 
+			match("program"); 
 
 			}
 
@@ -801,12 +801,12 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = IDENTIFIER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:201:5: ( LETTER ( LETTER | DIGIT )* )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:201:9: LETTER ( LETTER | DIGIT )*
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:181:5: ( LETTER ( LETTER | DIGIT )* )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:181:9: LETTER ( LETTER | DIGIT )*
 			{
 			mLETTER(); 
 
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:201:16: ( LETTER | DIGIT )*
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:181:16: ( LETTER | DIGIT )*
 			loop1:
 			while (true) {
 				int alt1=2;
@@ -851,10 +851,10 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = NUMBER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:205:5: ( ( DIGIT )+ )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:205:9: ( DIGIT )+
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:185:5: ( ( DIGIT )+ )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:185:9: ( DIGIT )+
 			{
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:205:9: ( DIGIT )+
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:185:9: ( DIGIT )+
 			int cnt2=0;
 			loop2:
 			while (true) {
@@ -903,12 +903,12 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:210:5: ( 'cacao' ( . )* '\\n' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:210:9: 'cacao' ( . )* '\\n'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:190:5: ( 'cacao' ( . )* '\\n' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:190:9: 'cacao' ( . )* '\\n'
 			{
 			match("cacao"); 
 
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:210:17: ( . )*
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:190:17: ( . )*
 			loop3:
 			while (true) {
 				int alt3=2;
@@ -922,7 +922,7 @@ public class ChocolateLexer extends Lexer {
 
 				switch (alt3) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:210:17: .
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:190:17: .
 					{
 					matchAny(); 
 					}
@@ -951,10 +951,10 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:215:5: ( ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+ )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:215:9: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:195:5: ( ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+ )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:195:9: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
 			{
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:215:9: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:195:9: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
 			int cnt4=0;
 			loop4:
 			while (true) {
@@ -1002,7 +1002,7 @@ public class ChocolateLexer extends Lexer {
 	// $ANTLR start "DIGIT"
 	public final void mDIGIT() throws RecognitionException {
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:219:17: ( ( '0' .. '9' ) )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:199:17: ( ( '0' .. '9' ) )
 			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
@@ -1025,7 +1025,7 @@ public class ChocolateLexer extends Lexer {
 	// $ANTLR start "LOWER"
 	public final void mLOWER() throws RecognitionException {
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:220:17: ( ( 'a' .. 'z' ) )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:200:17: ( ( 'a' .. 'z' ) )
 			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:
 			{
 			if ( (input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
@@ -1048,7 +1048,7 @@ public class ChocolateLexer extends Lexer {
 	// $ANTLR start "UPPER"
 	public final void mUPPER() throws RecognitionException {
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:221:17: ( ( 'A' .. 'Z' ) )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:201:17: ( ( 'A' .. 'Z' ) )
 			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z') ) {
@@ -1071,7 +1071,7 @@ public class ChocolateLexer extends Lexer {
 	// $ANTLR start "LETTER"
 	public final void mLETTER() throws RecognitionException {
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:222:17: ( LOWER | UPPER )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:202:17: ( LOWER | UPPER )
 			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
@@ -1377,80 +1377,80 @@ public class ChocolateLexer extends Lexer {
 
 	protected DFA5 dfa5 = new DFA5(this);
 	static final String DFA5_eotS =
-		"\1\uffff\2\31\1\uffff\1\31\2\uffff\1\31\1\uffff\6\31\1\uffff\1\31\1\uffff"+
-		"\4\31\6\uffff\16\31\1\104\31\31\1\uffff\1\136\7\31\1\146\1\147\1\31\1"+
-		"\152\1\153\1\31\1\155\1\156\1\31\1\160\2\31\1\163\1\31\1\165\2\31\1\uffff"+
-		"\1\31\1\171\1\172\1\173\3\31\2\uffff\1\177\1\31\2\uffff\1\31\2\uffff\1"+
-		"\31\1\uffff\2\31\1\uffff\1\u0085\1\uffff\3\31\3\uffff\3\31\1\uffff\2\31"+
-		"\1\u008f\1\u0090\1\u0091\1\uffff\1\u0092\1\u0093\3\31\1\uffff\3\31\5\uffff"+
-		"\1\31\1\u009a\1\31\1\u009c\1\31\1\u009e\1\uffff\1\31\1\uffff\1\u00a0\1"+
-		"\uffff\1\u00a1\2\uffff";
+		"\1\uffff\2\32\1\uffff\1\32\2\uffff\1\32\1\uffff\6\32\1\uffff\1\32\1\uffff"+
+		"\3\32\3\uffff\1\32\3\uffff\17\32\1\105\31\32\1\uffff\1\137\6\32\1\146"+
+		"\1\147\1\32\1\152\1\153\1\32\1\155\1\32\1\157\1\32\1\161\2\32\1\164\1"+
+		"\32\1\166\2\32\1\uffff\1\32\1\172\1\173\1\174\2\32\2\uffff\1\177\1\32"+
+		"\2\uffff\1\32\1\uffff\1\32\1\uffff\1\32\1\uffff\2\32\1\uffff\1\u0086\1"+
+		"\uffff\3\32\3\uffff\2\32\1\uffff\3\32\1\u0090\1\u0091\1\u0092\1\uffff"+
+		"\1\u0093\1\u0094\2\32\1\uffff\3\32\1\u0099\5\uffff\1\32\1\u009b\1\u009c"+
+		"\1\32\1\uffff\1\u009e\2\uffff\1\u009f\2\uffff";
 	static final String DFA5_eofS =
-		"\u00a2\uffff";
+		"\u00a0\uffff";
 	static final String DFA5_minS =
-		"\1\11\1\145\1\141\1\uffff\1\165\2\uffff\1\157\1\uffff\1\154\2\151\1\157"+
-		"\1\146\1\151\1\uffff\1\156\1\uffff\1\165\1\150\1\145\1\141\6\uffff\1\154"+
-		"\1\145\3\154\1\165\1\166\1\157\1\163\1\156\1\157\1\145\1\157\1\156\1\60"+
-		"\1\164\1\151\1\164\1\151\1\145\1\162\1\157\1\143\1\157\1\160\2\153\1\163"+
-		"\1\164\1\162\1\145\1\163\1\145\1\153\1\144\2\156\1\163\1\156\1\142\1\uffff"+
-		"\1\60\1\143\1\163\1\170\1\156\1\153\1\143\1\141\2\60\1\141\2\60\1\145"+
-		"\2\60\1\164\1\60\1\141\1\145\1\60\1\157\1\60\1\164\1\157\1\uffff\1\153"+
-		"\3\60\1\141\2\157\2\uffff\1\60\1\167\2\uffff\1\163\2\uffff\1\145\1\uffff"+
-		"\1\164\1\162\1\uffff\1\60\1\uffff\1\171\1\156\1\145\3\uffff\1\144\1\154"+
-		"\1\0\1\uffff\1\141\1\145\3\60\1\uffff\2\60\1\162\1\145\1\141\1\uffff\1"+
-		"\0\1\171\1\162\5\uffff\1\163\1\60\1\164\1\60\1\163\1\60\1\uffff\1\145"+
-		"\1\uffff\1\60\1\uffff\1\60\2\uffff";
+		"\1\11\1\145\1\141\1\uffff\1\162\2\uffff\1\157\1\uffff\1\154\2\151\1\157"+
+		"\1\146\1\151\1\uffff\1\156\1\uffff\1\165\1\150\1\145\3\uffff\1\141\3\uffff"+
+		"\1\154\1\145\3\154\1\165\1\157\1\166\1\157\1\163\1\156\1\157\1\145\1\157"+
+		"\1\156\1\60\1\164\1\151\1\164\1\151\1\145\1\162\1\143\1\157\1\160\2\153"+
+		"\1\163\1\164\1\162\1\147\1\145\1\163\1\145\1\153\1\144\2\156\1\163\1\156"+
+		"\1\142\1\uffff\1\60\1\143\1\163\1\170\1\156\1\153\1\141\2\60\1\141\2\60"+
+		"\1\145\1\60\1\162\1\60\1\164\1\60\1\141\1\145\1\60\1\157\1\60\1\164\1"+
+		"\157\1\uffff\1\153\3\60\1\141\1\157\2\uffff\1\60\1\167\2\uffff\1\163\1"+
+		"\uffff\1\141\1\uffff\1\145\1\uffff\1\164\1\162\1\uffff\1\60\1\uffff\1"+
+		"\171\1\156\1\145\3\uffff\1\144\1\0\1\uffff\1\141\1\145\1\155\3\60\1\uffff"+
+		"\2\60\1\162\1\145\1\uffff\1\0\1\171\1\162\1\60\5\uffff\1\163\2\60\1\163"+
+		"\1\uffff\1\60\2\uffff\1\60\2\uffff";
 	static final String DFA5_maxS =
 		"\1\175\1\157\1\151\1\uffff\1\165\2\uffff\1\162\1\uffff\1\154\2\151\1\165"+
-		"\1\146\1\151\1\uffff\1\156\1\uffff\1\165\1\167\1\145\1\150\6\uffff\1\154"+
-		"\1\145\2\154\1\162\1\165\1\166\1\157\1\163\1\164\1\157\1\145\1\157\1\165"+
-		"\1\172\1\164\1\151\1\164\1\151\1\145\1\162\1\157\1\143\1\157\1\160\2\153"+
-		"\1\163\1\164\1\162\1\145\1\163\1\145\1\153\1\144\2\156\1\163\1\156\1\142"+
-		"\1\uffff\1\172\1\143\1\163\1\170\1\156\1\153\1\143\1\141\2\172\1\171\2"+
-		"\172\1\145\2\172\1\164\1\172\1\141\1\145\1\172\1\157\1\172\1\164\1\157"+
-		"\1\uffff\1\153\3\172\1\141\2\157\2\uffff\1\172\1\167\2\uffff\1\163\2\uffff"+
-		"\1\145\1\uffff\1\164\1\162\1\uffff\1\172\1\uffff\1\171\1\156\1\145\3\uffff"+
-		"\1\144\1\154\1\uffff\1\uffff\1\141\1\145\3\172\1\uffff\2\172\1\162\1\145"+
-		"\1\141\1\uffff\1\uffff\1\171\1\162\5\uffff\1\163\1\172\1\164\1\172\1\163"+
-		"\1\172\1\uffff\1\145\1\uffff\1\172\1\uffff\1\172\2\uffff";
+		"\1\146\1\151\1\uffff\1\156\1\uffff\1\165\1\167\1\145\3\uffff\1\141\3\uffff"+
+		"\1\154\1\145\2\154\1\162\1\165\1\157\1\166\1\157\1\163\1\164\1\157\1\145"+
+		"\1\157\1\165\1\172\1\164\1\151\1\164\1\151\1\145\1\162\1\143\1\157\1\160"+
+		"\2\153\1\163\1\164\1\162\1\147\1\145\1\163\1\145\1\153\1\144\2\156\1\163"+
+		"\1\156\1\142\1\uffff\1\172\1\143\1\163\1\170\1\156\1\153\1\141\2\172\1"+
+		"\171\2\172\1\145\1\172\1\162\1\172\1\164\1\172\1\141\1\145\1\172\1\157"+
+		"\1\172\1\164\1\157\1\uffff\1\153\3\172\1\141\1\157\2\uffff\1\172\1\167"+
+		"\2\uffff\1\163\1\uffff\1\141\1\uffff\1\145\1\uffff\1\164\1\162\1\uffff"+
+		"\1\172\1\uffff\1\171\1\156\1\145\3\uffff\1\144\1\uffff\1\uffff\1\141\1"+
+		"\145\1\155\3\172\1\uffff\2\172\1\162\1\145\1\uffff\1\uffff\1\171\1\162"+
+		"\1\172\5\uffff\1\163\2\172\1\163\1\uffff\1\172\2\uffff\1\172\2\uffff";
 	static final String DFA5_acceptS =
-		"\3\uffff\1\3\1\uffff\1\6\1\7\1\uffff\1\12\6\uffff\1\21\1\uffff\1\24\4"+
-		"\uffff\1\36\1\40\1\41\1\44\1\45\1\47\50\uffff\1\17\31\uffff\1\20\7\uffff"+
-		"\1\1\1\10\2\uffff\1\5\1\25\1\uffff\1\4\1\11\1\uffff\1\13\2\uffff\1\15"+
-		"\1\uffff\1\31\3\uffff\1\30\1\32\1\42\3\uffff\1\2\5\uffff\1\16\5\uffff"+
-		"\1\46\3\uffff\1\37\1\14\1\23\1\33\1\43\6\uffff\1\34\1\uffff\1\27\1\uffff"+
-		"\1\22\1\uffff\1\26\1\35";
+		"\3\uffff\1\3\1\uffff\1\6\1\7\1\uffff\1\12\6\uffff\1\21\1\uffff\1\24\3"+
+		"\uffff\1\36\1\40\1\41\1\uffff\1\45\1\44\1\47\51\uffff\1\17\31\uffff\1"+
+		"\20\6\uffff\1\1\1\10\2\uffff\1\5\1\25\1\uffff\1\4\1\uffff\1\11\1\uffff"+
+		"\1\13\2\uffff\1\15\1\uffff\1\31\3\uffff\1\30\1\32\1\42\2\uffff\1\2\6\uffff"+
+		"\1\16\4\uffff\1\46\4\uffff\1\37\1\14\1\23\1\33\1\43\4\uffff\1\35\1\uffff"+
+		"\1\34\1\27\1\uffff\1\22\1\26";
 	static final String DFA5_specialS =
-		"\176\uffff\1\1\15\uffff\1\0\25\uffff}>";
+		"\176\uffff\1\1\15\uffff\1\0\23\uffff}>";
 	static final String[] DFA5_transitionS = {
-			"\2\33\1\uffff\2\33\22\uffff\1\33\1\uffff\1\10\5\uffff\1\21\1\27\2\uffff"+
-			"\1\6\3\uffff\12\32\1\5\1\30\1\uffff\1\3\3\uffff\32\31\6\uffff\1\31\1"+
-			"\14\1\25\1\7\1\11\3\31\1\15\1\31\1\12\1\13\1\2\1\22\1\31\1\4\1\31\1\1"+
-			"\1\20\1\23\1\31\1\24\1\16\3\31\1\17\1\uffff\1\26",
+			"\2\33\1\uffff\2\33\22\uffff\1\33\1\uffff\1\10\5\uffff\1\21\1\26\2\uffff"+
+			"\1\6\3\uffff\12\31\1\5\1\27\1\uffff\1\3\3\uffff\32\32\6\uffff\1\32\1"+
+			"\14\1\30\1\7\1\11\3\32\1\15\1\32\1\12\1\13\1\2\1\22\1\32\1\4\1\32\1\1"+
+			"\1\20\1\23\1\32\1\24\1\16\3\32\1\17\1\uffff\1\25",
 			"\1\35\11\uffff\1\34",
 			"\1\40\3\uffff\1\37\3\uffff\1\36",
 			"",
-			"\1\41",
+			"\1\42\2\uffff\1\41",
 			"",
 			"",
-			"\1\42\2\uffff\1\43",
+			"\1\43\2\uffff\1\44",
 			"",
-			"\1\44",
 			"\1\45",
 			"\1\46",
-			"\1\51\2\uffff\1\50\2\uffff\1\47",
-			"\1\52",
+			"\1\47",
+			"\1\52\2\uffff\1\51\2\uffff\1\50",
 			"\1\53",
-			"",
 			"\1\54",
 			"",
 			"\1\55",
-			"\1\57\16\uffff\1\56",
-			"\1\60",
-			"\1\62\6\uffff\1\61",
+			"",
+			"\1\56",
+			"\1\60\16\uffff\1\57",
+			"\1\61",
 			"",
 			"",
 			"",
+			"\1\62",
 			"",
 			"",
 			"",
@@ -1463,13 +1463,13 @@ public class ChocolateLexer extends Lexer {
 			"\1\72",
 			"\1\73",
 			"\1\74",
-			"\1\76\5\uffff\1\75",
-			"\1\77",
+			"\1\75",
+			"\1\77\5\uffff\1\76",
 			"\1\100",
 			"\1\101",
-			"\1\103\6\uffff\1\102",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
-			"\1\105",
+			"\1\102",
+			"\1\104\6\uffff\1\103",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
 			"\1\106",
 			"\1\107",
 			"\1\110",
@@ -1494,98 +1494,96 @@ public class ChocolateLexer extends Lexer {
 			"\1\133",
 			"\1\134",
 			"\1\135",
+			"\1\136",
 			"",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
-			"\1\137",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
 			"\1\140",
 			"\1\141",
 			"\1\142",
 			"\1\143",
 			"\1\144",
 			"\1\145",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
 			"\1\150\27\uffff\1\151",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
 			"\1\154",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
-			"\1\157",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
-			"\1\161",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
+			"\1\156",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
+			"\1\160",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
 			"\1\162",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
-			"\1\164",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
-			"\1\166",
+			"\1\163",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
+			"\1\165",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
 			"\1\167",
-			"",
 			"\1\170",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
-			"\1\174",
+			"",
+			"\1\171",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
 			"\1\175",
 			"\1\176",
 			"",
 			"",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
 			"\1\u0080",
 			"",
 			"",
 			"\1\u0081",
 			"",
-			"",
 			"\1\u0082",
 			"",
 			"\1\u0083",
+			"",
 			"\1\u0084",
+			"\1\u0085",
 			"",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
 			"",
-			"\1\u0086",
 			"\1\u0087",
 			"\1\u0088",
-			"",
-			"",
-			"",
 			"\1\u0089",
+			"",
+			"",
+			"",
 			"\1\u008a",
 			"\60\u008b\12\u008c\7\u008b\32\u008c\6\u008b\32\u008c\uff85\u008b",
 			"",
 			"\1\u008d",
 			"\1\u008e",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
+			"\1\u008f",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
 			"",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
-			"\1\u0094",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
 			"\1\u0095",
 			"\1\u0096",
 			"",
 			"\60\u008b\12\u008c\7\u008b\32\u008c\6\u008b\32\u008c\uff85\u008b",
 			"\1\u0097",
 			"\1\u0098",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
 			"",
 			"",
 			"",
 			"",
 			"",
-			"\1\u0099",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
-			"\1\u009b",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
+			"\1\u009a",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
 			"\1\u009d",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
 			"",
-			"\1\u009f",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
 			"",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
 			"",
-			"\12\31\7\uffff\32\31\6\uffff\32\31",
+			"\12\32\7\uffff\32\32\6\uffff\32\32",
 			"",
 			""
 	};
@@ -1633,7 +1631,7 @@ public class ChocolateLexer extends Lexer {
 						s = -1;
 						if ( ((LA5_140 >= '\u0000' && LA5_140 <= '/')||(LA5_140 >= ':' && LA5_140 <= '@')||(LA5_140 >= '[' && LA5_140 <= '`')||(LA5_140 >= '{' && LA5_140 <= '\uFFFF')) ) {s = 139;}
 						else if ( ((LA5_140 >= '0' && LA5_140 <= '9')||(LA5_140 >= 'A' && LA5_140 <= 'Z')||(LA5_140 >= 'a' && LA5_140 <= 'z')) ) {s = 140;}
-						else s = 25;
+						else s = 26;
 						if ( s>=0 ) return s;
 						break;
 
@@ -1642,7 +1640,7 @@ public class ChocolateLexer extends Lexer {
 						s = -1;
 						if ( ((LA5_126 >= '\u0000' && LA5_126 <= '/')||(LA5_126 >= ':' && LA5_126 <= '@')||(LA5_126 >= '[' && LA5_126 <= '`')||(LA5_126 >= '{' && LA5_126 <= '\uFFFF')) ) {s = 139;}
 						else if ( ((LA5_126 >= '0' && LA5_126 <= '9')||(LA5_126 >= 'A' && LA5_126 <= 'Z')||(LA5_126 >= 'a' && LA5_126 <= 'z')) ) {s = 140;}
-						else s = 25;
+						else s = 26;
 						if ( s>=0 ) return s;
 						break;
 			}

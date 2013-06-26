@@ -37,7 +37,7 @@ tokens {
     THEN        =   'then'      ;
 
     // keywords
-    PROGRAM     = 'chocolate' ;
+    PROGRAM     = 'program' ;
     CONSTANT    = 'reep'      ;
     VAR         = 'bonbon'    ;
     ASSIGN      = 'milka'     ;
@@ -58,7 +58,7 @@ package SyntacticAnalyzer;
 }
 
 // Parser rules    
-chocolate
+program
     :    (declarations* statements)+ EOF
             ->  ^(PROGRAM (declarations* statements)+)
     ;       
@@ -66,7 +66,7 @@ chocolate
     
 // DECLARATIONS   
 declarations
-    : declaration SEMICOLON!
+    :   declaration SEMICOLON!
     ;
  
 declaration
@@ -74,16 +74,11 @@ declaration
     ;   
     
 constant
-    :   CONSTANT^ type IDENTIFIER BECOMES single_expr
+    :   CONSTANT^ type IDENTIFIER (ASSIGN (single_expr | closed_compound_expr))?
     ;
     
 variable
-    :   VAR^ type IDENTIFIER variable_becomes
-    ;
-    
-variable_becomes
-    :
-    |   (BECOMES single_expr)
+    :   VAR^ type IDENTIFIER (ASSIGN (single_expr | closed_compound_expr))?
     ;
    
 // STATEMENTS    
@@ -92,56 +87,46 @@ statements
     ;
     
 statement
-    : read 
-    | print 
-    | assign   
+    :   read 
+    |   print 
+    |   assign   
+    |   ifelsethen
     ;
 
 read
-    :   READ^ LPAREN! IDENTIFIER readmore RPAREN!
-    ;
-    
-readmore
-    :   
-    |   COMMA! IDENTIFIER readmore
+    :   READ^ LPAREN! IDENTIFIER (COMMA! IDENTIFIER)* RPAREN!
     ;
 
 assign
-    :   ASSIGN^ IDENTIFIER assignmore expr
+    :   IDENTIFIER ASSIGN^ (options{greedy=true;} : assign2)
     ;
     
-assignmore
-    :   
-    |   ASSIGN^ IDENTIFIER
+assign2
+    :   IDENTIFIER (ASSIGN^ assign2)?
+    |   single_expr
+    |   closed_compound_expr
     ;
     
 print
-    :   PRINT^ LPAREN! (single_expr | string) printmore RPAREN!
-    ;
-    
-printmore
-    :
-    |   (COMMA! (single_expr | string)) printmore
+    :   PRINT^ LPAREN! (unclosed_compound_expr | string) (COMMA! (unclosed_compound_expr | string))* RPAREN!
     ;
     
 // EXPRESSIONS    
-expr
-    :   compound_expr
-    |   single_expr
-    ;
-    
 compound_expr
-    :   LCURLY! ((declarations | statements) single_expr SEMICOLON!)+ RCURLY!
+    :   unclosed_compound_expr
+    |   closed_compound_expr
     ;
     
-compound_exprmore
-    :
-    |   (declarations | statements) compound_exprmore
+unclosed_compound_expr
+    :   (declarations* statements)+ 
+    ;
+
+closed_compound_expr
+    :   LCURLY! (declarations* statements)+ RCURLY!
     ;
     
 single_expr
     :   arithmetic
-    |   ifelsethen
     ;
 
 arithmetic
@@ -169,12 +154,7 @@ arith6
     ;
     
 ifelsethen
-    :   IF^ arithmetic THEN! LCURLY! statement+ RCURLY! ifelsethen_else
-    ;
-    
-ifelsethen_else
-    :
-    |   (ELSE^ LCURLY! statement+ RCURLY!)
+    :   IF^ single_expr THEN! LCURLY! unclosed_compound_expr RCURLY! (ELSE! LCURLY! unclosed_compound_expr RCURLY!)?
     ;
 
 // OTHER

@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="ASCII"?>
-<cache:CacheIndex xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:cache="http://eclipse.org/dltk/cache_model" lastIndex="46" environment="org.eclipse.dltk.core.environment.localEnvironment">
-  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/ContextualAnalyzer/IdEntry.java" timestamp="1371730753772" lastAccessTime="1372272322419"/>
-  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/ContextualAnalyzer/SymbolTable.java" timestamp="1371730753800" lastAccessTime="1372272322427"/>
-  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/ContextualAnalyzer/SymbolTableException.java" timestamp="1371730753816" lastAccessTime="1372272322427"/>
-  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/SyntacticAnalyzer/Chocolate.tokens" timestamp="1371741166860" lastAccessTime="1372272322508"/>
-  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/SyntacticAnalyzer/ChocolateLexer.java" timestamp="1371741167401" lastAccessTime="1372272322508"/>
-  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/SyntacticAnalyzer/ChocolateParser.java" timestamp="1371741166831" lastAccessTime="1372272322509"/>
-  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/ContextualAnalyzer" timestamp="1372272546069" lastAccessTime="1372272563332">
+<cache:CacheIndex xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:cache="http://eclipse.org/dltk/cache_model" lastIndex="52" environment="org.eclipse.dltk.core.environment.localEnvironment">
+  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/ContextualAnalyzer/IdEntry.java" timestamp="1371730753772" lastAccessTime="1372273224587"/>
+  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/ContextualAnalyzer/SymbolTable.java" timestamp="1371730753800" lastAccessTime="1372273224587"/>
+  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/ContextualAnalyzer/SymbolTableException.java" timestamp="1371730753816" lastAccessTime="1372273224587"/>
+  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/ContextualAnalyzer" timestamp="1372272546069" lastAccessTime="1372273224638">
     <attributes name=".dltk.core.archive.cache.lastaccess" location="2838196607/3726465486/45.idx"/>
   </entries>
+  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/SyntacticAnalyzer/Chocolate.java" timestamp="1372272397502" lastAccessTime="1372273224619"/>
+  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/SyntacticAnalyzer/Chocolate.tokens" timestamp="1372272564442" lastAccessTime="1372273224620"/>
+  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/SyntacticAnalyzer/ChocolateException.java" timestamp="1372272505182" lastAccessTime="1372273224620"/>
+  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/SyntacticAnalyzer/ChocolateLexer.java" timestamp="1372272564955" lastAccessTime="1372273224621"/>
+  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/SyntacticAnalyzer/ChocolateParser.java" timestamp="1372272564419" lastAccessTime="1372273224621"/>
+  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/SyntacticAnalyzer/example1.choc" timestamp="1372272417557" lastAccessTime="1372273224621"/>
+  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/SyntacticAnalyzer/test1.choc" timestamp="1372272417552" lastAccessTime="1372273224621"/>
+  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/SyntacticAnalyzer/test2.choc" timestamp="1372272417555" lastAccessTime="1372273224622"/>
+  <entries path="C:/Users/Tanja/Documents/GitHub/VB---Chocolate/Code/Vertalerbouw/src/SyntacticAnalyzer/test3.choc" timestamp="1372272417516" lastAccessTime="1372273224622"/>
 </cache:CacheIndex>

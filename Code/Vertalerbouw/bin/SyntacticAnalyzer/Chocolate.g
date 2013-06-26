@@ -14,6 +14,7 @@ tokens {
     LCURLY      =   '{'     ;
     RCURLY      =   '}'     ;
     COMMA       =   ','     ;
+    QUOTATION   =   '\''     ;
     DQUOTATION  =   '"'     ;
     BECOMES     =   '='     ;
 
@@ -35,6 +36,8 @@ tokens {
     IF          =   'if'        ;
     ELSE        =   'else'      ;
     THEN        =   'then'      ;
+    TRUE        =   'true'      ;
+    FALSE       =   'false'     ;
 
     // keywords
     PROGRAM     = 'program' ;
@@ -162,6 +165,8 @@ operand
     :   IDENTIFIER
     |   NUMBER
     |   LPAREN! single_expr RPAREN!
+    |   BOOLEAN_OPERATOR
+    |   CHAR_OPERATOR
     ;
 
 type
@@ -184,7 +189,10 @@ IDENTIFIER
 NUMBER
     :   DIGIT+
     ;
-
+    
+CHAR_OPERATOR
+    :   QUOTATION (DIGIT | LETTER) QUOTATION
+    ;
 
 COMMENT
     :   'cacao' .* '\n' 
@@ -200,6 +208,7 @@ fragment DIGIT  :   ('0'..'9') ;
 fragment LOWER  :   ('a'..'z') ;
 fragment UPPER  :   ('A'..'Z') ;
 fragment LETTER :   LOWER | UPPER ;
+fragment BOOLEAN_OPERATOR :   'true' | 'false';
 
 // EOF
 

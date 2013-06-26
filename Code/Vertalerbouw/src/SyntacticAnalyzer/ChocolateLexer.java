@@ -1,4 +1,4 @@
-// $ANTLR 3.5 C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g 2013-06-26 20:49:24
+// $ANTLR 3.5 C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g 2013-06-26 21:00:41
 
 package SyntacticAnalyzer;
 
@@ -15,45 +15,50 @@ public class ChocolateLexer extends Lexer {
 	public static final int ASSIGN=5;
 	public static final int BECOMES=6;
 	public static final int BOOLEAN=7;
-	public static final int CHAR=8;
-	public static final int COLON=9;
-	public static final int COMMA=10;
-	public static final int COMMENT=11;
-	public static final int CONSTANT=12;
-	public static final int DIGIT=13;
-	public static final int DIV=14;
-	public static final int DQUOTATION=15;
-	public static final int ELSE=16;
-	public static final int EQ=17;
-	public static final int GREAT=18;
-	public static final int GREATEQ=19;
-	public static final int IDENTIFIER=20;
-	public static final int IF=21;
-	public static final int INTEGER=22;
-	public static final int LCURLY=23;
-	public static final int LESS=24;
-	public static final int LESSEQ=25;
-	public static final int LETTER=26;
-	public static final int LOWER=27;
-	public static final int LPAREN=28;
-	public static final int MIN=29;
-	public static final int MOD=30;
-	public static final int MULT=31;
-	public static final int NOT=32;
-	public static final int NOTEQ=33;
-	public static final int NUMBER=34;
-	public static final int OR=35;
-	public static final int PLUS=36;
-	public static final int PRINT=37;
-	public static final int PROGRAM=38;
-	public static final int RCURLY=39;
-	public static final int READ=40;
-	public static final int RPAREN=41;
-	public static final int SEMICOLON=42;
-	public static final int THEN=43;
-	public static final int UPPER=44;
-	public static final int VAR=45;
-	public static final int WS=46;
+	public static final int BOOLEAN_OPERATOR=8;
+	public static final int CHAR=9;
+	public static final int CHAR_OPERATOR=10;
+	public static final int COLON=11;
+	public static final int COMMA=12;
+	public static final int COMMENT=13;
+	public static final int CONSTANT=14;
+	public static final int DIGIT=15;
+	public static final int DIV=16;
+	public static final int DQUOTATION=17;
+	public static final int ELSE=18;
+	public static final int EQ=19;
+	public static final int FALSE=20;
+	public static final int GREAT=21;
+	public static final int GREATEQ=22;
+	public static final int IDENTIFIER=23;
+	public static final int IF=24;
+	public static final int INTEGER=25;
+	public static final int LCURLY=26;
+	public static final int LESS=27;
+	public static final int LESSEQ=28;
+	public static final int LETTER=29;
+	public static final int LOWER=30;
+	public static final int LPAREN=31;
+	public static final int MIN=32;
+	public static final int MOD=33;
+	public static final int MULT=34;
+	public static final int NOT=35;
+	public static final int NOTEQ=36;
+	public static final int NUMBER=37;
+	public static final int OR=38;
+	public static final int PLUS=39;
+	public static final int PRINT=40;
+	public static final int PROGRAM=41;
+	public static final int QUOTATION=42;
+	public static final int RCURLY=43;
+	public static final int READ=44;
+	public static final int RPAREN=45;
+	public static final int SEMICOLON=46;
+	public static final int THEN=47;
+	public static final int TRUE=48;
+	public static final int UPPER=49;
+	public static final int VAR=50;
+	public static final int WS=51;
 
 	// delegates
 	// delegators
@@ -318,13 +323,34 @@ public class ChocolateLexer extends Lexer {
 	}
 	// $ANTLR end "EQ"
 
+	// $ANTLR start "FALSE"
+	public final void mFALSE() throws RecognitionException {
+		try {
+			int _type = FALSE;
+			int _channel = DEFAULT_TOKEN_CHANNEL;
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:23:7: ( 'false' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:23:9: 'false'
+			{
+			match("false"); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "FALSE"
+
 	// $ANTLR start "GREAT"
 	public final void mGREAT() throws RecognitionException {
 		try {
 			int _type = GREAT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:23:7: ( 'lion' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:23:9: 'lion'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:24:7: ( 'lion' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:24:9: 'lion'
 			{
 			match("lion"); 
 
@@ -344,8 +370,8 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = GREATEQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:24:9: ( 'bueno' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:24:11: 'bueno'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:25:9: ( 'bueno' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:25:11: 'bueno'
 			{
 			match("bueno"); 
 
@@ -365,8 +391,8 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = IF;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:25:4: ( 'if' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:25:6: 'if'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:26:4: ( 'if' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:26:6: 'if'
 			{
 			match("if"); 
 
@@ -386,8 +412,8 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = INTEGER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:26:9: ( 'wit' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:26:11: 'wit'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:27:9: ( 'wit' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:27:11: 'wit'
 			{
 			match("wit"); 
 
@@ -407,8 +433,8 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = LCURLY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:27:8: ( '{' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:27:10: '{'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:28:8: ( '{' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:28:10: '{'
 			{
 			match('{'); 
 			}
@@ -427,8 +453,8 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = LESS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:28:6: ( 'snickers' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:28:8: 'snickers'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:29:6: ( 'snickers' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:29:8: 'snickers'
 			{
 			match("snickers"); 
 
@@ -448,8 +474,8 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = LESSEQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:29:8: ( 'kinder' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:29:10: 'kinder'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:30:8: ( 'kinder' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:30:10: 'kinder'
 			{
 			match("kinder"); 
 
@@ -469,8 +495,8 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = LPAREN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:30:8: ( '(' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:30:10: '('
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:31:8: ( '(' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:31:10: '('
 			{
 			match('('); 
 			}
@@ -489,8 +515,8 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = MIN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:31:5: ( 'mars' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:31:7: 'mars'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:32:5: ( 'mars' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:32:7: 'mars'
 			{
 			match("mars"); 
 
@@ -510,8 +536,8 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = MOD;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:32:5: ( 'maltesers' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:32:7: 'maltesers'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:33:5: ( 'maltesers' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:33:7: 'maltesers'
 			{
 			match("maltesers"); 
 
@@ -531,8 +557,8 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = MULT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:33:6: ( 'milkyway' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:33:8: 'milkyway'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:34:6: ( 'milkyway' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:34:8: 'milkyway'
 			{
 			match("milkyway"); 
 
@@ -552,8 +578,8 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = NOT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:34:5: ( 'nuts' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:34:7: 'nuts'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:35:5: ( 'nuts' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:35:7: 'nuts'
 			{
 			match("nuts"); 
 
@@ -573,8 +599,8 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = NOTEQ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:35:7: ( 'bros' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:35:9: 'bros'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:36:7: ( 'bros' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:36:9: 'bros'
 			{
 			match("bros"); 
 
@@ -594,8 +620,8 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = OR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:36:4: ( 'twix' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:36:6: 'twix'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:37:4: ( 'twix' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:37:6: 'twix'
 			{
 			match("twix"); 
 
@@ -615,8 +641,8 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = PLUS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:37:6: ( 'bounty' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:37:8: 'bounty'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:38:6: ( 'bounty' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:38:8: 'bounty'
 			{
 			match("bounty"); 
 
@@ -636,8 +662,8 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = PRINT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:38:7: ( 'verkade' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:38:9: 'verkade'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:39:7: ( 'verkade' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:39:9: 'verkade'
 			{
 			match("verkade"); 
 
@@ -657,8 +683,8 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = PROGRAM;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:39:9: ( 'program' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:39:11: 'program'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:40:9: ( 'program' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:40:11: 'program'
 			{
 			match("program"); 
 
@@ -673,13 +699,33 @@ public class ChocolateLexer extends Lexer {
 	}
 	// $ANTLR end "PROGRAM"
 
+	// $ANTLR start "QUOTATION"
+	public final void mQUOTATION() throws RecognitionException {
+		try {
+			int _type = QUOTATION;
+			int _channel = DEFAULT_TOKEN_CHANNEL;
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:41:11: ( '\\'' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:41:13: '\\''
+			{
+			match('\''); 
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "QUOTATION"
+
 	// $ANTLR start "RCURLY"
 	public final void mRCURLY() throws RecognitionException {
 		try {
 			int _type = RCURLY;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:40:8: ( '}' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:40:10: '}'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:42:8: ( '}' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:42:10: '}'
 			{
 			match('}'); 
 			}
@@ -698,8 +744,8 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = READ;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:41:6: ( 'droste' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:41:8: 'droste'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:43:6: ( 'droste' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:43:8: 'droste'
 			{
 			match("droste"); 
 
@@ -719,8 +765,8 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = RPAREN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:42:8: ( ')' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:42:10: ')'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:44:8: ( ')' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:44:10: ')'
 			{
 			match(')'); 
 			}
@@ -739,8 +785,8 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = SEMICOLON;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:43:11: ( ';' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:43:13: ';'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:45:11: ( ';' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:45:13: ';'
 			{
 			match(';'); 
 			}
@@ -759,8 +805,8 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = THEN;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:44:6: ( 'then' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:44:8: 'then'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:46:6: ( 'then' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:46:8: 'then'
 			{
 			match("then"); 
 
@@ -775,13 +821,34 @@ public class ChocolateLexer extends Lexer {
 	}
 	// $ANTLR end "THEN"
 
+	// $ANTLR start "TRUE"
+	public final void mTRUE() throws RecognitionException {
+		try {
+			int _type = TRUE;
+			int _channel = DEFAULT_TOKEN_CHANNEL;
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:47:6: ( 'true' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:47:8: 'true'
+			{
+			match("true"); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "TRUE"
+
 	// $ANTLR start "VAR"
 	public final void mVAR() throws RecognitionException {
 		try {
 			int _type = VAR;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:45:5: ( 'bonbon' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:45:7: 'bonbon'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:48:5: ( 'bonbon' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:48:7: 'bonbon'
 			{
 			match("bonbon"); 
 
@@ -801,12 +868,12 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = IDENTIFIER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:181:5: ( LETTER ( LETTER | DIGIT )* )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:181:9: LETTER ( LETTER | DIGIT )*
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:186:5: ( LETTER ( LETTER | DIGIT )* )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:186:9: LETTER ( LETTER | DIGIT )*
 			{
 			mLETTER(); 
 
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:181:16: ( LETTER | DIGIT )*
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:186:16: ( LETTER | DIGIT )*
 			loop1:
 			while (true) {
 				int alt1=2;
@@ -851,10 +918,10 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = NUMBER;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:185:5: ( ( DIGIT )+ )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:185:9: ( DIGIT )+
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:190:5: ( ( DIGIT )+ )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:190:9: ( DIGIT )+
 			{
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:185:9: ( DIGIT )+
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:190:9: ( DIGIT )+
 			int cnt2=0;
 			loop2:
 			while (true) {
@@ -898,17 +965,48 @@ public class ChocolateLexer extends Lexer {
 	}
 	// $ANTLR end "NUMBER"
 
+	// $ANTLR start "CHAR_OPERATOR"
+	public final void mCHAR_OPERATOR() throws RecognitionException {
+		try {
+			int _type = CHAR_OPERATOR;
+			int _channel = DEFAULT_TOKEN_CHANNEL;
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:194:5: ( QUOTATION ( DIGIT | LETTER ) QUOTATION )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:194:9: QUOTATION ( DIGIT | LETTER ) QUOTATION
+			{
+			mQUOTATION(); 
+
+			if ( (input.LA(1) >= '0' && input.LA(1) <= '9')||(input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
+				input.consume();
+			}
+			else {
+				MismatchedSetException mse = new MismatchedSetException(null,input);
+				recover(mse);
+				throw mse;
+			}
+			mQUOTATION(); 
+
+			}
+
+			state.type = _type;
+			state.channel = _channel;
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "CHAR_OPERATOR"
+
 	// $ANTLR start "COMMENT"
 	public final void mCOMMENT() throws RecognitionException {
 		try {
 			int _type = COMMENT;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:190:5: ( 'cacao' ( . )* '\\n' )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:190:9: 'cacao' ( . )* '\\n'
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:198:5: ( 'cacao' ( . )* '\\n' )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:198:9: 'cacao' ( . )* '\\n'
 			{
 			match("cacao"); 
 
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:190:17: ( . )*
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:198:17: ( . )*
 			loop3:
 			while (true) {
 				int alt3=2;
@@ -922,7 +1020,7 @@ public class ChocolateLexer extends Lexer {
 
 				switch (alt3) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:190:17: .
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:198:17: .
 					{
 					matchAny(); 
 					}
@@ -951,10 +1049,10 @@ public class ChocolateLexer extends Lexer {
 		try {
 			int _type = WS;
 			int _channel = DEFAULT_TOKEN_CHANNEL;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:195:5: ( ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+ )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:195:9: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:203:5: ( ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+ )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:203:9: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
 			{
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:195:9: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:203:9: ( ' ' | '\\t' | '\\f' | '\\r' | '\\n' )+
 			int cnt4=0;
 			loop4:
 			while (true) {
@@ -1002,7 +1100,7 @@ public class ChocolateLexer extends Lexer {
 	// $ANTLR start "DIGIT"
 	public final void mDIGIT() throws RecognitionException {
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:199:17: ( ( '0' .. '9' ) )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:207:17: ( ( '0' .. '9' ) )
 			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:
 			{
 			if ( (input.LA(1) >= '0' && input.LA(1) <= '9') ) {
@@ -1025,7 +1123,7 @@ public class ChocolateLexer extends Lexer {
 	// $ANTLR start "LOWER"
 	public final void mLOWER() throws RecognitionException {
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:200:17: ( ( 'a' .. 'z' ) )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:208:17: ( ( 'a' .. 'z' ) )
 			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:
 			{
 			if ( (input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
@@ -1048,7 +1146,7 @@ public class ChocolateLexer extends Lexer {
 	// $ANTLR start "UPPER"
 	public final void mUPPER() throws RecognitionException {
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:201:17: ( ( 'A' .. 'Z' ) )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:209:17: ( ( 'A' .. 'Z' ) )
 			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z') ) {
@@ -1071,7 +1169,7 @@ public class ChocolateLexer extends Lexer {
 	// $ANTLR start "LETTER"
 	public final void mLETTER() throws RecognitionException {
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:202:17: ( LOWER | UPPER )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:210:17: ( LOWER | UPPER )
 			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:
 			{
 			if ( (input.LA(1) >= 'A' && input.LA(1) <= 'Z')||(input.LA(1) >= 'a' && input.LA(1) <= 'z') ) {
@@ -1091,12 +1189,55 @@ public class ChocolateLexer extends Lexer {
 	}
 	// $ANTLR end "LETTER"
 
+	// $ANTLR start "BOOLEAN_OPERATOR"
+	public final void mBOOLEAN_OPERATOR() throws RecognitionException {
+		try {
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:211:27: ( 'true' | 'false' )
+			int alt5=2;
+			int LA5_0 = input.LA(1);
+			if ( (LA5_0=='t') ) {
+				alt5=1;
+			}
+			else if ( (LA5_0=='f') ) {
+				alt5=2;
+			}
+
+			else {
+				NoViableAltException nvae =
+					new NoViableAltException("", 5, 0, input);
+				throw nvae;
+			}
+
+			switch (alt5) {
+				case 1 :
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:211:31: 'true'
+					{
+					match("true"); 
+
+					}
+					break;
+				case 2 :
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:211:40: 'false'
+					{
+					match("false"); 
+
+					}
+					break;
+
+			}
+		}
+		finally {
+			// do for sure before leaving
+		}
+	}
+	// $ANTLR end "BOOLEAN_OPERATOR"
+
 	@Override
 	public void mTokens() throws RecognitionException {
-		// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:8: ( AND | ASSIGN | BECOMES | BOOLEAN | CHAR | COLON | COMMA | CONSTANT | DIV | DQUOTATION | ELSE | EQ | GREAT | GREATEQ | IF | INTEGER | LCURLY | LESS | LESSEQ | LPAREN | MIN | MOD | MULT | NOT | NOTEQ | OR | PLUS | PRINT | PROGRAM | RCURLY | READ | RPAREN | SEMICOLON | THEN | VAR | IDENTIFIER | NUMBER | COMMENT | WS )
-		int alt5=39;
-		alt5 = dfa5.predict(input);
-		switch (alt5) {
+		// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:8: ( AND | ASSIGN | BECOMES | BOOLEAN | CHAR | COLON | COMMA | CONSTANT | DIV | DQUOTATION | ELSE | EQ | FALSE | GREAT | GREATEQ | IF | INTEGER | LCURLY | LESS | LESSEQ | LPAREN | MIN | MOD | MULT | NOT | NOTEQ | OR | PLUS | PRINT | PROGRAM | QUOTATION | RCURLY | READ | RPAREN | SEMICOLON | THEN | TRUE | VAR | IDENTIFIER | NUMBER | CHAR_OPERATOR | COMMENT | WS )
+		int alt6=43;
+		alt6 = dfa6.predict(input);
+		switch (alt6) {
 			case 1 :
 				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:10: AND
 				{
@@ -1182,189 +1323,217 @@ public class ChocolateLexer extends Lexer {
 				}
 				break;
 			case 13 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:86: GREAT
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:86: FALSE
+				{
+				mFALSE(); 
+
+				}
+				break;
+			case 14 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:92: GREAT
 				{
 				mGREAT(); 
 
 				}
 				break;
-			case 14 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:92: GREATEQ
+			case 15 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:98: GREATEQ
 				{
 				mGREATEQ(); 
 
 				}
 				break;
-			case 15 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:100: IF
+			case 16 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:106: IF
 				{
 				mIF(); 
 
 				}
 				break;
-			case 16 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:103: INTEGER
+			case 17 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:109: INTEGER
 				{
 				mINTEGER(); 
 
 				}
 				break;
-			case 17 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:111: LCURLY
+			case 18 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:117: LCURLY
 				{
 				mLCURLY(); 
 
 				}
 				break;
-			case 18 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:118: LESS
+			case 19 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:124: LESS
 				{
 				mLESS(); 
 
 				}
 				break;
-			case 19 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:123: LESSEQ
+			case 20 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:129: LESSEQ
 				{
 				mLESSEQ(); 
 
 				}
 				break;
-			case 20 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:130: LPAREN
+			case 21 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:136: LPAREN
 				{
 				mLPAREN(); 
 
 				}
 				break;
-			case 21 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:137: MIN
+			case 22 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:143: MIN
 				{
 				mMIN(); 
 
 				}
 				break;
-			case 22 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:141: MOD
+			case 23 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:147: MOD
 				{
 				mMOD(); 
 
 				}
 				break;
-			case 23 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:145: MULT
+			case 24 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:151: MULT
 				{
 				mMULT(); 
 
 				}
 				break;
-			case 24 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:150: NOT
+			case 25 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:156: NOT
 				{
 				mNOT(); 
 
 				}
 				break;
-			case 25 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:154: NOTEQ
+			case 26 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:160: NOTEQ
 				{
 				mNOTEQ(); 
 
 				}
 				break;
-			case 26 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:160: OR
+			case 27 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:166: OR
 				{
 				mOR(); 
 
 				}
 				break;
-			case 27 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:163: PLUS
+			case 28 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:169: PLUS
 				{
 				mPLUS(); 
 
 				}
 				break;
-			case 28 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:168: PRINT
+			case 29 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:174: PRINT
 				{
 				mPRINT(); 
 
 				}
 				break;
-			case 29 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:174: PROGRAM
+			case 30 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:180: PROGRAM
 				{
 				mPROGRAM(); 
 
 				}
 				break;
-			case 30 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:182: RCURLY
+			case 31 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:188: QUOTATION
+				{
+				mQUOTATION(); 
+
+				}
+				break;
+			case 32 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:198: RCURLY
 				{
 				mRCURLY(); 
 
 				}
 				break;
-			case 31 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:189: READ
+			case 33 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:205: READ
 				{
 				mREAD(); 
 
 				}
 				break;
-			case 32 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:194: RPAREN
+			case 34 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:210: RPAREN
 				{
 				mRPAREN(); 
 
 				}
 				break;
-			case 33 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:201: SEMICOLON
+			case 35 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:217: SEMICOLON
 				{
 				mSEMICOLON(); 
 
 				}
 				break;
-			case 34 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:211: THEN
+			case 36 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:227: THEN
 				{
 				mTHEN(); 
 
 				}
 				break;
-			case 35 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:216: VAR
+			case 37 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:232: TRUE
+				{
+				mTRUE(); 
+
+				}
+				break;
+			case 38 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:237: VAR
 				{
 				mVAR(); 
 
 				}
 				break;
-			case 36 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:220: IDENTIFIER
+			case 39 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:241: IDENTIFIER
 				{
 				mIDENTIFIER(); 
 
 				}
 				break;
-			case 37 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:231: NUMBER
+			case 40 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:252: NUMBER
 				{
 				mNUMBER(); 
 
 				}
 				break;
-			case 38 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:238: COMMENT
+			case 41 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:259: CHAR_OPERATOR
+				{
+				mCHAR_OPERATOR(); 
+
+				}
+				break;
+			case 42 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:273: COMMENT
 				{
 				mCOMMENT(); 
 
 				}
 				break;
-			case 39 :
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:246: WS
+			case 43 :
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:1:281: WS
 				{
 				mWS(); 
 
@@ -1375,108 +1544,107 @@ public class ChocolateLexer extends Lexer {
 	}
 
 
-	protected DFA5 dfa5 = new DFA5(this);
-	static final String DFA5_eotS =
-		"\1\uffff\2\32\1\uffff\1\32\2\uffff\1\32\1\uffff\6\32\1\uffff\1\32\1\uffff"+
-		"\3\32\3\uffff\1\32\3\uffff\17\32\1\105\31\32\1\uffff\1\137\6\32\1\146"+
-		"\1\147\1\32\1\152\1\153\1\32\1\155\1\32\1\157\1\32\1\161\2\32\1\164\1"+
-		"\32\1\166\2\32\1\uffff\1\32\1\172\1\173\1\174\2\32\2\uffff\1\177\1\32"+
-		"\2\uffff\1\32\1\uffff\1\32\1\uffff\1\32\1\uffff\2\32\1\uffff\1\u0086\1"+
-		"\uffff\3\32\3\uffff\2\32\1\uffff\3\32\1\u0090\1\u0091\1\u0092\1\uffff"+
-		"\1\u0093\1\u0094\2\32\1\uffff\3\32\1\u0099\5\uffff\1\32\1\u009b\1\u009c"+
-		"\1\32\1\uffff\1\u009e\2\uffff\1\u009f\2\uffff";
-	static final String DFA5_eofS =
-		"\u00a0\uffff";
-	static final String DFA5_minS =
-		"\1\11\1\145\1\141\1\uffff\1\162\2\uffff\1\157\1\uffff\1\154\2\151\1\157"+
-		"\1\146\1\151\1\uffff\1\156\1\uffff\1\165\1\150\1\145\3\uffff\1\141\3\uffff"+
-		"\1\154\1\145\3\154\1\165\1\157\1\166\1\157\1\163\1\156\1\157\1\145\1\157"+
-		"\1\156\1\60\1\164\1\151\1\164\1\151\1\145\1\162\1\143\1\157\1\160\2\153"+
-		"\1\163\1\164\1\162\1\147\1\145\1\163\1\145\1\153\1\144\2\156\1\163\1\156"+
-		"\1\142\1\uffff\1\60\1\143\1\163\1\170\1\156\1\153\1\141\2\60\1\141\2\60"+
-		"\1\145\1\60\1\162\1\60\1\164\1\60\1\141\1\145\1\60\1\157\1\60\1\164\1"+
-		"\157\1\uffff\1\153\3\60\1\141\1\157\2\uffff\1\60\1\167\2\uffff\1\163\1"+
-		"\uffff\1\141\1\uffff\1\145\1\uffff\1\164\1\162\1\uffff\1\60\1\uffff\1"+
-		"\171\1\156\1\145\3\uffff\1\144\1\0\1\uffff\1\141\1\145\1\155\3\60\1\uffff"+
-		"\2\60\1\162\1\145\1\uffff\1\0\1\171\1\162\1\60\5\uffff\1\163\2\60\1\163"+
-		"\1\uffff\1\60\2\uffff\1\60\2\uffff";
-	static final String DFA5_maxS =
-		"\1\175\1\157\1\151\1\uffff\1\165\2\uffff\1\162\1\uffff\1\154\2\151\1\165"+
-		"\1\146\1\151\1\uffff\1\156\1\uffff\1\165\1\167\1\145\3\uffff\1\141\3\uffff"+
-		"\1\154\1\145\2\154\1\162\1\165\1\157\1\166\1\157\1\163\1\164\1\157\1\145"+
-		"\1\157\1\165\1\172\1\164\1\151\1\164\1\151\1\145\1\162\1\143\1\157\1\160"+
-		"\2\153\1\163\1\164\1\162\1\147\1\145\1\163\1\145\1\153\1\144\2\156\1\163"+
-		"\1\156\1\142\1\uffff\1\172\1\143\1\163\1\170\1\156\1\153\1\141\2\172\1"+
-		"\171\2\172\1\145\1\172\1\162\1\172\1\164\1\172\1\141\1\145\1\172\1\157"+
-		"\1\172\1\164\1\157\1\uffff\1\153\3\172\1\141\1\157\2\uffff\1\172\1\167"+
-		"\2\uffff\1\163\1\uffff\1\141\1\uffff\1\145\1\uffff\1\164\1\162\1\uffff"+
-		"\1\172\1\uffff\1\171\1\156\1\145\3\uffff\1\144\1\uffff\1\uffff\1\141\1"+
-		"\145\1\155\3\172\1\uffff\2\172\1\162\1\145\1\uffff\1\uffff\1\171\1\162"+
-		"\1\172\5\uffff\1\163\2\172\1\163\1\uffff\1\172\2\uffff\1\172\2\uffff";
-	static final String DFA5_acceptS =
-		"\3\uffff\1\3\1\uffff\1\6\1\7\1\uffff\1\12\6\uffff\1\21\1\uffff\1\24\3"+
-		"\uffff\1\36\1\40\1\41\1\uffff\1\45\1\44\1\47\51\uffff\1\17\31\uffff\1"+
-		"\20\6\uffff\1\1\1\10\2\uffff\1\5\1\25\1\uffff\1\4\1\uffff\1\11\1\uffff"+
-		"\1\13\2\uffff\1\15\1\uffff\1\31\3\uffff\1\30\1\32\1\42\2\uffff\1\2\6\uffff"+
-		"\1\16\4\uffff\1\46\4\uffff\1\37\1\14\1\23\1\33\1\43\4\uffff\1\35\1\uffff"+
-		"\1\34\1\27\1\uffff\1\22\1\26";
-	static final String DFA5_specialS =
-		"\176\uffff\1\1\15\uffff\1\0\23\uffff}>";
-	static final String[] DFA5_transitionS = {
-			"\2\33\1\uffff\2\33\22\uffff\1\33\1\uffff\1\10\5\uffff\1\21\1\26\2\uffff"+
-			"\1\6\3\uffff\12\31\1\5\1\27\1\uffff\1\3\3\uffff\32\32\6\uffff\1\32\1"+
-			"\14\1\30\1\7\1\11\3\32\1\15\1\32\1\12\1\13\1\2\1\22\1\32\1\4\1\32\1\1"+
-			"\1\20\1\23\1\32\1\24\1\16\3\32\1\17\1\uffff\1\25",
-			"\1\35\11\uffff\1\34",
-			"\1\40\3\uffff\1\37\3\uffff\1\36",
+	protected DFA6 dfa6 = new DFA6(this);
+	static final String DFA6_eotS =
+		"\1\uffff\2\34\1\uffff\1\34\2\uffff\1\34\1\uffff\7\34\1\uffff\1\34\1\uffff"+
+		"\3\34\1\66\3\uffff\1\34\3\uffff\20\34\1\114\7\34\2\uffff\24\34\1\uffff"+
+		"\1\150\7\34\1\160\1\161\1\34\1\164\1\165\1\34\1\167\1\34\1\171\1\34\1"+
+		"\173\3\34\1\177\1\34\1\u0081\2\34\1\uffff\1\34\1\u0085\1\u0086\1\u0087"+
+		"\1\u0088\2\34\2\uffff\1\u008b\1\34\2\uffff\1\34\1\uffff\1\34\1\uffff\1"+
+		"\34\1\uffff\2\34\1\u0092\1\uffff\1\u0093\1\uffff\3\34\4\uffff\2\34\1\uffff"+
+		"\3\34\1\u009d\1\u009e\1\u009f\2\uffff\1\u00a0\1\u00a1\2\34\1\uffff\3\34"+
+		"\1\u00a6\5\uffff\1\34\1\u00a8\1\u00a9\1\34\1\uffff\1\u00ab\2\uffff\1\u00ac"+
+		"\2\uffff";
+	static final String DFA6_eofS =
+		"\u00ad\uffff";
+	static final String DFA6_minS =
+		"\1\11\1\145\1\141\1\uffff\1\162\2\uffff\1\157\1\uffff\1\154\1\151\1\141"+
+		"\1\151\1\157\1\146\1\151\1\uffff\1\156\1\uffff\1\165\1\150\1\145\1\60"+
+		"\3\uffff\1\141\3\uffff\1\154\1\145\3\154\1\165\1\157\1\166\1\157\1\163"+
+		"\1\156\1\154\1\157\1\145\1\157\1\156\1\60\1\164\1\151\1\164\1\151\1\145"+
+		"\1\165\1\162\2\uffff\1\143\1\157\1\160\2\153\1\163\1\164\1\162\1\147\1"+
+		"\145\1\163\1\145\1\153\1\144\1\163\2\156\1\163\1\156\1\142\1\uffff\1\60"+
+		"\1\143\1\163\1\170\1\156\1\145\1\153\1\141\2\60\1\141\2\60\1\145\1\60"+
+		"\1\162\1\60\1\164\1\60\1\141\2\145\1\60\1\157\1\60\1\164\1\157\1\uffff"+
+		"\1\153\4\60\1\141\1\157\2\uffff\1\60\1\167\2\uffff\1\163\1\uffff\1\141"+
+		"\1\uffff\1\145\1\uffff\1\164\1\162\1\60\1\uffff\1\60\1\uffff\1\171\1\156"+
+		"\1\145\4\uffff\1\144\1\0\1\uffff\1\141\1\145\1\155\3\60\2\uffff\2\60\1"+
+		"\162\1\145\1\uffff\1\0\1\171\1\162\1\60\5\uffff\1\163\2\60\1\163\1\uffff"+
+		"\1\60\2\uffff\1\60\2\uffff";
+	static final String DFA6_maxS =
+		"\1\175\1\157\1\151\1\uffff\1\165\2\uffff\1\162\1\uffff\1\154\1\151\1\141"+
+		"\1\151\1\165\1\146\1\151\1\uffff\1\156\1\uffff\1\165\1\167\1\145\1\172"+
+		"\3\uffff\1\141\3\uffff\1\154\1\145\2\154\1\162\1\165\1\157\1\166\1\157"+
+		"\1\163\1\164\1\154\1\157\1\145\1\157\1\165\1\172\1\164\1\151\1\164\1\151"+
+		"\1\145\1\165\1\162\2\uffff\1\143\1\157\1\160\2\153\1\163\1\164\1\162\1"+
+		"\147\1\145\1\163\1\145\1\153\1\144\1\163\2\156\1\163\1\156\1\142\1\uffff"+
+		"\1\172\1\143\1\163\1\170\1\156\1\145\1\153\1\141\2\172\1\171\2\172\1\145"+
+		"\1\172\1\162\1\172\1\164\1\172\1\141\2\145\1\172\1\157\1\172\1\164\1\157"+
+		"\1\uffff\1\153\4\172\1\141\1\157\2\uffff\1\172\1\167\2\uffff\1\163\1\uffff"+
+		"\1\141\1\uffff\1\145\1\uffff\1\164\1\162\1\172\1\uffff\1\172\1\uffff\1"+
+		"\171\1\156\1\145\4\uffff\1\144\1\uffff\1\uffff\1\141\1\145\1\155\3\172"+
+		"\2\uffff\2\172\1\162\1\145\1\uffff\1\uffff\1\171\1\162\1\172\5\uffff\1"+
+		"\163\2\172\1\163\1\uffff\1\172\2\uffff\1\172\2\uffff";
+	static final String DFA6_acceptS =
+		"\3\uffff\1\3\1\uffff\1\6\1\7\1\uffff\1\12\7\uffff\1\22\1\uffff\1\25\4"+
+		"\uffff\1\40\1\42\1\43\1\uffff\1\50\1\47\1\53\30\uffff\1\37\1\51\24\uffff"+
+		"\1\20\33\uffff\1\21\7\uffff\1\1\1\10\2\uffff\1\5\1\26\1\uffff\1\4\1\uffff"+
+		"\1\11\1\uffff\1\13\3\uffff\1\16\1\uffff\1\32\3\uffff\1\31\1\33\1\44\1"+
+		"\45\2\uffff\1\2\6\uffff\1\15\1\17\4\uffff\1\52\4\uffff\1\41\1\14\1\24"+
+		"\1\34\1\46\4\uffff\1\36\1\uffff\1\35\1\30\1\uffff\1\23\1\27";
+	static final String DFA6_specialS =
+		"\u008a\uffff\1\1\16\uffff\1\0\23\uffff}>";
+	static final String[] DFA6_transitionS = {
+			"\2\35\1\uffff\2\35\22\uffff\1\35\1\uffff\1\10\4\uffff\1\26\1\22\1\30"+
+			"\2\uffff\1\6\3\uffff\12\33\1\5\1\31\1\uffff\1\3\3\uffff\32\34\6\uffff"+
+			"\1\34\1\15\1\32\1\7\1\11\1\13\2\34\1\16\1\34\1\12\1\14\1\2\1\23\1\34"+
+			"\1\4\1\34\1\1\1\21\1\24\1\34\1\25\1\17\3\34\1\20\1\uffff\1\27",
+			"\1\37\11\uffff\1\36",
+			"\1\42\3\uffff\1\41\3\uffff\1\40",
 			"",
-			"\1\42\2\uffff\1\41",
+			"\1\44\2\uffff\1\43",
 			"",
 			"",
-			"\1\43\2\uffff\1\44",
+			"\1\45\2\uffff\1\46",
 			"",
-			"\1\45",
-			"\1\46",
 			"\1\47",
-			"\1\52\2\uffff\1\51\2\uffff\1\50",
-			"\1\53",
-			"\1\54",
-			"",
-			"\1\55",
-			"",
+			"\1\50",
+			"\1\51",
+			"\1\52",
+			"\1\55\2\uffff\1\54\2\uffff\1\53",
 			"\1\56",
-			"\1\60\16\uffff\1\57",
+			"\1\57",
+			"",
+			"\1\60",
+			"",
 			"\1\61",
-			"",
-			"",
-			"",
-			"\1\62",
-			"",
-			"",
-			"",
-			"\1\63",
-			"\1\64",
+			"\1\63\11\uffff\1\64\4\uffff\1\62",
 			"\1\65",
-			"\1\66",
-			"\1\70\5\uffff\1\67",
+			"\12\67\7\uffff\32\67\6\uffff\32\67",
+			"",
+			"",
+			"",
+			"\1\70",
+			"",
+			"",
+			"",
 			"\1\71",
 			"\1\72",
 			"\1\73",
 			"\1\74",
-			"\1\75",
-			"\1\77\5\uffff\1\76",
+			"\1\76\5\uffff\1\75",
+			"\1\77",
 			"\1\100",
 			"\1\101",
 			"\1\102",
-			"\1\104\6\uffff\1\103",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
+			"\1\103",
+			"\1\105\5\uffff\1\104",
 			"\1\106",
 			"\1\107",
 			"\1\110",
 			"\1\111",
-			"\1\112",
-			"\1\113",
-			"\1\114",
+			"\1\113\6\uffff\1\112",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
 			"\1\115",
 			"\1\116",
 			"\1\117",
@@ -1484,6 +1652,8 @@ public class ChocolateLexer extends Lexer {
 			"\1\121",
 			"\1\122",
 			"\1\123",
+			"",
+			"",
 			"\1\124",
 			"\1\125",
 			"\1\126",
@@ -1495,131 +1665,146 @@ public class ChocolateLexer extends Lexer {
 			"\1\134",
 			"\1\135",
 			"\1\136",
-			"",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
+			"\1\137",
 			"\1\140",
 			"\1\141",
 			"\1\142",
 			"\1\143",
 			"\1\144",
 			"\1\145",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
-			"\1\150\27\uffff\1\151",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
-			"\1\154",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
-			"\1\156",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
-			"\1\160",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
-			"\1\162",
-			"\1\163",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
-			"\1\165",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
-			"\1\167",
-			"\1\170",
+			"\1\146",
+			"\1\147",
 			"",
-			"\1\171",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
+			"\1\151",
+			"\1\152",
+			"\1\153",
+			"\1\154",
+			"\1\155",
+			"\1\156",
+			"\1\157",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
+			"\1\162\27\uffff\1\163",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
+			"\1\166",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
+			"\1\170",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
+			"\1\172",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
+			"\1\174",
 			"\1\175",
 			"\1\176",
-			"",
-			"",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
 			"\1\u0080",
-			"",
-			"",
-			"\1\u0081",
-			"",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
 			"\1\u0082",
-			"",
 			"\1\u0083",
 			"",
 			"\1\u0084",
-			"\1\u0085",
-			"",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
-			"",
-			"\1\u0087",
-			"\1\u0088",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
 			"\1\u0089",
-			"",
-			"",
-			"",
 			"\1\u008a",
-			"\60\u008b\12\u008c\7\u008b\32\u008c\6\u008b\32\u008c\uff85\u008b",
+			"",
+			"",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
+			"\1\u008c",
+			"",
 			"",
 			"\1\u008d",
-			"\1\u008e",
-			"\1\u008f",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
 			"",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
+			"\1\u008e",
+			"",
+			"\1\u008f",
+			"",
+			"\1\u0090",
+			"\1\u0091",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
+			"",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
+			"",
+			"\1\u0094",
 			"\1\u0095",
 			"\1\u0096",
 			"",
-			"\60\u008b\12\u008c\7\u008b\32\u008c\6\u008b\32\u008c\uff85\u008b",
+			"",
+			"",
+			"",
 			"\1\u0097",
-			"\1\u0098",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
-			"",
-			"",
-			"",
-			"",
+			"\60\u0098\12\u0099\7\u0098\32\u0099\6\u0098\32\u0099\uff85\u0098",
 			"",
 			"\1\u009a",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
-			"\1\u009d",
+			"\1\u009b",
+			"\1\u009c",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
 			"",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
+			"",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
+			"\1\u00a2",
+			"\1\u00a3",
+			"",
+			"\60\u0098\12\u0099\7\u0098\32\u0099\6\u0098\32\u0099\uff85\u0098",
+			"\1\u00a4",
+			"\1\u00a5",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
 			"",
 			"",
-			"\12\32\7\uffff\32\32\6\uffff\32\32",
+			"",
+			"",
+			"",
+			"\1\u00a7",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
+			"\1\u00aa",
+			"",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
+			"",
+			"",
+			"\12\34\7\uffff\32\34\6\uffff\32\34",
 			"",
 			""
 	};
 
-	static final short[] DFA5_eot = DFA.unpackEncodedString(DFA5_eotS);
-	static final short[] DFA5_eof = DFA.unpackEncodedString(DFA5_eofS);
-	static final char[] DFA5_min = DFA.unpackEncodedStringToUnsignedChars(DFA5_minS);
-	static final char[] DFA5_max = DFA.unpackEncodedStringToUnsignedChars(DFA5_maxS);
-	static final short[] DFA5_accept = DFA.unpackEncodedString(DFA5_acceptS);
-	static final short[] DFA5_special = DFA.unpackEncodedString(DFA5_specialS);
-	static final short[][] DFA5_transition;
+	static final short[] DFA6_eot = DFA.unpackEncodedString(DFA6_eotS);
+	static final short[] DFA6_eof = DFA.unpackEncodedString(DFA6_eofS);
+	static final char[] DFA6_min = DFA.unpackEncodedStringToUnsignedChars(DFA6_minS);
+	static final char[] DFA6_max = DFA.unpackEncodedStringToUnsignedChars(DFA6_maxS);
+	static final short[] DFA6_accept = DFA.unpackEncodedString(DFA6_acceptS);
+	static final short[] DFA6_special = DFA.unpackEncodedString(DFA6_specialS);
+	static final short[][] DFA6_transition;
 
 	static {
-		int numStates = DFA5_transitionS.length;
-		DFA5_transition = new short[numStates][];
+		int numStates = DFA6_transitionS.length;
+		DFA6_transition = new short[numStates][];
 		for (int i=0; i<numStates; i++) {
-			DFA5_transition[i] = DFA.unpackEncodedString(DFA5_transitionS[i]);
+			DFA6_transition[i] = DFA.unpackEncodedString(DFA6_transitionS[i]);
 		}
 	}
 
-	protected class DFA5 extends DFA {
+	protected class DFA6 extends DFA {
 
-		public DFA5(BaseRecognizer recognizer) {
+		public DFA6(BaseRecognizer recognizer) {
 			this.recognizer = recognizer;
-			this.decisionNumber = 5;
-			this.eot = DFA5_eot;
-			this.eof = DFA5_eof;
-			this.min = DFA5_min;
-			this.max = DFA5_max;
-			this.accept = DFA5_accept;
-			this.special = DFA5_special;
-			this.transition = DFA5_transition;
+			this.decisionNumber = 6;
+			this.eot = DFA6_eot;
+			this.eof = DFA6_eof;
+			this.min = DFA6_min;
+			this.max = DFA6_max;
+			this.accept = DFA6_accept;
+			this.special = DFA6_special;
+			this.transition = DFA6_transition;
 		}
 		@Override
 		public String getDescription() {
-			return "1:1: Tokens : ( AND | ASSIGN | BECOMES | BOOLEAN | CHAR | COLON | COMMA | CONSTANT | DIV | DQUOTATION | ELSE | EQ | GREAT | GREATEQ | IF | INTEGER | LCURLY | LESS | LESSEQ | LPAREN | MIN | MOD | MULT | NOT | NOTEQ | OR | PLUS | PRINT | PROGRAM | RCURLY | READ | RPAREN | SEMICOLON | THEN | VAR | IDENTIFIER | NUMBER | COMMENT | WS );";
+			return "1:1: Tokens : ( AND | ASSIGN | BECOMES | BOOLEAN | CHAR | COLON | COMMA | CONSTANT | DIV | DQUOTATION | ELSE | EQ | FALSE | GREAT | GREATEQ | IF | INTEGER | LCURLY | LESS | LESSEQ | LPAREN | MIN | MOD | MULT | NOT | NOTEQ | OR | PLUS | PRINT | PROGRAM | QUOTATION | RCURLY | READ | RPAREN | SEMICOLON | THEN | TRUE | VAR | IDENTIFIER | NUMBER | CHAR_OPERATOR | COMMENT | WS );";
 		}
 		@Override
 		public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
@@ -1627,25 +1812,25 @@ public class ChocolateLexer extends Lexer {
 			int _s = s;
 			switch ( s ) {
 					case 0 : 
-						int LA5_140 = input.LA(1);
+						int LA6_153 = input.LA(1);
 						s = -1;
-						if ( ((LA5_140 >= '\u0000' && LA5_140 <= '/')||(LA5_140 >= ':' && LA5_140 <= '@')||(LA5_140 >= '[' && LA5_140 <= '`')||(LA5_140 >= '{' && LA5_140 <= '\uFFFF')) ) {s = 139;}
-						else if ( ((LA5_140 >= '0' && LA5_140 <= '9')||(LA5_140 >= 'A' && LA5_140 <= 'Z')||(LA5_140 >= 'a' && LA5_140 <= 'z')) ) {s = 140;}
-						else s = 26;
+						if ( ((LA6_153 >= '\u0000' && LA6_153 <= '/')||(LA6_153 >= ':' && LA6_153 <= '@')||(LA6_153 >= '[' && LA6_153 <= '`')||(LA6_153 >= '{' && LA6_153 <= '\uFFFF')) ) {s = 152;}
+						else if ( ((LA6_153 >= '0' && LA6_153 <= '9')||(LA6_153 >= 'A' && LA6_153 <= 'Z')||(LA6_153 >= 'a' && LA6_153 <= 'z')) ) {s = 153;}
+						else s = 28;
 						if ( s>=0 ) return s;
 						break;
 
 					case 1 : 
-						int LA5_126 = input.LA(1);
+						int LA6_138 = input.LA(1);
 						s = -1;
-						if ( ((LA5_126 >= '\u0000' && LA5_126 <= '/')||(LA5_126 >= ':' && LA5_126 <= '@')||(LA5_126 >= '[' && LA5_126 <= '`')||(LA5_126 >= '{' && LA5_126 <= '\uFFFF')) ) {s = 139;}
-						else if ( ((LA5_126 >= '0' && LA5_126 <= '9')||(LA5_126 >= 'A' && LA5_126 <= 'Z')||(LA5_126 >= 'a' && LA5_126 <= 'z')) ) {s = 140;}
-						else s = 26;
+						if ( ((LA6_138 >= '\u0000' && LA6_138 <= '/')||(LA6_138 >= ':' && LA6_138 <= '@')||(LA6_138 >= '[' && LA6_138 <= '`')||(LA6_138 >= '{' && LA6_138 <= '\uFFFF')) ) {s = 152;}
+						else if ( ((LA6_138 >= '0' && LA6_138 <= '9')||(LA6_138 >= 'A' && LA6_138 <= 'Z')||(LA6_138 >= 'a' && LA6_138 <= 'z')) ) {s = 153;}
+						else s = 28;
 						if ( s>=0 ) return s;
 						break;
 			}
 			NoViableAltException nvae =
-				new NoViableAltException(getDescription(), 5, _s, input);
+				new NoViableAltException(getDescription(), 6, _s, input);
 			error(nvae);
 			throw nvae;
 		}

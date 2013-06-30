@@ -1,5 +1,7 @@
 package ContextualAnalyzer;
 
+import SyntacticAnalyzer.ChocException;
+
 /**
  * VB prac week1 - SymbolTable.
  * class IdEntry.
@@ -15,7 +17,7 @@ public class IdEntry {
     private String	type;
     private boolean constant;
     
-    public IdEntry(String type, boolean constant) {
+    public IdEntry(String type, boolean constant) throws ChocException {
     	if( type.equals(i) || type.equals(b) || type.equals(c)) {
     		this.type = type;
         	this.constant = constant;

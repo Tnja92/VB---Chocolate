@@ -111,7 +111,7 @@ public class Chocolate {
                 System.out.println(st);
             }
 
-        } catch (ChocolateException e) {
+        } catch (ChocException e) {
             System.err.print("ERROR: ChocolateException thrown by compiler: ");
             System.err.println(e.getMessage());
         } catch (RecognitionException e) {

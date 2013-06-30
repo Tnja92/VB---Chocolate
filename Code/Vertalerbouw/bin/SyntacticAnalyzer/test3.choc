@@ -1,4 +1,0 @@
-cacao FOUT Test 3: Gebruik van constante/variabele zonder declaratie
-
-x = 5;
-verkade(x);

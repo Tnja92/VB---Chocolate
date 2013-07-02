@@ -60,61 +60,60 @@ statements
     ;
     
 read
-    :   ^(READ IDENTIFIER readmore)
+    :   ^(READ IDENTIFIER readmultiple?)
     ;
 
-readmore
-    :
-    |   IDENTIFIER readmore
+readmultiple
+    :   IDENTIFIER readmultiple?
     ;
 
 assign
-    :   ^(ASSIGN id=IDENTIFIER assignmore arithmetic)
+    :   ^(ASSIGN id=IDENTIFIER assignmultiple)
         {   if (!isDeclared($id.text))
-                throw new CalcException($id, "is not declared");
+                throw new ChocException($id, "is not declared");
         }
     ;
     
-assignmore
-    :
-    |   ^(ASSIGN id=IDENTIFIER assignmore)
+assignmultiple
+    :   ^(ASSIGN (id=IDENTIFIER assignmultiple)?)
         {   if (!isDeclared($id.text))
-                throw new CalcException($id, "is not declared");
+                throw new ChocException($id, "is not declared");
         }
+    |   single_expr
+    |   closed_compound_expr
     ;
  
 print
-    :   ^(PRINT (single_expr | string) printmore )
+    :   ^(PRINT (closed_compound_expr | string | id=IDENTIFIER) printmultiple?)
+        {   if (!isDeclared($id.text))
+                throw new ChocException($id, "is not declared");
+        }
     ;
     
-printmore
-    :
-    |   single_expr printmore
-    |   string printmore
+printmultiple
+    :   (closed_compound_expr | string | id=IDENTIFIER) printmultiple?
+        {   if (!isDeclared($id.text))
+                throw new ChocException($id, "is not declared");
+        }
     ;
 
-expr
-    :   ((declarations | statements) single_expr)+
-    |   single_expr
+compound_expr
+    :   unclosed_compound_expr
+    |   closed_compound_expr
     ;
     
-compound_exprmore
-    :
-    |   declarations compound_exprmore
-    |   statements compound_exprmore
+unclosed_compound_expr
+    :   (declarations* statements)+ 
     ;
 
+closed_compound_expr
+    :   (declarations* statements)+
+    ;
+    
 single_expr
     :   arithmetic
-    |   ^(IF arithmetic a=THEN statements+ ifelsethen_else)
     ;
-    
-ifelsethen_else
-    :
-    |   (b=ELSE statements+)
-    ;
-    
-    
+      
 arithmetic
     :   arith2
     |   ^(OR arithmetic arithmetic)
@@ -154,6 +153,10 @@ arith6
     |   ^(MIN arith6)
     |   ^(NOT arith6)
     ;
+    
+ifelsethen_else
+    :   ^(IF single_expr closed_compound_expr (closed_compound_expr)?)
+    ;    
 
 operand
     :   id=IDENTIFIER         

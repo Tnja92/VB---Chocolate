@@ -62,16 +62,12 @@ package SyntacticAnalyzer;
 // Parser rules    
 program
     :    (declarations* statements)+ EOF
-            ->  ^(PROGRAM (declarations* statements)+)
+            ->  ^(PROGRAM (declaration* statements)+)
     ;
     
-// DECLARATIONS   
-declarations
-    :   declaration SEMICOLON!
-    ;
- 
+// DECLARATIONS 
 declaration
-    :   (constant | variable)
+    :   (constant | variable) SEMICOLON!
     ;   
     
 constant

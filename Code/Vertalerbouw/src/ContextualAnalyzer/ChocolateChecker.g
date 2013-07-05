@@ -28,10 +28,10 @@ import java.util.HashSet;
 }
 
 program
-    :   ^(PROGRAM (declarations | statements)+)
+    :   ^(PROGRAM (declaration* statements)+)
     ;
     
-declarations
+declaration
     :   constant | var
     ;
 

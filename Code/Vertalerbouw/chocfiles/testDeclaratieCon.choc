@@ -1,9 +1,9 @@
 cacao GOED Test 1: declaratie en gebruik van constanten
 
 cacao Declareren van constanten
-reep wit een = 6;
-reep melk twee = 'm';
-reep puur drie = true;
+reep wit een milka 6;
+reep melk twee milka 'm';
+reep puur drie milka true;
 
 cacao Gebruik van constanten, printen
 verkade(een);

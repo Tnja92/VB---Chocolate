@@ -16,7 +16,6 @@ tokens {
     COMMA       =   ','     ;
     QUOTATION   =   '\''     ;
     DQUOTATION  =   '"'     ;
-    BECOMES     =   '='     ;
 
     // operators
     PLUS        =   'bounty'    ;
@@ -96,16 +95,38 @@ statement
     ;
 
 read
-    :   READ^ LPAREN! IDENTIFIER (COMMA! IDENTIFIER)* RPAREN!
+    :   READ^ LPAREN! IDENTIFIER readmultiple? RPAREN!
+    ;
+    
+readmultiple
+    :   COMMA! IDENTIFIER readmultiple?
     ;
 
 assign
+<<<<<<< HEAD
     :   IDENTIFIER ASSIGN^ assign
     |   (single_expr | closed_compound_expr)
+=======
+    :   IDENTIFIER ASSIGN^ assignchoice
+    ;
+    
+assignchoice
+    :   IDENTIFIER (ASSIGN^ assignchoice)?
+    |   single_expr~IDENTIFIER 
+    |   closed_compound_expr
+>>>>>>> 5a2673432be4863e2ee2fe2cf46a8f4f77859227
+    ;
+    
+assignmultiple
+    :   IDENTIFIER (ASSIGN^ assignmultiple)?
     ;
     
 print
-    :   PRINT^ LPAREN! (unclosed_compound_expr | string) (COMMA! (unclosed_compound_expr | string))* RPAREN!
+    :   PRINT^ LPAREN! (closed_compound_expr | string | IDENTIFIER) printmultiple? RPAREN!
+    ;
+    
+printmultiple
+    :   COMMA! (closed_compound_expr | string | IDENTIFIER) printmultiple?
     ;
     
 // EXPRESSIONS    
@@ -152,7 +173,7 @@ arith6
     ;
     
 ifelsethen
-    :   IF^ single_expr THEN! LCURLY! unclosed_compound_expr RCURLY! (ELSE! LCURLY! unclosed_compound_expr RCURLY!)?
+    :   IF^ single_expr THEN! closed_compound_expr (ELSE! closed_compound_expr)?
     ;
 
 // OTHER

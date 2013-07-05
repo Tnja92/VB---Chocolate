@@ -1,6 +1,6 @@
 package ContextualAnalyzer;
 
-import SyntacticAnalyzer.ChocException;
+import SyntacticAnalyzer.*;
 
 /**
  * VB prac week1 - SymbolTable.
@@ -16,13 +16,25 @@ public class IdEntry {
     private int  	level = -1;
     private String	type;
     private boolean constant;
+    private String	value;
     
-    public IdEntry(String type, boolean constant) throws ChocException {
+    public IdEntry(String type, boolean constant) throws ChocolateException {
     	if( type.equals(i) || type.equals(b) || type.equals(c)) {
     		this.type = type;
         	this.constant = constant;
     	} else {
-    		throw new ChocException("Het type bestaat niet");
+    		throw new ChocolateException("Het type bestaat niet");
+    	}
+    	
+    }
+    
+    public IdEntry(String type, boolean constant, String value) throws ChocolateException {
+    	if( type.equals(i) || type.equals(b) || type.equals(c)) {
+    		this.type = type;
+        	this.constant = constant;
+        	this.value = value;
+    	} else {
+    		throw new ChocolateException("Het type bestaat niet");
     	}
     	
     }
@@ -33,4 +45,7 @@ public class IdEntry {
 	public String getType() 			{ return type;			}
 
 	public boolean isConstant() 		{ return constant;   	}
+	
+	public String getValue()			{ return value;			}
+	public void setValue(String value)	{ this.value = value;	}
 }

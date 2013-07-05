@@ -6,9 +6,9 @@ bonbon melk twee;
 bonbon puur drie;
 
 cacao Gebruik van variabelen
-een = 1+2-3+4;
+een  1mars2-3mars4;
 verkade(een);
-twee = 'k';
+twee milka 'k';
 verkade(twee);
-drie = een kitkat 4;
+drie milka een kitkat 4;
 verkade(drie);

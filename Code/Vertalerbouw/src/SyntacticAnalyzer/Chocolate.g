@@ -64,8 +64,7 @@ package SyntacticAnalyzer;
 program
     :    (declarations* statements)+ EOF
             ->  ^(PROGRAM (declarations* statements)+)
-    ;       
-    
+    ;
     
 // DECLARATIONS   
 declarations
@@ -91,9 +90,9 @@ statements
     
 statement
     :   read 
-    |   print 
-    |   assign   
+    |   print
     |   ifelsethen
+    |   single_expr
     ;
 
 read
@@ -101,13 +100,8 @@ read
     ;
 
 assign
-    :   IDENTIFIER ASSIGN^ (options{greedy=true;} : assign2)
-    ;
-    
-assign2
-    :   IDENTIFIER (ASSIGN^ assign2)?
-    |   single_expr
-    |   closed_compound_expr
+    :   IDENTIFIER ASSIGN^ assign
+    |   (single_expr | closed_compound_expr)
     ;
     
 print
@@ -130,6 +124,7 @@ closed_compound_expr
     
 single_expr
     :   arithmetic
+    |   assign
     ;
 
 arithmetic

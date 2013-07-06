@@ -70,21 +70,30 @@ declarations
     ;
  
 declaration
-    :   (constant | variable)
-    ;   
-    
-constant
-    :   CONSTANT^ decl_extension
+    :   CONSTANT^ constant_extension
+    |   VAR^ var_extension
     ;
     
-variable
-    :   VAR^ decl_extension
+extra_decl
+    :   COMMA IDENTIFIER
     ;
     
-decl_extension
-    :   INTEGER IDENTIFIER (ASSIGN (single_expr | closed_compound_expr))?
-    |   CHAR IDENTIFIER (ASSIGN CHAR_OPERATOR)?
-    |   BOOLEAN IDENTIFIER (ASSIGN BOOLEAN_OPERATOR)?
+constant_extension
+    //:   INTEGER IDENTIFIER (ASSIGN (single_expr | closed_compound_expr))?
+    :   INTEGER IDENTIFIER (extra_decl)* ASSIGN (single_expr | closed_compound_expr)
+    //|   CHAR IDENTIFIER (ASSIGN CHAR_OPERATOR)?
+    |   CHAR IDENTIFIER (extra_decl)* ASSIGN CHAR_OPERATOR
+    //|   BOOLEAN IDENTIFIER (ASSIGN BOOLEAN_OPERATOR)?
+    |   BOOLEAN IDENTIFIER (extra_decl)* ASSIGN BOOLEAN_OPERATOR
+    ;
+    
+var_extension
+    //:   INTEGER IDENTIFIER (ASSIGN (single_expr | closed_compound_expr))?
+    :   INTEGER IDENTIFIER (extra_decl)* (ASSIGN (single_expr | closed_compound_expr))?
+    //|   CHAR IDENTIFIER (ASSIGN CHAR_OPERATOR)?
+    |   CHAR IDENTIFIER (extra_decl)* (ASSIGN CHAR_OPERATOR)?
+    //|   BOOLEAN IDENTIFIER (ASSIGN BOOLEAN_OPERATOR)?
+    |   BOOLEAN IDENTIFIER (extra_decl)* (ASSIGN BOOLEAN_OPERATOR)?
     ;
    
 // STATEMENTS    

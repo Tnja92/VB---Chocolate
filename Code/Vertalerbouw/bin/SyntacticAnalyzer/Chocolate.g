@@ -35,8 +35,6 @@ tokens {
     IF          =   'if'        ;
     ELSE        =   'else'      ;
     THEN        =   'then'      ;
-    TRUE        =   'true'      ;
-    FALSE       =   'false'     ;
 
     // keywords
     PROGRAM     = 'program' ;
@@ -62,20 +60,40 @@ package SyntacticAnalyzer;
 // Parser rules    
 program
     :    (declarations* statements)+ EOF
-            ->  ^(PROGRAM (declaration* statements)+)
-    ;
+            ->  ^(PROGRAM (declarations* statements)+)
+    ;       
     
-// DECLARATIONS 
+    
+// DECLARATIONS   
+declarations
+    :   declaration SEMICOLON!
+    ;
+ 
 declaration
-    :   (constant | variable) SEMICOLON!
-    ;   
-    
-constant
-    :   CONSTANT^ type IDENTIFIER (ASSIGN (single_expr | closed_compound_expr))?
+    :   CONSTANT^ constant_extension
+    |   VAR^ var_extension
     ;
     
-variable
-    :   VAR^ type IDENTIFIER (ASSIGN (single_expr | closed_compound_expr))?
+extra_decl
+    :   COMMA IDENTIFIER
+    ;
+    
+constant_extension
+    //:   INTEGER IDENTIFIER (ASSIGN (single_expr | closed_compound_expr))?
+    :   INTEGER IDENTIFIER (extra_decl)* ASSIGN (single_expr | closed_compound_expr)
+    //|   CHAR IDENTIFIER (ASSIGN CHAR_OPERATOR)?
+    |   CHAR IDENTIFIER (extra_decl)* ASSIGN CHAR_OPERATOR
+    //|   BOOLEAN IDENTIFIER (ASSIGN BOOLEAN_OPERATOR)?
+    |   BOOLEAN IDENTIFIER (extra_decl)* ASSIGN BOOLEAN_OPERATOR
+    ;
+    
+var_extension
+    //:   INTEGER IDENTIFIER (ASSIGN (single_expr | closed_compound_expr))?
+    :   INTEGER IDENTIFIER (extra_decl)* (ASSIGN (single_expr | closed_compound_expr))?
+    //|   CHAR IDENTIFIER (ASSIGN CHAR_OPERATOR)?
+    |   CHAR IDENTIFIER (extra_decl)* (ASSIGN CHAR_OPERATOR)?
+    //|   BOOLEAN IDENTIFIER (ASSIGN BOOLEAN_OPERATOR)?
+    |   BOOLEAN IDENTIFIER (extra_decl)* (ASSIGN BOOLEAN_OPERATOR)?
     ;
    
 // STATEMENTS    
@@ -85,44 +103,27 @@ statements
     
 statement
     :   read 
-    |   print
+    |   print 
+    |   assign   
     |   ifelsethen
-    |   single_expr
     ;
 
 read
-    :   READ^ LPAREN! IDENTIFIER readmultiple? RPAREN!
-    ;
-    
-readmultiple
-    :   COMMA! IDENTIFIER readmultiple?
+    :   READ^ LPAREN! IDENTIFIER (COMMA! IDENTIFIER)* RPAREN!
     ;
 
 assign
-<<<<<<< HEAD
-    :   IDENTIFIER ASSIGN^ assign
-    |   (single_expr | closed_compound_expr)
-=======
-    :   IDENTIFIER ASSIGN^ assignchoice
+    :   IDENTIFIER ASSIGN^ (assignexpr)
     ;
     
-assignchoice
-    :   IDENTIFIER (ASSIGN^ assignchoice)?
-    |   single_expr~IDENTIFIER 
+assignexpr
+    :   (IDENTIFIER ASSIGN^) => (IDENTIFIER ASSIGN^ assignexpr)
+    |   single_expr
     |   closed_compound_expr
->>>>>>> 5a2673432be4863e2ee2fe2cf46a8f4f77859227
-    ;
-    
-assignmultiple
-    :   IDENTIFIER (ASSIGN^ assignmultiple)?
     ;
     
 print
-    :   PRINT^ LPAREN! (closed_compound_expr | string | IDENTIFIER) printmultiple? RPAREN!
-    ;
-    
-printmultiple
-    :   COMMA! (closed_compound_expr | string | IDENTIFIER) printmultiple?
+    :   PRINT^ LPAREN! (closed_compound_expr | IDENTIFIER | string) (COMMA! (closed_compound_expr | IDENTIFIER | string))* RPAREN!
     ;
     
 // EXPRESSIONS    
@@ -141,7 +142,6 @@ closed_compound_expr
     
 single_expr
     :   arithmetic
-    |   assign
     ;
 
 arithmetic
@@ -169,7 +169,7 @@ arith6
     ;
     
 ifelsethen
-    :   IF^ single_expr THEN! closed_compound_expr (ELSE! closed_compound_expr)?
+    :   IF^ single_expr THEN! LCURLY! unclosed_compound_expr RCURLY! (ELSE! LCURLY! unclosed_compound_expr RCURLY!)?
     ;
 
 // OTHER
@@ -194,13 +194,18 @@ graphic
 
 // Lexer rules
 
+BOOLEAN_OPERATOR
+    :   'true'
+    |   'false'
+    ;  
+
 IDENTIFIER
     :   LETTER (LETTER | DIGIT)*
     ;
 
 NUMBER
     :   DIGIT+
-    ;
+    ;  
     
 CHAR_OPERATOR
     :   QUOTATION (DIGIT | LETTER) QUOTATION
@@ -220,7 +225,6 @@ fragment DIGIT  :   ('0'..'9') ;
 fragment LOWER  :   ('a'..'z') ;
 fragment UPPER  :   ('A'..'Z') ;
 fragment LETTER :   LOWER | UPPER ;
-fragment BOOLEAN_OPERATOR :   'true' | 'false';
 
 // EOF
 

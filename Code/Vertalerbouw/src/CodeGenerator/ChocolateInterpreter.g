@@ -19,12 +19,17 @@ program
     :   ^(PROGRAM (declarations* statements)+)
     ;
     
-constant
-    :   CONSTANT^ t=type id=IDENTIFIER (ASSIGN (single_expr | closed_compound_expr))?
+declaration
+    :   CONSTANT^ constant_extension
+    |   VAR^ var_extension 
     ;
     
-variable
-    :   VAR^ t=type id=IDENTIFIER (ASSIGN (single_expr | closed_compound_expr))?
+constant_extension
+    :   INTEGER^ id=IDENTIFIER
+    ;
+    
+var_extension
+    :  INTEGER^ id=IDENTIFIER 
     ;
     
 single_expr returns [int val = 0;]

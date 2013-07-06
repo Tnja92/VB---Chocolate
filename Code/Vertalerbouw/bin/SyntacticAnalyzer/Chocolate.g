@@ -35,6 +35,8 @@ tokens {
     IF          =   'if'        ;
     ELSE        =   'else'      ;
     THEN        =   'then'      ;
+    POS         =   'pos'       ;
+    NEG         =   'neg'       ;
 
     // keywords
     PROGRAM     = 'program' ;
@@ -75,7 +77,7 @@ declaration
     ;
     
 extra_decl
-    :   COMMA IDENTIFIER
+    :   COMMA! IDENTIFIER
     ;
     
 constant_extension
@@ -105,7 +107,7 @@ statement
     :   read 
     |   print 
     |   assign   
-    |   ifelsethen
+    |   ifthenelse
     ;
 
 read
@@ -127,17 +129,10 @@ print
     ;
     
 // EXPRESSIONS    
-compound_expr
-    :   unclosed_compound_expr
-    |   closed_compound_expr
-    ;
-    
-unclosed_compound_expr
-    :   (declarations* statements)+ 
-    ;
+   
 
 closed_compound_expr
-    :   LCURLY! (declarations* statements)+ RCURLY!
+    :   LCURLY^ (declarations* statements)+ RCURLY!
     ;
     
 single_expr
@@ -165,28 +160,27 @@ arith5
     ;
     
 arith6        
-    :   ((PLUS^ | MIN^ | NOT^)? operand)
+    :   PLUS operand -> ^(POS operand) 
+    |   MIN operand -> ^(NEG operand)
+    |   NOT^ operand
+    |   operand
     ;
     
-ifelsethen
-    :   IF^ single_expr THEN! LCURLY! unclosed_compound_expr RCURLY! (ELSE! LCURLY! unclosed_compound_expr RCURLY!)?
+ifthenelse
+    :   IF^ single_expr THEN! closed_compound_expr (ELSE! closed_compound_expr)?
     ;
 
 // OTHER
 operand
     :   IDENTIFIER
     |   NUMBER
-    |   LPAREN! single_expr RPAREN!
+    |   LPAREN^ single_expr RPAREN!
     |   BOOLEAN_OPERATOR
     |   CHAR_OPERATOR
     ;
-
-type
-    :   INTEGER | CHAR | BOOLEAN
-    ;
     
 string
-    :   DQUOTATION! graphic* DQUOTATION!
+    :   DQUOTATION! IDENTIFIER DQUOTATION! //.* voor alle tekens
     ;
     
 graphic

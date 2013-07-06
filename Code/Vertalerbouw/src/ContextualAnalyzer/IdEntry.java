@@ -1,6 +1,6 @@
 package ContextualAnalyzer;
 
-import SyntacticAnalyzer.ChocException;
+import SyntacticAnalyzer.ChocolateException;
 
 /**
  * VB prac week1 - SymbolTable.
@@ -17,12 +17,11 @@ public class IdEntry {
     private String	type;
     private boolean constant;
     
-    public IdEntry(String type, boolean constant) throws ChocException {
+    public IdEntry(String type, boolean constant) throws ChocolateException {
     	if( type.equals(i) || type.equals(b) || type.equals(c)) {
     		this.type = type;
         	this.constant = constant;
-    	} else {
-    		throw new ChocException("Het type bestaat niet");
+    		throw new ChocolateException("Het type bestaat niet");
     	}
     	
     }

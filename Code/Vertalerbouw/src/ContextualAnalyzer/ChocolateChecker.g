@@ -28,92 +28,164 @@ import java.util.HashSet;
 }
 
 program
-    :   ^(PROGRAM (declaration* statements)+)
+    :   ^(PROGRAM (declarations* statements)+)
     ;
     
-declaration
-    :   constant | var
+declarations
+    :   ^(CONSTANT decl_const)
+    |   ^(VAR decl_var)
     ;
-
-constant
-    :   ^(CONSTANT t=type id=IDENTIFIER BECOMES single_expr)
+    
+decl_const
+    :   t=INTEGER id=IDENTIFIER
         {   if (isDeclared($id.text))
                 throw new ChocException($id, "is already declared");
             else { 
                 declare($id.text(), $t.text(), true); 
                 }
         }
+    |   ^(ASSIGN INTEGER IDENTIFIER (v=single_expr | v=closed_compound_expr))
+        {   if (isDeclared($id.text))
+                throw new ChocException($id, "is already declared");
+            else { 
+                declare($id.text(), $t.text(), true, v.text()); 
+                }
+        }
+    |   t=CHAR id=IDENTIFIER
+        {   if (isDeclared($id.text))
+                throw new ChocException($id, "is already declared");
+            else { 
+                declare($id.text(), $t.text(), true); 
+                }
+        }
+    |   ^(ASSIGN CHAR IDENTIFIER v=CHAR_OPERATOR)
+        {   if (isDeclared($id.text))
+                throw new ChocException($id, "is already declared");
+            else { 
+                declare($id.text(), $t.text(), true, v.text()); 
+                }
+        }
+    |   t=BOOLEAN id=IDENTIFIER
+        {   if (isDeclared($id.text))
+                throw new ChocException($id, "is already declared");
+            else { 
+                declare($id.text(), $t.text(), true); 
+                }
+        }
+    |   ^(ASSIGN BOOLEAN IDENTIFIER v=BOOLEAN_OPERATOR)
+        {   if (isDeclared($id.text))
+                throw new ChocException($id, "is already declared");
+            else { 
+                declare($id.text(), $t.text(), true, v.text()); 
+                }
+        }
     ;
-
-var
-    :   ^(VAR t=type id=IDENTIFIER (BECOMES single_expr)?)
+    
+decl_const
+    :   t=INTEGER id=IDENTIFIER
         {   if (isDeclared($id.text))
                 throw new ChocException($id, "is already declared");
             else { 
                 declare($id.text(), $t.text(), false); 
                 }
         }
+    |   ^(ASSIGN INTEGER IDENTIFIER (v=single_expr | v=closed_compound_expr))
+        {   if (isDeclared($id.text))
+                throw new ChocException($id, "is already declared");
+            else { 
+                declare($id.text(), $t.text(), false, v.text()); 
+                }
+        }
+    |   t=CHAR id=IDENTIFIER
+        {   if (isDeclared($id.text))
+                throw new ChocException($id, "is already declared");
+            else { 
+                declare($id.text(), $t.text(), false); 
+                }
+        }
+    |   ^(ASSIGN CHAR IDENTIFIER v=CHAR_OPERATOR)
+        {   if (isDeclared($id.text))
+                throw new ChocException($id, "is already declared");
+            else { 
+                declare($id.text(), $t.text(), false, v.text()); 
+                }
+        }
+    |   t=BOOLEAN id=IDENTIFIER
+        {   if (isDeclared($id.text))
+                throw new ChocException($id, "is already declared");
+            else { 
+                declare($id.text(), $t.text(), false); 
+                }
+        }
+    |   ^(ASSIGN BOOLEAN IDENTIFIER v=BOOLEAN_OPERATOR)
+        {   if (isDeclared($id.text))
+                throw new ChocException($id, "is already declared");
+            else { 
+                declare($id.text(), $t.text(), false, v.text()); 
+                }
+        }
     ;
-    
+   
 statements
     :   read | assign | print
     ;
     
 read
-    :   ^(READ IDENTIFIER readmultiple?)
+    :   ^(READ IDENTIFIER readmore)
     ;
 
-readmultiple
-    :   IDENTIFIER readmultiple?
+readmore
+    :
+    |   IDENTIFIER readmore
     ;
 
 assign
-    :   ^(ASSIGN id=IDENTIFIER assignmultiple)
+    :   ^(ASSIGN id=IDENTIFIER assignexpr)
         {   if (!isDeclared($id.text))
-                throw new ChocException($id, "is not declared");
+                throw new CalcException($id, "is not declared");
         }
     ;
     
-assignmultiple
-    :   ^(ASSIGN (id=IDENTIFIER assignmultiple)?)
+assignexpr
+    :   closed_compound_expr
+    |   ^(ASSIGN single_expr assignexpr?)
         {   if (!isDeclared($id.text))
-                throw new ChocException($id, "is not declared");
+                throw new CalcException($id, "is not declared");
         }
-    |   single_expr
-    |   closed_compound_expr
     ;
  
 print
-    :   ^(PRINT (closed_compound_expr | string | id=IDENTIFIER) printmultiple?)
-        {   if (!isDeclared($id.text))
-                throw new ChocException($id, "is not declared");
-        }
+    :   ^(PRINT (single_expr | string) printmore )
     ;
     
-printmultiple
-    :   (closed_compound_expr | string | id=IDENTIFIER) printmultiple?
-        {   if (!isDeclared($id.text))
-                throw new ChocException($id, "is not declared");
-        }
+printmore
+    :
+    |   single_expr printmore
+    |   string printmore
     ;
 
-compound_expr
-    :   unclosed_compound_expr
-    |   closed_compound_expr
+expr
+    :   ((declarations | statements) single_expr)+
+    |   single_expr
     ;
     
-unclosed_compound_expr
-    :   (declarations* statements)+ 
+compound_exprmore
+    :
+    |   declarations compound_exprmore
+    |   statements compound_exprmore
     ;
 
-closed_compound_expr
-    :   (declarations* statements)+
-    ;
-    
 single_expr
     :   arithmetic
+    |   ^(IF arithmetic a=THEN statements+ ifelsethen_else)
     ;
-      
+    
+ifelsethen_else
+    :
+    |   (b=ELSE statements+)
+    ;
+    
+    
 arithmetic
     :   arith2
     |   ^(OR arithmetic arithmetic)
@@ -153,10 +225,6 @@ arith6
     |   ^(MIN arith6)
     |   ^(NOT arith6)
     ;
-    
-ifelsethen_else
-    :   ^(IF single_expr closed_compound_expr (closed_compound_expr)?)
-    ;    
 
 operand
     :   id=IDENTIFIER         

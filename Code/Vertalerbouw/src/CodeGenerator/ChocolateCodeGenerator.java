@@ -1,4 +1,4 @@
-// $ANTLR 3.5 C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g 2013-07-07 00:09:48
+// $ANTLR 3.5 C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g 2013-07-07 01:03:29
 
 package CodeGenerator;
 
@@ -23,8 +23,8 @@ public class ChocolateCodeGenerator extends TreeParser {
 		"DIV", "DQUOTATION", "ELSE", "EQ", "GREAT", "GREATEQ", "IDENTIFIER", "IF", 
 		"INTEGER", "LCURLY", "LESS", "LESSEQ", "LETTER", "LOWER", "LPAREN", "MIN", 
 		"MOD", "MULT", "NEG", "NOT", "NOTEQ", "NUMBER", "OR", "PLUS", "POS", "PRINT", 
-		"PROGRAM", "QUOTATION", "RCURLY", "READ", "RPAREN", "SEMICOLON", "STRING", 
-		"THEN", "UPPER", "VAR", "WS"
+		"PROGRAM", "QUOTATION", "RCURLY", "READ", "RPAREN", "SEMICOLON", "THEN", 
+		"UPPER", "VAR", "WS", "STRING"
 	};
 	public static final int EOF=-1;
 	public static final int AND=4;
@@ -70,11 +70,11 @@ public class ChocolateCodeGenerator extends TreeParser {
 	public static final int READ=44;
 	public static final int RPAREN=45;
 	public static final int SEMICOLON=46;
-	public static final int STRING=47;
-	public static final int THEN=48;
-	public static final int UPPER=49;
-	public static final int VAR=50;
-	public static final int WS=51;
+	public static final int THEN=47;
+	public static final int UPPER=48;
+	public static final int VAR=49;
+	public static final int WS=50;
+	public static final int STRING=51;
 
 	// delegates
 	public TreeParser[] getDelegates() {
@@ -122,73 +122,62 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "program"
-	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:15:1: program : ^( PROGRAM ( ( declaration )* statement )+ ) ;
+	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:15:1: program : ^( PROGRAM (lines+= line )+ ) -> program(lines=$lines);
 	public final ChocolateCodeGenerator.program_return program() throws RecognitionException {
 		ChocolateCodeGenerator.program_return retval = new ChocolateCodeGenerator.program_return();
 		retval.start = input.LT(1);
 
+		List<Object> list_lines=null;
+		RuleReturnScope lines = null;
 		try {
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:16:5: ( ^( PROGRAM ( ( declaration )* statement )+ ) )
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:16:9: ^( PROGRAM ( ( declaration )* statement )+ )
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:16:5: ( ^( PROGRAM (lines+= line )+ ) -> program(lines=$lines))
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:16:9: ^( PROGRAM (lines+= line )+ )
 			{
 			match(input,PROGRAM,FOLLOW_PROGRAM_in_program95); if (state.failed) return retval;
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:16:19: ( ( declaration )* statement )+
-			int cnt2=0;
-			loop2:
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:16:19: (lines+= line )+
+			int cnt1=0;
+			loop1:
 			while (true) {
-				int alt2=2;
-				int LA2_0 = input.LA(1);
-				if ( (LA2_0==ASSIGN||LA2_0==CONSTANT||LA2_0==IF||LA2_0==PRINT||LA2_0==READ||LA2_0==VAR) ) {
-					alt2=1;
+				int alt1=2;
+				int LA1_0 = input.LA(1);
+				if ( (LA1_0==ASSIGN||LA1_0==CONSTANT||LA1_0==IF||LA1_0==PRINT||LA1_0==READ||LA1_0==VAR) ) {
+					alt1=1;
 				}
 
-				switch (alt2) {
+				switch (alt1) {
 				case 1 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:16:20: ( declaration )* statement
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:16:20: lines+= line
 					{
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:16:20: ( declaration )*
-					loop1:
-					while (true) {
-						int alt1=2;
-						int LA1_0 = input.LA(1);
-						if ( (LA1_0==CONSTANT||LA1_0==VAR) ) {
-							alt1=1;
-						}
-
-						switch (alt1) {
-						case 1 :
-							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:16:20: declaration
-							{
-							pushFollow(FOLLOW_declaration_in_program98);
-							declaration();
-							state._fsp--;
-							if (state.failed) return retval;
-							}
-							break;
-
-						default :
-							break loop1;
-						}
-					}
-
-					pushFollow(FOLLOW_statement_in_program101);
-					statement();
+					pushFollow(FOLLOW_line_in_program100);
+					lines=line();
 					state._fsp--;
 					if (state.failed) return retval;
+					if (list_lines==null) list_lines=new ArrayList<Object>();
+					list_lines.add(lines.getTemplate());
 					}
 					break;
 
 				default :
-					if ( cnt2 >= 1 ) break loop2;
+					if ( cnt1 >= 1 ) break loop1;
 					if (state.backtracking>0) {state.failed=true; return retval;}
-					EarlyExitException eee = new EarlyExitException(2, input);
+					EarlyExitException eee = new EarlyExitException(1, input);
 					throw eee;
 				}
-				cnt2++;
+				cnt1++;
 			}
 
 			match(input, Token.UP, null); if (state.failed) return retval;
+
+			// TEMPLATE REWRITE
+			if ( state.backtracking==0 ) {
+			  // 16:35: -> program(lines=$lines)
+			  {
+			  	retval.st = templateLib.getInstanceOf("program",new STAttrMap().put("lines", list_lines));
+			  }
+
+
+			}
 
 			}
 
@@ -205,6 +194,72 @@ public class ChocolateCodeGenerator extends TreeParser {
 	// $ANTLR end "program"
 
 
+	public static class line_return extends TreeRuleReturnScope {
+		public StringTemplate st;
+		public Object getTemplate() { return st; }
+		public String toString() { return st==null?null:st.toString(); }
+	};
+
+
+	// $ANTLR start "line"
+	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:19:1: line : ( ( declaration )* statement ) ;
+	public final ChocolateCodeGenerator.line_return line() throws RecognitionException {
+		ChocolateCodeGenerator.line_return retval = new ChocolateCodeGenerator.line_return();
+		retval.start = input.LT(1);
+
+		try {
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:20:5: ( ( ( declaration )* statement ) )
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:20:7: ( ( declaration )* statement )
+			{
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:20:7: ( ( declaration )* statement )
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:20:8: ( declaration )* statement
+			{
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:20:8: ( declaration )*
+			loop2:
+			while (true) {
+				int alt2=2;
+				int LA2_0 = input.LA(1);
+				if ( (LA2_0==CONSTANT||LA2_0==VAR) ) {
+					alt2=1;
+				}
+
+				switch (alt2) {
+				case 1 :
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:20:8: declaration
+					{
+					pushFollow(FOLLOW_declaration_in_line134);
+					declaration();
+					state._fsp--;
+					if (state.failed) return retval;
+					}
+					break;
+
+				default :
+					break loop2;
+				}
+			}
+
+			pushFollow(FOLLOW_statement_in_line137);
+			statement();
+			state._fsp--;
+			if (state.failed) return retval;
+			}
+
+			}
+
+		}
+		catch (RecognitionException re) {
+			reportError(re);
+			recover(input,re);
+		}
+		finally {
+			// do for sure before leaving
+		}
+		return retval;
+	}
+	// $ANTLR end "line"
+
+
 	public static class declaration_return extends TreeRuleReturnScope {
 		public StringTemplate st;
 		public Object getTemplate() { return st; }
@@ -213,13 +268,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "declaration"
-	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:19:1: declaration : ( ^( CONSTANT constant_extension ) | ^( VAR var_extension ) );
+	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:23:1: declaration : ( ^( CONSTANT ext= constant_extension ) -> constant(extension=$ext.st)| ^( VAR ext= var_extension ) -> var(extension=$ext.st));
 	public final ChocolateCodeGenerator.declaration_return declaration() throws RecognitionException {
 		ChocolateCodeGenerator.declaration_return retval = new ChocolateCodeGenerator.declaration_return();
 		retval.start = input.LT(1);
 
+		TreeRuleReturnScope ext =null;
+
 		try {
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:20:5: ( ^( CONSTANT constant_extension ) | ^( VAR var_extension ) )
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:24:5: ( ^( CONSTANT ext= constant_extension ) -> constant(extension=$ext.st)| ^( VAR ext= var_extension ) -> var(extension=$ext.st))
 			int alt3=2;
 			int LA3_0 = input.LA(1);
 			if ( (LA3_0==CONSTANT) ) {
@@ -238,28 +295,48 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 			switch (alt3) {
 				case 1 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:20:9: ^( CONSTANT constant_extension )
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:24:9: ^( CONSTANT ext= constant_extension )
 					{
-					match(input,CONSTANT,FOLLOW_CONSTANT_in_declaration124); if (state.failed) return retval;
+					match(input,CONSTANT,FOLLOW_CONSTANT_in_declaration158); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_constant_extension_in_declaration126);
-					constant_extension();
+					pushFollow(FOLLOW_constant_extension_in_declaration162);
+					ext=constant_extension();
 					state._fsp--;
 					if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
 
+					// TEMPLATE REWRITE
+					if ( state.backtracking==0 ) {
+					  // 24:45: -> constant(extension=$ext.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("constant",new STAttrMap().put("extension", (ext!=null?((StringTemplate)ext.getTemplate()):null)));
+					  }
+
+
+					}
+
 					}
 					break;
 				case 2 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:21:9: ^( VAR var_extension )
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:25:9: ^( VAR ext= var_extension )
 					{
-					match(input,VAR,FOLLOW_VAR_in_declaration138); if (state.failed) return retval;
+					match(input,VAR,FOLLOW_VAR_in_declaration184); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_var_extension_in_declaration140);
-					var_extension();
+					pushFollow(FOLLOW_var_extension_in_declaration188);
+					ext=var_extension();
 					state._fsp--;
 					if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
+
+					// TEMPLATE REWRITE
+					if ( state.backtracking==0 ) {
+					  // 25:45: -> var(extension=$ext.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("var",new STAttrMap().put("extension", (ext!=null?((StringTemplate)ext.getTemplate()):null)));
+					  }
+
+
+					}
 
 					}
 					break;
@@ -286,13 +363,13 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "constant_extension"
-	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:24:1: constant_extension : ( INTEGER ( IDENTIFIER )+ ASSIGN ( single_expr | closed_compound_expr ) | CHAR ( IDENTIFIER )+ ASSIGN CHAR_OPERATOR | BOOLEAN ( IDENTIFIER )+ ASSIGN BOOLEAN_OPERATOR );
+	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:28:1: constant_extension : ( INTEGER ( IDENTIFIER )+ ASSIGN ( single_expr | closed_compound_expr ) | CHAR ( IDENTIFIER )+ ASSIGN CHAR_OPERATOR | BOOLEAN ( IDENTIFIER )+ ASSIGN BOOLEAN_OPERATOR );
 	public final ChocolateCodeGenerator.constant_extension_return constant_extension() throws RecognitionException {
 		ChocolateCodeGenerator.constant_extension_return retval = new ChocolateCodeGenerator.constant_extension_return();
 		retval.start = input.LT(1);
 
 		try {
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:25:5: ( INTEGER ( IDENTIFIER )+ ASSIGN ( single_expr | closed_compound_expr ) | CHAR ( IDENTIFIER )+ ASSIGN CHAR_OPERATOR | BOOLEAN ( IDENTIFIER )+ ASSIGN BOOLEAN_OPERATOR )
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:29:5: ( INTEGER ( IDENTIFIER )+ ASSIGN ( single_expr | closed_compound_expr ) | CHAR ( IDENTIFIER )+ ASSIGN CHAR_OPERATOR | BOOLEAN ( IDENTIFIER )+ ASSIGN BOOLEAN_OPERATOR )
 			int alt8=3;
 			switch ( input.LA(1) ) {
 			case INTEGER:
@@ -318,10 +395,10 @@ public class ChocolateCodeGenerator extends TreeParser {
 			}
 			switch (alt8) {
 				case 1 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:25:9: INTEGER ( IDENTIFIER )+ ASSIGN ( single_expr | closed_compound_expr )
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:29:9: INTEGER ( IDENTIFIER )+ ASSIGN ( single_expr | closed_compound_expr )
 					{
-					match(input,INTEGER,FOLLOW_INTEGER_in_constant_extension168); if (state.failed) return retval;
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:25:17: ( IDENTIFIER )+
+					match(input,INTEGER,FOLLOW_INTEGER_in_constant_extension236); if (state.failed) return retval;
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:29:17: ( IDENTIFIER )+
 					int cnt4=0;
 					loop4:
 					while (true) {
@@ -333,9 +410,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 						switch (alt4) {
 						case 1 :
-							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:25:17: IDENTIFIER
+							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:29:17: IDENTIFIER
 							{
-							match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_constant_extension170); if (state.failed) return retval;
+							match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_constant_extension238); if (state.failed) return retval;
 							}
 							break;
 
@@ -348,8 +425,8 @@ public class ChocolateCodeGenerator extends TreeParser {
 						cnt4++;
 					}
 
-					match(input,ASSIGN,FOLLOW_ASSIGN_in_constant_extension173); if (state.failed) return retval;
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:25:36: ( single_expr | closed_compound_expr )
+					match(input,ASSIGN,FOLLOW_ASSIGN_in_constant_extension241); if (state.failed) return retval;
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:29:36: ( single_expr | closed_compound_expr )
 					int alt5=2;
 					int LA5_0 = input.LA(1);
 					if ( (LA5_0==AND||LA5_0==BOOLEAN_OPERATOR||LA5_0==CHAR_OPERATOR||LA5_0==DIV||(LA5_0 >= EQ && LA5_0 <= IDENTIFIER)||(LA5_0 >= LESS && LA5_0 <= LESSEQ)||(LA5_0 >= LPAREN && LA5_0 <= POS)) ) {
@@ -368,18 +445,18 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					switch (alt5) {
 						case 1 :
-							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:25:37: single_expr
+							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:29:37: single_expr
 							{
-							pushFollow(FOLLOW_single_expr_in_constant_extension176);
+							pushFollow(FOLLOW_single_expr_in_constant_extension244);
 							single_expr();
 							state._fsp--;
 							if (state.failed) return retval;
 							}
 							break;
 						case 2 :
-							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:25:51: closed_compound_expr
+							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:29:51: closed_compound_expr
 							{
-							pushFollow(FOLLOW_closed_compound_expr_in_constant_extension180);
+							pushFollow(FOLLOW_closed_compound_expr_in_constant_extension248);
 							closed_compound_expr();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -391,10 +468,10 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 2 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:26:9: CHAR ( IDENTIFIER )+ ASSIGN CHAR_OPERATOR
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:30:9: CHAR ( IDENTIFIER )+ ASSIGN CHAR_OPERATOR
 					{
-					match(input,CHAR,FOLLOW_CHAR_in_constant_extension191); if (state.failed) return retval;
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:26:14: ( IDENTIFIER )+
+					match(input,CHAR,FOLLOW_CHAR_in_constant_extension259); if (state.failed) return retval;
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:30:14: ( IDENTIFIER )+
 					int cnt6=0;
 					loop6:
 					while (true) {
@@ -406,9 +483,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 						switch (alt6) {
 						case 1 :
-							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:26:14: IDENTIFIER
+							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:30:14: IDENTIFIER
 							{
-							match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_constant_extension193); if (state.failed) return retval;
+							match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_constant_extension261); if (state.failed) return retval;
 							}
 							break;
 
@@ -421,15 +498,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 						cnt6++;
 					}
 
-					match(input,ASSIGN,FOLLOW_ASSIGN_in_constant_extension196); if (state.failed) return retval;
-					match(input,CHAR_OPERATOR,FOLLOW_CHAR_OPERATOR_in_constant_extension198); if (state.failed) return retval;
+					match(input,ASSIGN,FOLLOW_ASSIGN_in_constant_extension264); if (state.failed) return retval;
+					match(input,CHAR_OPERATOR,FOLLOW_CHAR_OPERATOR_in_constant_extension266); if (state.failed) return retval;
 					}
 					break;
 				case 3 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:27:9: BOOLEAN ( IDENTIFIER )+ ASSIGN BOOLEAN_OPERATOR
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:31:9: BOOLEAN ( IDENTIFIER )+ ASSIGN BOOLEAN_OPERATOR
 					{
-					match(input,BOOLEAN,FOLLOW_BOOLEAN_in_constant_extension208); if (state.failed) return retval;
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:27:17: ( IDENTIFIER )+
+					match(input,BOOLEAN,FOLLOW_BOOLEAN_in_constant_extension276); if (state.failed) return retval;
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:31:17: ( IDENTIFIER )+
 					int cnt7=0;
 					loop7:
 					while (true) {
@@ -441,9 +518,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 						switch (alt7) {
 						case 1 :
-							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:27:17: IDENTIFIER
+							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:31:17: IDENTIFIER
 							{
-							match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_constant_extension210); if (state.failed) return retval;
+							match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_constant_extension278); if (state.failed) return retval;
 							}
 							break;
 
@@ -456,8 +533,8 @@ public class ChocolateCodeGenerator extends TreeParser {
 						cnt7++;
 					}
 
-					match(input,ASSIGN,FOLLOW_ASSIGN_in_constant_extension213); if (state.failed) return retval;
-					match(input,BOOLEAN_OPERATOR,FOLLOW_BOOLEAN_OPERATOR_in_constant_extension215); if (state.failed) return retval;
+					match(input,ASSIGN,FOLLOW_ASSIGN_in_constant_extension281); if (state.failed) return retval;
+					match(input,BOOLEAN_OPERATOR,FOLLOW_BOOLEAN_OPERATOR_in_constant_extension283); if (state.failed) return retval;
 					}
 					break;
 
@@ -483,13 +560,13 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "var_extension"
-	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:30:1: var_extension : ( INTEGER ( IDENTIFIER )+ ( ASSIGN ( single_expr | closed_compound_expr ) )? | CHAR ( IDENTIFIER )+ ( ASSIGN CHAR_OPERATOR )? | BOOLEAN ( IDENTIFIER )+ ( ASSIGN BOOLEAN_OPERATOR )? );
+	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:34:1: var_extension : ( INTEGER ( IDENTIFIER )+ ( ASSIGN ( single_expr | closed_compound_expr ) )? | CHAR ( IDENTIFIER )+ ( ASSIGN CHAR_OPERATOR )? | BOOLEAN ( IDENTIFIER )+ ( ASSIGN BOOLEAN_OPERATOR )? );
 	public final ChocolateCodeGenerator.var_extension_return var_extension() throws RecognitionException {
 		ChocolateCodeGenerator.var_extension_return retval = new ChocolateCodeGenerator.var_extension_return();
 		retval.start = input.LT(1);
 
 		try {
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:31:5: ( INTEGER ( IDENTIFIER )+ ( ASSIGN ( single_expr | closed_compound_expr ) )? | CHAR ( IDENTIFIER )+ ( ASSIGN CHAR_OPERATOR )? | BOOLEAN ( IDENTIFIER )+ ( ASSIGN BOOLEAN_OPERATOR )? )
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:35:5: ( INTEGER ( IDENTIFIER )+ ( ASSIGN ( single_expr | closed_compound_expr ) )? | CHAR ( IDENTIFIER )+ ( ASSIGN CHAR_OPERATOR )? | BOOLEAN ( IDENTIFIER )+ ( ASSIGN BOOLEAN_OPERATOR )? )
 			int alt16=3;
 			switch ( input.LA(1) ) {
 			case INTEGER:
@@ -515,10 +592,10 @@ public class ChocolateCodeGenerator extends TreeParser {
 			}
 			switch (alt16) {
 				case 1 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:31:9: INTEGER ( IDENTIFIER )+ ( ASSIGN ( single_expr | closed_compound_expr ) )?
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:35:9: INTEGER ( IDENTIFIER )+ ( ASSIGN ( single_expr | closed_compound_expr ) )?
 					{
-					match(input,INTEGER,FOLLOW_INTEGER_in_var_extension238); if (state.failed) return retval;
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:31:17: ( IDENTIFIER )+
+					match(input,INTEGER,FOLLOW_INTEGER_in_var_extension306); if (state.failed) return retval;
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:35:17: ( IDENTIFIER )+
 					int cnt9=0;
 					loop9:
 					while (true) {
@@ -530,9 +607,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 						switch (alt9) {
 						case 1 :
-							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:31:17: IDENTIFIER
+							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:35:17: IDENTIFIER
 							{
-							match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_var_extension240); if (state.failed) return retval;
+							match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_var_extension308); if (state.failed) return retval;
 							}
 							break;
 
@@ -545,7 +622,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 						cnt9++;
 					}
 
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:31:29: ( ASSIGN ( single_expr | closed_compound_expr ) )?
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:35:29: ( ASSIGN ( single_expr | closed_compound_expr ) )?
 					int alt11=2;
 					int LA11_0 = input.LA(1);
 					if ( (LA11_0==ASSIGN) ) {
@@ -553,10 +630,10 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					switch (alt11) {
 						case 1 :
-							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:31:30: ASSIGN ( single_expr | closed_compound_expr )
+							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:35:30: ASSIGN ( single_expr | closed_compound_expr )
 							{
-							match(input,ASSIGN,FOLLOW_ASSIGN_in_var_extension244); if (state.failed) return retval;
-							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:31:37: ( single_expr | closed_compound_expr )
+							match(input,ASSIGN,FOLLOW_ASSIGN_in_var_extension312); if (state.failed) return retval;
+							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:35:37: ( single_expr | closed_compound_expr )
 							int alt10=2;
 							int LA10_0 = input.LA(1);
 							if ( (LA10_0==AND||LA10_0==BOOLEAN_OPERATOR||LA10_0==CHAR_OPERATOR||LA10_0==DIV||(LA10_0 >= EQ && LA10_0 <= IDENTIFIER)||(LA10_0 >= LESS && LA10_0 <= LESSEQ)||(LA10_0 >= LPAREN && LA10_0 <= POS)) ) {
@@ -575,18 +652,18 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 							switch (alt10) {
 								case 1 :
-									// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:31:38: single_expr
+									// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:35:38: single_expr
 									{
-									pushFollow(FOLLOW_single_expr_in_var_extension247);
+									pushFollow(FOLLOW_single_expr_in_var_extension315);
 									single_expr();
 									state._fsp--;
 									if (state.failed) return retval;
 									}
 									break;
 								case 2 :
-									// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:31:52: closed_compound_expr
+									// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:35:52: closed_compound_expr
 									{
-									pushFollow(FOLLOW_closed_compound_expr_in_var_extension251);
+									pushFollow(FOLLOW_closed_compound_expr_in_var_extension319);
 									closed_compound_expr();
 									state._fsp--;
 									if (state.failed) return retval;
@@ -603,10 +680,10 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 2 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:32:9: CHAR ( IDENTIFIER )+ ( ASSIGN CHAR_OPERATOR )?
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:36:9: CHAR ( IDENTIFIER )+ ( ASSIGN CHAR_OPERATOR )?
 					{
-					match(input,CHAR,FOLLOW_CHAR_in_var_extension264); if (state.failed) return retval;
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:32:14: ( IDENTIFIER )+
+					match(input,CHAR,FOLLOW_CHAR_in_var_extension332); if (state.failed) return retval;
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:36:14: ( IDENTIFIER )+
 					int cnt12=0;
 					loop12:
 					while (true) {
@@ -618,9 +695,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 						switch (alt12) {
 						case 1 :
-							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:32:14: IDENTIFIER
+							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:36:14: IDENTIFIER
 							{
-							match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_var_extension266); if (state.failed) return retval;
+							match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_var_extension334); if (state.failed) return retval;
 							}
 							break;
 
@@ -633,7 +710,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 						cnt12++;
 					}
 
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:32:26: ( ASSIGN CHAR_OPERATOR )?
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:36:26: ( ASSIGN CHAR_OPERATOR )?
 					int alt13=2;
 					int LA13_0 = input.LA(1);
 					if ( (LA13_0==ASSIGN) ) {
@@ -641,10 +718,10 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					switch (alt13) {
 						case 1 :
-							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:32:27: ASSIGN CHAR_OPERATOR
+							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:36:27: ASSIGN CHAR_OPERATOR
 							{
-							match(input,ASSIGN,FOLLOW_ASSIGN_in_var_extension270); if (state.failed) return retval;
-							match(input,CHAR_OPERATOR,FOLLOW_CHAR_OPERATOR_in_var_extension272); if (state.failed) return retval;
+							match(input,ASSIGN,FOLLOW_ASSIGN_in_var_extension338); if (state.failed) return retval;
+							match(input,CHAR_OPERATOR,FOLLOW_CHAR_OPERATOR_in_var_extension340); if (state.failed) return retval;
 							}
 							break;
 
@@ -653,10 +730,10 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 3 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:33:9: BOOLEAN ( IDENTIFIER )+ ( ASSIGN BOOLEAN_OPERATOR )?
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:37:9: BOOLEAN ( IDENTIFIER )+ ( ASSIGN BOOLEAN_OPERATOR )?
 					{
-					match(input,BOOLEAN,FOLLOW_BOOLEAN_in_var_extension284); if (state.failed) return retval;
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:33:17: ( IDENTIFIER )+
+					match(input,BOOLEAN,FOLLOW_BOOLEAN_in_var_extension352); if (state.failed) return retval;
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:37:17: ( IDENTIFIER )+
 					int cnt14=0;
 					loop14:
 					while (true) {
@@ -668,9 +745,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 						switch (alt14) {
 						case 1 :
-							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:33:17: IDENTIFIER
+							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:37:17: IDENTIFIER
 							{
-							match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_var_extension286); if (state.failed) return retval;
+							match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_var_extension354); if (state.failed) return retval;
 							}
 							break;
 
@@ -683,7 +760,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 						cnt14++;
 					}
 
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:33:29: ( ASSIGN BOOLEAN_OPERATOR )?
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:37:29: ( ASSIGN BOOLEAN_OPERATOR )?
 					int alt15=2;
 					int LA15_0 = input.LA(1);
 					if ( (LA15_0==ASSIGN) ) {
@@ -691,10 +768,10 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					switch (alt15) {
 						case 1 :
-							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:33:30: ASSIGN BOOLEAN_OPERATOR
+							// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:37:30: ASSIGN BOOLEAN_OPERATOR
 							{
-							match(input,ASSIGN,FOLLOW_ASSIGN_in_var_extension290); if (state.failed) return retval;
-							match(input,BOOLEAN_OPERATOR,FOLLOW_BOOLEAN_OPERATOR_in_var_extension292); if (state.failed) return retval;
+							match(input,ASSIGN,FOLLOW_ASSIGN_in_var_extension358); if (state.failed) return retval;
+							match(input,BOOLEAN_OPERATOR,FOLLOW_BOOLEAN_OPERATOR_in_var_extension360); if (state.failed) return retval;
 							}
 							break;
 
@@ -725,13 +802,13 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "statement"
-	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:36:1: statement : ( read | print | assign | ifthenelse );
+	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:40:1: statement : ( read | print | assign | ifthenelse );
 	public final ChocolateCodeGenerator.statement_return statement() throws RecognitionException {
 		ChocolateCodeGenerator.statement_return retval = new ChocolateCodeGenerator.statement_return();
 		retval.start = input.LT(1);
 
 		try {
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:37:5: ( read | print | assign | ifthenelse )
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:41:5: ( read | print | assign | ifthenelse )
 			int alt17=4;
 			switch ( input.LA(1) ) {
 			case READ:
@@ -762,36 +839,36 @@ public class ChocolateCodeGenerator extends TreeParser {
 			}
 			switch (alt17) {
 				case 1 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:37:9: read
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:41:9: read
 					{
-					pushFollow(FOLLOW_read_in_statement317);
+					pushFollow(FOLLOW_read_in_statement385);
 					read();
 					state._fsp--;
 					if (state.failed) return retval;
 					}
 					break;
 				case 2 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:38:9: print
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:42:9: print
 					{
-					pushFollow(FOLLOW_print_in_statement328);
+					pushFollow(FOLLOW_print_in_statement396);
 					print();
 					state._fsp--;
 					if (state.failed) return retval;
 					}
 					break;
 				case 3 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:39:9: assign
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:43:9: assign
 					{
-					pushFollow(FOLLOW_assign_in_statement339);
+					pushFollow(FOLLOW_assign_in_statement407);
 					assign();
 					state._fsp--;
 					if (state.failed) return retval;
 					}
 					break;
 				case 4 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:40:9: ifthenelse
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:44:9: ifthenelse
 					{
-					pushFollow(FOLLOW_ifthenelse_in_statement352);
+					pushFollow(FOLLOW_ifthenelse_in_statement420);
 					ifthenelse();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -820,7 +897,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "read"
-	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:43:1: read : ^( READ (id+= IDENTIFIER )+ ) ;
+	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:47:1: read : ^( READ (id+= IDENTIFIER )+ ) ;
 	public final ChocolateCodeGenerator.read_return read() throws RecognitionException {
 		ChocolateCodeGenerator.read_return retval = new ChocolateCodeGenerator.read_return();
 		retval.start = input.LT(1);
@@ -829,12 +906,12 @@ public class ChocolateCodeGenerator extends TreeParser {
 		List<Object> list_id=null;
 
 		try {
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:44:5: ( ^( READ (id+= IDENTIFIER )+ ) )
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:44:9: ^( READ (id+= IDENTIFIER )+ )
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:48:5: ( ^( READ (id+= IDENTIFIER )+ ) )
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:48:9: ^( READ (id+= IDENTIFIER )+ )
 			{
-			match(input,READ,FOLLOW_READ_in_read376); if (state.failed) return retval;
+			match(input,READ,FOLLOW_READ_in_read444); if (state.failed) return retval;
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:44:16: (id+= IDENTIFIER )+
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:48:16: (id+= IDENTIFIER )+
 			int cnt18=0;
 			loop18:
 			while (true) {
@@ -846,9 +923,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 				switch (alt18) {
 				case 1 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:44:17: id+= IDENTIFIER
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:48:17: id+= IDENTIFIER
 					{
-					id=(CommonTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_read381); if (state.failed) return retval;
+					id=(CommonTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_read449); if (state.failed) return retval;
 					if (list_id==null) list_id=new ArrayList<Object>();
 					list_id.add(id);
 					}
@@ -888,18 +965,18 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "print"
-	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:47:1: print : ^( PRINT ( closed_compound_expr | IDENTIFIER | STRING )+ ) ;
+	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:51:1: print : ^( PRINT ( closed_compound_expr | IDENTIFIER | STRING )+ ) ;
 	public final ChocolateCodeGenerator.print_return print() throws RecognitionException {
 		ChocolateCodeGenerator.print_return retval = new ChocolateCodeGenerator.print_return();
 		retval.start = input.LT(1);
 
 		try {
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:48:5: ( ^( PRINT ( closed_compound_expr | IDENTIFIER | STRING )+ ) )
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:48:9: ^( PRINT ( closed_compound_expr | IDENTIFIER | STRING )+ )
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:52:5: ( ^( PRINT ( closed_compound_expr | IDENTIFIER | STRING )+ ) )
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:52:9: ^( PRINT ( closed_compound_expr | IDENTIFIER | STRING )+ )
 			{
-			match(input,PRINT,FOLLOW_PRINT_in_print408); if (state.failed) return retval;
+			match(input,PRINT,FOLLOW_PRINT_in_print476); if (state.failed) return retval;
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:48:17: ( closed_compound_expr | IDENTIFIER | STRING )+
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:52:17: ( closed_compound_expr | IDENTIFIER | STRING )+
 			int cnt19=0;
 			loop19:
 			while (true) {
@@ -923,24 +1000,24 @@ public class ChocolateCodeGenerator extends TreeParser {
 				}
 				switch (alt19) {
 				case 1 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:48:18: closed_compound_expr
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:52:18: closed_compound_expr
 					{
-					pushFollow(FOLLOW_closed_compound_expr_in_print411);
+					pushFollow(FOLLOW_closed_compound_expr_in_print479);
 					closed_compound_expr();
 					state._fsp--;
 					if (state.failed) return retval;
 					}
 					break;
 				case 2 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:48:41: IDENTIFIER
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:52:41: IDENTIFIER
 					{
-					match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_print415); if (state.failed) return retval;
+					match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_print483); if (state.failed) return retval;
 					}
 					break;
 				case 3 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:48:54: STRING
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:52:54: STRING
 					{
-					match(input,STRING,FOLLOW_STRING_in_print419); if (state.failed) return retval;
+					match(input,STRING,FOLLOW_STRING_in_print487); if (state.failed) return retval;
 					}
 					break;
 
@@ -978,21 +1055,21 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "assign"
-	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:51:1: assign : ASSIGN IDENTIFIER ( assignexpr ) ;
+	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:55:1: assign : ASSIGN IDENTIFIER ( assignexpr ) ;
 	public final ChocolateCodeGenerator.assign_return assign() throws RecognitionException {
 		ChocolateCodeGenerator.assign_return retval = new ChocolateCodeGenerator.assign_return();
 		retval.start = input.LT(1);
 
 		try {
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:52:5: ( ASSIGN IDENTIFIER ( assignexpr ) )
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:52:9: ASSIGN IDENTIFIER ( assignexpr )
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:56:5: ( ASSIGN IDENTIFIER ( assignexpr ) )
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:56:9: ASSIGN IDENTIFIER ( assignexpr )
 			{
-			match(input,ASSIGN,FOLLOW_ASSIGN_in_assign449); if (state.failed) return retval;
-			match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_assign451); if (state.failed) return retval;
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:52:27: ( assignexpr )
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:52:28: assignexpr
+			match(input,ASSIGN,FOLLOW_ASSIGN_in_assign517); if (state.failed) return retval;
+			match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_assign519); if (state.failed) return retval;
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:56:27: ( assignexpr )
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:56:28: assignexpr
 			{
-			pushFollow(FOLLOW_assignexpr_in_assign454);
+			pushFollow(FOLLOW_assignexpr_in_assign522);
 			assignexpr();
 			state._fsp--;
 			if (state.failed) return retval;
@@ -1021,13 +1098,13 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "assignexpr"
-	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:55:1: assignexpr : ( ( IDENTIFIER ASSIGN )=> ( ASSIGN IDENTIFIER assignexpr ) | single_expr | closed_compound_expr );
+	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:59:1: assignexpr : ( ( IDENTIFIER ASSIGN )=> ( ASSIGN IDENTIFIER assignexpr ) | single_expr | closed_compound_expr );
 	public final ChocolateCodeGenerator.assignexpr_return assignexpr() throws RecognitionException {
 		ChocolateCodeGenerator.assignexpr_return retval = new ChocolateCodeGenerator.assignexpr_return();
 		retval.start = input.LT(1);
 
 		try {
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:56:5: ( ( IDENTIFIER ASSIGN )=> ( ASSIGN IDENTIFIER assignexpr ) | single_expr | closed_compound_expr )
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:60:5: ( ( IDENTIFIER ASSIGN )=> ( ASSIGN IDENTIFIER assignexpr ) | single_expr | closed_compound_expr )
 			int alt20=3;
 			int LA20_0 = input.LA(1);
 			if ( (LA20_0==ASSIGN) && (synpred1_ChocolateCodeGenerator())) {
@@ -1049,14 +1126,14 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 			switch (alt20) {
 				case 1 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:56:9: ( IDENTIFIER ASSIGN )=> ( ASSIGN IDENTIFIER assignexpr )
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:60:9: ( IDENTIFIER ASSIGN )=> ( ASSIGN IDENTIFIER assignexpr )
 					{
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:56:32: ( ASSIGN IDENTIFIER assignexpr )
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:56:33: ASSIGN IDENTIFIER assignexpr
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:60:32: ( ASSIGN IDENTIFIER assignexpr )
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:60:33: ASSIGN IDENTIFIER assignexpr
 					{
-					match(input,ASSIGN,FOLLOW_ASSIGN_in_assignexpr487); if (state.failed) return retval;
-					match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_assignexpr489); if (state.failed) return retval;
-					pushFollow(FOLLOW_assignexpr_in_assignexpr491);
+					match(input,ASSIGN,FOLLOW_ASSIGN_in_assignexpr555); if (state.failed) return retval;
+					match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_assignexpr557); if (state.failed) return retval;
+					pushFollow(FOLLOW_assignexpr_in_assignexpr559);
 					assignexpr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1065,18 +1142,18 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 2 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:57:9: single_expr
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:61:9: single_expr
 					{
-					pushFollow(FOLLOW_single_expr_in_assignexpr502);
+					pushFollow(FOLLOW_single_expr_in_assignexpr570);
 					single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
 					}
 					break;
 				case 3 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:58:9: closed_compound_expr
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:62:9: closed_compound_expr
 					{
-					pushFollow(FOLLOW_closed_compound_expr_in_assignexpr512);
+					pushFollow(FOLLOW_closed_compound_expr_in_assignexpr580);
 					closed_compound_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1105,25 +1182,25 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "ifthenelse"
-	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:61:1: ifthenelse : IF single_expr closed_compound_expr closed_compound_expr ;
+	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:65:1: ifthenelse : IF single_expr closed_compound_expr closed_compound_expr ;
 	public final ChocolateCodeGenerator.ifthenelse_return ifthenelse() throws RecognitionException {
 		ChocolateCodeGenerator.ifthenelse_return retval = new ChocolateCodeGenerator.ifthenelse_return();
 		retval.start = input.LT(1);
 
 		try {
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:62:5: ( IF single_expr closed_compound_expr closed_compound_expr )
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:62:9: IF single_expr closed_compound_expr closed_compound_expr
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:66:5: ( IF single_expr closed_compound_expr closed_compound_expr )
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:66:9: IF single_expr closed_compound_expr closed_compound_expr
 			{
-			match(input,IF,FOLLOW_IF_in_ifthenelse535); if (state.failed) return retval;
-			pushFollow(FOLLOW_single_expr_in_ifthenelse537);
+			match(input,IF,FOLLOW_IF_in_ifthenelse603); if (state.failed) return retval;
+			pushFollow(FOLLOW_single_expr_in_ifthenelse605);
 			single_expr();
 			state._fsp--;
 			if (state.failed) return retval;
-			pushFollow(FOLLOW_closed_compound_expr_in_ifthenelse539);
+			pushFollow(FOLLOW_closed_compound_expr_in_ifthenelse607);
 			closed_compound_expr();
 			state._fsp--;
 			if (state.failed) return retval;
-			pushFollow(FOLLOW_closed_compound_expr_in_ifthenelse541);
+			pushFollow(FOLLOW_closed_compound_expr_in_ifthenelse609);
 			closed_compound_expr();
 			state._fsp--;
 			if (state.failed) return retval;
@@ -1150,18 +1227,18 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "closed_compound_expr"
-	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:65:1: closed_compound_expr : ^( LCURLY ( declaration )* ( statement )+ ) ;
+	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:69:1: closed_compound_expr : ^( LCURLY ( declaration )* ( statement )+ ) ;
 	public final ChocolateCodeGenerator.closed_compound_expr_return closed_compound_expr() throws RecognitionException {
 		ChocolateCodeGenerator.closed_compound_expr_return retval = new ChocolateCodeGenerator.closed_compound_expr_return();
 		retval.start = input.LT(1);
 
 		try {
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:66:5: ( ^( LCURLY ( declaration )* ( statement )+ ) )
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:66:9: ^( LCURLY ( declaration )* ( statement )+ )
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:70:5: ( ^( LCURLY ( declaration )* ( statement )+ ) )
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:70:9: ^( LCURLY ( declaration )* ( statement )+ )
 			{
-			match(input,LCURLY,FOLLOW_LCURLY_in_closed_compound_expr565); if (state.failed) return retval;
+			match(input,LCURLY,FOLLOW_LCURLY_in_closed_compound_expr633); if (state.failed) return retval;
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:66:18: ( declaration )*
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:70:18: ( declaration )*
 			loop21:
 			while (true) {
 				int alt21=2;
@@ -1172,9 +1249,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 				switch (alt21) {
 				case 1 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:66:18: declaration
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:70:18: declaration
 					{
-					pushFollow(FOLLOW_declaration_in_closed_compound_expr567);
+					pushFollow(FOLLOW_declaration_in_closed_compound_expr635);
 					declaration();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1186,7 +1263,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 				}
 			}
 
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:66:31: ( statement )+
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:70:31: ( statement )+
 			int cnt22=0;
 			loop22:
 			while (true) {
@@ -1198,9 +1275,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 				switch (alt22) {
 				case 1 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:66:31: statement
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:70:31: statement
 					{
-					pushFollow(FOLLOW_statement_in_closed_compound_expr570);
+					pushFollow(FOLLOW_statement_in_closed_compound_expr638);
 					statement();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1241,7 +1318,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "single_expr"
-	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:69:1: single_expr : ( operand | ^( OR x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( AND x= single_expr y= single_expr ) -> and(ex1=$x.stex2=$y.st)| ^( LESS x= single_expr y= single_expr ) -> less(ex1=$x.stex2=$y.st)| ^( LESSEQ x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( GREATEQ x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( GREAT x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( EQ x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( NOTEQ x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( PLUS x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( MIN x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( MULT x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( DIV x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( MOD x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( POS x= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( NEG x= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( NOT x= single_expr ) -> or(ex1=$x.stex2=$y.st));
+	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:73:1: single_expr : ( operand | ^( OR x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( AND x= single_expr y= single_expr ) -> and(ex1=$x.stex2=$y.st)| ^( LESS x= single_expr y= single_expr ) -> less(ex1=$x.stex2=$y.st)| ^( LESSEQ x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( GREATEQ x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( GREAT x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( EQ x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( NOTEQ x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( PLUS x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( MIN x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( MULT x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( DIV x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( MOD x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( POS x= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( NEG x= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( NOT x= single_expr ) -> or(ex1=$x.stex2=$y.st));
 	public final ChocolateCodeGenerator.single_expr_return single_expr() throws RecognitionException {
 		ChocolateCodeGenerator.single_expr_return retval = new ChocolateCodeGenerator.single_expr_return();
 		retval.start = input.LT(1);
@@ -1250,7 +1327,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 		TreeRuleReturnScope y =null;
 
 		try {
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:70:5: ( operand | ^( OR x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( AND x= single_expr y= single_expr ) -> and(ex1=$x.stex2=$y.st)| ^( LESS x= single_expr y= single_expr ) -> less(ex1=$x.stex2=$y.st)| ^( LESSEQ x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( GREATEQ x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( GREAT x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( EQ x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( NOTEQ x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( PLUS x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( MIN x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( MULT x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( DIV x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( MOD x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( POS x= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( NEG x= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( NOT x= single_expr ) -> or(ex1=$x.stex2=$y.st))
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:74:5: ( operand | ^( OR x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( AND x= single_expr y= single_expr ) -> and(ex1=$x.stex2=$y.st)| ^( LESS x= single_expr y= single_expr ) -> less(ex1=$x.stex2=$y.st)| ^( LESSEQ x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( GREATEQ x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( GREAT x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( EQ x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( NOTEQ x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( PLUS x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( MIN x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( MULT x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( DIV x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( MOD x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( POS x= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( NEG x= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( NOT x= single_expr ) -> or(ex1=$x.stex2=$y.st))
 			int alt23=17;
 			switch ( input.LA(1) ) {
 			case BOOLEAN_OPERATOR:
@@ -1350,132 +1427,24 @@ public class ChocolateCodeGenerator extends TreeParser {
 			}
 			switch (alt23) {
 				case 1 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:70:9: operand
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:74:9: operand
 					{
-					pushFollow(FOLLOW_operand_in_single_expr600);
+					pushFollow(FOLLOW_operand_in_single_expr668);
 					operand();
 					state._fsp--;
 					if (state.failed) return retval;
 					}
 					break;
 				case 2 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:71:9: ^( OR x= single_expr y= single_expr )
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:75:9: ^( OR x= single_expr y= single_expr )
 					{
-					match(input,OR,FOLLOW_OR_in_single_expr644); if (state.failed) return retval;
+					match(input,OR,FOLLOW_OR_in_single_expr712); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr648);
+					pushFollow(FOLLOW_single_expr_in_single_expr716);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr652);
-					y=single_expr();
-					state._fsp--;
-					if (state.failed) return retval;
-					match(input, Token.UP, null); if (state.failed) return retval;
-
-					// TEMPLATE REWRITE
-					if ( state.backtracking==0 ) {
-					  // 71:49: -> or(ex1=$x.stex2=$y.st)
-					  {
-					  	retval.st = templateLib.getInstanceOf("or",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)));
-					  }
-
-
-					}
-
-					}
-					break;
-				case 3 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:72:9: ^( AND x= single_expr y= single_expr )
-					{
-					match(input,AND,FOLLOW_AND_in_single_expr683); if (state.failed) return retval;
-					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr687);
-					x=single_expr();
-					state._fsp--;
-					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr691);
-					y=single_expr();
-					state._fsp--;
-					if (state.failed) return retval;
-					match(input, Token.UP, null); if (state.failed) return retval;
-
-					// TEMPLATE REWRITE
-					if ( state.backtracking==0 ) {
-					  // 72:49: -> and(ex1=$x.stex2=$y.st)
-					  {
-					  	retval.st = templateLib.getInstanceOf("and",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)));
-					  }
-
-
-					}
-
-					}
-					break;
-				case 4 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:73:9: ^( LESS x= single_expr y= single_expr )
-					{
-					match(input,LESS,FOLLOW_LESS_in_single_expr721); if (state.failed) return retval;
-					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr725);
-					x=single_expr();
-					state._fsp--;
-					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr729);
-					y=single_expr();
-					state._fsp--;
-					if (state.failed) return retval;
-					match(input, Token.UP, null); if (state.failed) return retval;
-
-					// TEMPLATE REWRITE
-					if ( state.backtracking==0 ) {
-					  // 73:49: -> less(ex1=$x.stex2=$y.st)
-					  {
-					  	retval.st = templateLib.getInstanceOf("less",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)));
-					  }
-
-
-					}
-
-					}
-					break;
-				case 5 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:74:9: ^( LESSEQ x= single_expr y= single_expr )
-					{
-					match(input,LESSEQ,FOLLOW_LESSEQ_in_single_expr758); if (state.failed) return retval;
-					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr762);
-					x=single_expr();
-					state._fsp--;
-					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr766);
-					y=single_expr();
-					state._fsp--;
-					if (state.failed) return retval;
-					match(input, Token.UP, null); if (state.failed) return retval;
-
-					// TEMPLATE REWRITE
-					if ( state.backtracking==0 ) {
-					  // 74:49: -> or(ex1=$x.stex2=$y.st)
-					  {
-					  	retval.st = templateLib.getInstanceOf("or",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)));
-					  }
-
-
-					}
-
-					}
-					break;
-				case 6 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:75:9: ^( GREATEQ x= single_expr y= single_expr )
-					{
-					match(input,GREATEQ,FOLLOW_GREATEQ_in_single_expr793); if (state.failed) return retval;
-					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr797);
-					x=single_expr();
-					state._fsp--;
-					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr801);
+					pushFollow(FOLLOW_single_expr_in_single_expr720);
 					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1493,16 +1462,16 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					}
 					break;
-				case 7 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:76:9: ^( GREAT x= single_expr y= single_expr )
+				case 3 :
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:76:9: ^( AND x= single_expr y= single_expr )
 					{
-					match(input,GREAT,FOLLOW_GREAT_in_single_expr827); if (state.failed) return retval;
+					match(input,AND,FOLLOW_AND_in_single_expr751); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr831);
+					pushFollow(FOLLOW_single_expr_in_single_expr755);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr835);
+					pushFollow(FOLLOW_single_expr_in_single_expr759);
 					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1510,9 +1479,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 76:49: -> or(ex1=$x.stex2=$y.st)
+					  // 76:49: -> and(ex1=$x.stex2=$y.st)
 					  {
-					  	retval.st = templateLib.getInstanceOf("or",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)));
+					  	retval.st = templateLib.getInstanceOf("and",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)));
 					  }
 
 
@@ -1520,16 +1489,16 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					}
 					break;
-				case 8 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:77:9: ^( EQ x= single_expr y= single_expr )
+				case 4 :
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:77:9: ^( LESS x= single_expr y= single_expr )
 					{
-					match(input,EQ,FOLLOW_EQ_in_single_expr863); if (state.failed) return retval;
+					match(input,LESS,FOLLOW_LESS_in_single_expr789); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr867);
+					pushFollow(FOLLOW_single_expr_in_single_expr793);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr871);
+					pushFollow(FOLLOW_single_expr_in_single_expr797);
 					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1537,9 +1506,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 77:49: -> or(ex1=$x.stex2=$y.st)
+					  // 77:49: -> less(ex1=$x.stex2=$y.st)
 					  {
-					  	retval.st = templateLib.getInstanceOf("or",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)));
+					  	retval.st = templateLib.getInstanceOf("less",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)));
 					  }
 
 
@@ -1547,16 +1516,16 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					}
 					break;
-				case 9 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:78:9: ^( NOTEQ x= single_expr y= single_expr )
+				case 5 :
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:78:9: ^( LESSEQ x= single_expr y= single_expr )
 					{
-					match(input,NOTEQ,FOLLOW_NOTEQ_in_single_expr902); if (state.failed) return retval;
+					match(input,LESSEQ,FOLLOW_LESSEQ_in_single_expr826); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr906);
+					pushFollow(FOLLOW_single_expr_in_single_expr830);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr910);
+					pushFollow(FOLLOW_single_expr_in_single_expr834);
 					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1574,16 +1543,16 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					}
 					break;
-				case 10 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:79:9: ^( PLUS x= single_expr y= single_expr )
+				case 6 :
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:79:9: ^( GREATEQ x= single_expr y= single_expr )
 					{
-					match(input,PLUS,FOLLOW_PLUS_in_single_expr938); if (state.failed) return retval;
+					match(input,GREATEQ,FOLLOW_GREATEQ_in_single_expr861); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr942);
+					pushFollow(FOLLOW_single_expr_in_single_expr865);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr946);
+					pushFollow(FOLLOW_single_expr_in_single_expr869);
 					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1601,16 +1570,16 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					}
 					break;
-				case 11 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:80:9: ^( MIN x= single_expr y= single_expr )
+				case 7 :
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:80:9: ^( GREAT x= single_expr y= single_expr )
 					{
-					match(input,MIN,FOLLOW_MIN_in_single_expr975); if (state.failed) return retval;
+					match(input,GREAT,FOLLOW_GREAT_in_single_expr895); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr979);
+					pushFollow(FOLLOW_single_expr_in_single_expr899);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr983);
+					pushFollow(FOLLOW_single_expr_in_single_expr903);
 					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1628,16 +1597,16 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					}
 					break;
-				case 12 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:81:9: ^( MULT x= single_expr y= single_expr )
+				case 8 :
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:81:9: ^( EQ x= single_expr y= single_expr )
 					{
-					match(input,MULT,FOLLOW_MULT_in_single_expr1013); if (state.failed) return retval;
+					match(input,EQ,FOLLOW_EQ_in_single_expr931); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1017);
+					pushFollow(FOLLOW_single_expr_in_single_expr935);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1021);
+					pushFollow(FOLLOW_single_expr_in_single_expr939);
 					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1655,16 +1624,16 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					}
 					break;
-				case 13 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:82:9: ^( DIV x= single_expr y= single_expr )
+				case 9 :
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:82:9: ^( NOTEQ x= single_expr y= single_expr )
 					{
-					match(input,DIV,FOLLOW_DIV_in_single_expr1050); if (state.failed) return retval;
+					match(input,NOTEQ,FOLLOW_NOTEQ_in_single_expr970); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1054);
+					pushFollow(FOLLOW_single_expr_in_single_expr974);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1058);
+					pushFollow(FOLLOW_single_expr_in_single_expr978);
 					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1682,16 +1651,16 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					}
 					break;
-				case 14 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:83:9: ^( MOD x= single_expr y= single_expr )
+				case 10 :
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:83:9: ^( PLUS x= single_expr y= single_expr )
 					{
-					match(input,MOD,FOLLOW_MOD_in_single_expr1088); if (state.failed) return retval;
+					match(input,PLUS,FOLLOW_PLUS_in_single_expr1006); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1092);
+					pushFollow(FOLLOW_single_expr_in_single_expr1010);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1096);
+					pushFollow(FOLLOW_single_expr_in_single_expr1014);
 					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1709,13 +1678,17 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					}
 					break;
-				case 15 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:84:9: ^( POS x= single_expr )
+				case 11 :
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:84:9: ^( MIN x= single_expr y= single_expr )
 					{
-					match(input,POS,FOLLOW_POS_in_single_expr1126); if (state.failed) return retval;
+					match(input,MIN,FOLLOW_MIN_in_single_expr1043); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1130);
+					pushFollow(FOLLOW_single_expr_in_single_expr1047);
 					x=single_expr();
+					state._fsp--;
+					if (state.failed) return retval;
+					pushFollow(FOLLOW_single_expr_in_single_expr1051);
+					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
@@ -1732,13 +1705,17 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					}
 					break;
-				case 16 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:85:9: ^( NEG x= single_expr )
+				case 12 :
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:85:9: ^( MULT x= single_expr y= single_expr )
 					{
-					match(input,NEG,FOLLOW_NEG_in_single_expr1174); if (state.failed) return retval;
+					match(input,MULT,FOLLOW_MULT_in_single_expr1081); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1178);
+					pushFollow(FOLLOW_single_expr_in_single_expr1085);
 					x=single_expr();
+					state._fsp--;
+					if (state.failed) return retval;
+					pushFollow(FOLLOW_single_expr_in_single_expr1089);
+					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
@@ -1755,13 +1732,17 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					}
 					break;
-				case 17 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:86:9: ^( NOT x= single_expr )
+				case 13 :
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:86:9: ^( DIV x= single_expr y= single_expr )
 					{
-					match(input,NOT,FOLLOW_NOT_in_single_expr1222); if (state.failed) return retval;
+					match(input,DIV,FOLLOW_DIV_in_single_expr1118); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1226);
+					pushFollow(FOLLOW_single_expr_in_single_expr1122);
 					x=single_expr();
+					state._fsp--;
+					if (state.failed) return retval;
+					pushFollow(FOLLOW_single_expr_in_single_expr1126);
+					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
@@ -1769,6 +1750,102 @@ public class ChocolateCodeGenerator extends TreeParser {
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
 					  // 86:49: -> or(ex1=$x.stex2=$y.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("or",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)));
+					  }
+
+
+					}
+
+					}
+					break;
+				case 14 :
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:87:9: ^( MOD x= single_expr y= single_expr )
+					{
+					match(input,MOD,FOLLOW_MOD_in_single_expr1156); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pushFollow(FOLLOW_single_expr_in_single_expr1160);
+					x=single_expr();
+					state._fsp--;
+					if (state.failed) return retval;
+					pushFollow(FOLLOW_single_expr_in_single_expr1164);
+					y=single_expr();
+					state._fsp--;
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
+
+					// TEMPLATE REWRITE
+					if ( state.backtracking==0 ) {
+					  // 87:49: -> or(ex1=$x.stex2=$y.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("or",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)));
+					  }
+
+
+					}
+
+					}
+					break;
+				case 15 :
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:88:9: ^( POS x= single_expr )
+					{
+					match(input,POS,FOLLOW_POS_in_single_expr1194); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pushFollow(FOLLOW_single_expr_in_single_expr1198);
+					x=single_expr();
+					state._fsp--;
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
+
+					// TEMPLATE REWRITE
+					if ( state.backtracking==0 ) {
+					  // 88:49: -> or(ex1=$x.stex2=$y.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("or",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)));
+					  }
+
+
+					}
+
+					}
+					break;
+				case 16 :
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:89:9: ^( NEG x= single_expr )
+					{
+					match(input,NEG,FOLLOW_NEG_in_single_expr1242); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pushFollow(FOLLOW_single_expr_in_single_expr1246);
+					x=single_expr();
+					state._fsp--;
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
+
+					// TEMPLATE REWRITE
+					if ( state.backtracking==0 ) {
+					  // 89:49: -> or(ex1=$x.stex2=$y.st)
+					  {
+					  	retval.st = templateLib.getInstanceOf("or",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)));
+					  }
+
+
+					}
+
+					}
+					break;
+				case 17 :
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:90:9: ^( NOT x= single_expr )
+					{
+					match(input,NOT,FOLLOW_NOT_in_single_expr1290); if (state.failed) return retval;
+					match(input, Token.DOWN, null); if (state.failed) return retval;
+					pushFollow(FOLLOW_single_expr_in_single_expr1294);
+					x=single_expr();
+					state._fsp--;
+					if (state.failed) return retval;
+					match(input, Token.UP, null); if (state.failed) return retval;
+
+					// TEMPLATE REWRITE
+					if ( state.backtracking==0 ) {
+					  // 90:49: -> or(ex1=$x.stex2=$y.st)
 					  {
 					  	retval.st = templateLib.getInstanceOf("or",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)));
 					  }
@@ -1801,7 +1878,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "operand"
-	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:89:1: operand : (id= IDENTIFIER |n= NUMBER -> number(n=$n.text)| ^( LPAREN single_expr ) |b= BOOLEAN_OPERATOR |c= CHAR_OPERATOR );
+	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:93:1: operand : (id= IDENTIFIER |n= NUMBER -> number(n=$n.text)| ^( LPAREN single_expr ) |b= BOOLEAN_OPERATOR |c= CHAR_OPERATOR );
 	public final ChocolateCodeGenerator.operand_return operand() throws RecognitionException {
 		ChocolateCodeGenerator.operand_return retval = new ChocolateCodeGenerator.operand_return();
 		retval.start = input.LT(1);
@@ -1812,7 +1889,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 		CommonTree c=null;
 
 		try {
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:90:5: (id= IDENTIFIER |n= NUMBER -> number(n=$n.text)| ^( LPAREN single_expr ) |b= BOOLEAN_OPERATOR |c= CHAR_OPERATOR )
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:94:5: (id= IDENTIFIER |n= NUMBER -> number(n=$n.text)| ^( LPAREN single_expr ) |b= BOOLEAN_OPERATOR |c= CHAR_OPERATOR )
 			int alt24=5;
 			switch ( input.LA(1) ) {
 			case IDENTIFIER:
@@ -1848,18 +1925,18 @@ public class ChocolateCodeGenerator extends TreeParser {
 			}
 			switch (alt24) {
 				case 1 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:90:9: id= IDENTIFIER
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:94:9: id= IDENTIFIER
 					{
-					id=(CommonTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_operand1284); if (state.failed) return retval;
+					id=(CommonTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_operand1352); if (state.failed) return retval;
 					}
 					break;
 				case 2 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:91:9: n= NUMBER
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:95:9: n= NUMBER
 					{
-					n=(CommonTree)match(input,NUMBER,FOLLOW_NUMBER_in_operand1296); if (state.failed) return retval;
+					n=(CommonTree)match(input,NUMBER,FOLLOW_NUMBER_in_operand1364); if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 91:31: -> number(n=$n.text)
+					  // 95:31: -> number(n=$n.text)
 					  {
 					  	retval.st = templateLib.getInstanceOf("number",new STAttrMap().put("n", (n!=null?n.getText():null)));
 					  }
@@ -1870,11 +1947,11 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 3 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:92:9: ^( LPAREN single_expr )
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:96:9: ^( LPAREN single_expr )
 					{
-					match(input,LPAREN,FOLLOW_LPAREN_in_operand1329); if (state.failed) return retval;
+					match(input,LPAREN,FOLLOW_LPAREN_in_operand1397); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_operand1331);
+					pushFollow(FOLLOW_single_expr_in_operand1399);
 					single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1883,15 +1960,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 4 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:93:9: b= BOOLEAN_OPERATOR
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:97:9: b= BOOLEAN_OPERATOR
 					{
-					b=(CommonTree)match(input,BOOLEAN_OPERATOR,FOLLOW_BOOLEAN_OPERATOR_in_operand1344); if (state.failed) return retval;
+					b=(CommonTree)match(input,BOOLEAN_OPERATOR,FOLLOW_BOOLEAN_OPERATOR_in_operand1412); if (state.failed) return retval;
 					}
 					break;
 				case 5 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:94:9: c= CHAR_OPERATOR
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:98:9: c= CHAR_OPERATOR
 					{
-					c=(CommonTree)match(input,CHAR_OPERATOR,FOLLOW_CHAR_OPERATOR_in_operand1356); if (state.failed) return retval;
+					c=(CommonTree)match(input,CHAR_OPERATOR,FOLLOW_CHAR_OPERATOR_in_operand1424); if (state.failed) return retval;
 					}
 					break;
 
@@ -1910,11 +1987,11 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 	// $ANTLR start synpred1_ChocolateCodeGenerator
 	public final void synpred1_ChocolateCodeGenerator_fragment() throws RecognitionException {
-		// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:56:9: ( IDENTIFIER ASSIGN )
-		// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:56:10: IDENTIFIER ASSIGN
+		// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:60:9: ( IDENTIFIER ASSIGN )
+		// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:60:10: IDENTIFIER ASSIGN
 		{
-		match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_synpred1_ChocolateCodeGenerator479); if (state.failed) return;
-		match(input,ASSIGN,FOLLOW_ASSIGN_in_synpred1_ChocolateCodeGenerator481); if (state.failed) return;
+		match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_synpred1_ChocolateCodeGenerator547); if (state.failed) return;
+		match(input,ASSIGN,FOLLOW_ASSIGN_in_synpred1_ChocolateCodeGenerator549); if (state.failed) return;
 		}
 
 	}
@@ -1940,115 +2017,116 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	public static final BitSet FOLLOW_PROGRAM_in_program95 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_declaration_in_program98 = new BitSet(new long[]{0x0004110000402020L});
-	public static final BitSet FOLLOW_statement_in_program101 = new BitSet(new long[]{0x0004110000402028L});
-	public static final BitSet FOLLOW_CONSTANT_in_declaration124 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_constant_extension_in_declaration126 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_VAR_in_declaration138 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_var_extension_in_declaration140 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_INTEGER_in_constant_extension168 = new BitSet(new long[]{0x0000000000200000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_constant_extension170 = new BitSet(new long[]{0x0000000000200020L});
-	public static final BitSet FOLLOW_ASSIGN_in_constant_extension173 = new BitSet(new long[]{0x000000FFE73C8290L});
-	public static final BitSet FOLLOW_single_expr_in_constant_extension176 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_constant_extension180 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CHAR_in_constant_extension191 = new BitSet(new long[]{0x0000000000200000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_constant_extension193 = new BitSet(new long[]{0x0000000000200020L});
-	public static final BitSet FOLLOW_ASSIGN_in_constant_extension196 = new BitSet(new long[]{0x0000000000000200L});
-	public static final BitSet FOLLOW_CHAR_OPERATOR_in_constant_extension198 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BOOLEAN_in_constant_extension208 = new BitSet(new long[]{0x0000000000200000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_constant_extension210 = new BitSet(new long[]{0x0000000000200020L});
-	public static final BitSet FOLLOW_ASSIGN_in_constant_extension213 = new BitSet(new long[]{0x0000000000000080L});
-	public static final BitSet FOLLOW_BOOLEAN_OPERATOR_in_constant_extension215 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_INTEGER_in_var_extension238 = new BitSet(new long[]{0x0000000000200000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_var_extension240 = new BitSet(new long[]{0x0000000000200022L});
-	public static final BitSet FOLLOW_ASSIGN_in_var_extension244 = new BitSet(new long[]{0x000000FFE73C8290L});
-	public static final BitSet FOLLOW_single_expr_in_var_extension247 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_var_extension251 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CHAR_in_var_extension264 = new BitSet(new long[]{0x0000000000200000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_var_extension266 = new BitSet(new long[]{0x0000000000200022L});
-	public static final BitSet FOLLOW_ASSIGN_in_var_extension270 = new BitSet(new long[]{0x0000000000000200L});
-	public static final BitSet FOLLOW_CHAR_OPERATOR_in_var_extension272 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BOOLEAN_in_var_extension284 = new BitSet(new long[]{0x0000000000200000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_var_extension286 = new BitSet(new long[]{0x0000000000200022L});
-	public static final BitSet FOLLOW_ASSIGN_in_var_extension290 = new BitSet(new long[]{0x0000000000000080L});
-	public static final BitSet FOLLOW_BOOLEAN_OPERATOR_in_var_extension292 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_read_in_statement317 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_print_in_statement328 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_assign_in_statement339 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ifthenelse_in_statement352 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_READ_in_read376 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_read381 = new BitSet(new long[]{0x0000000000200008L});
-	public static final BitSet FOLLOW_PRINT_in_print408 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_print411 = new BitSet(new long[]{0x0000800001200008L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_print415 = new BitSet(new long[]{0x0000800001200008L});
-	public static final BitSet FOLLOW_STRING_in_print419 = new BitSet(new long[]{0x0000800001200008L});
-	public static final BitSet FOLLOW_ASSIGN_in_assign449 = new BitSet(new long[]{0x0000000000200000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_assign451 = new BitSet(new long[]{0x000000FFE73C82B0L});
-	public static final BitSet FOLLOW_assignexpr_in_assign454 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ASSIGN_in_assignexpr487 = new BitSet(new long[]{0x0000000000200000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_assignexpr489 = new BitSet(new long[]{0x000000FFE73C82B0L});
-	public static final BitSet FOLLOW_assignexpr_in_assignexpr491 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_single_expr_in_assignexpr502 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_assignexpr512 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_IF_in_ifthenelse535 = new BitSet(new long[]{0x000000FFE63C8290L});
-	public static final BitSet FOLLOW_single_expr_in_ifthenelse537 = new BitSet(new long[]{0x0000000001000000L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_ifthenelse539 = new BitSet(new long[]{0x0000000001000000L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_ifthenelse541 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LCURLY_in_closed_compound_expr565 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_declaration_in_closed_compound_expr567 = new BitSet(new long[]{0x0004110000402020L});
-	public static final BitSet FOLLOW_statement_in_closed_compound_expr570 = new BitSet(new long[]{0x0000110000400028L});
-	public static final BitSet FOLLOW_operand_in_single_expr600 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_OR_in_single_expr644 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr648 = new BitSet(new long[]{0x000000FFE63C8290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr652 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_AND_in_single_expr683 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr687 = new BitSet(new long[]{0x000000FFE63C8290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr691 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LESS_in_single_expr721 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr725 = new BitSet(new long[]{0x000000FFE63C8290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr729 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LESSEQ_in_single_expr758 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr762 = new BitSet(new long[]{0x000000FFE63C8290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr766 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_GREATEQ_in_single_expr793 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr797 = new BitSet(new long[]{0x000000FFE63C8290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr801 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_GREAT_in_single_expr827 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr831 = new BitSet(new long[]{0x000000FFE63C8290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr835 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_EQ_in_single_expr863 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr867 = new BitSet(new long[]{0x000000FFE63C8290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr871 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_NOTEQ_in_single_expr902 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr906 = new BitSet(new long[]{0x000000FFE63C8290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr910 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_PLUS_in_single_expr938 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr942 = new BitSet(new long[]{0x000000FFE63C8290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr946 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_MIN_in_single_expr975 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr979 = new BitSet(new long[]{0x000000FFE63C8290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr983 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_MULT_in_single_expr1013 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1017 = new BitSet(new long[]{0x000000FFE63C8290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1021 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_DIV_in_single_expr1050 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1054 = new BitSet(new long[]{0x000000FFE63C8290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1058 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_MOD_in_single_expr1088 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1092 = new BitSet(new long[]{0x000000FFE63C8290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1096 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_POS_in_single_expr1126 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1130 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_NEG_in_single_expr1174 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1178 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_NOT_in_single_expr1222 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1226 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_operand1284 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NUMBER_in_operand1296 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LPAREN_in_operand1329 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_operand1331 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_BOOLEAN_OPERATOR_in_operand1344 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CHAR_OPERATOR_in_operand1356 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_synpred1_ChocolateCodeGenerator479 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_ASSIGN_in_synpred1_ChocolateCodeGenerator481 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_line_in_program100 = new BitSet(new long[]{0x0002110000402028L});
+	public static final BitSet FOLLOW_declaration_in_line134 = new BitSet(new long[]{0x0002110000402020L});
+	public static final BitSet FOLLOW_statement_in_line137 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CONSTANT_in_declaration158 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_constant_extension_in_declaration162 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_VAR_in_declaration184 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_var_extension_in_declaration188 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_INTEGER_in_constant_extension236 = new BitSet(new long[]{0x0000000000200000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_constant_extension238 = new BitSet(new long[]{0x0000000000200020L});
+	public static final BitSet FOLLOW_ASSIGN_in_constant_extension241 = new BitSet(new long[]{0x000000FFE73C8290L});
+	public static final BitSet FOLLOW_single_expr_in_constant_extension244 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_constant_extension248 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CHAR_in_constant_extension259 = new BitSet(new long[]{0x0000000000200000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_constant_extension261 = new BitSet(new long[]{0x0000000000200020L});
+	public static final BitSet FOLLOW_ASSIGN_in_constant_extension264 = new BitSet(new long[]{0x0000000000000200L});
+	public static final BitSet FOLLOW_CHAR_OPERATOR_in_constant_extension266 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BOOLEAN_in_constant_extension276 = new BitSet(new long[]{0x0000000000200000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_constant_extension278 = new BitSet(new long[]{0x0000000000200020L});
+	public static final BitSet FOLLOW_ASSIGN_in_constant_extension281 = new BitSet(new long[]{0x0000000000000080L});
+	public static final BitSet FOLLOW_BOOLEAN_OPERATOR_in_constant_extension283 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_INTEGER_in_var_extension306 = new BitSet(new long[]{0x0000000000200000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_var_extension308 = new BitSet(new long[]{0x0000000000200022L});
+	public static final BitSet FOLLOW_ASSIGN_in_var_extension312 = new BitSet(new long[]{0x000000FFE73C8290L});
+	public static final BitSet FOLLOW_single_expr_in_var_extension315 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_var_extension319 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CHAR_in_var_extension332 = new BitSet(new long[]{0x0000000000200000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_var_extension334 = new BitSet(new long[]{0x0000000000200022L});
+	public static final BitSet FOLLOW_ASSIGN_in_var_extension338 = new BitSet(new long[]{0x0000000000000200L});
+	public static final BitSet FOLLOW_CHAR_OPERATOR_in_var_extension340 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BOOLEAN_in_var_extension352 = new BitSet(new long[]{0x0000000000200000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_var_extension354 = new BitSet(new long[]{0x0000000000200022L});
+	public static final BitSet FOLLOW_ASSIGN_in_var_extension358 = new BitSet(new long[]{0x0000000000000080L});
+	public static final BitSet FOLLOW_BOOLEAN_OPERATOR_in_var_extension360 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_read_in_statement385 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_print_in_statement396 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_assign_in_statement407 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ifthenelse_in_statement420 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_READ_in_read444 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_read449 = new BitSet(new long[]{0x0000000000200008L});
+	public static final BitSet FOLLOW_PRINT_in_print476 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_print479 = new BitSet(new long[]{0x0008000001200008L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_print483 = new BitSet(new long[]{0x0008000001200008L});
+	public static final BitSet FOLLOW_STRING_in_print487 = new BitSet(new long[]{0x0008000001200008L});
+	public static final BitSet FOLLOW_ASSIGN_in_assign517 = new BitSet(new long[]{0x0000000000200000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_assign519 = new BitSet(new long[]{0x000000FFE73C82B0L});
+	public static final BitSet FOLLOW_assignexpr_in_assign522 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ASSIGN_in_assignexpr555 = new BitSet(new long[]{0x0000000000200000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_assignexpr557 = new BitSet(new long[]{0x000000FFE73C82B0L});
+	public static final BitSet FOLLOW_assignexpr_in_assignexpr559 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_single_expr_in_assignexpr570 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_assignexpr580 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IF_in_ifthenelse603 = new BitSet(new long[]{0x000000FFE63C8290L});
+	public static final BitSet FOLLOW_single_expr_in_ifthenelse605 = new BitSet(new long[]{0x0000000001000000L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_ifthenelse607 = new BitSet(new long[]{0x0000000001000000L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_ifthenelse609 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LCURLY_in_closed_compound_expr633 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_declaration_in_closed_compound_expr635 = new BitSet(new long[]{0x0002110000402020L});
+	public static final BitSet FOLLOW_statement_in_closed_compound_expr638 = new BitSet(new long[]{0x0000110000400028L});
+	public static final BitSet FOLLOW_operand_in_single_expr668 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_OR_in_single_expr712 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr716 = new BitSet(new long[]{0x000000FFE63C8290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr720 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_AND_in_single_expr751 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr755 = new BitSet(new long[]{0x000000FFE63C8290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr759 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LESS_in_single_expr789 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr793 = new BitSet(new long[]{0x000000FFE63C8290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr797 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LESSEQ_in_single_expr826 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr830 = new BitSet(new long[]{0x000000FFE63C8290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr834 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_GREATEQ_in_single_expr861 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr865 = new BitSet(new long[]{0x000000FFE63C8290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr869 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_GREAT_in_single_expr895 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr899 = new BitSet(new long[]{0x000000FFE63C8290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr903 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_EQ_in_single_expr931 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr935 = new BitSet(new long[]{0x000000FFE63C8290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr939 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_NOTEQ_in_single_expr970 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr974 = new BitSet(new long[]{0x000000FFE63C8290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr978 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_PLUS_in_single_expr1006 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1010 = new BitSet(new long[]{0x000000FFE63C8290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1014 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_MIN_in_single_expr1043 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1047 = new BitSet(new long[]{0x000000FFE63C8290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1051 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_MULT_in_single_expr1081 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1085 = new BitSet(new long[]{0x000000FFE63C8290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1089 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_DIV_in_single_expr1118 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1122 = new BitSet(new long[]{0x000000FFE63C8290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1126 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_MOD_in_single_expr1156 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1160 = new BitSet(new long[]{0x000000FFE63C8290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1164 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_POS_in_single_expr1194 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1198 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_NEG_in_single_expr1242 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1246 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_NOT_in_single_expr1290 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1294 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_operand1352 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NUMBER_in_operand1364 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LPAREN_in_operand1397 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_operand1399 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_BOOLEAN_OPERATOR_in_operand1412 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CHAR_OPERATOR_in_operand1424 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_synpred1_ChocolateCodeGenerator547 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_ASSIGN_in_synpred1_ChocolateCodeGenerator549 = new BitSet(new long[]{0x0000000000000002L});
 }

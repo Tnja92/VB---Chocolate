@@ -13,12 +13,16 @@ package CodeGenerator;
 
 
 program
-    :   ^(PROGRAM (declaration* statement)+)
+    :   ^(PROGRAM (lines+=line)+) -> program(lines={$lines})
+    ;
+    
+line
+    : (declaration* statement)
     ;
 
 declaration
-    :   ^(CONSTANT constant_extension)
-    |   ^(VAR var_extension)
+    :   ^(CONSTANT ext=constant_extension)  -> constant(extension={$ext.st})
+    |   ^(VAR ext=var_extension)            -> var(extension={$ext.st})
     ;
         
 constant_extension

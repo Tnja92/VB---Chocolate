@@ -1,5 +1,6 @@
 package SyntacticAnalyzer;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
@@ -19,6 +20,7 @@ import org.antlr.runtime.tree.CommonTreeNodeStream;
 import org.antlr.runtime.tree.DOTTreeGenerator;
 import org.antlr.runtime.tree.TreeNodeStream;
 import org.antlr.stringtemplate.StringTemplate;
+import org.antlr.stringtemplate.StringTemplateGroup;
 
 import ContextualAnalyzer.*;
 import CodeGenerator.*;
@@ -88,6 +90,8 @@ public class Chocolate {
             if (options.contains(Option.CODE_GENERATOR)) {
             	  TreeNodeStream nodes = new BufferedTreeNodeStream(tree);
                   ChocolateCodeGenerator generator = new ChocolateCodeGenerator(nodes);
+                  StringTemplateGroup stg = new StringTemplateGroup("GenTemplates",new File(".").getCanonicalPath()+"/stringTemplates");
+                  generator.setTemplateLib(stg);
                   String genout = generator.program().st.toString();
                   out.write(genout);
             }

@@ -7,8 +7,12 @@ options {
 }
 
 @header {
-package CodeGenerator;
+    package CodeGenerator;
+}
 
+@members{
+    private int LbNr = 0;
+    private int getLbNr() { return LbNr; }
 }
 
 
@@ -74,12 +78,12 @@ single_expr
     :   o=operand                               -> {$o.st}
     |   ^(OR x=single_expr y=single_expr)       -> or(ex1={$x.st},ex2={$y.st})
     |   ^(AND x=single_expr y=single_expr)      -> and(ex1={$x.st},ex2={$y.st})
-    |   ^(LESS x=single_expr y=single_expr)     -> less(ex1={$x.st},ex2={$y.st})
-    |   ^(LESSEQ x=single_expr y=single_expr)   -> lesseq(ex1={$x.st},ex2={$y.st})
-    |   ^(GREATEQ x=single_expr y=single_expr)  -> greateq(ex1={$x.st},ex2={$y.st})
-    |   ^(GREAT x=single_expr y=single_expr)    -> great(ex1={$x.st},ex2={$y.st})
-    |   ^(EQ x=single_expr y=single_expr)       -> eq(ex1={$x.st},ex2={$y.st})
-    |   ^(NOTEQ x=single_expr y=single_expr)    -> noteq(ex1={$x.st},ex2={$y.st})
+    |   ^(LESS x=single_expr y=single_expr)     -> less(ex1={$x.st},ex2={$y.st},lbl={getLbNr();})
+    |   ^(LESSEQ x=single_expr y=single_expr)   -> lesseq(ex1={$x.st},ex2={$y.st},lbl={getLbNr();})
+    |   ^(GREATEQ x=single_expr y=single_expr)  -> greateq(ex1={$x.st},ex2={$y.st},lbl={getLbNr();})
+    |   ^(GREAT x=single_expr y=single_expr)    -> great(ex1={$x.st},ex2={$y.st},lbl={getLbNr();})
+    |   ^(EQ x=single_expr y=single_expr)       -> eq(ex1={$x.st},ex2={$y.st},lbl={getLbNr();})
+    |   ^(NOTEQ x=single_expr y=single_expr)    -> noteq(ex1={$x.st},ex2={$y.st},lbl={getLbNr();})
     |   ^(PLUS x=single_expr y=single_expr)     -> plus(ex1={$x.st},ex2={$y.st})
     |   ^(MIN x=single_expr y=single_expr)      -> min(ex1={$x.st},ex2={$y.st})
     |   ^(MULT x=single_expr y=single_expr)     -> mult(ex1={$x.st},ex2={$y.st})

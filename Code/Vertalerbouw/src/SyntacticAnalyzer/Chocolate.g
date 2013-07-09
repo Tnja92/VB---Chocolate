@@ -35,6 +35,8 @@ tokens {
     IF          =   'if'        ;
     ELSE        =   'else'      ;
     THEN        =   'then'      ;
+    WHILE       =   'while'     ;
+    DO          =   'do'        ;
     POS         =   'pos'       ;
     NEG         =   'neg'       ;
 
@@ -72,30 +74,43 @@ declarations
     ;
  
 declaration
-    :   CONSTANT^ constant_extension
-    |   VAR^ var_extension
+    :   CONSTANT^ type IDENTIFIER (COMMA! IDENTIFIER)* ASSIGN (type_op)
+    |   VAR^ type IDENTIFIER (COMMA! IDENTIFIER)* (ASSIGN (type_op))?
     ;
     
-extra_decl
-    :   COMMA! IDENTIFIER
-    ;
+//extra_decl
+    //:   COMMA! IDENTIFIER
+    //;
     
-constant_extension
+//constant_extension
+    //:   type IDENTIFIER (extra_decl)* ASSIGN (type_op)
     //:   INTEGER IDENTIFIER (ASSIGN (single_expr | closed_compound_expr))?
-    :   INTEGER IDENTIFIER (extra_decl)* ASSIGN (single_expr | closed_compound_expr)
+    //:   INTEGER IDENTIFIER (extra_decl)* ASSIGN (single_expr | closed_compound_expr)
     //|   CHAR IDENTIFIER (ASSIGN CHAR_OPERATOR)?
-    |   CHAR IDENTIFIER (extra_decl)* ASSIGN CHAR_OPERATOR
+    //|   CHAR IDENTIFIER (extra_decl)* ASSIGN CHAR_OPERATOR
     //|   BOOLEAN IDENTIFIER (ASSIGN BOOLEAN_OPERATOR)?
-    |   BOOLEAN IDENTIFIER (extra_decl)* ASSIGN BOOLEAN_OPERATOR
+    //|   BOOLEAN IDENTIFIER (extra_decl)* ASSIGN BOOLEAN_OPERATOR
+    //;
+    
+//var_extension
+    //:   type IDENTIFIER (extra_decl)* (ASSIGN (type_op))?
+    //:   INTEGER IDENTIFIER (ASSIGN (single_expr | closed_compound_expr))?
+    //:   INTEGER IDENTIFIER (extra_decl)* (ASSIGN (single_expr | closed_compound_expr))?
+    //|   CHAR IDENTIFIER (ASSIGN CHAR_OPERATOR)?
+    //|   CHAR IDENTIFIER (extra_decl)* (ASSIGN CHAR_OPERATOR)?
+    //|   BOOLEAN IDENTIFIER (ASSIGN BOOLEAN_OPERATOR)?
+    //|   BOOLEAN IDENTIFIER (extra_decl)* (ASSIGN BOOLEAN_OPERATOR)?
+    //;
+    
+type
+    :   IDENTIFIER
+    |   CHAR
+    |   BOOLEAN
     ;
     
-var_extension
-    //:   INTEGER IDENTIFIER (ASSIGN (single_expr | closed_compound_expr))?
-    :   INTEGER IDENTIFIER (extra_decl)* (ASSIGN (single_expr | closed_compound_expr))?
-    //|   CHAR IDENTIFIER (ASSIGN CHAR_OPERATOR)?
-    |   CHAR IDENTIFIER (extra_decl)* (ASSIGN CHAR_OPERATOR)?
-    //|   BOOLEAN IDENTIFIER (ASSIGN BOOLEAN_OPERATOR)?
-    |   BOOLEAN IDENTIFIER (extra_decl)* (ASSIGN BOOLEAN_OPERATOR)?
+type_op
+    :   single_expr
+    |   closed_compound_expr
     ;
    
 // STATEMENTS    
@@ -108,6 +123,7 @@ statement
     |   print 
     |   assign   
     |   ifthenelse
+    |   while
     ;
 
 read
@@ -125,14 +141,20 @@ assignexpr
     ;
     
 print
-    :   PRINT^ LPAREN! (closed_compound_expr | IDENTIFIER | string) (COMMA! (closed_compound_expr | IDENTIFIER | string))* RPAREN!
+    :   PRINT^ LPAREN! (closed_compound_expr | single_expr | string) (COMMA! (closed_compound_expr | single_expr | string))* RPAREN!
     ;
     
 // EXPRESSIONS    
    
 
 closed_compound_expr
-    :   LCURLY^ (declarations* statements)+ RCURLY!
+    :   LCURLY^ declarations* compound_ext
+    //:   LCURLY^ (declarations* statements)+ RCURLY!
+    ;
+    
+compound_ext
+    :   (single_expr RCURLY) => (single_expr RCURLY!)
+    |   statements declarations* compound_ext
     ;
     
 single_expr
@@ -168,6 +190,10 @@ arith6
     
 ifthenelse
     :   IF^ single_expr THEN! closed_compound_expr (ELSE! closed_compound_expr)?
+    ;
+    
+while
+    :   WHILE^ single_expr DO! closed_compound_expr
     ;
 
 // OTHER

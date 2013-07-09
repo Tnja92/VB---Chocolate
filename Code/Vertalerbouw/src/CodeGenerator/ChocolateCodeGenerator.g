@@ -12,69 +12,113 @@ options {
 
 @members{
     private int LbNr = 0;
-    private int Lnr = 0;
+    private int LNr = 0;
+    private int store = 0;
+    private int temp[];
     private int getLbNr() { LbNr++; return LbNr; }
     private int getLNr() { LNr++; return (LNr-1); }
 }
 
 
 program
-    :   ^(PROGRAM (lines+=line)+)           -> program(sourceF={Chocolate.getFilename()},classN={Chocolate.getClassname()},lines={$lines})
+    :   ^(PROGRAM (sections+=section)+)           -> program(sourceF={Chocolate.getFilename()},classN={Chocolate.getClassname()},local={100},stack={50},sections={$sections})
     ;
     
-line
-    : (decls+=declaration* state=statement) -> line(decls={$decls},state={$state.st})
+section
+    : (decls+=declaration* state=statement)       -> section(decls={$decls},state={$state.st})
+    ;
+    
+declaration
+    :   ^(CONSTANT t=type ids+=IDENTIFIER+  ASSIGN to=type_op) {store++; for(int i=0;i<ids.length();i++) ids[i].setAddress(store);}
+            -> constant(to={$to.text},st={store},lnr={getLNR();})
+    |   ^(VAR t=type ids+=IDENTIFIER+ (ASSIGN to=type_op)?) {store++; for(int i=0;i<ids.length();i++) ids[i].setAddress(store);} 
+            -> var(to={$to.text},st={store},lbl={getLbNr();},lnr={getLNr();})
+    ;
+    
+type
+    :   i=INTEGER
+    |   c=CHAR
+    |   b=BOOLEAN
+    ;
+    
+type_op
+    :   s=single_expr               -> {$s.st}
+    |   c=closed_compound_expr      -> {$c.st}
     ;
 
-declaration
-    :   ^(CONSTANT ext=constant_extension)  -> constant(extension={$ext.st},lnr={getLNr();})
-    |   ^(VAR ext=var_extension)            -> var(extension={$ext.st},lnr={getLNr();})
-    ;
+//declaration
+    //:   ^(CONSTANT ext=constant_extension)  -> constant(extension={$ext.st},lnr={getLNr();})
+    //|   ^(VAR ext=var_extension)            -> var(extension={$ext.st},lnr={getLNr();})
+    //;
         
-constant_extension
-    :   t=INTEGER ids+=IDENTIFIER+ ASSIGN e=(single_expr | closed_compound_expr)    -> conInt(ids={$ids},e={$e.st})
-    |   t=CHAR ids+=IDENTIFIER+ ASSIGN co=CHAR_OPERATOR                             -> conChar(ids={$ids},co={$co})
-    |   t=BOOLEAN ids+=IDENTIFIER+ ASSIGN bo=BOOLEAN_OPERATOR                       -> conBool(ids={ids},bo={$bo}) 
-    ;
+//constant_extension
+    //:   t=INTEGER ids+=IDENTIFIER+ ASSIGN e=(single_expr | closed_compound_expr)    -> conInt(ids={$ids},e={$e.st})
+    //|   t=CHAR ids+=IDENTIFIER+ ASSIGN co=CHAR_OPERATOR                             -> conChar(ids={$ids},co={$co})
+    //|   t=BOOLEAN ids+=IDENTIFIER+ ASSIGN bo=BOOLEAN_OPERATOR                       -> conBool(ids={ids},bo={$bo}) 
+    //;
     
-var_extension
-    :   t=INTEGER ids+=IDENTIFIER+ (ASSIGN e=(single_expr | closed_compound_expr))? -> varInt(ids={$ids},e={$e.st})
-    |   t=CHAR ids+=IDENTIFIER+ (ASSIGN co=CHAR_OPERATOR)?                          -> varChar(ids={ids},co={$co})
-    |   t=BOOLEAN ids+=IDENTIFIER+ (ASSIGN bo=BOOLEAN_OPERATOR)?                    -> varBool(ids={ids},bo={$bo})
-    ;
+//var_extension
+    //:   t=INTEGER ids+=IDENTIFIER+ (ASSIGN e=(single_expr | closed_compound_expr))? -> varInt(ids={$ids},e={$e.st})
+    //|   t=CHAR ids+=IDENTIFIER+ (ASSIGN co=CHAR_OPERATOR)?                          -> varChar(ids={ids},co={$co})
+    //|   t=BOOLEAN ids+=IDENTIFIER+ (ASSIGN bo=BOOLEAN_OPERATOR)?                    -> varBool(ids={ids},bo={$bo})
+    //;
     
 statement
     :   r=read            -> {$r.st}
     |   p=print           -> {$p.st}
     |   a=assign          -> {$a.st}
     |   ite=ifthenelse    -> {$ite.st}
+    |   wd=whiledo        -> {$wd.st}
     ;
     
 read
-    :   ^(READ (id+=IDENTIFIER)+)   -> read(ids={$id},lnr={getLNr();})
+    :   ^(READ (ids+=read_one)+)                -> read(ids={$ids},lnr={getLNr();})
+    ;
+    
+read_one
+    :   id=IDENTIFIER {addr=id.getAddress();}   -> reado(addr={addr})
     ;
     
 print
-    :   ^(PRINT (l+=(closed_compound_expr | IDENTIFIER | STRING))+)    -> print(l={$l},lnr={getLNr();})
-    ;    
+    :   ^(PRINT (r+=print_one)+) -> print(r={$r},lnr={getLNr();})
+    ;
+    
+print_one
+    :   r=closed_compound_expr                 -> printocce(cce={$r.st})
+    |   id=IDENTIFIER {addr=id.getAddress();}  -> printo(addr={addr})
+    |   s=STRING {addr=s.getAddress();}        -> printo(addr={addr})
+    ;
     
 assign
-    :   ASSIGN id=IDENTIFIER (aexpr=assignexpr)    -> assign(id={$id},assexpr={$aexpr.st},lnr={getLNr();})
+    :   ^(ASSIGN id=IDENTIFIER (aexpr=assignexpr))    -> assign(id={$id},assexpr={$aexpr.st},lnr={getLNr();})
     ;
     
 assignexpr
-    :   (IDENTIFIER ASSIGN) => (ASSIGN id=IDENTIFIER aexpr=assignexpr)    -> assign(id={$id},aexpr={$aexpr.st})
-    |   s=single_expr                                                     -> {$s.st}
-    |   c=closed_compound_expr                                            -> {$c.st}
+    :   (IDENTIFIER ASSIGN) => ^(ASSIGN id=IDENTIFIER aexpr=assignexpr)        -> assign(id={$id},aexpr={$aexpr.st})
+    |   s=single_expr                                                         -> {$s.st}
+    |   c=closed_compound_expr                                                -> {$c.st}
     ;
     
 ifthenelse
-    :   IF s=single_expr c1=closed_compound_expr c2=closed_compound_expr  -> ifthenelse(s={$s.st},c1={$c1.st},c2={$c2.st},lbl={getLbNr();},lnr={getLNr();})
-    ;    
+    :   ^(IF s=single_expr c1=closed_compound_expr c2=closed_compound_expr)   -> ifthenelse(s={$s.st},c1={$c1.st},c2={$c2.st},lbl={getLbNr();},lnr={getLNr();})
+    ;
+    
+whiledo
+    :   ^(WHILE s=single_expr c=closed_compound_expr)                         -> whiledo(s={$s.st},c={$c.st},lbl={getLbNr();},lnr={getLNr();})
+    ;
 
+//closed_compound_expr
+    //:   ^(LCURLY decls+=declaration* state=statement+)                    -> compound(decls={$decls},state={$state.st},lnr={getLNr();})
+    //;
+    
 closed_compound_expr
-    :   ^(LCURLY decls+=declaration* state=statement+)                    -> compound(decls={$decls},state={$state.st},lnr={getLNr();})
-    ;    
+    :   ^(LCURLY decls+=declaration* cext=compound_ext)        -> compound(decls={$decls},cext={$cext.st},lnr={getLNr();})
+    ;
+    
+compound_ext
+    :   (single_expr RCURLY) => (s=single_expr)                -> compoundend(s={$s.st},lnr={getLNr();})
+    |   s=statement decls+=declaration* cext=compound_ext      -> compoundex(s={$s.st},decls={$decls},cext={$cext.st},lnr={getLNr();})
+    ;
     
 single_expr
     :   o=operand                               -> {$o.st}

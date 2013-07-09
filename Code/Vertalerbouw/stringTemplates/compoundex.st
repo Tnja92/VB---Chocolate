@@ -1,3 +1,3 @@
-.line $lnr$
+$s$
 $decls; separator="\n"$
 $cext$

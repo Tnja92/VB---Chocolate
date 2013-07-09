@@ -1,0 +1,14 @@
+cacao GOED: declaratie en gebruik van variabelen
+
+cacao Declaratie van variabelen
+bonbon wit een;
+bonbon melk twee;
+bonbon puur drie;
+bonbon wit a,b milka 2;
+
+cacao Gebruik van variabelen
+verkade(een);
+verkade(twee);
+verkade(drie);
+verkade(a);
+verkade(b);

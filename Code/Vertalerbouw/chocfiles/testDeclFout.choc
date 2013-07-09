@@ -1,0 +1,4 @@
+cacao FOUT: declareren van constante of variabele met onbekend type
+
+reep String u milka "ICU";
+bonbon double dd milka 5.68;

@@ -1,0 +1,5 @@
+cacao FOUT: verkeerde waardes gedeclareerd volgens meegegeven type
+
+reep wit a milka 'p';
+reep melk milka false;
+bonbon puur milka 5;

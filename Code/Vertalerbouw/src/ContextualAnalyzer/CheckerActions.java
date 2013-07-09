@@ -68,7 +68,7 @@ public class CheckerActions {
      * 	- Sets the type of the provided tree to BOOL
      * @param l the tree to check
      */
-	public void checkOperandBOOL(ChocolateTree l){
+	public void checkOperandBool(ChocolateTree l){
 		l.setChocolateType(BOOL);
 	}
 	/**
@@ -267,7 +267,7 @@ public class CheckerActions {
 	 * @param op the operand in this zeg expression
 	 * @throws ChocolateException when the Operand is not of a valid type
 	 */
-	public void checkExprZegSingle(ChocolateTree root, ChocolateTree op) throws ChocolateException {
+	public void checkExprPrintSingle(ChocolateTree root, ChocolateTree op) throws ChocolateException {
 		if(!isValidType(op.getChocolateType()))
 			throw new ChocolateException(op, "kan ik niet zeggen!");
 		root.setChocolateType(op.getChocolateType());
@@ -279,7 +279,7 @@ public class CheckerActions {
 	 * @param op one of the operands in this zeg expression
 	 * @throws ChocolateException when the Operand is not of a valid type
 	 */
-	public void checkExprZegMultiple(ChocolateTree root, ChocolateTree op) throws ChocolateException {
+	public void checkExprPrintMultiple(ChocolateTree root, ChocolateTree op) throws ChocolateException {
 		if(!isValidType(op.getChocolateType()))
 			throw new ChocolateException(op, "kan ik niet zeggen!");
 		root.setChocolateType(VOID_TYPE);
@@ -310,14 +310,6 @@ public class CheckerActions {
 			throw new ChocolateException(root, ". De conditie ("+ChocolateException.formatTree(checkExpr)+") is niet van het type BOOL");
 		root.setChocolateType(NO_TYPE);
 	}
-	/**
-	 * Checks a tree for an Empty command. Sets the type of the Empty command tree to NO_TYPE
-	 * @param root the empty comamnd tree to check
-	 */
-	public void checkEmptyCommand(ChocolateTree root){
-		root.setChocolateType(NO_TYPE);
-	}
-
 
 	///////////////////////////////////////////////////////////
 	//	DECLARATION

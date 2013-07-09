@@ -1,0 +1,7 @@
+cacao GOED: juiste gebruik van de compound expression
+
+reep puur t milka 	{bonbon wit l;
+					reep wit m milka 6;
+					l milka m dove 2;
+					l lion 1 rolo m snickers 10;};
+verkade(t);

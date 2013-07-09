@@ -5,6 +5,8 @@ reep wit een milka 6;
 reep melk twee milka 'm';
 reep puur drie milka true;
 reep wit a,b milka 7;
+reep wit c milka 7 maltesers 3;
+reep puur d {een bros c;};
 
 cacao Gebruik van constanten, printen
 verkade(een);
@@ -12,3 +14,5 @@ verkade(twee);
 verkade(drie);
 verkade(a);
 verkade(b);
+verkade(c);
+verkade(d);

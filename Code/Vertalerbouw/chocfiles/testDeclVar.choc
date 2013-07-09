@@ -5,10 +5,17 @@ bonbon wit een;
 bonbon melk twee;
 bonbon puur drie;
 bonbon wit a,b milka 2;
+bonbon wit c milka 4 mars 6 mars 8;
+bonbon wit d milka {2 milkyway 4 mars 2;};
 
 cacao Gebruik van variabelen
+een milka a milkyway b;
+twee milka c mars mars 5;
+drie milka d;
 verkade(een);
 verkade(twee);
 verkade(drie);
 verkade(a);
 verkade(b);
+verkade(c);
+verkade(d);

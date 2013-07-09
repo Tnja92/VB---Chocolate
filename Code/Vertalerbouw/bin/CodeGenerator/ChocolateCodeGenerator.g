@@ -90,13 +90,15 @@ print_one
     ;
     
 assign
-    :   ^(ASSIGN id=IDENTIFIER (aexpr=assignexpr))    -> assign(id={$id},assexpr={$aexpr.st},lnr={getLNr();})
+    :   ^(ASSIGN id=IDENTIFIER aexpr=assignexpr) {addr=id.getAddress();}
+            -> assign(addr={addr},assexpr={$aexpr.st},lnr={getLNr();})
     ;
     
 assignexpr
-    :   (IDENTIFIER ASSIGN) => ^(ASSIGN id=IDENTIFIER aexpr=assignexpr)        -> assign(id={$id},aexpr={$aexpr.st})
-    |   s=single_expr                                                         -> {$s.st}
-    |   c=closed_compound_expr                                                -> {$c.st}
+    :   ^(ASSIGN id=IDENTIFIER aexpr=assignexpr) {addr=id.getAddress();}
+            -> assignex(addr={addr},aexpr={$aexpr.st})
+    |   s=single_expr              -> assignexpr(expr={$s.st})
+    |   c=closed_compound_expr     -> assignexpr(expr={$c.st})
     ;
     
 ifthenelse
@@ -144,6 +146,6 @@ operand
     :   id=IDENTIFIER           -> identifier(id={$id.text})
     |   n=NUMBER                -> number(n={$n.text})
     |   ^(LPAREN s=single_expr) -> {$s.st}
-    |   b=BOOLEAN_OPERATOR      -> boolean(b={$b.text})
+    |   b=BOOLEAN_OPERATOR      -> boolean(b={$b.text.equals("true") ? true : false})
     |   c=CHAR_OPERATOR         -> char(c={$c.text})
     ;

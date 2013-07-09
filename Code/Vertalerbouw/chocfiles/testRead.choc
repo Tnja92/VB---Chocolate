@@ -1,0 +1,12 @@
+cacao GOED: juiste gebruik van het read statement
+
+bonbon wit a;
+bonbon wit b;
+bonbon wit c;
+
+droste(a,b);
+verkade(a);
+verkade(b);
+reep wit d;
+d milka droste(c);
+verkade(d);

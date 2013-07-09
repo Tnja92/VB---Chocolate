@@ -31,23 +31,24 @@ declaration
     |   ^(VAR ext=var_extension)            -> var(extension={$ext.st},lnr={getLNr();})
     ;
         
-constant_extension
-    :   t=INTEGER ids+=IDENTIFIER+ ASSIGN e=(single_expr | closed_compound_expr)    -> conInt(ids={$ids},e={$e.st})
-    |   t=CHAR ids+=IDENTIFIER+ ASSIGN co=CHAR_OPERATOR                             -> conChar(ids={$ids},co={$co})
-    |   t=BOOLEAN ids+=IDENTIFIER+ ASSIGN bo=BOOLEAN_OPERATOR                       -> conBool(ids={ids},bo={$bo}) 
-    ;
+//constant_extension
+    //:   t=INTEGER ids+=IDENTIFIER+ ASSIGN e=(single_expr | closed_compound_expr)    -> conInt(ids={$ids},e={$e.st})
+    //|   t=CHAR ids+=IDENTIFIER+ ASSIGN co=CHAR_OPERATOR                             -> conChar(ids={$ids},co={$co})
+    //|   t=BOOLEAN ids+=IDENTIFIER+ ASSIGN bo=BOOLEAN_OPERATOR                       -> conBool(ids={ids},bo={$bo}) 
+    //;
     
-var_extension
-    :   t=INTEGER ids+=IDENTIFIER+ (ASSIGN e=(single_expr | closed_compound_expr))? -> varInt(ids={$ids},e={$e.st})
-    |   t=CHAR ids+=IDENTIFIER+ (ASSIGN co=CHAR_OPERATOR)?                          -> varChar(ids={ids},co={$co})
-    |   t=BOOLEAN ids+=IDENTIFIER+ (ASSIGN bo=BOOLEAN_OPERATOR)?                    -> varBool(ids={ids},bo={$bo})
-    ;
+//var_extension
+    //:   t=INTEGER ids+=IDENTIFIER+ (ASSIGN e=(single_expr | closed_compound_expr))? -> varInt(ids={$ids},e={$e.st})
+    //|   t=CHAR ids+=IDENTIFIER+ (ASSIGN co=CHAR_OPERATOR)?                          -> varChar(ids={ids},co={$co})
+    //|   t=BOOLEAN ids+=IDENTIFIER+ (ASSIGN bo=BOOLEAN_OPERATOR)?                    -> varBool(ids={ids},bo={$bo})
+    //;
     
 statement
     :   r=read            -> {$r.st}
     |   p=print           -> {$p.st}
     |   a=assign          -> {$a.st}
     |   ite=ifthenelse    -> {$ite.st}
+    |   wd=while          -> {$wd.st}
     ;
     
 read
@@ -70,7 +71,11 @@ assignexpr
     
 ifthenelse
     :   IF s=single_expr c1=closed_compound_expr c2=closed_compound_expr  -> ifthenelse(s={$s.st},c1={$c1.st},c2={$c2.st},lbl={getLbNr();},lnr={getLNr();})
-    ;    
+    ;
+    
+while
+    :   WHILE^ s=single_expr DO! c=closed_compound_expr                   -> while(s={$s.st},c={$c.st},lnr={getLNr();})
+    ;
 
 closed_compound_expr
     :   ^(LCURLY decls+=declaration* state=statement+)                    -> compound(decls={$decls},state={$state.st},lnr={getLNr();})

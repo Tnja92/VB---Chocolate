@@ -1,10 +1,7 @@
 package ContextualAnalyzer;
 
-<<<<<<< HEAD
+import AST.ChocolateTree;
 import SyntacticAnalyzer.*;
-=======
-import SyntacticAnalyzer.ChocolateException;
->>>>>>> 316cd206d6681a49a6a3c13aa634aec824dccd4f
 
 /**
  * VB prac week1 - SymbolTable.
@@ -17,42 +14,22 @@ public class IdEntry {
 	public final String b = "puur";
 	public final String c = "melk";
 	
-    private int  	level = -1;
-    private String	type;
-    private boolean constant;
-    private String	value;
+    private int  			level = -1;
+    private ChocolateTree 	node;
+    private String 			type;
     
-    public IdEntry(String type, boolean constant) throws ChocolateException {
-    	if( type.equals(i) || type.equals(b) || type.equals(c)) {
-    		this.type = type;
-        	this.constant = constant;
-<<<<<<< HEAD
-    	} else {
-    		throw new ChocolateException("Het type bestaat niet");
-    	}
-    	
+    public IdEntry(String type, ChocolateTree node) {
+    	this.type = type;
+    	this.node = node;
     }
     
-    public IdEntry(String type, boolean constant, String value) throws ChocolateException {
-    	if( type.equals(i) || type.equals(b) || type.equals(c)) {
-    		this.type = type;
-        	this.constant = constant;
-        	this.value = value;
-    	} else {
-=======
->>>>>>> 316cd206d6681a49a6a3c13aa634aec824dccd4f
-    		throw new ChocolateException("Het type bestaat niet");
-    	}
-    	
-    }
+    public int   	getLevel()             { return level;         }
+    public void  	setLevel(int level)    { this.level = level;   }
     
-    public int   getLevel()             { return level;         }
-    public void  setLevel(int level)    { this.level = level;   }
-    
-	public String getType() 			{ return type;			}
-
-	public boolean isConstant() 		{ return constant;   	}
+	public String 	getType() 				{ return type;			}
+	public void		setType(String type)	{ this.type = type;		}
 	
-	public String getValue()			{ return value;			}
-	public void setValue(String value)	{ this.value = value;	}
+	public ChocolateTree getNode() 			{ return node;			}
+	public void		setNode(ChocolateTree node)				{ this.node = node;		}
+	
 }

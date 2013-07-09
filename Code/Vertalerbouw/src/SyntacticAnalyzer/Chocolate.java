@@ -1,4 +1,7 @@
 package SyntacticAnalyzer;
+
+import AST.*;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
@@ -77,7 +80,8 @@ public class Chocolate {
             ChocolateLexer lexer = new ChocolateLexer(new ANTLRInputStream(in));
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             ChocolateParser parser = new ChocolateParser(tokens);
-
+            parser.setTreeAdaptor(new ChocolateTreeAdaptor());
+            
             ChocolateParser.program_return result = parser.program();
             CommonTree tree = (CommonTree) result.getTree();
 

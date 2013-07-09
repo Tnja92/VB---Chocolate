@@ -1,0 +1,14 @@
+cacao GOED: declaratie en gebruik van constanten
+
+cacao Declareren van constanten
+reep wit een milka 6;
+reep melk twee milka 'm';
+reep puur drie milka true;
+reep wit a,b milka 7;
+
+cacao Gebruik van constanten, printen
+verkade(een);
+verkade(twee);
+verkade(drie);
+verkade(a);
+verkade(b);

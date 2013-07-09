@@ -1,4 +1,4 @@
-cacao FOUT Test 3: Gebruik van constante/variabele zonder declaratie
+cacao FOUT: Gebruik van constante/variabele zonder declaratie
 
 x milka 5;
 verkade(x);

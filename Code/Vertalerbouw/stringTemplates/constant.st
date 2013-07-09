@@ -1,2 +1,3 @@
 .line $lnr$
-$extension$
+$to$
+istore $st$

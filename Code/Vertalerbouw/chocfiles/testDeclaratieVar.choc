@@ -6,7 +6,11 @@ bonbon melk twee;
 bonbon puur drie;
 
 cacao Gebruik van variabelen
+<<<<<<< HEAD
 een  1mars2-3mars4;
+=======
+een milka 1 bounty 2 mars 3 bounty 4;
+>>>>>>> 316cd206d6681a49a6a3c13aa634aec824dccd4f
 verkade(een);
 twee milka 'k';
 verkade(twee);

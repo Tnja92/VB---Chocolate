@@ -1,6 +1,10 @@
 package ContextualAnalyzer;
 
+<<<<<<< HEAD
 import SyntacticAnalyzer.*;
+=======
+import SyntacticAnalyzer.ChocolateException;
+>>>>>>> 316cd206d6681a49a6a3c13aa634aec824dccd4f
 
 /**
  * VB prac week1 - SymbolTable.
@@ -22,6 +26,7 @@ public class IdEntry {
     	if( type.equals(i) || type.equals(b) || type.equals(c)) {
     		this.type = type;
         	this.constant = constant;
+<<<<<<< HEAD
     	} else {
     		throw new ChocolateException("Het type bestaat niet");
     	}
@@ -34,6 +39,8 @@ public class IdEntry {
         	this.constant = constant;
         	this.value = value;
     	} else {
+=======
+>>>>>>> 316cd206d6681a49a6a3c13aa634aec824dccd4f
     		throw new ChocolateException("Het type bestaat niet");
     	}
     	

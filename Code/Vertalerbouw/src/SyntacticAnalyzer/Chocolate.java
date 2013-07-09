@@ -1,10 +1,12 @@
 package SyntacticAnalyzer;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.io.Writer;
 import java.util.EnumSet;
 import java.util.Set;
@@ -18,12 +20,11 @@ import org.antlr.runtime.tree.CommonTreeNodeStream;
 import org.antlr.runtime.tree.DOTTreeGenerator;
 import org.antlr.runtime.tree.TreeNodeStream;
 import org.antlr.stringtemplate.StringTemplate;
+import org.antlr.stringtemplate.StringTemplateGroup;
 
-/**
- * Program that creates and starts the Chocolate lexer, parser, etc.
- * @author  Theo Ruys
- * @version 2009.05.01
- */
+import ContextualAnalyzer.*;
+import CodeGenerator.*;
+
 public class Chocolate {
     private static final Set<Option> options = EnumSet.noneOf(Option.class);
     private static String inputFile;
@@ -70,7 +71,9 @@ public class Chocolate {
 
         try {
             InputStream in = inputFile == null ? System.in : new FileInputStream(inputFile);
-            OutputStream out = outputFile == null ? System.out : new FileOutputStream(outputFile);
+            OutputStream outStream = outputFile == null ? System.out : new FileOutputStream(outputFile);
+            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(outStream));
+            
             ChocolateLexer lexer = new ChocolateLexer(new ANTLRInputStream(in));
             CommonTokenStream tokens = new CommonTokenStream(lexer);
             ChocolateParser parser = new ChocolateParser(tokens);
@@ -78,28 +81,20 @@ public class Chocolate {
             ChocolateParser.program_return result = parser.program();
             CommonTree tree = (CommonTree) result.getTree();
 
-            /*if (!options.contains(Option.NO_CHECKER)) {      // check the AST
+            /* if (!options.contains(Option.NO_CHECKER)) {      // check the AST
                 CommonTreeNodeStream nodes = new CommonTreeNodeStream(tree);
                 ChocolateChecker checker = new ChocolateChecker(nodes);
-                checker.program();
-            }
-
-            if (!options.contains(Option.NO_INTERPRETER) &&
-                    !options.contains(Option.CODE_GENERATOR)) {  // interpret the AST
-                TreeNodeStream nodes = new BufferedTreeNodeStream(tree);
-                ChocolateInterpreter interpreter = new ChocolateInterpreter(nodes);
-                interpreter.program();
-            }
+                tree = checker.program().getTree();
+            } */
 
             if (options.contains(Option.CODE_GENERATOR)) {
             	  TreeNodeStream nodes = new BufferedTreeNodeStream(tree);
                   ChocolateCodeGenerator generator = new ChocolateCodeGenerator(nodes);
-                  generator.program();
-                  Writer output = new BufferedWriter(new FileWriter(outputFile));
-                  for(String s : generator.lines) {
-                	  output.append(s);
-                  }
-            }*/
+                  StringTemplateGroup stg = new StringTemplateGroup("GenTemplates",new File(".").getCanonicalPath()+"/stringTemplates");
+                  generator.setTemplateLib(stg);
+                  String genout = generator.program().st.toString();
+                  out.write(genout);
+            }
 
             if (options.contains(Option.AST)) {          // print the AST as string
                 System.out.println(tree.toStringTree());
@@ -111,7 +106,7 @@ public class Chocolate {
                 System.out.println(st);
             }
 
-        } catch (ChocException e) {
+        } catch (ChocolateException e) {
             System.err.print("ERROR: ChocolateException thrown by compiler: ");
             System.err.println(e.getMessage());
         } catch (RecognitionException e) {

@@ -26,4 +26,15 @@ public class ChocolateException extends RecognitionException {
     public String getMessage() {
         return this.msg;
     }
+    
+    /**
+     * @param tree the tree to get a nicely formatted String representation from
+     * @return a nicely formatted representation of this tree, including the textual representation and the line and position it was declared
+     */
+    public static String formatTree(Tree tree){
+    	return "'" + tree.getText() + 
+                "' (" + tree.getLine() + 
+                ":" + tree.getCharPositionInLine() + 
+                ") ";
+    }
 }

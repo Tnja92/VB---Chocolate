@@ -153,7 +153,7 @@ closed_compound_expr
     ;
     
 compound_ext
-    :   (single_expr RCURLY) => (single_expr RCURLY!)
+    :   (single_expr RCURLY) => (single_expr RCURLY^)
     |   statements declarations* compound_ext
     ;
     

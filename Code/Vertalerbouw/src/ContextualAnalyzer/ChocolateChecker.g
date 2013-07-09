@@ -2,7 +2,8 @@ tree grammar ChocolateChecker;
 
 options {
     tokenVocab=Chocolate;                    // import tokens from Chocolate.tokens
-    ASTLabelType=CommonTree;                 // AST nodes are of type CommonTree
+    ASTLabelType=ChocolateTree;                 // AST nodes are of type ChocolateTree
+    output = AST;
 }
 
 @header {
@@ -20,218 +21,113 @@ import java.util.HashSet;
 }
 
 @members {
-    // idset - a set of declared identifiers.
-    private SymbolTable symtab = new SymbolTable();   
-    
-    public boolean  isDeclared(String s)        { return symtab.contains(s); }
-    public void     declare(String s, String t, boolean c) { symtab.enter(s, new IdEntry(t, c));   }
+  CheckerActions ca = new CheckerActions();
 }
 
 program
+@init{
+  cf.openScope();
+}
+@after{
+  cf.closeScope();
+} 
     :   ^(PROGRAM (declarations* statements)+)
     ;
     
 declarations
-    :   ^(CONSTANT decl_const)
-    |   ^(VAR decl_var)
-    ;
-    
-decl_const
-    :   t=INTEGER id=IDENTIFIER
-        {   if (isDeclared($id.text))
-                throw new ChocException($id, "is already declared");
-            else { 
-                declare($id.text(), $t.text(), true); 
-                }
-        }
-    |   ^(ASSIGN INTEGER IDENTIFIER (v=single_expr | v=closed_compound_expr))
-        {   if (isDeclared($id.text))
-                throw new ChocException($id, "is already declared");
-            else { 
-                declare($id.text(), $t.text(), true, v.text()); 
-                }
-        }
-    |   t=CHAR id=IDENTIFIER
-        {   if (isDeclared($id.text))
-                throw new ChocException($id, "is already declared");
-            else { 
-                declare($id.text(), $t.text(), true); 
-                }
-        }
-    |   ^(ASSIGN CHAR IDENTIFIER v=CHAR_OPERATOR)
-        {   if (isDeclared($id.text))
-                throw new ChocException($id, "is already declared");
-            else { 
-                declare($id.text(), $t.text(), true, v.text()); 
-                }
-        }
-    |   t=BOOLEAN id=IDENTIFIER
-        {   if (isDeclared($id.text))
-                throw new ChocException($id, "is already declared");
-            else { 
-                declare($id.text(), $t.text(), true); 
-                }
-        }
-    |   ^(ASSIGN BOOLEAN IDENTIFIER v=BOOLEAN_OPERATOR)
-        {   if (isDeclared($id.text))
-                throw new ChocException($id, "is already declared");
-            else { 
-                declare($id.text(), $t.text(), true, v.text()); 
-                }
-        }
-    ;
-    
-decl_const
-    :   t=INTEGER id=IDENTIFIER
-        {   if (isDeclared($id.text))
-                throw new ChocException($id, "is already declared");
-            else { 
-                declare($id.text(), $t.text(), false); 
-                }
-        }
-    |   ^(ASSIGN INTEGER IDENTIFIER (v=single_expr | v=closed_compound_expr))
-        {   if (isDeclared($id.text))
-                throw new ChocException($id, "is already declared");
-            else { 
-                declare($id.text(), $t.text(), false, v.text()); 
-                }
-        }
-    |   t=CHAR id=IDENTIFIER
-        {   if (isDeclared($id.text))
-                throw new ChocException($id, "is already declared");
-            else { 
-                declare($id.text(), $t.text(), false); 
-                }
-        }
-    |   ^(ASSIGN CHAR IDENTIFIER v=CHAR_OPERATOR)
-        {   if (isDeclared($id.text))
-                throw new ChocException($id, "is already declared");
-            else { 
-                declare($id.text(), $t.text(), false, v.text()); 
-                }
-        }
-    |   t=BOOLEAN id=IDENTIFIER
-        {   if (isDeclared($id.text))
-                throw new ChocException($id, "is already declared");
-            else { 
-                declare($id.text(), $t.text(), false); 
-                }
-        }
-    |   ^(ASSIGN BOOLEAN IDENTIFIER v=BOOLEAN_OPERATOR)
-        {   if (isDeclared($id.text))
-                throw new ChocException($id, "is already declared");
-            else { 
-                declare($id.text(), $t.text(), false, v.text()); 
-                }
-        }
+    :   ^(r=CONSTANT t=type id=IDENTIFIER {ca.checkVarDecl(r, t, id);} (COMMA! a=IDENTIFIER{ca.checkVarDecl(r, t, a);})*  ASSIGN (t2=type_op{ca.checkDeclaration(r, t, t2);}))
+    |   ^(r=VAR t=type id=IDENTIFIER {ca.checkConstDecl(r, t, id);}(COMMA! a=IDENTIFIER{ca.checkConstDecl(r, t, a);})* (ASSIGN (type_op {ca.checkDeclaration(r, t, t2);}))?)
     ;
    
 statements
-    :   read | assign | print
+    :   read | assign | print | ifthenelse | while
     ;
     
 read
-    :   ^(READ IDENTIFIER readmore)
-    ;
-
-readmore
-    :
-    |   IDENTIFIER readmore
+    :   ^(r=READ (id=IDENTIFIER{ ca.checkExprReadSingle(r,id); }) (id=IDENTIFIER{ ca.checkExprReadMultiple(); })*)
     ;
 
 assign
-    :   ^(ASSIGN id=IDENTIFIER assignexpr)
-        {   if (!isDeclared($id.text))
-                throw new CalcException($id, "is not declared");
-        }
+    :   ^(r=ASSIGN id=IDENTIFIER ae=assignexpr)
+        {   ca.checkExprAssign(r, id, $ae.tree); }
     ;
     
 assignexpr
-    :   closed_compound_expr
-    |   ^(ASSIGN single_expr assignexpr?)
-        {   if (!isDeclared($id.text))
-                throw new CalcException($id, "is not declared");
+    :   ^(r=ASSIGN id=IDENTIFIER ae=assignexpr) 
+        { ca.checkExprAssign(r, id, $ae.tree); }
+    |   (se=single_expr)
+        { ca.checkExprSingle($se.tree); }
+    |   (cce=closed_compound_expr)
+        { ca.checkExprCompound($cce.tree);
         }
     ;
  
 print
-    :   ^(PRINT (single_expr | string) printmore )
-    ;
-    
-printmore
-    :
-    |   single_expr printmore
-    |   string printmore
+    :   ^(r=PRINT (cce=closed_compound_expr {ca.checkExprPrintSingle(r,$cce.tree);}
+                  |se=single_expr           {ca.checkExprPrintSingle(r,$se.tree);}
+                  |s=string                 {ca.checkExprPrintSingle(r,$s.tree);})
+                  (cce=closed_compound_expr {ca.checkExprPrintMultiple(r,$cce.tree);}
+                  |se=single_expr           {ca.checkExprPrintMultiple(r,$se.tree);}
+                  |s=string                 {ca.checkExprPrintMultiple(r,$s.tree);}))
     ;
 
-expr
-    :   ((declarations | statements) single_expr)+
-    |   single_expr
+ifthenelse
+    :   ^(r=IF se=single_expr {ca.openScope(); } closed_compound_expr {ca.closeScope();} ({ca.openScope(); } closed_compound_expr {ca.closeScope();})?)
+        { ca.checkIf(r, $se.tree); }
     ;
     
-compound_exprmore
-    :
-    |   declarations compound_exprmore
-    |   statements compound_exprmore
+while
+    :   ^(r=WHILE se=single_expr {ca.openScope(); } closed_compound_expr {ca.closeScope();})
+        { ca.checkWhile(r, $se.tree);}
+    ;
+    
+closed_compound_expr
+    :   ^(r=LCURLY {ca.openScope();}declarations* compound_ext{ ca.checkCompoundExpr(r, $ce.tree); } {ca.closeScope();})
+    ;
+
+compound_ext
+    :   ^(r=RCURLY se=single_expr)
+        { ca.checkCompoundExt(r,$se.tree);}
+    |   statements declarations* compound_ext
+    ;
+
+type_op
+    :   single_expr
+    |   closed_compound_expr
     ;
 
 single_expr
     :   arithmetic
-    |   ^(IF arithmetic a=THEN statements+ ifelsethen_else)
     ;
-    
-ifelsethen_else
-    :
-    |   (b=ELSE statements+)
-    ;
-    
     
 arithmetic
-    :   arith2
-    |   ^(OR arithmetic arithmetic)
-    ;
-    
-arith2
-    :   arith3
-    |   ^(AND arith2 arith2)
-    ;
-    
-arith3
-    :   arith4
-    |   ^(LESS arith3 arith3)
-    |   ^(LESSEQ arith3 arith3)
-    |   ^(GREATEQ arith3 arith3)
-    |   ^(GREAT arith3 arith3)
-    |   ^(EQ arith3 arith3)
-    |   ^(NOTEQ arith3 arith3)
+    :   ^(r=(POS | NEG) ar=arithmetic)
+        { ca.checkExprNegate(r, $ar.tree); }
+    |   ^(r=NOT ar=arithmetic)
+        { ca.checkExprNot(r, $ar.tree); }
+    |   ^(r=(MULT | DIV | MOD | PLUS | MIN) ar1=arithmetic ar2=arithmetic)
+        { ca.checkExprMath(r, $ar1.tree, $ar2.tree); }
+    |   ^(r=(LESS | GREAT | LESSEQ | GREATEQ) ar1=arithmetic ar2=arithmetic)
+        { ca.checkExprCompNumber(r, $ar1.tree, $ar2.tree); }
+    |   ^(r=(EQ | NOTEQ) ar1=arithmetic ar2=arithmetic)
+        { ca.checkExprCompThing(r, $ar1.tree, $ar2.tree); }
+    |   ^(r=(AND | OR) ar1=arithmetic ar2=arithmetic)
+        { ca.checkExprBin(r, $ar1.tree, $ar2.tree); }
+    |   operand
     ;
 
-arith4        
-    :   arith5
-    |   ^(PLUS arith4 arith4)
-    |   ^(MIN arith4 arith4)
-    ;
-
-arith5       
-    :   arith6
-    |   ^(MULT arith5 arith5)
-    |   ^(DIV arith5 arith5)
-    |   ^(MOD arith5 arith5)
-    ;
-    
-arith6        
-    :   operand
-    |   ^(PLUS arith6)
-    |   ^(MIN arith6)
-    |   ^(NOT arith6)
-    ;
 
 operand
     :   id=IDENTIFIER         
-        {   if (!isDeclared($id.text))
-                throw new ChocException($id, "is not declared");
-        }
+        { ca.checkOperandIdentifier(id); }
     |   n=NUMBER
+        { ca.checkOperandNumber(n); }
+    |   ^(r=LPAREN se=single_expr)
+        { ca.checkOperandLparen(r, $se.tree); }
+    |   (b=BOOLEAN_OPERATOR)
+        { ca.checkOperandBool(b); }
+    |   (c=CHAR_OPERATOR)
+        { ca.checkOperandChar(c); }
     ;
 
 type

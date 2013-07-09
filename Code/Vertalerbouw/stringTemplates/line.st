@@ -1,2 +1,0 @@
-$decls; separator="\n"$
-$state$

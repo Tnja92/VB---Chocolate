@@ -12,33 +12,35 @@ options {
 
 @members{
     private int LbNr = 0;
-    private int getLbNr() { return LbNr; }
+    private int Lnr = 0;
+    private int getLbNr() { LbNr++; return LbNr; }
+    private int getLNr() { LNr++; return (LNr-1); }
 }
 
 
 program
-    :   ^(PROGRAM (lines+=line)+)           -> program(lines={$lines})
+    :   ^(PROGRAM (lines+=line)+)           -> program(sourceF={Chocolate.getFilename()},classN={Chocolate.getClassname()},lines={$lines})
     ;
     
 line
-    : (decls+=declaration* state=statement) -> line(decls={$decls}, state={$state.st})
+    : (decls+=declaration* state=statement) -> line(decls={$decls},state={$state.st})
     ;
 
 declaration
-    :   ^(CONSTANT ext=constant_extension)  -> constant(extension={$ext.st})
-    |   ^(VAR ext=var_extension)            -> var(extension={$ext.st})
+    :   ^(CONSTANT ext=constant_extension)  -> constant(extension={$ext.st},lnr={getLNr();})
+    |   ^(VAR ext=var_extension)            -> var(extension={$ext.st},lnr={getLNr();})
     ;
         
 constant_extension
-    :   t=INTEGER ids+=IDENTIFIER+ ASSIGN (single_expr | closed_compound_expr)    -> 
-    |   t=CHAR ids+=IDENTIFIER+ ASSIGN CHAR_OPERATOR                              -> 
-    |   t=BOOLEAN ids+=IDENTIFIER+ ASSIGN BOOLEAN_OPERATOR                        -> 
+    :   t=INTEGER ids+=IDENTIFIER+ ASSIGN e=(single_expr | closed_compound_expr)    -> conInt(ids={$ids},e={$e.st})
+    |   t=CHAR ids+=IDENTIFIER+ ASSIGN co=CHAR_OPERATOR                             -> conChar(ids={$ids},co={$co})
+    |   t=BOOLEAN ids+=IDENTIFIER+ ASSIGN bo=BOOLEAN_OPERATOR                       -> conBool(ids={ids},bo={$bo}) 
     ;
     
 var_extension
-    :   t=INTEGER ids+=IDENTIFIER+ (ASSIGN (single_expr | closed_compound_expr))? -> 
-    |   t=CHAR ids+=IDENTIFIER+ (ASSIGN CHAR_OPERATOR)?                           -> 
-    |   t=BOOLEAN ids+=IDENTIFIER+ (ASSIGN BOOLEAN_OPERATOR)?                     -> 
+    :   t=INTEGER ids+=IDENTIFIER+ (ASSIGN e=(single_expr | closed_compound_expr))? -> varInt(ids={$ids},e={$e.st})
+    |   t=CHAR ids+=IDENTIFIER+ (ASSIGN co=CHAR_OPERATOR)?                          -> varChar(ids={ids},co={$co})
+    |   t=BOOLEAN ids+=IDENTIFIER+ (ASSIGN bo=BOOLEAN_OPERATOR)?                    -> varBool(ids={ids},bo={$bo})
     ;
     
 statement
@@ -49,15 +51,15 @@ statement
     ;
     
 read
-    :   ^(READ (id+=IDENTIFIER)+)   -> read(ids={$id})
+    :   ^(READ (id+=IDENTIFIER)+)   -> read(ids={$id},lnr={getLNr();})
     ;
     
 print
-    :   ^(PRINT (l+=(closed_compound_expr | IDENTIFIER | STRING))+)    -> print(l={$l})
+    :   ^(PRINT (l+=(closed_compound_expr | IDENTIFIER | STRING))+)    -> print(l={$l},lnr={getLNr();})
     ;    
     
 assign
-    :   ASSIGN id=IDENTIFIER (aexpr=assignexpr)    -> assign(id={$id},assexpr={$aexpr.st})
+    :   ASSIGN id=IDENTIFIER (aexpr=assignexpr)    -> assign(id={$id},assexpr={$aexpr.st},lnr={getLNr();})
     ;
     
 assignexpr
@@ -67,11 +69,11 @@ assignexpr
     ;
     
 ifthenelse
-    :   IF s=single_expr c1=closed_compound_expr c2=closed_compound_expr  -> ifthenelse(s={$s.st},c1={$c1.st},c2={$c2.st})
+    :   IF s=single_expr c1=closed_compound_expr c2=closed_compound_expr  -> ifthenelse(s={$s.st},c1={$c1.st},c2={$c2.st},lbl={getLbNr();},lnr={getLNr();})
     ;    
 
 closed_compound_expr
-    :   ^(LCURLY decls+=declaration* state=statement+)                    -> compound(decls={$decls},state={$state.st})
+    :   ^(LCURLY decls+=declaration* state=statement+)                    -> compound(decls={$decls},state={$state.st},lnr={getLNr();})
     ;    
     
 single_expr

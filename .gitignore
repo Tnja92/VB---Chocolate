@@ -1,5 +1,11 @@
 *.class
 
+# Generated files #
+ChocolateCodeGenerator.java
+ChocolateChecker.java
+ChocolateLexer.java
+ChocolateParser.java
+
 # Package Files #
 *.jar
 *.war

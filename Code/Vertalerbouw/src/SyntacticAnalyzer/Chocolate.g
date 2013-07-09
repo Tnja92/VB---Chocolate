@@ -123,7 +123,7 @@ statement
     |   print 
     |   assign   
     |   ifthenelse
-    |   while
+    |   whiledo
     ;
 
 read
@@ -192,7 +192,7 @@ ifthenelse
     :   IF^ single_expr THEN! closed_compound_expr (ELSE! closed_compound_expr)?
     ;
     
-while
+whiledo
     :   WHILE^ single_expr DO! closed_compound_expr
     ;
 

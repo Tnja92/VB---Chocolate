@@ -25,11 +25,27 @@ program
 line
     : (decls+=declaration* state=statement) -> line(decls={$decls},state={$state.st})
     ;
-
+    
 declaration
-    :   ^(CONSTANT ext=constant_extension)  -> constant(extension={$ext.st},lnr={getLNr();})
-    |   ^(VAR ext=var_extension)            -> var(extension={$ext.st},lnr={getLNr();})
+    :   ^(CONSTANT t=type ids+=IDENTIFIER+  ASSIGN to=type_op)     -> constant(t={$t.st},ids={$ids},to={$to.st},lnr={getLNR();})
+    |   ^(VAR t=type ids+=IDENTIFIER+ (ASSIGN to=type_op)?)        -> var(t={$t.st},ids={$ids},to={$to.st},lnr={getLNr();})
     ;
+    
+type
+    :   i=INTEGER                   -> integer(i={$i.text})
+    |   c=CHAR                      -> char(c={$c.text})
+    |   b=BOOLEAN                   -> boolean(b={$b.text})
+    ;
+    
+type_op
+    :   s=single_expr               -> {$s.st}
+    |   c=closed_compound_expr      -> {$c.st}
+    ;
+
+//declaration
+    //:   ^(CONSTANT ext=constant_extension)  -> constant(extension={$ext.st},lnr={getLNr();})
+    //|   ^(VAR ext=var_extension)            -> var(extension={$ext.st},lnr={getLNr();})
+    //;
         
 //constant_extension
     //:   t=INTEGER ids+=IDENTIFIER+ ASSIGN e=(single_expr | closed_compound_expr)    -> conInt(ids={$ids},e={$e.st})
@@ -64,22 +80,31 @@ assign
     ;
     
 assignexpr
-    :   (IDENTIFIER ASSIGN) => (ASSIGN id=IDENTIFIER aexpr=assignexpr)    -> assign(id={$id},aexpr={$aexpr.st})
-    |   s=single_expr                                                     -> {$s.st}
-    |   c=closed_compound_expr                                            -> {$c.st}
+    :   (IDENTIFIER ASSIGN) => (ASSIGN id=IDENTIFIER aexpr=assignexpr)        -> assign(id={$id},aexpr={$aexpr.st})
+    |   s=single_expr                                                         -> {$s.st}
+    |   c=closed_compound_expr                                                -> {$c.st}
     ;
     
 ifthenelse
-    :   IF s=single_expr c1=closed_compound_expr c2=closed_compound_expr  -> ifthenelse(s={$s.st},c1={$c1.st},c2={$c2.st},lbl={getLbNr();},lnr={getLNr();})
+    :   ^(IF s=single_expr c1=closed_compound_expr c2=closed_compound_expr)   -> ifthenelse(s={$s.st},c1={$c1.st},c2={$c2.st},lbl={getLbNr();},lnr={getLNr();})
     ;
     
 while
-    :   WHILE^ s=single_expr DO! c=closed_compound_expr                   -> while(s={$s.st},c={$c.st},lnr={getLNr();})
+    :   ^(WHILE s=single_expr c=closed_compound_expr)                         -> while(s={$s.st},c={$c.st},lnr={getLNr();})
     ;
 
+//closed_compound_expr
+    //:   ^(LCURLY decls+=declaration* state=statement+)                    -> compound(decls={$decls},state={$state.st},lnr={getLNr();})
+    //;
+    
 closed_compound_expr
-    :   ^(LCURLY decls+=declaration* state=statement+)                    -> compound(decls={$decls},state={$state.st},lnr={getLNr();})
-    ;    
+    :   LCURLY^ declarations* compound_ext
+    ;
+    
+compound_ext
+    :   (single_expr RCURLY) => (single_expr)
+    |   statements declarations* compound_ext
+    ;
     
 single_expr
     :   o=operand                               -> {$o.st}
@@ -105,6 +130,6 @@ operand
     :   id=IDENTIFIER           -> identifier(id={$id.text})
     |   n=NUMBER                -> number(n={$n.text})
     |   ^(LPAREN s=single_expr) -> {$s.st}
-    |   b=BOOLEAN_OPERATOR      -> boolean(b={$b.text})
-    |   c=CHAR_OPERATOR         -> char(c={$c.text})
+    |   b=BOOLEAN_OPERATOR      -> booleanop(b={$b.text})
+    |   c=CHAR_OPERATOR         -> charop(c={$c.text})
     ;

@@ -1,4 +1,4 @@
-// $ANTLR 3.5 C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g 2013-07-09 14:03:41
+// $ANTLR 3.5 C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g 2013-07-09 14:25:44
 
 package SyntacticAnalyzer;
 
@@ -760,7 +760,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "statement"
-	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:121:1: statement : ( read | print | assign | ifthenelse | while );
+	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:121:1: statement : ( read | print | assign | ifthenelse | whiledo );
 	public final ChocolateParser.statement_return statement() throws RecognitionException {
 		ChocolateParser.statement_return retval = new ChocolateParser.statement_return();
 		retval.start = input.LT(1);
@@ -771,11 +771,11 @@ public class ChocolateParser extends Parser {
 		ParserRuleReturnScope print26 =null;
 		ParserRuleReturnScope assign27 =null;
 		ParserRuleReturnScope ifthenelse28 =null;
-		ParserRuleReturnScope while29 =null;
+		ParserRuleReturnScope whiledo29 =null;
 
 
 		try {
-			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:122:5: ( read | print | assign | ifthenelse | while )
+			// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:122:5: ( read | print | assign | ifthenelse | whiledo )
 			int alt8=5;
 			switch ( input.LA(1) ) {
 			case READ:
@@ -867,16 +867,16 @@ public class ChocolateParser extends Parser {
 					}
 					break;
 				case 5 :
-					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:126:9: while
+					// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:126:9: whiledo
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					pushFollow(FOLLOW_while_in_statement1513);
-					while29=while();
+					pushFollow(FOLLOW_whiledo_in_statement1513);
+					whiledo29=whiledo();
 					state._fsp--;
 					if (state.failed) return retval;
-					if ( state.backtracking==0 ) adaptor.addChild(root_0, while29.getTree());
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, whiledo29.getTree());
 
 					}
 					break;
@@ -2702,17 +2702,17 @@ public class ChocolateParser extends Parser {
 	// $ANTLR end "ifthenelse"
 
 
-	public static class while_return extends ParserRuleReturnScope {
+	public static class whiledo_return extends ParserRuleReturnScope {
 		Object tree;
 		@Override
 		public Object getTree() { return tree; }
 	};
 
 
-	// $ANTLR start "while"
-	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:195:1: while : WHILE ^ single_expr DO ! closed_compound_expr ;
-	public final ChocolateParser.while_return while() throws RecognitionException {
-		ChocolateParser.while_return retval = new ChocolateParser.while_return();
+	// $ANTLR start "whiledo"
+	// C:\\Kim\\INF\\Vertalerbouw\\Practicum\\src\\vb\\Chocolate\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:195:1: whiledo : WHILE ^ single_expr DO ! closed_compound_expr ;
+	public final ChocolateParser.whiledo_return whiledo() throws RecognitionException {
+		ChocolateParser.whiledo_return retval = new ChocolateParser.whiledo_return();
 		retval.start = input.LT(1);
 
 		Object root_0 = null;
@@ -2732,20 +2732,20 @@ public class ChocolateParser extends Parser {
 			root_0 = (Object)adaptor.nil();
 
 
-			WHILE99=(Token)match(input,WHILE,FOLLOW_WHILE_in_while2163); if (state.failed) return retval;
+			WHILE99=(Token)match(input,WHILE,FOLLOW_WHILE_in_whiledo2163); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
 			WHILE99_tree = (Object)adaptor.create(WHILE99);
 			root_0 = (Object)adaptor.becomeRoot(WHILE99_tree, root_0);
 			}
 
-			pushFollow(FOLLOW_single_expr_in_while2166);
+			pushFollow(FOLLOW_single_expr_in_whiledo2166);
 			single_expr100=single_expr();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) adaptor.addChild(root_0, single_expr100.getTree());
 
-			DO101=(Token)match(input,DO,FOLLOW_DO_in_while2168); if (state.failed) return retval;
-			pushFollow(FOLLOW_closed_compound_expr_in_while2171);
+			DO101=(Token)match(input,DO,FOLLOW_DO_in_whiledo2168); if (state.failed) return retval;
+			pushFollow(FOLLOW_closed_compound_expr_in_whiledo2171);
 			closed_compound_expr102=closed_compound_expr();
 			state._fsp--;
 			if (state.failed) return retval;
@@ -2770,7 +2770,7 @@ public class ChocolateParser extends Parser {
 		}
 		return retval;
 	}
-	// $ANTLR end "while"
+	// $ANTLR end "whiledo"
 
 
 	public static class operand_return extends ParserRuleReturnScope {
@@ -3148,7 +3148,7 @@ public class ChocolateParser extends Parser {
 	public static final BitSet FOLLOW_print_in_statement1479 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_assign_in_statement1490 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_ifthenelse_in_statement1503 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_while_in_statement1513 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_whiledo_in_statement1513 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_READ_in_read1532 = new BitSet(new long[]{0x0000000040000000L});
 	public static final BitSet FOLLOW_LPAREN_in_read1535 = new BitSet(new long[]{0x0000000000400000L});
 	public static final BitSet FOLLOW_IDENTIFIER_in_read1538 = new BitSet(new long[]{0x0000400000000800L});
@@ -3218,10 +3218,10 @@ public class ChocolateParser extends Parser {
 	public static final BitSet FOLLOW_closed_compound_expr_in_ifthenelse2132 = new BitSet(new long[]{0x0000000000040002L});
 	public static final BitSet FOLLOW_ELSE_in_ifthenelse2135 = new BitSet(new long[]{0x0000000002000000L});
 	public static final BitSet FOLLOW_closed_compound_expr_in_ifthenelse2138 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_WHILE_in_while2163 = new BitSet(new long[]{0x000000A8C0400280L});
-	public static final BitSet FOLLOW_single_expr_in_while2166 = new BitSet(new long[]{0x0000000000010000L});
-	public static final BitSet FOLLOW_DO_in_while2168 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_while2171 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_WHILE_in_whiledo2163 = new BitSet(new long[]{0x000000A8C0400280L});
+	public static final BitSet FOLLOW_single_expr_in_whiledo2166 = new BitSet(new long[]{0x0000000000010000L});
+	public static final BitSet FOLLOW_DO_in_whiledo2168 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_whiledo2171 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_IDENTIFIER_in_operand2191 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_NUMBER_in_operand2201 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_LPAREN_in_operand2211 = new BitSet(new long[]{0x000000A8C0400280L});

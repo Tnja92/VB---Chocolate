@@ -1,0 +1,6 @@
+cacao FOUT: gebruik van assign statement waarbij aan een variabele van type a een waarde van type b
+cacao wordt toegekend
+
+bonbon wit bloem;
+bloem milka 'b';
+verkade(bloem);

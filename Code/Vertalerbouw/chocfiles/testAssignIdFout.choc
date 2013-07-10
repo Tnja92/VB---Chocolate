@@ -1,0 +1,9 @@
+cacao FOUT: gebruik van het assign statement waarbij een identifier niet is gedeclareerd
+
+bonbon wit a;
+bonbon wit c;
+
+a milka b milka c milka 4;
+verkade(a);
+verkade(b);
+verkade(c);

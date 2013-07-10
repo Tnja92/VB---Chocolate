@@ -1,0 +1,7 @@
+cacao FOUT: een compound expressie die niet eindigt met een single expression
+
+bonbon wit badEgg milka {reep wit egg milka 6;
+	bonbon wit badness milka 6;
+	verkade(egg milkyway badness);
+	};
+verkade(badEgg);

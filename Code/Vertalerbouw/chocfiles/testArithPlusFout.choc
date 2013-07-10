@@ -1,0 +1,9 @@
+cacao FOUT: gebruik van optelling waarbij twee op te tellen variabellen/constanten niet van
+cacao hetzelfde type zijn
+
+bonbon wit h milka 2;
+reep wit a milka 13;
+reep melk m milka 'k';
+bonbon wit b;
+b milka h bounty a bounty m;
+verkade(b);

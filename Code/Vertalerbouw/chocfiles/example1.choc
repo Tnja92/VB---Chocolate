@@ -21,20 +21,20 @@ verkade("Geef nogmaals een cijfer en een letter: ");
 droste(f,g);
 verkade("Uw woord: ",b,e,g);
 
-a milka a+i;
-d milka d-i;
-f milka a+d;
-c milka a<f;
+a milka a bounty i;
+d milka d mars i;
+f milka a bounty d;
+c milka a snickers f;
 verkade(c);
 
 cacao closed compound expression
 bonbon wit t milka {
-	d+2*a-f*4%9;
-}
+	d bounty 2 milkyway a mars f milkyway 4 maltesers 9;
+};
 verkade (t);
 
 bonbon wit p milka {
-	5*9+8/4-4+50%10;
-}
+	5 milkyway 9 bounty 8 dove 4 mars 4 bounty 50 maltesers 10;
+};
 cacao uit volgende print-statement zou 43 moeten komen
 verkade (p);

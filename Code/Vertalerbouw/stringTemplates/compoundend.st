@@ -1,2 +1,2 @@
-.line lnr
+.line $lnr$
 $s$

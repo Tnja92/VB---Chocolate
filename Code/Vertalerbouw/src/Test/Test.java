@@ -1,6 +1,10 @@
 package Test;
 
+import java.io.IOException;
 import java.util.ArrayList;
+
+import org.antlr.runtime.RecognitionException;
+
 import SyntacticAnalyzer.Chocolate;
 
 public class Test {
@@ -32,52 +36,84 @@ public class Test {
 		tests.add("testArithPriority.choc");
 		tests.add("testAssign.choc");
 		tests.add("testAssignExprFout.choc");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		tests.add("test");
-		
+		tests.add("testAssignIdFout.choc");
+		tests.add("testAssignTypeFout.choc");
+		tests.add("testCompound.choc");
+		tests.add("testCompoundEmptyFout.choc");
+		tests.add("testCompoundEndFout.choc");
+		tests.add("testDeclCon.choc");
+		tests.add("testDeclConFout.choc");
+		tests.add("testDeclIdFout.choc");
+		tests.add("testDeclIdNameFout.choc");
+		tests.add("testDeclOnbekendFout.choc");
+		tests.add("testDeclTypeFout.choc");
+		tests.add("testDeclVar.choc");
+		tests.add("testGebruikFout.choc");
+		tests.add("testIf.choc");
+		tests.add("testIfCondFout.choc");
+		tests.add("testPrint.choc");
+		tests.add("testPrintCommaFout.choc");
+		tests.add("testProgram.choc");
+		tests.add("testProgramFout.choc");
+		tests.add("testRead.choc");
+		tests.add("testReadConFout.choc");
+		tests.add("testReadEmptyFout.choc");
+		tests.add("testReadNoParenFout.choc");
+		tests.add("testStatementsFout.choc");
+		tests.add("testWhile.choc");
+		tests.add("testWhileCondFout.choc");
 	}
 	
 	public void runChocolateTests(int fase){
 		if(fase == 1){
-			for(int i=0; i<tests.size();i++){
-				String[] toRun = {"-no_checker", "chocfiles\\"+tests.get(i).toString()};
-				Chocolate.main(toRun);
+			for(String s:tests){
+				System.out.println("Running file: "+s);
+				String[] toRun = {"-no_checker", "chocfiles\\"+s};
+				try {
+					Chocolate.testMain(toRun);
+				} catch (IOException e) {
+					System.out.println("Exception bij " + s);
+					System.err.println(e.getMessage());
+					tests.remove(s);
+				} catch (RecognitionException e) {
+					System.out.println("Exception bij " + s);
+					System.err.println(e.getMessage());
+					tests.remove(s);
+				}
 			}
 		}
 		else if(fase == 2){
-			for(int i=0; i<tests.size();i++){
-				String[] toRun = {"chocfiles\\"+tests.get(i).toString()};
-				Chocolate.main(toRun);
+			for(String s:tests){
+				System.out.println("Running file: "+s);
+				String[] toRun = {"chocfiles\\"+s};
+				try {
+					Chocolate.testMain(toRun);
+				} catch (IOException e) {
+					System.err.println("Exception bij " + s);
+					System.err.println(e.getMessage());
+					tests.remove(s);
+				} catch (RecognitionException e) {
+					System.err.println("Exception bij " + s);
+					System.err.println(e.getMessage());
+					tests.remove(s);
+				}
 			}
 		}
 		else if(fase == 3){
-			for(int i=0; i<tests.size();i++){
-				String[] toRun = {"-code_generator", "chocfiles\\"+tests.get(i).toString(), outputFile};
-				Chocolate.main(toRun);
+			for(String s:tests){
+				System.out.println("Running file: "+s);
+				String[] toRun = {"-code_generator", "chocfiles\\"+s, outputFile};
+				try {
+					Chocolate.testMain(toRun);
+				} catch (IOException e) {
+					System.err.println("Exception bij " + s);
+					System.err.println(e.getMessage());
+					tests.remove(s);
+				} catch (RecognitionException e) {
+					System.err.println("Exception bij " + s);
+					System.err.println(e.getMessage());
+					tests.remove(s);
+				}
 			}
 		}
 	}

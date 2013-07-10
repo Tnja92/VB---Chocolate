@@ -1,2 +1,15 @@
 cacao GOED: een mogelijk programma
 
+reep wit a milka 2;
+reep puur b milka true;
+bonbon wit c;
+
+if b then
+	{c milka 2; 3;}
+;
+
+while b do
+	{c milka c bounty a;
+	if c bueno 13 then
+		{b milka false; 3;}
+	};

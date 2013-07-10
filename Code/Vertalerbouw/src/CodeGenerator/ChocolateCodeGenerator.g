@@ -32,9 +32,9 @@ section
     
 declaration
     :   ^(CONSTANT t=type (ids+=IDENTIFIER)+  ASSIGN to=type_op) {for(Object id:$ids) { store++; ((ChocolateTree)id).setAddress(store); }}
-            -> constant(to={$to.text},st={store},lnr={getLNr()})
+            -> constant(to={$to.st},st={store},lnr={getLNr()})
     |   ^(VAR t=type (ids+=IDENTIFIER)+ (ASSIGN to=type_op)?) {for(Object id:$ids) { store++; ((ChocolateTree)id).setAddress(store); }} 
-            -> var(to={$to.text},st={store},lbl={getLbNr()},lnr={getLNr()})
+            -> var(to={$to.st},st={store},lbl={getLbNr()},lnr={getLNr()})
     ;
     
 type
@@ -44,8 +44,8 @@ type
     ;
     
 type_op
-    :   s=single_expr               -> {$s.st}
-    |   c=closed_compound_expr      -> {$c.st}
+    :   s=single_expr               -> typeop(t={$s.st})
+    |   c=closed_compound_expr      -> typeop(t={$c.st})
     ;
     
 statement
@@ -94,12 +94,12 @@ whiledo
     :   ^(WHILE s=single_expr c=closed_compound_expr)                         -> whiledo(s={$s.st},c={$c.st},lbl={getLbNr()},lnr={getLNr()})
     ;
 closed_compound_expr
-    :   ^(LCURLY decls+=declaration* cext=compound_ext)        -> compound(decls={$decls},cext={$cext.st},lnr={getLNr()})
+    :   ^(LCURLY (decls+=declaration)* cext=compound_ext)        -> compound(decls={$decls},cext={$cext.st},lnr={getLNr()})
     ;
     
 compound_ext
-    :   (single_expr RCURLY) => (s=single_expr)                -> compoundend(s={$s.st},lnr={getLNr()})
-    |   s=statement decls+=declaration* cext=compound_ext      -> compoundex(s={$s.st},decls={$decls},cext={$cext.st},lnr={getLNr()})
+    :   s=single_expr                                            -> compoundend(s={$s.st},lnr={getLNr()})
+    |   s=statement (decls+=declaration)* cext=compound_ext      -> compoundex(s={$s.st},decls={$decls},cext={$cext.st},lnr={getLNr()})
     ;
     
 single_expr

@@ -203,7 +203,6 @@ public class Chocolate {
         DOT,
         AST,
         NO_CHECKER,
-        NO_INTERPRETER,
         CODE_GENERATOR;
 
         /** Makes a new option */

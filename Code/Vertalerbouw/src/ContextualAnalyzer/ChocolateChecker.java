@@ -1,15 +1,13 @@
-// $ANTLR 3.5 C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g 2013-07-09 17:38:23
+// $ANTLR 3.5 C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g 2013-07-10 10:05:29
 
 package ContextualAnalyzer;
 import java.util.Set;
 import java.util.HashSet;
+import AST.*;
 
 
 import org.antlr.runtime.*;
 import org.antlr.runtime.tree.*;
-
-import AST.ChocolateTree;
-
 import java.util.Stack;
 import java.util.List;
 import java.util.ArrayList;
@@ -115,7 +113,7 @@ public class ChocolateChecker extends TreeParser {
 
 
 	// $ANTLR start "program"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:27:1: program : ^( PROGRAM ( ( declarations )* statements )+ ) ;
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:28:1: program : ^( PROGRAM ( ( declarations )* statements )+ ) ;
 	public final ChocolateChecker.program_return program() throws RecognitionException {
 		ChocolateChecker.program_return retval = new ChocolateChecker.program_return();
 		retval.start = input.LT(1);
@@ -133,11 +131,11 @@ public class ChocolateChecker extends TreeParser {
 		ChocolateTree PROGRAM1_tree=null;
 
 
-		  cf.openScope();
+		  ca.openScope();
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:34:5: ( ^( PROGRAM ( ( declarations )* statements )+ ) )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:34:9: ^( PROGRAM ( ( declarations )* statements )+ )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:35:5: ( ^( PROGRAM ( ( declarations )* statements )+ ) )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:35:9: ^( PROGRAM ( ( declarations )* statements )+ )
 			{
 			root_0 = (ChocolateTree)adaptor.nil();
 
@@ -155,7 +153,7 @@ public class ChocolateChecker extends TreeParser {
 			root_1 = (ChocolateTree)adaptor.becomeRoot(PROGRAM1_tree, root_1);
 
 			match(input, Token.DOWN, null); 
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:34:19: ( ( declarations )* statements )+
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:35:19: ( ( declarations )* statements )+
 			int cnt2=0;
 			loop2:
 			while (true) {
@@ -167,9 +165,9 @@ public class ChocolateChecker extends TreeParser {
 
 				switch (alt2) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:34:20: ( declarations )* statements
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:35:20: ( declarations )* statements
 					{
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:34:20: ( declarations )*
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:35:20: ( declarations )*
 					loop1:
 					while (true) {
 						int alt1=2;
@@ -180,7 +178,7 @@ public class ChocolateChecker extends TreeParser {
 
 						switch (alt1) {
 						case 1 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:34:20: declarations
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:35:20: declarations
 							{
 							_last = (ChocolateTree)input.LT(1);
 							pushFollow(FOLLOW_declarations_in_program122);
@@ -226,7 +224,7 @@ public class ChocolateChecker extends TreeParser {
 			retval.tree = (ChocolateTree)adaptor.rulePostProcessing(root_0);
 
 
-			  cf.closeScope();
+			  ca.closeScope();
 
 		}
 		 
@@ -250,7 +248,7 @@ public class ChocolateChecker extends TreeParser {
 
 
 	// $ANTLR start "declarations"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:37:1: declarations : ( ^(r= CONSTANT t= type id= IDENTIFIER ( COMMA !a= IDENTIFIER )* ASSIGN (t2= type_op ) ) | ^(r= VAR t= type id= IDENTIFIER ( COMMA !a= IDENTIFIER )* ( ASSIGN ( type_op ) )? ) );
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:38:1: declarations : ( ^(r= CONSTANT t= type id= IDENTIFIER ( COMMA !a= IDENTIFIER )* ASSIGN (t2= type_op ) ) | ^(r= VAR t= type id= IDENTIFIER ( COMMA !a= IDENTIFIER )* ( ASSIGN ( type_op ) )? ) );
 	public final ChocolateChecker.declarations_return declarations() throws RecognitionException {
 		ChocolateChecker.declarations_return retval = new ChocolateChecker.declarations_return();
 		retval.start = input.LT(1);
@@ -281,7 +279,7 @@ public class ChocolateChecker extends TreeParser {
 		ChocolateTree ASSIGN7_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:38:5: ( ^(r= CONSTANT t= type id= IDENTIFIER ( COMMA !a= IDENTIFIER )* ASSIGN (t2= type_op ) ) | ^(r= VAR t= type id= IDENTIFIER ( COMMA !a= IDENTIFIER )* ( ASSIGN ( type_op ) )? ) )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:39:5: ( ^(r= CONSTANT t= type id= IDENTIFIER ( COMMA !a= IDENTIFIER )* ASSIGN (t2= type_op ) ) | ^(r= VAR t= type id= IDENTIFIER ( COMMA !a= IDENTIFIER )* ( ASSIGN ( type_op ) )? ) )
 			int alt6=2;
 			int LA6_0 = input.LA(1);
 			if ( (LA6_0==CONSTANT) ) {
@@ -299,7 +297,7 @@ public class ChocolateChecker extends TreeParser {
 
 			switch (alt6) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:38:9: ^(r= CONSTANT t= type id= IDENTIFIER ( COMMA !a= IDENTIFIER )* ASSIGN (t2= type_op ) )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:39:9: ^(r= CONSTANT t= type id= IDENTIFIER ( COMMA !a= IDENTIFIER )* ASSIGN (t2= type_op ) )
 					{
 					root_0 = (ChocolateTree)adaptor.nil();
 
@@ -331,8 +329,8 @@ public class ChocolateChecker extends TreeParser {
 
 					adaptor.addChild(root_1, id_tree);
 
-					ca.checkVarDecl(r, t, id);
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:38:72: ( COMMA !a= IDENTIFIER )*
+					ca.checkConstDecl(r, (t!=null?((ChocolateTree)t.getTree()):null), id_tree);
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:39:86: ( COMMA !a= IDENTIFIER )*
 					loop3:
 					while (true) {
 						int alt3=2;
@@ -343,7 +341,7 @@ public class ChocolateChecker extends TreeParser {
 
 						switch (alt3) {
 						case 1 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:38:73: COMMA !a= IDENTIFIER
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:39:87: COMMA !a= IDENTIFIER
 							{
 							_last = (ChocolateTree)input.LT(1);
 							COMMA4=(ChocolateTree)match(input,COMMA,FOLLOW_COMMA_in_declarations167); 
@@ -355,7 +353,7 @@ public class ChocolateChecker extends TreeParser {
 
 							adaptor.addChild(root_1, a_tree);
 
-							ca.checkVarDecl(r, t, a);
+							ca.checkConstDecl(r, (t!=null?((ChocolateTree)t.getTree()):null), a_tree);
 							}
 							break;
 
@@ -371,8 +369,8 @@ public class ChocolateChecker extends TreeParser {
 
 					adaptor.addChild(root_1, ASSIGN5_tree);
 
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:38:130: (t2= type_op )
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:38:131: t2= type_op
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:39:158: (t2= type_op )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:39:159: t2= type_op
 					{
 					_last = (ChocolateTree)input.LT(1);
 					pushFollow(FOLLOW_type_op_in_declarations183);
@@ -381,7 +379,7 @@ public class ChocolateChecker extends TreeParser {
 
 					adaptor.addChild(root_1, t2.getTree());
 
-					ca.checkDeclaration(r, t, t2);
+					ca.checkConstDecl(r, (t!=null?((ChocolateTree)t.getTree()):null), (t2!=null?((ChocolateTree)t2.getTree()):null));
 					}
 
 					match(input, Token.UP, null); 
@@ -393,7 +391,7 @@ public class ChocolateChecker extends TreeParser {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:39:9: ^(r= VAR t= type id= IDENTIFIER ( COMMA !a= IDENTIFIER )* ( ASSIGN ( type_op ) )? )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:40:9: ^(r= VAR t= type id= IDENTIFIER ( COMMA !a= IDENTIFIER )* ( ASSIGN ( type_op ) )? )
 					{
 					root_0 = (ChocolateTree)adaptor.nil();
 
@@ -425,8 +423,8 @@ public class ChocolateChecker extends TreeParser {
 
 					adaptor.addChild(root_1, id_tree);
 
-					ca.checkConstDecl(r, t, id);
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:39:68: ( COMMA !a= IDENTIFIER )*
+					ca.checkVarDecl(r, (t!=null?((ChocolateTree)t.getTree()):null), id_tree);
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:40:78: ( COMMA !a= IDENTIFIER )*
 					loop4:
 					while (true) {
 						int alt4=2;
@@ -437,7 +435,7 @@ public class ChocolateChecker extends TreeParser {
 
 						switch (alt4) {
 						case 1 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:39:69: COMMA !a= IDENTIFIER
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:40:79: COMMA !a= IDENTIFIER
 							{
 							_last = (ChocolateTree)input.LT(1);
 							COMMA6=(ChocolateTree)match(input,COMMA,FOLLOW_COMMA_in_declarations211); 
@@ -449,7 +447,7 @@ public class ChocolateChecker extends TreeParser {
 
 							adaptor.addChild(root_1, a_tree);
 
-							ca.checkConstDecl(r, t, a);
+							ca.checkVarDecl(r, (t!=null?((ChocolateTree)t.getTree()):null), a_tree);
 							}
 							break;
 
@@ -458,7 +456,7 @@ public class ChocolateChecker extends TreeParser {
 						}
 					}
 
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:39:120: ( ASSIGN ( type_op ) )?
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:40:140: ( ASSIGN ( type_op ) )?
 					int alt5=2;
 					int LA5_0 = input.LA(1);
 					if ( (LA5_0==ASSIGN) ) {
@@ -466,7 +464,7 @@ public class ChocolateChecker extends TreeParser {
 					}
 					switch (alt5) {
 						case 1 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:39:121: ASSIGN ( type_op )
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:40:141: ASSIGN ( type_op )
 							{
 							_last = (ChocolateTree)input.LT(1);
 							ASSIGN7=(ChocolateTree)match(input,ASSIGN,FOLLOW_ASSIGN_in_declarations222); 
@@ -475,8 +473,8 @@ public class ChocolateChecker extends TreeParser {
 
 							adaptor.addChild(root_1, ASSIGN7_tree);
 
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:39:128: ( type_op )
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:39:129: type_op
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:40:148: ( type_op )
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:40:149: type_op
 							{
 							_last = (ChocolateTree)input.LT(1);
 							pushFollow(FOLLOW_type_op_in_declarations225);
@@ -485,7 +483,7 @@ public class ChocolateChecker extends TreeParser {
 
 							adaptor.addChild(root_1, type_op8.getTree());
 
-							ca.checkDeclaration(r, t, t2);
+							ca.checkVarDecl(r, (t!=null?((ChocolateTree)t.getTree()):null), (t2!=null?((ChocolateTree)t2.getTree()):null));
 							}
 
 							}
@@ -527,7 +525,7 @@ public class ChocolateChecker extends TreeParser {
 
 
 	// $ANTLR start "statements"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:42:1: statements : ( read | assign | print | ifthenelse | while );
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:43:1: statements : ( read | assign | print | ifthenelse | whiledo );
 	public final ChocolateChecker.statements_return statements() throws RecognitionException {
 		ChocolateChecker.statements_return retval = new ChocolateChecker.statements_return();
 		retval.start = input.LT(1);
@@ -542,11 +540,11 @@ public class ChocolateChecker extends TreeParser {
 		TreeRuleReturnScope assign10 =null;
 		TreeRuleReturnScope print11 =null;
 		TreeRuleReturnScope ifthenelse12 =null;
-		TreeRuleReturnScope while13 =null;
+		TreeRuleReturnScope whiledo13 =null;
 
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:43:5: ( read | assign | print | ifthenelse | while )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:44:5: ( read | assign | print | ifthenelse | whiledo )
 			int alt7=5;
 			switch ( input.LA(1) ) {
 			case READ:
@@ -581,7 +579,7 @@ public class ChocolateChecker extends TreeParser {
 			}
 			switch (alt7) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:43:9: read
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:44:9: read
 					{
 					root_0 = (ChocolateTree)adaptor.nil();
 
@@ -596,7 +594,7 @@ public class ChocolateChecker extends TreeParser {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:43:16: assign
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:44:16: assign
 					{
 					root_0 = (ChocolateTree)adaptor.nil();
 
@@ -611,7 +609,7 @@ public class ChocolateChecker extends TreeParser {
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:43:25: print
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:44:25: print
 					{
 					root_0 = (ChocolateTree)adaptor.nil();
 
@@ -626,7 +624,7 @@ public class ChocolateChecker extends TreeParser {
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:43:33: ifthenelse
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:44:33: ifthenelse
 					{
 					root_0 = (ChocolateTree)adaptor.nil();
 
@@ -641,17 +639,17 @@ public class ChocolateChecker extends TreeParser {
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:43:46: while
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:44:46: whiledo
 					{
 					root_0 = (ChocolateTree)adaptor.nil();
 
 
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_while_in_statements269);
-					while13=while();
+					pushFollow(FOLLOW_whiledo_in_statements269);
+					whiledo13=whiledo();
 					state._fsp--;
 
-					adaptor.addChild(root_0, while13.getTree());
+					adaptor.addChild(root_0, whiledo13.getTree());
 
 					}
 					break;
@@ -681,7 +679,7 @@ public class ChocolateChecker extends TreeParser {
 
 
 	// $ANTLR start "read"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:46:1: read : ^(r= READ (id= IDENTIFIER ) (id= IDENTIFIER )* ) ;
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:47:1: read : ^(r= READ (id= IDENTIFIER ) (id= IDENTIFIER )* ) ;
 	public final ChocolateChecker.read_return read() throws RecognitionException {
 		ChocolateChecker.read_return retval = new ChocolateChecker.read_return();
 		retval.start = input.LT(1);
@@ -699,8 +697,8 @@ public class ChocolateChecker extends TreeParser {
 		ChocolateTree id_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:47:5: ( ^(r= READ (id= IDENTIFIER ) (id= IDENTIFIER )* ) )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:47:9: ^(r= READ (id= IDENTIFIER ) (id= IDENTIFIER )* )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:48:5: ( ^(r= READ (id= IDENTIFIER ) (id= IDENTIFIER )* ) )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:48:9: ^(r= READ (id= IDENTIFIER ) (id= IDENTIFIER )* )
 			{
 			root_0 = (ChocolateTree)adaptor.nil();
 
@@ -718,8 +716,8 @@ public class ChocolateChecker extends TreeParser {
 			root_1 = (ChocolateTree)adaptor.becomeRoot(r_tree, root_1);
 
 			match(input, Token.DOWN, null); 
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:47:18: (id= IDENTIFIER )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:47:19: id= IDENTIFIER
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:48:18: (id= IDENTIFIER )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:48:19: id= IDENTIFIER
 			{
 			_last = (ChocolateTree)input.LT(1);
 			id=(ChocolateTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_read300); 
@@ -731,7 +729,7 @@ public class ChocolateChecker extends TreeParser {
 			 ca.checkExprReadSingle(r,id); 
 			}
 
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:47:67: (id= IDENTIFIER )*
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:48:67: (id= IDENTIFIER )*
 			loop8:
 			while (true) {
 				int alt8=2;
@@ -742,7 +740,7 @@ public class ChocolateChecker extends TreeParser {
 
 				switch (alt8) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:47:68: id= IDENTIFIER
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:48:68: id= IDENTIFIER
 					{
 					_last = (ChocolateTree)input.LT(1);
 					id=(ChocolateTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_read307); 
@@ -751,7 +749,7 @@ public class ChocolateChecker extends TreeParser {
 
 					adaptor.addChild(root_1, id_tree);
 
-					 ca.checkExprReadMultiple(); 
+					 ca.checkExprReadMultiple(r,id); 
 					}
 					break;
 
@@ -792,7 +790,7 @@ public class ChocolateChecker extends TreeParser {
 
 
 	// $ANTLR start "assign"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:50:1: assign : ^(r= ASSIGN id= IDENTIFIER ae= assignexpr ) ;
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:51:1: assign : ^(r= ASSIGN id= IDENTIFIER ae= assignexpr ) ;
 	public final ChocolateChecker.assign_return assign() throws RecognitionException {
 		ChocolateChecker.assign_return retval = new ChocolateChecker.assign_return();
 		retval.start = input.LT(1);
@@ -811,8 +809,8 @@ public class ChocolateChecker extends TreeParser {
 		ChocolateTree id_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:51:5: ( ^(r= ASSIGN id= IDENTIFIER ae= assignexpr ) )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:51:9: ^(r= ASSIGN id= IDENTIFIER ae= assignexpr )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:52:5: ( ^(r= ASSIGN id= IDENTIFIER ae= assignexpr ) )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:52:9: ^(r= ASSIGN id= IDENTIFIER ae= assignexpr )
 			{
 			root_0 = (ChocolateTree)adaptor.nil();
 
@@ -877,7 +875,7 @@ public class ChocolateChecker extends TreeParser {
 
 
 	// $ANTLR start "assignexpr"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:55:1: assignexpr : ( ^(r= ASSIGN id= IDENTIFIER ae= assignexpr ) | (se= single_expr ) | (cce= closed_compound_expr ) );
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:56:1: assignexpr : ( ^(r= ASSIGN id= IDENTIFIER ae= assignexpr ) | (se= single_expr ) | (cce= closed_compound_expr ) );
 	public final ChocolateChecker.assignexpr_return assignexpr() throws RecognitionException {
 		ChocolateChecker.assignexpr_return retval = new ChocolateChecker.assignexpr_return();
 		retval.start = input.LT(1);
@@ -898,7 +896,7 @@ public class ChocolateChecker extends TreeParser {
 		ChocolateTree id_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:56:5: ( ^(r= ASSIGN id= IDENTIFIER ae= assignexpr ) | (se= single_expr ) | (cce= closed_compound_expr ) )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:57:5: ( ^(r= ASSIGN id= IDENTIFIER ae= assignexpr ) | (se= single_expr ) | (cce= closed_compound_expr ) )
 			int alt9=3;
 			switch ( input.LA(1) ) {
 			case ASSIGN:
@@ -943,7 +941,7 @@ public class ChocolateChecker extends TreeParser {
 			}
 			switch (alt9) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:56:9: ^(r= ASSIGN id= IDENTIFIER ae= assignexpr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:57:9: ^(r= ASSIGN id= IDENTIFIER ae= assignexpr )
 					{
 					root_0 = (ChocolateTree)adaptor.nil();
 
@@ -985,13 +983,13 @@ public class ChocolateChecker extends TreeParser {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:58:9: (se= single_expr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:59:9: (se= single_expr )
 					{
 					root_0 = (ChocolateTree)adaptor.nil();
 
 
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:58:9: (se= single_expr )
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:58:10: se= single_expr
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:59:9: (se= single_expr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:59:10: se= single_expr
 					{
 					_last = (ChocolateTree)input.LT(1);
 					pushFollow(FOLLOW_single_expr_in_assignexpr411);
@@ -1002,20 +1000,19 @@ public class ChocolateChecker extends TreeParser {
 
 					}
 
-					 ca.checkExprSingle((se!=null?((ChocolateTree)se.getTree()):null)); 
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:60:9: (cce= closed_compound_expr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:61:9: (cce= closed_compound_expr )
 					{
 					root_0 = (ChocolateTree)adaptor.nil();
 
 
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:60:9: (cce= closed_compound_expr )
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:60:10: cce= closed_compound_expr
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:61:9: (cce= closed_compound_expr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:61:10: cce= closed_compound_expr
 					{
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_closed_compound_expr_in_assignexpr435);
+					pushFollow(FOLLOW_closed_compound_expr_in_assignexpr433);
 					cce=closed_compound_expr();
 					state._fsp--;
 
@@ -1023,8 +1020,6 @@ public class ChocolateChecker extends TreeParser {
 
 					}
 
-					 ca.checkExprCompound((cce!=null?((ChocolateTree)cce.getTree()):null));
-					        
 					}
 					break;
 
@@ -1084,7 +1079,7 @@ public class ChocolateChecker extends TreeParser {
 			ChocolateTree _first_1 = null;
 			ChocolateTree root_1 = (ChocolateTree)adaptor.nil();
 			_last = (ChocolateTree)input.LT(1);
-			r=(ChocolateTree)match(input,PRINT,FOLLOW_PRINT_in_print469); 
+			r=(ChocolateTree)match(input,PRINT,FOLLOW_PRINT_in_print465); 
 			r_tree = (ChocolateTree)adaptor.dupNode(r);
 
 
@@ -1140,7 +1135,7 @@ public class ChocolateChecker extends TreeParser {
 					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:66:20: cce= closed_compound_expr
 					{
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_closed_compound_expr_in_print474);
+					pushFollow(FOLLOW_closed_compound_expr_in_print470);
 					cce=closed_compound_expr();
 					state._fsp--;
 
@@ -1153,7 +1148,7 @@ public class ChocolateChecker extends TreeParser {
 					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:67:20: se= single_expr
 					{
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_single_expr_in_print499);
+					pushFollow(FOLLOW_single_expr_in_print495);
 					se=single_expr();
 					state._fsp--;
 
@@ -1166,7 +1161,7 @@ public class ChocolateChecker extends TreeParser {
 					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:68:20: s= string
 					{
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_string_in_print534);
+					pushFollow(FOLLOW_string_in_print530);
 					s=string();
 					state._fsp--;
 
@@ -1227,7 +1222,7 @@ public class ChocolateChecker extends TreeParser {
 					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:69:20: cce= closed_compound_expr
 					{
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_closed_compound_expr_in_print576);
+					pushFollow(FOLLOW_closed_compound_expr_in_print572);
 					cce=closed_compound_expr();
 					state._fsp--;
 
@@ -1240,7 +1235,7 @@ public class ChocolateChecker extends TreeParser {
 					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:70:20: se= single_expr
 					{
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_single_expr_in_print601);
+					pushFollow(FOLLOW_single_expr_in_print597);
 					se=single_expr();
 					state._fsp--;
 
@@ -1253,7 +1248,7 @@ public class ChocolateChecker extends TreeParser {
 					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:71:20: s= string
 					{
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_string_in_print636);
+					pushFollow(FOLLOW_string_in_print632);
 					s=string();
 					state._fsp--;
 
@@ -1328,7 +1323,7 @@ public class ChocolateChecker extends TreeParser {
 			ChocolateTree _first_1 = null;
 			ChocolateTree root_1 = (ChocolateTree)adaptor.nil();
 			_last = (ChocolateTree)input.LT(1);
-			r=(ChocolateTree)match(input,IF,FOLLOW_IF_in_ifthenelse678); 
+			r=(ChocolateTree)match(input,IF,FOLLOW_IF_in_ifthenelse674); 
 			r_tree = (ChocolateTree)adaptor.dupNode(r);
 
 
@@ -1336,7 +1331,7 @@ public class ChocolateChecker extends TreeParser {
 
 			match(input, Token.DOWN, null); 
 			_last = (ChocolateTree)input.LT(1);
-			pushFollow(FOLLOW_single_expr_in_ifthenelse682);
+			pushFollow(FOLLOW_single_expr_in_ifthenelse678);
 			se=single_expr();
 			state._fsp--;
 
@@ -1344,7 +1339,7 @@ public class ChocolateChecker extends TreeParser {
 
 			ca.openScope(); 
 			_last = (ChocolateTree)input.LT(1);
-			pushFollow(FOLLOW_closed_compound_expr_in_ifthenelse686);
+			pushFollow(FOLLOW_closed_compound_expr_in_ifthenelse682);
 			closed_compound_expr14=closed_compound_expr();
 			state._fsp--;
 
@@ -1363,7 +1358,7 @@ public class ChocolateChecker extends TreeParser {
 					{
 					ca.openScope(); 
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_closed_compound_expr_in_ifthenelse693);
+					pushFollow(FOLLOW_closed_compound_expr_in_ifthenelse689);
 					closed_compound_expr15=closed_compound_expr();
 					state._fsp--;
 
@@ -1400,17 +1395,17 @@ public class ChocolateChecker extends TreeParser {
 	// $ANTLR end "ifthenelse"
 
 
-	public static class while_return extends TreeRuleReturnScope {
+	public static class whiledo_return extends TreeRuleReturnScope {
 		ChocolateTree tree;
 		@Override
 		public ChocolateTree getTree() { return tree; }
 	};
 
 
-	// $ANTLR start "while"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:79:1: while : ^(r= WHILE se= single_expr closed_compound_expr ) ;
-	public final ChocolateChecker.while_return while() throws RecognitionException {
-		ChocolateChecker.while_return retval = new ChocolateChecker.while_return();
+	// $ANTLR start "whiledo"
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:79:1: whiledo : ^(r= WHILE se= single_expr closed_compound_expr ) ;
+	public final ChocolateChecker.whiledo_return whiledo() throws RecognitionException {
+		ChocolateChecker.whiledo_return retval = new ChocolateChecker.whiledo_return();
 		retval.start = input.LT(1);
 
 		ChocolateTree root_0 = null;
@@ -1438,7 +1433,7 @@ public class ChocolateChecker extends TreeParser {
 			ChocolateTree _first_1 = null;
 			ChocolateTree root_1 = (ChocolateTree)adaptor.nil();
 			_last = (ChocolateTree)input.LT(1);
-			r=(ChocolateTree)match(input,WHILE,FOLLOW_WHILE_in_while734); 
+			r=(ChocolateTree)match(input,WHILE,FOLLOW_WHILE_in_whiledo730); 
 			r_tree = (ChocolateTree)adaptor.dupNode(r);
 
 
@@ -1446,7 +1441,7 @@ public class ChocolateChecker extends TreeParser {
 
 			match(input, Token.DOWN, null); 
 			_last = (ChocolateTree)input.LT(1);
-			pushFollow(FOLLOW_single_expr_in_while738);
+			pushFollow(FOLLOW_single_expr_in_whiledo734);
 			se=single_expr();
 			state._fsp--;
 
@@ -1454,7 +1449,7 @@ public class ChocolateChecker extends TreeParser {
 
 			ca.openScope(); 
 			_last = (ChocolateTree)input.LT(1);
-			pushFollow(FOLLOW_closed_compound_expr_in_while742);
+			pushFollow(FOLLOW_closed_compound_expr_in_whiledo738);
 			closed_compound_expr16=closed_compound_expr();
 			state._fsp--;
 
@@ -1483,7 +1478,7 @@ public class ChocolateChecker extends TreeParser {
 		}
 		return retval;
 	}
-	// $ANTLR end "while"
+	// $ANTLR end "whiledo"
 
 
 	public static class closed_compound_expr_return extends TreeRuleReturnScope {
@@ -1494,7 +1489,7 @@ public class ChocolateChecker extends TreeParser {
 
 
 	// $ANTLR start "closed_compound_expr"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:84:1: closed_compound_expr : ^(r= LCURLY ( declarations )* compound_ext ) ;
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:84:1: closed_compound_expr : ^(r= LCURLY ( declarations )* ce= compound_ext ) ;
 	public final ChocolateChecker.closed_compound_expr_return closed_compound_expr() throws RecognitionException {
 		ChocolateChecker.closed_compound_expr_return retval = new ChocolateChecker.closed_compound_expr_return();
 		retval.start = input.LT(1);
@@ -1506,14 +1501,14 @@ public class ChocolateChecker extends TreeParser {
 
 
 		ChocolateTree r=null;
+		TreeRuleReturnScope ce =null;
 		TreeRuleReturnScope declarations17 =null;
-		TreeRuleReturnScope compound_ext18 =null;
 
 		ChocolateTree r_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:85:5: ( ^(r= LCURLY ( declarations )* compound_ext ) )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:85:9: ^(r= LCURLY ( declarations )* compound_ext )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:85:5: ( ^(r= LCURLY ( declarations )* ce= compound_ext ) )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:85:9: ^(r= LCURLY ( declarations )* ce= compound_ext )
 			{
 			root_0 = (ChocolateTree)adaptor.nil();
 
@@ -1524,7 +1519,7 @@ public class ChocolateChecker extends TreeParser {
 			ChocolateTree _first_1 = null;
 			ChocolateTree root_1 = (ChocolateTree)adaptor.nil();
 			_last = (ChocolateTree)input.LT(1);
-			r=(ChocolateTree)match(input,LCURLY,FOLLOW_LCURLY_in_closed_compound_expr781); 
+			r=(ChocolateTree)match(input,LCURLY,FOLLOW_LCURLY_in_closed_compound_expr777); 
 			r_tree = (ChocolateTree)adaptor.dupNode(r);
 
 
@@ -1546,7 +1541,7 @@ public class ChocolateChecker extends TreeParser {
 					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:85:37: declarations
 					{
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_declarations_in_closed_compound_expr784);
+					pushFollow(FOLLOW_declarations_in_closed_compound_expr780);
 					declarations17=declarations();
 					state._fsp--;
 
@@ -1561,13 +1556,13 @@ public class ChocolateChecker extends TreeParser {
 			}
 
 			_last = (ChocolateTree)input.LT(1);
-			pushFollow(FOLLOW_compound_ext_in_closed_compound_expr787);
-			compound_ext18=compound_ext();
+			pushFollow(FOLLOW_compound_ext_in_closed_compound_expr785);
+			ce=compound_ext();
 			state._fsp--;
 
-			adaptor.addChild(root_1, compound_ext18.getTree());
+			adaptor.addChild(root_1, ce.getTree());
 
-			 ca.checkCompoundExpr(r, $ce.tree); 
+			 ca.checkCompoundExpr(r, (ce!=null?((ChocolateTree)ce.getTree()):null)); 
 			ca.closeScope();
 			match(input, Token.UP, null); 
 			adaptor.addChild(root_0, root_1);
@@ -1614,9 +1609,9 @@ public class ChocolateChecker extends TreeParser {
 
 		ChocolateTree r=null;
 		TreeRuleReturnScope se =null;
-		TreeRuleReturnScope statements19 =null;
-		TreeRuleReturnScope declarations20 =null;
-		TreeRuleReturnScope compound_ext21 =null;
+		TreeRuleReturnScope statements18 =null;
+		TreeRuleReturnScope declarations19 =null;
+		TreeRuleReturnScope compound_ext20 =null;
 
 		ChocolateTree r_tree=null;
 
@@ -1650,7 +1645,7 @@ public class ChocolateChecker extends TreeParser {
 					ChocolateTree _first_1 = null;
 					ChocolateTree root_1 = (ChocolateTree)adaptor.nil();
 					_last = (ChocolateTree)input.LT(1);
-					r=(ChocolateTree)match(input,RCURLY,FOLLOW_RCURLY_in_compound_ext813); 
+					r=(ChocolateTree)match(input,RCURLY,FOLLOW_RCURLY_in_compound_ext811); 
 					r_tree = (ChocolateTree)adaptor.dupNode(r);
 
 
@@ -1658,7 +1653,7 @@ public class ChocolateChecker extends TreeParser {
 
 					match(input, Token.DOWN, null); 
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_single_expr_in_compound_ext817);
+					pushFollow(FOLLOW_single_expr_in_compound_ext815);
 					se=single_expr();
 					state._fsp--;
 
@@ -1680,11 +1675,11 @@ public class ChocolateChecker extends TreeParser {
 
 
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_statements_in_compound_ext838);
-					statements19=statements();
+					pushFollow(FOLLOW_statements_in_compound_ext836);
+					statements18=statements();
 					state._fsp--;
 
-					adaptor.addChild(root_0, statements19.getTree());
+					adaptor.addChild(root_0, statements18.getTree());
 
 					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:91:20: ( declarations )*
 					loop14:
@@ -1700,11 +1695,11 @@ public class ChocolateChecker extends TreeParser {
 							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:91:20: declarations
 							{
 							_last = (ChocolateTree)input.LT(1);
-							pushFollow(FOLLOW_declarations_in_compound_ext840);
-							declarations20=declarations();
+							pushFollow(FOLLOW_declarations_in_compound_ext838);
+							declarations19=declarations();
 							state._fsp--;
 
-							adaptor.addChild(root_0, declarations20.getTree());
+							adaptor.addChild(root_0, declarations19.getTree());
 
 							}
 							break;
@@ -1715,11 +1710,11 @@ public class ChocolateChecker extends TreeParser {
 					}
 
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_compound_ext_in_compound_ext843);
-					compound_ext21=compound_ext();
+					pushFollow(FOLLOW_compound_ext_in_compound_ext841);
+					compound_ext20=compound_ext();
 					state._fsp--;
 
-					adaptor.addChild(root_0, compound_ext21.getTree());
+					adaptor.addChild(root_0, compound_ext20.getTree());
 
 					}
 					break;
@@ -1760,8 +1755,8 @@ public class ChocolateChecker extends TreeParser {
 		ChocolateTree _last = null;
 
 
-		TreeRuleReturnScope single_expr22 =null;
-		TreeRuleReturnScope closed_compound_expr23 =null;
+		TreeRuleReturnScope single_expr21 =null;
+		TreeRuleReturnScope closed_compound_expr22 =null;
 
 
 		try {
@@ -1789,11 +1784,11 @@ public class ChocolateChecker extends TreeParser {
 
 
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_single_expr_in_type_op862);
-					single_expr22=single_expr();
+					pushFollow(FOLLOW_single_expr_in_type_op860);
+					single_expr21=single_expr();
 					state._fsp--;
 
-					adaptor.addChild(root_0, single_expr22.getTree());
+					adaptor.addChild(root_0, single_expr21.getTree());
 
 					}
 					break;
@@ -1804,11 +1799,11 @@ public class ChocolateChecker extends TreeParser {
 
 
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_closed_compound_expr_in_type_op872);
-					closed_compound_expr23=closed_compound_expr();
+					pushFollow(FOLLOW_closed_compound_expr_in_type_op870);
+					closed_compound_expr22=closed_compound_expr();
 					state._fsp--;
 
-					adaptor.addChild(root_0, closed_compound_expr23.getTree());
+					adaptor.addChild(root_0, closed_compound_expr22.getTree());
 
 					}
 					break;
@@ -1849,7 +1844,7 @@ public class ChocolateChecker extends TreeParser {
 		ChocolateTree _last = null;
 
 
-		TreeRuleReturnScope arithmetic24 =null;
+		TreeRuleReturnScope arithmetic23 =null;
 
 
 		try {
@@ -1860,11 +1855,11 @@ public class ChocolateChecker extends TreeParser {
 
 
 			_last = (ChocolateTree)input.LT(1);
-			pushFollow(FOLLOW_arithmetic_in_single_expr891);
-			arithmetic24=arithmetic();
+			pushFollow(FOLLOW_arithmetic_in_single_expr889);
+			arithmetic23=arithmetic();
 			state._fsp--;
 
-			adaptor.addChild(root_0, arithmetic24.getTree());
+			adaptor.addChild(root_0, arithmetic23.getTree());
 
 			}
 
@@ -1907,7 +1902,7 @@ public class ChocolateChecker extends TreeParser {
 		TreeRuleReturnScope ar =null;
 		TreeRuleReturnScope ar1 =null;
 		TreeRuleReturnScope ar2 =null;
-		TreeRuleReturnScope operand25 =null;
+		TreeRuleReturnScope operand24 =null;
 
 		ChocolateTree r_tree=null;
 
@@ -1998,7 +1993,7 @@ public class ChocolateChecker extends TreeParser {
 
 					match(input, Token.DOWN, null); 
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_arithmetic_in_arithmetic927);
+					pushFollow(FOLLOW_arithmetic_in_arithmetic925);
 					ar=arithmetic();
 					state._fsp--;
 
@@ -2025,7 +2020,7 @@ public class ChocolateChecker extends TreeParser {
 					ChocolateTree _first_1 = null;
 					ChocolateTree root_1 = (ChocolateTree)adaptor.nil();
 					_last = (ChocolateTree)input.LT(1);
-					r=(ChocolateTree)match(input,NOT,FOLLOW_NOT_in_arithmetic951); 
+					r=(ChocolateTree)match(input,NOT,FOLLOW_NOT_in_arithmetic949); 
 					r_tree = (ChocolateTree)adaptor.dupNode(r);
 
 
@@ -2033,7 +2028,7 @@ public class ChocolateChecker extends TreeParser {
 
 					match(input, Token.DOWN, null); 
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_arithmetic_in_arithmetic955);
+					pushFollow(FOLLOW_arithmetic_in_arithmetic953);
 					ar=arithmetic();
 					state._fsp--;
 
@@ -2076,14 +2071,14 @@ public class ChocolateChecker extends TreeParser {
 
 					match(input, Token.DOWN, null); 
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_arithmetic_in_arithmetic1001);
+					pushFollow(FOLLOW_arithmetic_in_arithmetic999);
 					ar1=arithmetic();
 					state._fsp--;
 
 					adaptor.addChild(root_1, ar1.getTree());
 
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_arithmetic_in_arithmetic1005);
+					pushFollow(FOLLOW_arithmetic_in_arithmetic1003);
 					ar2=arithmetic();
 					state._fsp--;
 
@@ -2126,14 +2121,14 @@ public class ChocolateChecker extends TreeParser {
 
 					match(input, Token.DOWN, null); 
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_arithmetic_in_arithmetic1047);
+					pushFollow(FOLLOW_arithmetic_in_arithmetic1045);
 					ar1=arithmetic();
 					state._fsp--;
 
 					adaptor.addChild(root_1, ar1.getTree());
 
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_arithmetic_in_arithmetic1051);
+					pushFollow(FOLLOW_arithmetic_in_arithmetic1049);
 					ar2=arithmetic();
 					state._fsp--;
 
@@ -2176,14 +2171,14 @@ public class ChocolateChecker extends TreeParser {
 
 					match(input, Token.DOWN, null); 
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_arithmetic_in_arithmetic1085);
+					pushFollow(FOLLOW_arithmetic_in_arithmetic1083);
 					ar1=arithmetic();
 					state._fsp--;
 
 					adaptor.addChild(root_1, ar1.getTree());
 
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_arithmetic_in_arithmetic1089);
+					pushFollow(FOLLOW_arithmetic_in_arithmetic1087);
 					ar2=arithmetic();
 					state._fsp--;
 
@@ -2226,14 +2221,14 @@ public class ChocolateChecker extends TreeParser {
 
 					match(input, Token.DOWN, null); 
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_arithmetic_in_arithmetic1123);
+					pushFollow(FOLLOW_arithmetic_in_arithmetic1121);
 					ar1=arithmetic();
 					state._fsp--;
 
 					adaptor.addChild(root_1, ar1.getTree());
 
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_arithmetic_in_arithmetic1127);
+					pushFollow(FOLLOW_arithmetic_in_arithmetic1125);
 					ar2=arithmetic();
 					state._fsp--;
 
@@ -2255,11 +2250,11 @@ public class ChocolateChecker extends TreeParser {
 
 
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_operand_in_arithmetic1148);
-					operand25=operand();
+					pushFollow(FOLLOW_operand_in_arithmetic1146);
+					operand24=operand();
 					state._fsp--;
 
-					adaptor.addChild(root_0, operand25.getTree());
+					adaptor.addChild(root_0, operand24.getTree());
 
 					}
 					break;
@@ -2355,7 +2350,7 @@ public class ChocolateChecker extends TreeParser {
 
 
 					_last = (ChocolateTree)input.LT(1);
-					id=(ChocolateTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_operand1170); 
+					id=(ChocolateTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_operand1168); 
 					id_tree = (ChocolateTree)adaptor.dupNode(id);
 
 
@@ -2371,7 +2366,7 @@ public class ChocolateChecker extends TreeParser {
 
 
 					_last = (ChocolateTree)input.LT(1);
-					n=(ChocolateTree)match(input,NUMBER,FOLLOW_NUMBER_in_operand1201); 
+					n=(ChocolateTree)match(input,NUMBER,FOLLOW_NUMBER_in_operand1199); 
 					n_tree = (ChocolateTree)adaptor.dupNode(n);
 
 
@@ -2392,7 +2387,7 @@ public class ChocolateChecker extends TreeParser {
 					ChocolateTree _first_1 = null;
 					ChocolateTree root_1 = (ChocolateTree)adaptor.nil();
 					_last = (ChocolateTree)input.LT(1);
-					r=(ChocolateTree)match(input,LPAREN,FOLLOW_LPAREN_in_operand1224); 
+					r=(ChocolateTree)match(input,LPAREN,FOLLOW_LPAREN_in_operand1222); 
 					r_tree = (ChocolateTree)adaptor.dupNode(r);
 
 
@@ -2400,7 +2395,7 @@ public class ChocolateChecker extends TreeParser {
 
 					match(input, Token.DOWN, null); 
 					_last = (ChocolateTree)input.LT(1);
-					pushFollow(FOLLOW_single_expr_in_operand1228);
+					pushFollow(FOLLOW_single_expr_in_operand1226);
 					se=single_expr();
 					state._fsp--;
 
@@ -2425,7 +2420,7 @@ public class ChocolateChecker extends TreeParser {
 					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:127:10: b= BOOLEAN_OPERATOR
 					{
 					_last = (ChocolateTree)input.LT(1);
-					b=(ChocolateTree)match(input,BOOLEAN_OPERATOR,FOLLOW_BOOLEAN_OPERATOR_in_operand1252); 
+					b=(ChocolateTree)match(input,BOOLEAN_OPERATOR,FOLLOW_BOOLEAN_OPERATOR_in_operand1250); 
 					b_tree = (ChocolateTree)adaptor.dupNode(b);
 
 
@@ -2446,7 +2441,7 @@ public class ChocolateChecker extends TreeParser {
 					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:129:10: c= CHAR_OPERATOR
 					{
 					_last = (ChocolateTree)input.LT(1);
-					c=(ChocolateTree)match(input,CHAR_OPERATOR,FOLLOW_CHAR_OPERATOR_in_operand1276); 
+					c=(ChocolateTree)match(input,CHAR_OPERATOR,FOLLOW_CHAR_OPERATOR_in_operand1274); 
 					c_tree = (ChocolateTree)adaptor.dupNode(c);
 
 
@@ -2494,9 +2489,9 @@ public class ChocolateChecker extends TreeParser {
 		ChocolateTree _last = null;
 
 
-		ChocolateTree set26=null;
+		ChocolateTree set25=null;
 
-		ChocolateTree set26_tree=null;
+		ChocolateTree set25_tree=null;
 
 		try {
 			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:134:5: ( INTEGER | CHAR | BOOLEAN )
@@ -2506,13 +2501,13 @@ public class ChocolateChecker extends TreeParser {
 
 
 			_last = (ChocolateTree)input.LT(1);
-			set26=(ChocolateTree)input.LT(1);
+			set25=(ChocolateTree)input.LT(1);
 			if ( input.LA(1)==BOOLEAN||input.LA(1)==CHAR||input.LA(1)==INTEGER ) {
 				input.consume();
-				set26_tree = (ChocolateTree)adaptor.dupNode(set26);
+				set25_tree = (ChocolateTree)adaptor.dupNode(set25);
 
 
-				adaptor.addChild(root_0, set26_tree);
+				adaptor.addChild(root_0, set25_tree);
 
 				state.errorRecovery=false;
 			}
@@ -2560,8 +2555,8 @@ public class ChocolateChecker extends TreeParser {
 		ChocolateTree _last = null;
 
 
-		TreeRuleReturnScope graphic27 =null;
-		TreeRuleReturnScope string28 =null;
+		TreeRuleReturnScope graphic26 =null;
+		TreeRuleReturnScope string27 =null;
 
 
 		try {
@@ -2572,18 +2567,18 @@ public class ChocolateChecker extends TreeParser {
 
 
 			_last = (ChocolateTree)input.LT(1);
-			pushFollow(FOLLOW_graphic_in_string1337);
-			graphic27=graphic();
+			pushFollow(FOLLOW_graphic_in_string1335);
+			graphic26=graphic();
 			state._fsp--;
 
-			adaptor.addChild(root_0, graphic27.getTree());
+			adaptor.addChild(root_0, graphic26.getTree());
 
 			_last = (ChocolateTree)input.LT(1);
-			pushFollow(FOLLOW_string_in_string1339);
-			string28=string();
+			pushFollow(FOLLOW_string_in_string1337);
+			string27=string();
 			state._fsp--;
 
-			adaptor.addChild(root_0, string28.getTree());
+			adaptor.addChild(root_0, string27.getTree());
 
 			}
 
@@ -2622,9 +2617,9 @@ public class ChocolateChecker extends TreeParser {
 		ChocolateTree _last = null;
 
 
-		ChocolateTree set29=null;
+		ChocolateTree set28=null;
 
-		ChocolateTree set29_tree=null;
+		ChocolateTree set28_tree=null;
 
 		try {
 			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\ContextualAnalyzer\\ChocolateChecker.g:142:5: ( LETTER | DIGIT )
@@ -2634,13 +2629,13 @@ public class ChocolateChecker extends TreeParser {
 
 
 			_last = (ChocolateTree)input.LT(1);
-			set29=(ChocolateTree)input.LT(1);
+			set28=(ChocolateTree)input.LT(1);
 			if ( input.LA(1)==DIGIT||input.LA(1)==LETTER ) {
 				input.consume();
-				set29_tree = (ChocolateTree)adaptor.dupNode(set29);
+				set28_tree = (ChocolateTree)adaptor.dupNode(set28);
 
 
-				adaptor.addChild(root_0, set29_tree);
+				adaptor.addChild(root_0, set28_tree);
 
 				state.errorRecovery=false;
 			}
@@ -2693,7 +2688,7 @@ public class ChocolateChecker extends TreeParser {
 	public static final BitSet FOLLOW_assign_in_statements257 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_print_in_statements261 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_ifthenelse_in_statements265 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_while_in_statements269 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_whiledo_in_statements269 = new BitSet(new long[]{0x0000000000000002L});
 	public static final BitSet FOLLOW_READ_in_read295 = new BitSet(new long[]{0x0000000000000004L});
 	public static final BitSet FOLLOW_IDENTIFIER_in_read300 = new BitSet(new long[]{0x0000000000400008L});
 	public static final BitSet FOLLOW_IDENTIFIER_in_read307 = new BitSet(new long[]{0x0000000000400008L});
@@ -2704,55 +2699,55 @@ public class ChocolateChecker extends TreeParser {
 	public static final BitSet FOLLOW_IDENTIFIER_in_assignexpr382 = new BitSet(new long[]{0x000001FFCE7882B0L});
 	public static final BitSet FOLLOW_assignexpr_in_assignexpr386 = new BitSet(new long[]{0x0000000000000008L});
 	public static final BitSet FOLLOW_single_expr_in_assignexpr411 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_assignexpr435 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_PRINT_in_print469 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_print474 = new BitSet(new long[]{0x000001FFDE78C290L});
-	public static final BitSet FOLLOW_single_expr_in_print499 = new BitSet(new long[]{0x000001FFDE78C290L});
-	public static final BitSet FOLLOW_string_in_print534 = new BitSet(new long[]{0x000001FFDE78C290L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_print576 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_single_expr_in_print601 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_string_in_print636 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_IF_in_ifthenelse678 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_ifthenelse682 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_ifthenelse686 = new BitSet(new long[]{0x0000000002000008L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_ifthenelse693 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_WHILE_in_while734 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_while738 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_while742 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LCURLY_in_closed_compound_expr781 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_declarations_in_closed_compound_expr784 = new BitSet(new long[]{0x000C320000802020L});
-	public static final BitSet FOLLOW_compound_ext_in_closed_compound_expr787 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_RCURLY_in_compound_ext813 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_compound_ext817 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_statements_in_compound_ext838 = new BitSet(new long[]{0x000C320000802020L});
-	public static final BitSet FOLLOW_declarations_in_compound_ext840 = new BitSet(new long[]{0x000C320000802020L});
-	public static final BitSet FOLLOW_compound_ext_in_compound_ext843 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_single_expr_in_type_op862 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_type_op872 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_arithmetic_in_single_expr891 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_set_in_arithmetic917 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_arithmetic_in_arithmetic927 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_NOT_in_arithmetic951 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_arithmetic_in_arithmetic955 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_set_in_arithmetic979 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_arithmetic_in_arithmetic1001 = new BitSet(new long[]{0x000001FFCC788290L});
-	public static final BitSet FOLLOW_arithmetic_in_arithmetic1005 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_set_in_arithmetic1029 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_arithmetic_in_arithmetic1047 = new BitSet(new long[]{0x000001FFCC788290L});
-	public static final BitSet FOLLOW_arithmetic_in_arithmetic1051 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_set_in_arithmetic1075 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_arithmetic_in_arithmetic1085 = new BitSet(new long[]{0x000001FFCC788290L});
-	public static final BitSet FOLLOW_arithmetic_in_arithmetic1089 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_set_in_arithmetic1113 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_arithmetic_in_arithmetic1123 = new BitSet(new long[]{0x000001FFCC788290L});
-	public static final BitSet FOLLOW_arithmetic_in_arithmetic1127 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_operand_in_arithmetic1148 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_operand1170 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NUMBER_in_operand1201 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LPAREN_in_operand1224 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_operand1228 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_BOOLEAN_OPERATOR_in_operand1252 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CHAR_OPERATOR_in_operand1276 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_graphic_in_string1337 = new BitSet(new long[]{0x0000000010004000L});
-	public static final BitSet FOLLOW_string_in_string1339 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_assignexpr433 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_PRINT_in_print465 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_print470 = new BitSet(new long[]{0x000001FFDE78C290L});
+	public static final BitSet FOLLOW_single_expr_in_print495 = new BitSet(new long[]{0x000001FFDE78C290L});
+	public static final BitSet FOLLOW_string_in_print530 = new BitSet(new long[]{0x000001FFDE78C290L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_print572 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_single_expr_in_print597 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_string_in_print632 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_IF_in_ifthenelse674 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_ifthenelse678 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_ifthenelse682 = new BitSet(new long[]{0x0000000002000008L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_ifthenelse689 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_WHILE_in_whiledo730 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_whiledo734 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_whiledo738 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LCURLY_in_closed_compound_expr777 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_declarations_in_closed_compound_expr780 = new BitSet(new long[]{0x000C320000802020L});
+	public static final BitSet FOLLOW_compound_ext_in_closed_compound_expr785 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_RCURLY_in_compound_ext811 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_compound_ext815 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_statements_in_compound_ext836 = new BitSet(new long[]{0x000C320000802020L});
+	public static final BitSet FOLLOW_declarations_in_compound_ext838 = new BitSet(new long[]{0x000C320000802020L});
+	public static final BitSet FOLLOW_compound_ext_in_compound_ext841 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_single_expr_in_type_op860 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_type_op870 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_arithmetic_in_single_expr889 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_set_in_arithmetic915 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_arithmetic_in_arithmetic925 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_NOT_in_arithmetic949 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_arithmetic_in_arithmetic953 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_set_in_arithmetic977 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_arithmetic_in_arithmetic999 = new BitSet(new long[]{0x000001FFCC788290L});
+	public static final BitSet FOLLOW_arithmetic_in_arithmetic1003 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_set_in_arithmetic1027 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_arithmetic_in_arithmetic1045 = new BitSet(new long[]{0x000001FFCC788290L});
+	public static final BitSet FOLLOW_arithmetic_in_arithmetic1049 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_set_in_arithmetic1073 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_arithmetic_in_arithmetic1083 = new BitSet(new long[]{0x000001FFCC788290L});
+	public static final BitSet FOLLOW_arithmetic_in_arithmetic1087 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_set_in_arithmetic1111 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_arithmetic_in_arithmetic1121 = new BitSet(new long[]{0x000001FFCC788290L});
+	public static final BitSet FOLLOW_arithmetic_in_arithmetic1125 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_operand_in_arithmetic1146 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_operand1168 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NUMBER_in_operand1199 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LPAREN_in_operand1222 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_operand1226 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_BOOLEAN_OPERATOR_in_operand1250 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CHAR_OPERATOR_in_operand1274 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_graphic_in_string1335 = new BitSet(new long[]{0x0000000010004000L});
+	public static final BitSet FOLLOW_string_in_string1337 = new BitSet(new long[]{0x0000000000000002L});
 }

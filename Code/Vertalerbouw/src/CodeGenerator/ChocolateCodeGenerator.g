@@ -2,7 +2,7 @@ tree grammar ChocolateCodeGenerator;
 
 options {
     tokenVocab=Chocolate;                    // import tokens from Chocolate.tokens
-    ASTLabelType=CommonTree;                 // AST nodes are of type CommonTree
+    ASTLabelType=ChocolateTree;                 // AST nodes are of type CommonTree
     output=template;
 }
 

@@ -28,11 +28,44 @@ import org.antlr.stringtemplate.StringTemplateGroup;
 import ContextualAnalyzer.*;
 import CodeGenerator.*;
 
+/**
+ * Program that creates all big components of the translator and starts tehe translator
+ * @author Tanja de Jong & Kim Beunder
+ */
 public class Chocolate {
+	/** A set of options which can be indicated by user to add or remove at the start of program */
     private static final Set<Option> options = EnumSet.noneOf(Option.class);
+    
+    /** Name of source file */
     private static String inputFile;
+    
+    /** Name of destination file */
     private static String outputFile;
+    
+    /**
+     * Request for source filename
+     * @return filename of source
+     */
+    public static String getFileName(){
+    	return inputFile;
+    }
+    
+    /**
+     * Request for source classname
+     * @return classname of source
+     */
+    public static String getClassName(){
+    	String fname = getFileName();
+    	String[] pieces = fname.split("\\.");
+    	String classn = pieces[0].substring(0,1).toUpperCase()+pieces[0].toLowerCase().substring(1);
+    	return classn;
+    }
 
+    /**
+     * Reads all given arguments and tries to determine which options the user wants and 
+     * what the input and output files are
+     * @param args, arguments given by user to run program
+     */
     public static void parseOptions(String[] args) {
         if (args.length == 0) {
             System.err.println(USAGE_MESSAGE);
@@ -69,6 +102,10 @@ public class Chocolate {
         }
     }
 
+    /**
+     * 
+     * @param args
+     */
     public static void main(String[] args) {
         parseOptions(args);
 
@@ -124,6 +161,12 @@ public class Chocolate {
         }
     }
 
+    /**
+     * Determines the option by means of given text
+     * @param text, the text that is supposed to represent an option
+     * @return the recognized option; returns null if option does not exist
+     * @throws IllegalArgumentException
+     */
     private static Option getOption(String text) throws IllegalArgumentException {
         if (!text.startsWith(OPTION_PREFIX)) {
             return null;
@@ -137,6 +180,9 @@ public class Chocolate {
         throw new IllegalArgumentException(String.format("Illegal option value '%s'", text));
     }
 
+    /**
+     * 
+     */
     private static final String USAGE_MESSAGE;
 
     static {
@@ -150,6 +196,9 @@ public class Chocolate {
         USAGE_MESSAGE = message.toString();
     }
 
+    /**
+     * Represents an option
+     */
     private static enum Option {
         DOT,
         AST,
@@ -157,6 +206,7 @@ public class Chocolate {
         NO_INTERPRETER,
         CODE_GENERATOR;
 
+        /** Makes a new option */
         private Option() {
             this.text = name().toLowerCase();
         }
@@ -166,8 +216,10 @@ public class Chocolate {
             return this.text;
         }
 
+        /** The text representation of the option */
         private final String text;
     }
 
+    /** The option prefix, all options must start with this prefix */
     private static final String OPTION_PREFIX = "-";
 }

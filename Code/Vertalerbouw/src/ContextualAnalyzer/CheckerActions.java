@@ -15,6 +15,18 @@ public class CheckerActions {
     public void     declare(String s, String t, ChocolateTree node) throws SymbolTableException { 
     	symtab.enter(s, new IdEntry(t, node));  
 	}
+	/**
+	 * Opens a new scope in the SymbolTable
+	 */
+	public void openScope(){
+		symtab.openScope();
+	}
+	/**
+	 * Closes a new scope in the SymbolTable and removes all symbols declared in this scope.
+	 */
+	public void closeScope(){
+		symtab.closeScope();
+	}
     
     /**
      * @param s the Identifier
@@ -114,27 +126,27 @@ public class CheckerActions {
 	//	EXPRESSION
 	///////////////////////////////////////////////////////////
 	/**
-	 * Checks a binary expression tree. Makes sure that both the provided expression trees are of type BOOL, if this is the 
-	 * case the type of the provided binary expression tree is also set to BOOL
+	 * Checks a binary expression tree on whether both provided expression trees are of type boolean. 
+	 * If this is the case the type of the provided binary expression tree is also set to boolean.
 	 * @param root the binary expression tree to check
 	 * @param e1 the first expression tree in this binary expression
 	 * @param e2 the second expression tree in this binary expression
-	 * @throws ChocolateException when either e1 or e2 does not have type BOOL
+	 * @throws ChocolateException when either e1 or e2 is not of type boolean
 	 */
 	public void checkExprBin(ChocolateTree root, ChocolateTree e1, ChocolateTree e2) throws ChocolateException{
 		if(!typeMatch(e1.getChocolateType(), BOOL)){
-			throw new ChocolateException(root, "een type probleempje, ("+ChocolateException.formatTree(e1)
-					+") is geen 'BOOL' maar een '"+e1.getChocolateType()+"'");
+			throw new ChocolateException(root, "Type matching problem, ("+ChocolateException.formatTree(e1)
+					+") is not a boolean but a '"+e1.getChocolateType()+"'");
 		}
 		if(!typeMatch(e2.getChocolateType(), BOOL)){
-			throw new ChocolateException(root, "een type probleempje, ("+ChocolateException.formatTree(e2)
-					+") is geen 'BOOL' maar een '"+e2.getChocolateType()+"'");
+			throw new ChocolateException(root, "Type matching problem, ("+ChocolateException.formatTree(e2)
+					+") is not a boolean but a '"+e2.getChocolateType()+"'");
 		}
 		root.setChocolateType(BOOL);
 	}
 	/**
-	 * Checks a comparison tree of two arbtitrary types being checked for equality or inequality. Checks that both the expression
-	 * trees being checked for (in)equality are of the same type, if this is the case, the type of the comparison tree is set to BOOL 
+	 * Checks a comparison tree of two types on equality.
+	 * If the two types are equal, the type of the comparison tree is set to be a boolean.
 	 * @param root the comparison tree to check
 	 * @param e1 the first expression tree in this comparison expression
 	 * @param e2 the second expression tree in this comparison expression
@@ -142,13 +154,14 @@ public class CheckerActions {
 	 */
 	public void checkExprCompThing(ChocolateTree root, ChocolateTree e1, ChocolateTree e2) throws ChocolateException{
 		if(!typeMatch(e1.getChocolateType(), e2.getChocolateType()))
-		    throw new ChocolateException(root, "een type probleempje, vergelijkingen werken alleen als beide expressies van hetzelfde type zijn, niet als "
-		                              +"de ene een '"+e1.getChocolateType()+"' is en de andere een '"+e2.getChocolateType()+"'");
+		    throw new ChocolateException(root, "Type matching problem: compare expressions need two expressions of the same type, not if"
+		                              +"one is a: '"+e1.getChocolateType()+"' and the other a: '"+e2.getChocolateType()+"'");
 		root.setChocolateType(BOOL);
 	}
 	/**
-	 * Checks a comparison tree of two numbers, being tested for inequality, i.e. one being larger or smaller then the other. Checks that both
-	 * the expression trees are of type INT, if this is the case, the type of the comparison tree is set to BOOL
+	 * Checks a comparison tree of two numbers, being tested for inequality.
+	 * the expression trees are of type integer.
+	 * If this is the case, the type of the comparison tree is set to boolean
 	 * @param root the comparison tree to check
 	 * @param e1 the first expression tree in this comparison tree
 	 * @param e2 the second expression tree in this comparison tree
@@ -156,14 +169,14 @@ public class CheckerActions {
 	 */
 	public void checkExprCompNumber(ChocolateTree root, ChocolateTree e1, ChocolateTree e2) throws ChocolateException{
 		if(!typeMatch(e1.getChocolateType(), INT))
-			throw new ChocolateException(root, "een type probleempje: rekenkundige expressies werken alleen op INTs, niet op: '"+e1.getChocolateType()+"'");
+			throw new ChocolateException(root, "Type matching problem: mathematic expressions can only accept integers, not: '"+e1.getChocolateType()+"'");
 		if(!typeMatch(e2.getChocolateType(), INT))
-			throw new ChocolateException(root, "een type probleempje: rekenkundige expressies werken alleen op INTs, niet op: '"+e2.getChocolateType()+"'");
+			throw new ChocolateException(root, "Type matching problem: mathematic expressions can only accept integers, not: '"+e2.getChocolateType()+"'");
 		root.setChocolateType(BOOL);
 	}
 	/**
-	 * checks a mathematical expression tree. Checks that both the expression trees are of type INT, if this is the case, the type of
-	 * the mathematical expression is set to INT
+	 * Checks a mathematical expression tree. 
+	 * If both expression trees are of type integer, the type of the mathematical expression is set to integer.
 	 * @param root the mathematical expression tree to check
 	 * @param e1 the first expression tree in this mathematical expression tree
 	 * @param e2 the second expression tree in this mathematical expression tree
@@ -171,25 +184,26 @@ public class CheckerActions {
 	 */
 	public void checkExprMath(ChocolateTree root, ChocolateTree e1, ChocolateTree e2) throws ChocolateException{
 		if(!typeMatch(e1.getChocolateType(), INT))
-		    throw new ChocolateException(root, "een type probleempje: rekenkundige expressies werken alleen op INTs, niet op: '"+e1.getChocolateType()+"'");
+		    throw new ChocolateException(root, "Type matching problem: mathematic expressions can only accept integers, not: '"+e1.getChocolateType()+"'");
 		if(!typeMatch(e2.getChocolateType(), INT))
-		    throw new ChocolateException(root, "een type probleempje: rekenkundige expressies werken alleen op INTs, niet op: '"+e2.getChocolateType()+"'");
+		    throw new ChocolateException(root, "Type matching problem: mathematic expressions can only accept integers, not: '"+e2.getChocolateType()+"'");
 		root.setChocolateType(INT);
 	}
 	/**
-	 * checks a not expression. Checks that the provided expression tree is of type BOOL, if this is the case the type of the 
-	 * not expression tree is set to BOOL
+	 * Checks a not expression on whether the provided expression tree is of type boolean.
+	 * If this is the case, the type of the not expression tree is set to boolean.
 	 * @param root the not expression tree to check
 	 * @param e the expression tree in this not expression tree
 	 * @throws ChocolateException when e is not of type BOOL
 	 */
 	public void checkExprNot(ChocolateTree root, ChocolateTree e) throws ChocolateException{
 		if(!typeMatch(e.getChocolateType(), BOOL))
-            throw new ChocolateException(root, "een type probleempje: je kunt alleen BOOLs omkeren, niet op: '"+e.getChocolateType()+"'");
+            throw new ChocolateException(root, "Type matching problem: only booleans can be negated, not: '"+e.getChocolateType()+"'");
 		root.setChocolateType(BOOL);
 	}
 	/**
-	 * Checks a negation expression tree. Check that the provided expression tree is of type INT, if this is the case, the type of the
+	 * Checks a negation expression tree.
+	 * If the provided expression tree is of type integer, the type of the
 	 * negation expression tree is set to INT
 	 * @param root the negation expression tree to check
 	 * @param e the expression tree in this negation expression tree
@@ -197,12 +211,12 @@ public class CheckerActions {
 	 */
 	public void checkExprNegate(ChocolateTree root, ChocolateTree e) throws ChocolateException{
 		if(!typeMatch(e.getChocolateType(), INT))
-            throw new ChocolateException(root, "een type probleempje: rekenkundige expressies werken alleen op INTs, niet op: '"+e.getChocolateType()+"'");
+            throw new ChocolateException(root, "Type matching problem: mathematic expressions can only accept integers, not: '"+e.getChocolateType()+"'");
 		root.setChocolateType(INT);
 	}
 
 	/**
-	 * checks an assign expression tree. Checks that the id tree that is assigned to is defined, is writable and that the types of the id tree and
+	 * Checks an assign expression tree. Checks that the id tree that is assigned to is defined, is writable and that the types of the id tree and
 	 * the expression tree match. If this is the case, the type of the assign expression tree is set to the type of the id tree
 	 * @param root the assign expression tree to check
 	 * @param id the id tree in this assign expression tree
@@ -211,77 +225,73 @@ public class CheckerActions {
 	 */
 	public void checkExprAssign(ChocolateTree root, ChocolateTree id, String e) throws ChocolateException{
 		if (!isDeclared(id.getText()))
-            throw new ChocolateException(id, "is hier niet gedefinieerd");
+            throw new ChocolateException(id, "is not defined here");
 		if (symtab.retrieve(id.getText()).getNode().isConstant())
-            throw new ChocolateException(id, "mag niet worden overschreven");
+            throw new ChocolateException(id, "can't be overwritten");
 		setTypeId(id);
 		if (!typeMatch(id.getChocolateType(), e))
-           throw new ChocolateException(root, "een type probleempje: je kunt aan de variabele '"+id.getText()+"' van het type '"+id.getChocolateType()
-                                     +"' geen expressie van het type '"+e+"' toewijzen");
+           throw new ChocolateException(root, "Type matching problems: the variable '"+id.getText()+"' of type '"+id.getChocolateType()
+                                     +"' can't be assigned an expression '"+e+"'");
 		id.setDeclaringNode(symtab.retrieve(id.getText()).getNode()); 
 		root.setChocolateType(id.getChocolateType());
 	}
 	/**
-	 * check a vraag tree of a vraag asking for a single value. Checks that the id is defined and that it is writable. If this
-	 * is the case then the type of the vraag tree is set to the type of the id tree.
-	 * @param root the vraag tree to check
-	 * @param id the id tree in this vraag tree
+	 * Check a read tree of a read asking for a single value. Checks that the id is defined and that it is writable. If this
+	 * is the case then the type of the read tree is set to the type of the id tree.
+	 * @param root the read tree to check
+	 * @param id the id tree in this read tree
 	 * @throws ChocolateException when id is not declared, or when it is not writable
 	 */
 	public void checkExprReadSingle(ChocolateTree root, ChocolateTree id) throws ChocolateException{
 		 if (!isDeclared(id.getText()))
-             throw new ChocolateException(id, "is hier niet gedefinieerd");
+             throw new ChocolateException(id, "is not defined here");
 		 if (symtab.retrieve(id.getText()).getNode().isConstant())
-	            throw new ChocolateException(id, "mag niet worden overschreven");
+	            throw new ChocolateException(id, "can't be overwritten");
 			setTypeId(id);
 		 id.setDeclaringNode(symtab.retrieve(id.getText()).getNode());
 		 setTypeId(id);
 		 root.setChocolateType(id.getChocolateType());
 	}
 	/**
-	 * check a vraag tree of a vraag asking for a multiple values. Checks that the id is defined and that it is writable. If this
-	 * is the case then the type of the vraag tree is set to VOID_TYPE
-	 * @param root the vraag tree to check
-	 * @param id one of the id trees in this vraag tree
+	 * check a read tree of a read asking for a multiple values. Checks that the id is defined and that it is writable. If this
+	 * is the case then the type of the read tree is set to VOID_TYPE
+	 * @param root the read tree to check
+	 * @param id one of the id trees in this read tree
 	 * @throws ChocolateException when id is not declared, or when it is not writable
 	 */
 	public void checkExprReadMultiple(ChocolateTree root, ChocolateTree id) throws ChocolateException{
 		 if (!isDeclared(id.getText()))
-            throw new ChocolateException(id, "is hier niet gedefinieerd"); 
+            throw new ChocolateException(id, "is not defined in this level"); 
 		 if (symtab.retrieve(id.getText()).getNode().isConstant())
-	            throw new ChocolateException(id, "mag niet worden overschreven");
+	            throw new ChocolateException(id, "can't be overwritten");
 			setTypeId(id);
 		 id.setDeclaringNode(symtab.retrieve(id.getText()).getNode());
 		 setTypeId(id);
 		 root.setChocolateType(VOID_TYPE);
 	}
 	
-	//public void checkExprSingle()
-	
-	//public void checkExprCompound()
-	
 	/**
-	 * Checks a zeg expression tree of a zeg that outputs a single operand. Checks that the operand has a valid type. If this is the case 
-	 * the type of the zeg expression is set to the type of the operand tree
-	 * @param root the zeg expression to check
-	 * @param op the operand in this zeg expression
+	 * Checks a print expression tree of a print that outputs a single operand. Checks that the operand has a valid type. If this is the case 
+	 * the type of the print expression is set to the type of the operand tree
+	 * @param root the print expression to check
+	 * @param op the operand in this print expression
 	 * @throws ChocolateException when the Operand is not of a valid type
 	 */
 	public void checkExprPrintSingle(ChocolateTree root, ChocolateTree op) throws ChocolateException {
 		if(!isValidType(op.getChocolateType()))
-			throw new ChocolateException(op, "kan ik niet zeggen!");
+			throw new ChocolateException(op, "can't be printed!");
 		root.setChocolateType(op.getChocolateType());
 	}
 	/**
-	 * Checks a zeg expression tree of a zeg that outputs multiple operands. Checks that the operand has a valid type.
-	 * If this is the case the type of the zeg expression is set to to VOID_TYPE
-	 * @param root the zeg expression to check
-	 * @param op one of the operands in this zeg expression
+	 * Checks a print expression tree of a print that outputs multiple operands. Checks that the operand has a valid type.
+	 * If this is the case the type of the print expression is set to to VOID_TYPE
+	 * @param root the print expression to check
+	 * @param op one of the operands in this print expression
 	 * @throws ChocolateException when the Operand is not of a valid type
 	 */
 	public void checkExprPrintMultiple(ChocolateTree root, ChocolateTree op) throws ChocolateException {
 		if(!isValidType(op.getChocolateType()))
-			throw new ChocolateException(op, "kan ik niet zeggen!");
+			throw new ChocolateException(op, "can't be printed!");
 		root.setChocolateType(VOID_TYPE);
 	}
 	
@@ -291,14 +301,14 @@ public class CheckerActions {
 	//	COMMAND
 	///////////////////////////////////////////////////////////
 	/**
-	 * Checks an if command tree, checks that the expression tree has type BOOL. Sets the type of this if tree to NO_TYPE
+	 * Checks an if command tree, checks that the expression tree has type boolean. Sets the type of this if tree to NO_TYPE
 	 * @param root the if command tree to check
 	 * @param checkExpr the expression to check
 	 * @throws ChocolateException when checkExpr does not have type BOOL
 	 */
 	public void checkIf(ChocolateTree root, ChocolateTree checkExpr) throws ChocolateException{
 		if(!typeMatch(checkExpr.getChocolateType(), BOOL))
-			throw new ChocolateException(root, ". De conditie ("+ChocolateException.formatTree(checkExpr)+") is niet van het type BOOL, alleen BOOL's kunnen blij zijn");
+			throw new ChocolateException(root, ". The condition ("+ChocolateException.formatTree(checkExpr)+") is not a boolean!");
 		root.setChocolateType(NO_TYPE);
 	}
 	/**
@@ -309,7 +319,7 @@ public class CheckerActions {
 	 */
 	public void checkWhile(ChocolateTree root, ChocolateTree checkExpr) throws ChocolateException{
 		if(!typeMatch(checkExpr.getChocolateType(), BOOL))
-			throw new ChocolateException(root, ". De conditie ("+ChocolateException.formatTree(checkExpr)+") is niet van het type BOOL");
+			throw new ChocolateException(root, ". The condition ("+ChocolateException.formatTree(checkExpr)+") is not a boolean!");
 		root.setChocolateType(NO_TYPE);
 	}
 
@@ -326,12 +336,12 @@ public class CheckerActions {
 	 */
 	public void checkVarDecl(ChocolateTree root, ChocolateTree id, CommonTree type) throws ChocolateException{
 		if(!isValidType(type.getText()))
-            throw new ChocolateException(type, "is geen valide type");
+            throw new ChocolateException(type, "is not a valid type");
 		else{
 			try{
 		     declare(id.getText(), type.getText(), id);
 			} catch (SymbolTableException e){
-				throw new ChocolateException(id, "heb je al gedefinieerd");
+				throw new ChocolateException(id, "is already defined");
 			}
 		     id.setChocolateType(type.getText());
 		}
@@ -348,12 +358,12 @@ public class CheckerActions {
 	 */
 	public void checkConstDecl(ChocolateTree root, ChocolateTree id, CommonTree type) throws ChocolateException {
 		if(!isValidType(type.getText()))
-            throw new ChocolateException(type, "is geen valide type");
+            throw new ChocolateException(type, "is not a valid type");
 		else{
 			try{
 		     declare(id.getText(), type.getText(), id);
 			} catch (SymbolTableException e){
-				throw new ChocolateException(id, "heb je al gedefinieerd");
+				throw new ChocolateException(id, "is already defined");
 			}
 		}
 		id.setChocolateType(type.getText());
@@ -361,20 +371,4 @@ public class CheckerActions {
 		root.setChocolateType(NO_TYPE);
 	}
 
-	///////////////////////////////////////////////////////////
-	//	SCOPING
-	///////////////////////////////////////////////////////////
-	/**
-	 * Opens a new scope in the SymbolTable
-	 */
-	public void openScope(){
-		symtab.openScope();
-	}
-	/**
-	 * Closes a new scope in the SymbolTable, thereby removing any symbols declared in this scope
-	 */
-	public void closeScope(){
-		symtab.closeScope();
-	}
-	
 }

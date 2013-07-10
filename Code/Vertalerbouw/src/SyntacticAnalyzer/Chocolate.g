@@ -62,7 +62,6 @@ package SyntacticAnalyzer;
 package SyntacticAnalyzer;
 }
 
-// Parser rules    
 program
     :    (declarations* statements)+ EOF
             ->  ^(PROGRAM (declarations* statements)+)
@@ -121,8 +120,7 @@ print
     :   PRINT^ LPAREN! (closed_compound_expr | single_expr | string) (COMMA! (closed_compound_expr | single_expr | string))* RPAREN!
     ;
     
-// EXPRESSIONS    
-   
+// EXPRESSIONS
 
 closed_compound_expr
     :   LCURLY^ declarations* compound_ext
@@ -187,8 +185,6 @@ string
     
 graphic
     :   LETTER | DIGIT | WS | COLON | COMMA | DOT;
-
-// Lexer rules
 
 BOOLEAN_OPERATOR
     :   'true'

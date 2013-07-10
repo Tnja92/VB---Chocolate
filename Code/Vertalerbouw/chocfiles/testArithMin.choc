@@ -1,0 +1,9 @@
+cacao GOED: test het gebruik van aftrekken (mars)
+
+reep wit a milka 58;
+bonbon wit b milka 23;
+reep wit c milka 3;
+bonbon wit d;
+
+d milka b mars a mars 3;
+verkade(d);

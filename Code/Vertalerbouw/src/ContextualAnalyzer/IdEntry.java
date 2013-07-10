@@ -1,7 +1,6 @@
 package ContextualAnalyzer;
 
 import AST.ChocolateTree;
-import SyntacticAnalyzer.*;
 
 /**
  * VB prac week1 - SymbolTable.
@@ -10,9 +9,6 @@ import SyntacticAnalyzer.*;
  * @version  2006.04.21
  */
 public class IdEntry {
-	public final String i = "wit";
-	public final String b = "puur";
-	public final String c = "melk";
 	
     private int  			level = -1;
     private ChocolateTree 	node;

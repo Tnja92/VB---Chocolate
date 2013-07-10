@@ -1,4 +1,4 @@
-// $ANTLR 3.5 C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g 2013-07-10 11:15:38
+// $ANTLR 3.5 C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g 2013-07-10 13:50:49
 
 package SyntacticAnalyzer;
 
@@ -18,7 +18,7 @@ public class ChocolateParser extends Parser {
 	public static final String[] tokenNames = new String[] {
 		"<invalid>", "<EOR>", "<DOWN>", "<UP>", "AND", "ASSIGN", "BOOLEAN", "BOOLEAN_OPERATOR", 
 		"CHAR", "CHAR_OPERATOR", "COLON", "COMMA", "COMMENT", "CONSTANT", "DIGIT", 
-		"DIV", "DO", "DQUOTATION", "ELSE", "EQ", "GREAT", "GREATEQ", "IDENTIFIER", 
+		"DIV", "DO", "DOT", "DQUOTATION", "ELSE", "EQ", "GREAT", "GREATEQ", "IDENTIFIER", 
 		"IF", "INTEGER", "LCURLY", "LESS", "LESSEQ", "LETTER", "LOWER", "LPAREN", 
 		"MIN", "MOD", "MULT", "NEG", "NOT", "NOTEQ", "NUMBER", "OR", "PLUS", "POS", 
 		"PRINT", "PROGRAM", "QUOTATION", "RCURLY", "READ", "RPAREN", "SEMICOLON", 
@@ -38,42 +38,43 @@ public class ChocolateParser extends Parser {
 	public static final int DIGIT=14;
 	public static final int DIV=15;
 	public static final int DO=16;
-	public static final int DQUOTATION=17;
-	public static final int ELSE=18;
-	public static final int EQ=19;
-	public static final int GREAT=20;
-	public static final int GREATEQ=21;
-	public static final int IDENTIFIER=22;
-	public static final int IF=23;
-	public static final int INTEGER=24;
-	public static final int LCURLY=25;
-	public static final int LESS=26;
-	public static final int LESSEQ=27;
-	public static final int LETTER=28;
-	public static final int LOWER=29;
-	public static final int LPAREN=30;
-	public static final int MIN=31;
-	public static final int MOD=32;
-	public static final int MULT=33;
-	public static final int NEG=34;
-	public static final int NOT=35;
-	public static final int NOTEQ=36;
-	public static final int NUMBER=37;
-	public static final int OR=38;
-	public static final int PLUS=39;
-	public static final int POS=40;
-	public static final int PRINT=41;
-	public static final int PROGRAM=42;
-	public static final int QUOTATION=43;
-	public static final int RCURLY=44;
-	public static final int READ=45;
-	public static final int RPAREN=46;
-	public static final int SEMICOLON=47;
-	public static final int THEN=48;
-	public static final int UPPER=49;
-	public static final int VAR=50;
-	public static final int WHILE=51;
-	public static final int WS=52;
+	public static final int DOT=17;
+	public static final int DQUOTATION=18;
+	public static final int ELSE=19;
+	public static final int EQ=20;
+	public static final int GREAT=21;
+	public static final int GREATEQ=22;
+	public static final int IDENTIFIER=23;
+	public static final int IF=24;
+	public static final int INTEGER=25;
+	public static final int LCURLY=26;
+	public static final int LESS=27;
+	public static final int LESSEQ=28;
+	public static final int LETTER=29;
+	public static final int LOWER=30;
+	public static final int LPAREN=31;
+	public static final int MIN=32;
+	public static final int MOD=33;
+	public static final int MULT=34;
+	public static final int NEG=35;
+	public static final int NOT=36;
+	public static final int NOTEQ=37;
+	public static final int NUMBER=38;
+	public static final int OR=39;
+	public static final int PLUS=40;
+	public static final int POS=41;
+	public static final int PRINT=42;
+	public static final int PROGRAM=43;
+	public static final int QUOTATION=44;
+	public static final int RCURLY=45;
+	public static final int READ=46;
+	public static final int RPAREN=47;
+	public static final int SEMICOLON=48;
+	public static final int THEN=49;
+	public static final int UPPER=50;
+	public static final int VAR=51;
+	public static final int WHILE=52;
+	public static final int WS=53;
 
 	// delegates
 	public Parser[] getDelegates() {
@@ -110,7 +111,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "program"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:65:1: program : ( ( declarations )* statements )+ EOF -> ^( PROGRAM ( ( declarations )* statements )+ ) ;
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:66:1: program : ( ( declarations )* statements )+ EOF -> ^( PROGRAM ( ( declarations )* statements )+ ) ;
 	public final ChocolateParser.program_return program() throws RecognitionException {
 		ChocolateParser.program_return retval = new ChocolateParser.program_return();
 		retval.start = input.LT(1);
@@ -127,10 +128,10 @@ public class ChocolateParser extends Parser {
 		RewriteRuleSubtreeStream stream_declarations=new RewriteRuleSubtreeStream(adaptor,"rule declarations");
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:66:5: ( ( ( declarations )* statements )+ EOF -> ^( PROGRAM ( ( declarations )* statements )+ ) )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:66:10: ( ( declarations )* statements )+ EOF
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:67:5: ( ( ( declarations )* statements )+ EOF -> ^( PROGRAM ( ( declarations )* statements )+ ) )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:67:10: ( ( declarations )* statements )+ EOF
 			{
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:66:10: ( ( declarations )* statements )+
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:67:10: ( ( declarations )* statements )+
 			int cnt2=0;
 			loop2:
 			while (true) {
@@ -142,9 +143,9 @@ public class ChocolateParser extends Parser {
 
 				switch (alt2) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:66:11: ( declarations )* statements
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:67:11: ( declarations )* statements
 					{
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:66:11: ( declarations )*
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:67:11: ( declarations )*
 					loop1:
 					while (true) {
 						int alt1=2;
@@ -155,9 +156,9 @@ public class ChocolateParser extends Parser {
 
 						switch (alt1) {
 						case 1 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:66:11: declarations
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:67:11: declarations
 							{
-							pushFollow(FOLLOW_declarations_in_program1093);
+							pushFollow(FOLLOW_declarations_in_program1118);
 							declarations1=declarations();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -170,7 +171,7 @@ public class ChocolateParser extends Parser {
 						}
 					}
 
-					pushFollow(FOLLOW_statements_in_program1096);
+					pushFollow(FOLLOW_statements_in_program1121);
 					statements2=statements();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -187,11 +188,11 @@ public class ChocolateParser extends Parser {
 				cnt2++;
 			}
 
-			EOF3=(Token)match(input,EOF,FOLLOW_EOF_in_program1100); if (state.failed) return retval; 
+			EOF3=(Token)match(input,EOF,FOLLOW_EOF_in_program1125); if (state.failed) return retval; 
 			if ( state.backtracking==0 ) stream_EOF.add(EOF3);
 
 			// AST REWRITE
-			// elements: declarations, statements
+			// elements: statements, declarations
 			// token labels: 
 			// rule labels: retval
 			// token list labels: 
@@ -202,9 +203,9 @@ public class ChocolateParser extends Parser {
 			RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 			root_0 = (Object)adaptor.nil();
-			// 67:13: -> ^( PROGRAM ( ( declarations )* statements )+ )
+			// 68:13: -> ^( PROGRAM ( ( declarations )* statements )+ )
 			{
-				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:67:17: ^( PROGRAM ( ( declarations )* statements )+ )
+				// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:68:17: ^( PROGRAM ( ( declarations )* statements )+ )
 				{
 				Object root_1 = (Object)adaptor.nil();
 				root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(PROGRAM, "PROGRAM"), root_1);
@@ -212,7 +213,7 @@ public class ChocolateParser extends Parser {
 					throw new RewriteEarlyExitException();
 				}
 				while ( stream_statements.hasNext() ) {
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:67:28: ( declarations )*
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:68:28: ( declarations )*
 					while ( stream_declarations.hasNext() ) {
 						adaptor.addChild(root_1, stream_declarations.nextTree());
 					}
@@ -261,7 +262,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "declarations"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:72:1: declarations : declaration SEMICOLON !;
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:73:1: declarations : declaration SEMICOLON !;
 	public final ChocolateParser.declarations_return declarations() throws RecognitionException {
 		ChocolateParser.declarations_return retval = new ChocolateParser.declarations_return();
 		retval.start = input.LT(1);
@@ -274,19 +275,19 @@ public class ChocolateParser extends Parser {
 		Object SEMICOLON5_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:73:5: ( declaration SEMICOLON !)
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:73:9: declaration SEMICOLON !
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:74:5: ( declaration SEMICOLON !)
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:74:9: declaration SEMICOLON !
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			pushFollow(FOLLOW_declaration_in_declarations1163);
+			pushFollow(FOLLOW_declaration_in_declarations1188);
 			declaration4=declaration();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) adaptor.addChild(root_0, declaration4.getTree());
 
-			SEMICOLON5=(Token)match(input,SEMICOLON,FOLLOW_SEMICOLON_in_declarations1165); if (state.failed) return retval;
+			SEMICOLON5=(Token)match(input,SEMICOLON,FOLLOW_SEMICOLON_in_declarations1190); if (state.failed) return retval;
 			}
 
 			retval.stop = input.LT(-1);
@@ -317,7 +318,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "declaration"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:76:1: declaration : ( CONSTANT ^ type IDENTIFIER ( COMMA ! IDENTIFIER )* ASSIGN ( type_op ) | VAR ^ type IDENTIFIER ( COMMA ! IDENTIFIER )* ( ASSIGN ( type_op ) )? );
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:77:1: declaration : ( CONSTANT ^ type IDENTIFIER ( COMMA ! IDENTIFIER )* ASSIGN ( type_op ) | VAR ^ type IDENTIFIER ( COMMA ! IDENTIFIER )* ( ASSIGN ( type_op ) )? );
 	public final ChocolateParser.declaration_return declaration() throws RecognitionException {
 		ChocolateParser.declaration_return retval = new ChocolateParser.declaration_return();
 		retval.start = input.LT(1);
@@ -351,7 +352,7 @@ public class ChocolateParser extends Parser {
 		Object ASSIGN18_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:77:5: ( CONSTANT ^ type IDENTIFIER ( COMMA ! IDENTIFIER )* ASSIGN ( type_op ) | VAR ^ type IDENTIFIER ( COMMA ! IDENTIFIER )* ( ASSIGN ( type_op ) )? )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:78:5: ( CONSTANT ^ type IDENTIFIER ( COMMA ! IDENTIFIER )* ASSIGN ( type_op ) | VAR ^ type IDENTIFIER ( COMMA ! IDENTIFIER )* ( ASSIGN ( type_op ) )? )
 			int alt6=2;
 			int LA6_0 = input.LA(1);
 			if ( (LA6_0==CONSTANT) ) {
@@ -370,30 +371,30 @@ public class ChocolateParser extends Parser {
 
 			switch (alt6) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:77:9: CONSTANT ^ type IDENTIFIER ( COMMA ! IDENTIFIER )* ASSIGN ( type_op )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:78:9: CONSTANT ^ type IDENTIFIER ( COMMA ! IDENTIFIER )* ASSIGN ( type_op )
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					CONSTANT6=(Token)match(input,CONSTANT,FOLLOW_CONSTANT_in_declaration1186); if (state.failed) return retval;
+					CONSTANT6=(Token)match(input,CONSTANT,FOLLOW_CONSTANT_in_declaration1211); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					CONSTANT6_tree = (Object)adaptor.create(CONSTANT6);
 					root_0 = (Object)adaptor.becomeRoot(CONSTANT6_tree, root_0);
 					}
 
-					pushFollow(FOLLOW_type_in_declaration1189);
+					pushFollow(FOLLOW_type_in_declaration1214);
 					type7=type();
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) adaptor.addChild(root_0, type7.getTree());
 
-					IDENTIFIER8=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_declaration1191); if (state.failed) return retval;
+					IDENTIFIER8=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_declaration1216); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					IDENTIFIER8_tree = (Object)adaptor.create(IDENTIFIER8);
 					adaptor.addChild(root_0, IDENTIFIER8_tree);
 					}
 
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:77:35: ( COMMA ! IDENTIFIER )*
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:78:35: ( COMMA ! IDENTIFIER )*
 					loop3:
 					while (true) {
 						int alt3=2;
@@ -404,10 +405,10 @@ public class ChocolateParser extends Parser {
 
 						switch (alt3) {
 						case 1 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:77:36: COMMA ! IDENTIFIER
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:78:36: COMMA ! IDENTIFIER
 							{
-							COMMA9=(Token)match(input,COMMA,FOLLOW_COMMA_in_declaration1194); if (state.failed) return retval;
-							IDENTIFIER10=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_declaration1197); if (state.failed) return retval;
+							COMMA9=(Token)match(input,COMMA,FOLLOW_COMMA_in_declaration1219); if (state.failed) return retval;
+							IDENTIFIER10=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_declaration1222); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
 							IDENTIFIER10_tree = (Object)adaptor.create(IDENTIFIER10);
 							adaptor.addChild(root_0, IDENTIFIER10_tree);
@@ -421,16 +422,16 @@ public class ChocolateParser extends Parser {
 						}
 					}
 
-					ASSIGN11=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_declaration1201); if (state.failed) return retval;
+					ASSIGN11=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_declaration1226); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					ASSIGN11_tree = (Object)adaptor.create(ASSIGN11);
 					adaptor.addChild(root_0, ASSIGN11_tree);
 					}
 
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:77:63: ( type_op )
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:77:64: type_op
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:78:63: ( type_op )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:78:64: type_op
 					{
-					pushFollow(FOLLOW_type_op_in_declaration1204);
+					pushFollow(FOLLOW_type_op_in_declaration1229);
 					type_op12=type_op();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -441,30 +442,30 @@ public class ChocolateParser extends Parser {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:78:9: VAR ^ type IDENTIFIER ( COMMA ! IDENTIFIER )* ( ASSIGN ( type_op ) )?
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:79:9: VAR ^ type IDENTIFIER ( COMMA ! IDENTIFIER )* ( ASSIGN ( type_op ) )?
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					VAR13=(Token)match(input,VAR,FOLLOW_VAR_in_declaration1215); if (state.failed) return retval;
+					VAR13=(Token)match(input,VAR,FOLLOW_VAR_in_declaration1240); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					VAR13_tree = (Object)adaptor.create(VAR13);
 					root_0 = (Object)adaptor.becomeRoot(VAR13_tree, root_0);
 					}
 
-					pushFollow(FOLLOW_type_in_declaration1218);
+					pushFollow(FOLLOW_type_in_declaration1243);
 					type14=type();
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) adaptor.addChild(root_0, type14.getTree());
 
-					IDENTIFIER15=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_declaration1220); if (state.failed) return retval;
+					IDENTIFIER15=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_declaration1245); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					IDENTIFIER15_tree = (Object)adaptor.create(IDENTIFIER15);
 					adaptor.addChild(root_0, IDENTIFIER15_tree);
 					}
 
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:78:30: ( COMMA ! IDENTIFIER )*
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:79:30: ( COMMA ! IDENTIFIER )*
 					loop4:
 					while (true) {
 						int alt4=2;
@@ -475,10 +476,10 @@ public class ChocolateParser extends Parser {
 
 						switch (alt4) {
 						case 1 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:78:31: COMMA ! IDENTIFIER
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:79:31: COMMA ! IDENTIFIER
 							{
-							COMMA16=(Token)match(input,COMMA,FOLLOW_COMMA_in_declaration1223); if (state.failed) return retval;
-							IDENTIFIER17=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_declaration1226); if (state.failed) return retval;
+							COMMA16=(Token)match(input,COMMA,FOLLOW_COMMA_in_declaration1248); if (state.failed) return retval;
+							IDENTIFIER17=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_declaration1251); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
 							IDENTIFIER17_tree = (Object)adaptor.create(IDENTIFIER17);
 							adaptor.addChild(root_0, IDENTIFIER17_tree);
@@ -492,7 +493,7 @@ public class ChocolateParser extends Parser {
 						}
 					}
 
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:78:51: ( ASSIGN ( type_op ) )?
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:79:51: ( ASSIGN ( type_op ) )?
 					int alt5=2;
 					int LA5_0 = input.LA(1);
 					if ( (LA5_0==ASSIGN) ) {
@@ -500,18 +501,18 @@ public class ChocolateParser extends Parser {
 					}
 					switch (alt5) {
 						case 1 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:78:52: ASSIGN ( type_op )
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:79:52: ASSIGN ( type_op )
 							{
-							ASSIGN18=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_declaration1231); if (state.failed) return retval;
+							ASSIGN18=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_declaration1256); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
 							ASSIGN18_tree = (Object)adaptor.create(ASSIGN18);
 							adaptor.addChild(root_0, ASSIGN18_tree);
 							}
 
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:78:59: ( type_op )
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:78:60: type_op
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:79:59: ( type_op )
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:79:60: type_op
 							{
-							pushFollow(FOLLOW_type_op_in_declaration1234);
+							pushFollow(FOLLOW_type_op_in_declaration1259);
 							type_op19=type_op();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -556,7 +557,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "type"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:81:1: type : ( IDENTIFIER | CHAR | BOOLEAN );
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:82:1: type : ( INTEGER | CHAR | BOOLEAN );
 	public final ChocolateParser.type_return type() throws RecognitionException {
 		ChocolateParser.type_return retval = new ChocolateParser.type_return();
 		retval.start = input.LT(1);
@@ -568,14 +569,14 @@ public class ChocolateParser extends Parser {
 		Object set20_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:82:5: ( IDENTIFIER | CHAR | BOOLEAN )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:83:5: ( INTEGER | CHAR | BOOLEAN )
 			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:
 			{
 			root_0 = (Object)adaptor.nil();
 
 
 			set20=input.LT(1);
-			if ( input.LA(1)==BOOLEAN||input.LA(1)==CHAR||input.LA(1)==IDENTIFIER ) {
+			if ( input.LA(1)==BOOLEAN||input.LA(1)==CHAR||input.LA(1)==INTEGER ) {
 				input.consume();
 				if ( state.backtracking==0 ) adaptor.addChild(root_0, (Object)adaptor.create(set20));
 				state.errorRecovery=false;
@@ -616,7 +617,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "type_op"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:87:1: type_op : ( single_expr | closed_compound_expr );
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:88:1: type_op : ( single_expr | closed_compound_expr );
 	public final ChocolateParser.type_op_return type_op() throws RecognitionException {
 		ChocolateParser.type_op_return retval = new ChocolateParser.type_op_return();
 		retval.start = input.LT(1);
@@ -628,7 +629,7 @@ public class ChocolateParser extends Parser {
 
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:88:5: ( single_expr | closed_compound_expr )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:89:5: ( single_expr | closed_compound_expr )
 			int alt7=2;
 			int LA7_0 = input.LA(1);
 			if ( (LA7_0==BOOLEAN_OPERATOR||LA7_0==CHAR_OPERATOR||LA7_0==IDENTIFIER||(LA7_0 >= LPAREN && LA7_0 <= MIN)||LA7_0==NOT||LA7_0==NUMBER||LA7_0==PLUS) ) {
@@ -647,12 +648,12 @@ public class ChocolateParser extends Parser {
 
 			switch (alt7) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:88:9: single_expr
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:89:9: single_expr
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					pushFollow(FOLLOW_single_expr_in_type_op1303);
+					pushFollow(FOLLOW_single_expr_in_type_op1328);
 					single_expr21=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -661,12 +662,12 @@ public class ChocolateParser extends Parser {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:89:9: closed_compound_expr
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:90:9: closed_compound_expr
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					pushFollow(FOLLOW_closed_compound_expr_in_type_op1313);
+					pushFollow(FOLLOW_closed_compound_expr_in_type_op1338);
 					closed_compound_expr22=closed_compound_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -704,7 +705,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "statements"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:93:1: statements : statement SEMICOLON !;
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:94:1: statements : statement SEMICOLON !;
 	public final ChocolateParser.statements_return statements() throws RecognitionException {
 		ChocolateParser.statements_return retval = new ChocolateParser.statements_return();
 		retval.start = input.LT(1);
@@ -717,19 +718,19 @@ public class ChocolateParser extends Parser {
 		Object SEMICOLON24_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:94:5: ( statement SEMICOLON !)
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:94:7: statement SEMICOLON !
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:95:5: ( statement SEMICOLON !)
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:95:7: statement SEMICOLON !
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			pushFollow(FOLLOW_statement_in_statements1334);
+			pushFollow(FOLLOW_statement_in_statements1359);
 			statement23=statement();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) adaptor.addChild(root_0, statement23.getTree());
 
-			SEMICOLON24=(Token)match(input,SEMICOLON,FOLLOW_SEMICOLON_in_statements1336); if (state.failed) return retval;
+			SEMICOLON24=(Token)match(input,SEMICOLON,FOLLOW_SEMICOLON_in_statements1361); if (state.failed) return retval;
 			}
 
 			retval.stop = input.LT(-1);
@@ -760,7 +761,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "statement"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:97:1: statement : ( read | print | assign | ifthenelse | whiledo );
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:98:1: statement : ( read | print | assign | ifthenelse | whiledo );
 	public final ChocolateParser.statement_return statement() throws RecognitionException {
 		ChocolateParser.statement_return retval = new ChocolateParser.statement_return();
 		retval.start = input.LT(1);
@@ -775,7 +776,7 @@ public class ChocolateParser extends Parser {
 
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:98:5: ( read | print | assign | ifthenelse | whiledo )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:99:5: ( read | print | assign | ifthenelse | whiledo )
 			int alt8=5;
 			switch ( input.LA(1) ) {
 			case READ:
@@ -811,12 +812,12 @@ public class ChocolateParser extends Parser {
 			}
 			switch (alt8) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:98:9: read
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:99:9: read
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					pushFollow(FOLLOW_read_in_statement1360);
+					pushFollow(FOLLOW_read_in_statement1385);
 					read25=read();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -825,12 +826,12 @@ public class ChocolateParser extends Parser {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:99:9: print
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:100:9: print
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					pushFollow(FOLLOW_print_in_statement1371);
+					pushFollow(FOLLOW_print_in_statement1396);
 					print26=print();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -839,12 +840,12 @@ public class ChocolateParser extends Parser {
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:100:9: assign
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:101:9: assign
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					pushFollow(FOLLOW_assign_in_statement1382);
+					pushFollow(FOLLOW_assign_in_statement1407);
 					assign27=assign();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -853,12 +854,12 @@ public class ChocolateParser extends Parser {
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:101:9: ifthenelse
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:102:9: ifthenelse
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					pushFollow(FOLLOW_ifthenelse_in_statement1395);
+					pushFollow(FOLLOW_ifthenelse_in_statement1420);
 					ifthenelse28=ifthenelse();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -867,12 +868,12 @@ public class ChocolateParser extends Parser {
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:102:9: whiledo
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:103:9: whiledo
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					pushFollow(FOLLOW_whiledo_in_statement1405);
+					pushFollow(FOLLOW_whiledo_in_statement1430);
 					whiledo29=whiledo();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -910,7 +911,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "read"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:105:1: read : READ ^ LPAREN ! IDENTIFIER ( COMMA ! IDENTIFIER )* RPAREN !;
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:106:1: read : READ ^ LPAREN ! IDENTIFIER ( COMMA ! IDENTIFIER )* RPAREN !;
 	public final ChocolateParser.read_return read() throws RecognitionException {
 		ChocolateParser.read_return retval = new ChocolateParser.read_return();
 		retval.start = input.LT(1);
@@ -932,26 +933,26 @@ public class ChocolateParser extends Parser {
 		Object RPAREN35_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:106:5: ( READ ^ LPAREN ! IDENTIFIER ( COMMA ! IDENTIFIER )* RPAREN !)
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:106:9: READ ^ LPAREN ! IDENTIFIER ( COMMA ! IDENTIFIER )* RPAREN !
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:107:5: ( READ ^ LPAREN ! IDENTIFIER ( COMMA ! IDENTIFIER )* RPAREN !)
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:107:9: READ ^ LPAREN ! IDENTIFIER ( COMMA ! IDENTIFIER )* RPAREN !
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			READ30=(Token)match(input,READ,FOLLOW_READ_in_read1424); if (state.failed) return retval;
+			READ30=(Token)match(input,READ,FOLLOW_READ_in_read1449); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
 			READ30_tree = (Object)adaptor.create(READ30);
 			root_0 = (Object)adaptor.becomeRoot(READ30_tree, root_0);
 			}
 
-			LPAREN31=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_read1427); if (state.failed) return retval;
-			IDENTIFIER32=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_read1430); if (state.failed) return retval;
+			LPAREN31=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_read1452); if (state.failed) return retval;
+			IDENTIFIER32=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_read1455); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
 			IDENTIFIER32_tree = (Object)adaptor.create(IDENTIFIER32);
 			adaptor.addChild(root_0, IDENTIFIER32_tree);
 			}
 
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:106:34: ( COMMA ! IDENTIFIER )*
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:107:34: ( COMMA ! IDENTIFIER )*
 			loop9:
 			while (true) {
 				int alt9=2;
@@ -962,10 +963,10 @@ public class ChocolateParser extends Parser {
 
 				switch (alt9) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:106:35: COMMA ! IDENTIFIER
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:107:35: COMMA ! IDENTIFIER
 					{
-					COMMA33=(Token)match(input,COMMA,FOLLOW_COMMA_in_read1433); if (state.failed) return retval;
-					IDENTIFIER34=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_read1436); if (state.failed) return retval;
+					COMMA33=(Token)match(input,COMMA,FOLLOW_COMMA_in_read1458); if (state.failed) return retval;
+					IDENTIFIER34=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_read1461); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					IDENTIFIER34_tree = (Object)adaptor.create(IDENTIFIER34);
 					adaptor.addChild(root_0, IDENTIFIER34_tree);
@@ -979,7 +980,7 @@ public class ChocolateParser extends Parser {
 				}
 			}
 
-			RPAREN35=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_read1440); if (state.failed) return retval;
+			RPAREN35=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_read1465); if (state.failed) return retval;
 			}
 
 			retval.stop = input.LT(-1);
@@ -1010,7 +1011,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "assign"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:109:1: assign : IDENTIFIER ASSIGN ^ ( assignexpr ) ;
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:110:1: assign : IDENTIFIER ASSIGN ^ ( assignexpr ) ;
 	public final ChocolateParser.assign_return assign() throws RecognitionException {
 		ChocolateParser.assign_return retval = new ChocolateParser.assign_return();
 		retval.start = input.LT(1);
@@ -1025,28 +1026,28 @@ public class ChocolateParser extends Parser {
 		Object ASSIGN37_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:110:5: ( IDENTIFIER ASSIGN ^ ( assignexpr ) )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:110:9: IDENTIFIER ASSIGN ^ ( assignexpr )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:111:5: ( IDENTIFIER ASSIGN ^ ( assignexpr ) )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:111:9: IDENTIFIER ASSIGN ^ ( assignexpr )
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			IDENTIFIER36=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_assign1460); if (state.failed) return retval;
+			IDENTIFIER36=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_assign1485); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
 			IDENTIFIER36_tree = (Object)adaptor.create(IDENTIFIER36);
 			adaptor.addChild(root_0, IDENTIFIER36_tree);
 			}
 
-			ASSIGN37=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_assign1462); if (state.failed) return retval;
+			ASSIGN37=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_assign1487); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
 			ASSIGN37_tree = (Object)adaptor.create(ASSIGN37);
 			root_0 = (Object)adaptor.becomeRoot(ASSIGN37_tree, root_0);
 			}
 
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:110:28: ( assignexpr )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:110:29: assignexpr
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:111:28: ( assignexpr )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:111:29: assignexpr
 			{
-			pushFollow(FOLLOW_assignexpr_in_assign1466);
+			pushFollow(FOLLOW_assignexpr_in_assign1491);
 			assignexpr38=assignexpr();
 			state._fsp--;
 			if (state.failed) return retval;
@@ -1084,7 +1085,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "assignexpr"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:113:1: assignexpr : ( ( IDENTIFIER ASSIGN ^)=> ( IDENTIFIER ASSIGN ^ assignexpr ) | single_expr | closed_compound_expr );
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:114:1: assignexpr : ( ( IDENTIFIER ASSIGN ^)=> ( IDENTIFIER ASSIGN ^ assignexpr ) | single_expr | closed_compound_expr );
 	public final ChocolateParser.assignexpr_return assignexpr() throws RecognitionException {
 		ChocolateParser.assignexpr_return retval = new ChocolateParser.assignexpr_return();
 		retval.start = input.LT(1);
@@ -1101,7 +1102,7 @@ public class ChocolateParser extends Parser {
 		Object ASSIGN40_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:114:5: ( ( IDENTIFIER ASSIGN ^)=> ( IDENTIFIER ASSIGN ^ assignexpr ) | single_expr | closed_compound_expr )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:115:5: ( ( IDENTIFIER ASSIGN ^)=> ( IDENTIFIER ASSIGN ^ assignexpr ) | single_expr | closed_compound_expr )
 			int alt10=3;
 			switch ( input.LA(1) ) {
 			case IDENTIFIER:
@@ -1140,27 +1141,27 @@ public class ChocolateParser extends Parser {
 			}
 			switch (alt10) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:114:9: ( IDENTIFIER ASSIGN ^)=> ( IDENTIFIER ASSIGN ^ assignexpr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:115:9: ( IDENTIFIER ASSIGN ^)=> ( IDENTIFIER ASSIGN ^ assignexpr )
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:114:33: ( IDENTIFIER ASSIGN ^ assignexpr )
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:114:34: IDENTIFIER ASSIGN ^ assignexpr
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:115:33: ( IDENTIFIER ASSIGN ^ assignexpr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:115:34: IDENTIFIER ASSIGN ^ assignexpr
 					{
-					IDENTIFIER39=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_assignexpr1500); if (state.failed) return retval;
+					IDENTIFIER39=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_assignexpr1525); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					IDENTIFIER39_tree = (Object)adaptor.create(IDENTIFIER39);
 					adaptor.addChild(root_0, IDENTIFIER39_tree);
 					}
 
-					ASSIGN40=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_assignexpr1502); if (state.failed) return retval;
+					ASSIGN40=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_assignexpr1527); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					ASSIGN40_tree = (Object)adaptor.create(ASSIGN40);
 					root_0 = (Object)adaptor.becomeRoot(ASSIGN40_tree, root_0);
 					}
 
-					pushFollow(FOLLOW_assignexpr_in_assignexpr1505);
+					pushFollow(FOLLOW_assignexpr_in_assignexpr1530);
 					assignexpr41=assignexpr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1171,12 +1172,12 @@ public class ChocolateParser extends Parser {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:115:9: single_expr
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:116:9: single_expr
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					pushFollow(FOLLOW_single_expr_in_assignexpr1516);
+					pushFollow(FOLLOW_single_expr_in_assignexpr1541);
 					single_expr42=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1185,12 +1186,12 @@ public class ChocolateParser extends Parser {
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:116:9: closed_compound_expr
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:117:9: closed_compound_expr
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					pushFollow(FOLLOW_closed_compound_expr_in_assignexpr1526);
+					pushFollow(FOLLOW_closed_compound_expr_in_assignexpr1551);
 					closed_compound_expr43=closed_compound_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1228,7 +1229,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "print"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:119:1: print : PRINT ^ LPAREN ! ( closed_compound_expr | single_expr | string ) ( COMMA ! ( closed_compound_expr | single_expr | string ) )* RPAREN !;
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:120:1: print : PRINT ^ LPAREN ! ( closed_compound_expr | single_expr | string ) ( COMMA ! ( closed_compound_expr | single_expr | string ) )* RPAREN !;
 	public final ChocolateParser.print_return print() throws RecognitionException {
 		ChocolateParser.print_return retval = new ChocolateParser.print_return();
 		retval.start = input.LT(1);
@@ -1252,20 +1253,20 @@ public class ChocolateParser extends Parser {
 		Object RPAREN53_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:120:5: ( PRINT ^ LPAREN ! ( closed_compound_expr | single_expr | string ) ( COMMA ! ( closed_compound_expr | single_expr | string ) )* RPAREN !)
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:120:9: PRINT ^ LPAREN ! ( closed_compound_expr | single_expr | string ) ( COMMA ! ( closed_compound_expr | single_expr | string ) )* RPAREN !
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:121:5: ( PRINT ^ LPAREN ! ( closed_compound_expr | single_expr | string ) ( COMMA ! ( closed_compound_expr | single_expr | string ) )* RPAREN !)
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:121:9: PRINT ^ LPAREN ! ( closed_compound_expr | single_expr | string ) ( COMMA ! ( closed_compound_expr | single_expr | string ) )* RPAREN !
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			PRINT44=(Token)match(input,PRINT,FOLLOW_PRINT_in_print1549); if (state.failed) return retval;
+			PRINT44=(Token)match(input,PRINT,FOLLOW_PRINT_in_print1574); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
 			PRINT44_tree = (Object)adaptor.create(PRINT44);
 			root_0 = (Object)adaptor.becomeRoot(PRINT44_tree, root_0);
 			}
 
-			LPAREN45=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_print1552); if (state.failed) return retval;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:120:24: ( closed_compound_expr | single_expr | string )
+			LPAREN45=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_print1577); if (state.failed) return retval;
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:121:24: ( closed_compound_expr | single_expr | string )
 			int alt11=3;
 			switch ( input.LA(1) ) {
 			case LCURLY:
@@ -1298,9 +1299,9 @@ public class ChocolateParser extends Parser {
 			}
 			switch (alt11) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:120:25: closed_compound_expr
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:121:25: closed_compound_expr
 					{
-					pushFollow(FOLLOW_closed_compound_expr_in_print1556);
+					pushFollow(FOLLOW_closed_compound_expr_in_print1581);
 					closed_compound_expr46=closed_compound_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1309,9 +1310,9 @@ public class ChocolateParser extends Parser {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:120:48: single_expr
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:121:48: single_expr
 					{
-					pushFollow(FOLLOW_single_expr_in_print1560);
+					pushFollow(FOLLOW_single_expr_in_print1585);
 					single_expr47=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1320,9 +1321,9 @@ public class ChocolateParser extends Parser {
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:120:62: string
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:121:62: string
 					{
-					pushFollow(FOLLOW_string_in_print1564);
+					pushFollow(FOLLOW_string_in_print1589);
 					string48=string();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1333,7 +1334,7 @@ public class ChocolateParser extends Parser {
 
 			}
 
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:120:70: ( COMMA ! ( closed_compound_expr | single_expr | string ) )*
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:121:70: ( COMMA ! ( closed_compound_expr | single_expr | string ) )*
 			loop13:
 			while (true) {
 				int alt13=2;
@@ -1344,10 +1345,10 @@ public class ChocolateParser extends Parser {
 
 				switch (alt13) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:120:71: COMMA ! ( closed_compound_expr | single_expr | string )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:121:71: COMMA ! ( closed_compound_expr | single_expr | string )
 					{
-					COMMA49=(Token)match(input,COMMA,FOLLOW_COMMA_in_print1568); if (state.failed) return retval;
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:120:78: ( closed_compound_expr | single_expr | string )
+					COMMA49=(Token)match(input,COMMA,FOLLOW_COMMA_in_print1593); if (state.failed) return retval;
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:121:78: ( closed_compound_expr | single_expr | string )
 					int alt12=3;
 					switch ( input.LA(1) ) {
 					case LCURLY:
@@ -1380,9 +1381,9 @@ public class ChocolateParser extends Parser {
 					}
 					switch (alt12) {
 						case 1 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:120:79: closed_compound_expr
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:121:79: closed_compound_expr
 							{
-							pushFollow(FOLLOW_closed_compound_expr_in_print1572);
+							pushFollow(FOLLOW_closed_compound_expr_in_print1597);
 							closed_compound_expr50=closed_compound_expr();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -1391,9 +1392,9 @@ public class ChocolateParser extends Parser {
 							}
 							break;
 						case 2 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:120:102: single_expr
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:121:102: single_expr
 							{
-							pushFollow(FOLLOW_single_expr_in_print1576);
+							pushFollow(FOLLOW_single_expr_in_print1601);
 							single_expr51=single_expr();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -1402,9 +1403,9 @@ public class ChocolateParser extends Parser {
 							}
 							break;
 						case 3 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:120:116: string
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:121:116: string
 							{
-							pushFollow(FOLLOW_string_in_print1580);
+							pushFollow(FOLLOW_string_in_print1605);
 							string52=string();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -1423,7 +1424,7 @@ public class ChocolateParser extends Parser {
 				}
 			}
 
-			RPAREN53=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_print1585); if (state.failed) return retval;
+			RPAREN53=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_print1610); if (state.failed) return retval;
 			}
 
 			retval.stop = input.LT(-1);
@@ -1454,7 +1455,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "closed_compound_expr"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:126:1: closed_compound_expr : LCURLY ^ ( declarations )* compound_ext ;
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:127:1: closed_compound_expr : LCURLY ^ ( declarations )* compound_ext ;
 	public final ChocolateParser.closed_compound_expr_return closed_compound_expr() throws RecognitionException {
 		ChocolateParser.closed_compound_expr_return retval = new ChocolateParser.closed_compound_expr_return();
 		retval.start = input.LT(1);
@@ -1468,19 +1469,19 @@ public class ChocolateParser extends Parser {
 		Object LCURLY54_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:127:5: ( LCURLY ^ ( declarations )* compound_ext )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:127:9: LCURLY ^ ( declarations )* compound_ext
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:128:5: ( LCURLY ^ ( declarations )* compound_ext )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:128:9: LCURLY ^ ( declarations )* compound_ext
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			LCURLY54=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_closed_compound_expr1615); if (state.failed) return retval;
+			LCURLY54=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_closed_compound_expr1640); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
 			LCURLY54_tree = (Object)adaptor.create(LCURLY54);
 			root_0 = (Object)adaptor.becomeRoot(LCURLY54_tree, root_0);
 			}
 
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:127:17: ( declarations )*
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:128:17: ( declarations )*
 			loop14:
 			while (true) {
 				int alt14=2;
@@ -1491,9 +1492,9 @@ public class ChocolateParser extends Parser {
 
 				switch (alt14) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:127:17: declarations
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:128:17: declarations
 					{
-					pushFollow(FOLLOW_declarations_in_closed_compound_expr1618);
+					pushFollow(FOLLOW_declarations_in_closed_compound_expr1643);
 					declarations55=declarations();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1507,7 +1508,7 @@ public class ChocolateParser extends Parser {
 				}
 			}
 
-			pushFollow(FOLLOW_compound_ext_in_closed_compound_expr1621);
+			pushFollow(FOLLOW_compound_ext_in_closed_compound_expr1646);
 			compound_ext56=compound_ext();
 			state._fsp--;
 			if (state.failed) return retval;
@@ -1543,7 +1544,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "compound_ext"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:130:1: compound_ext : ( ( single_expr RCURLY )=> ( single_expr RCURLY ^) | statements ( declarations )* compound_ext );
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:131:1: compound_ext : ( ( single_expr RCURLY )=> ( single_expr RCURLY ^) | statements ( declarations )* compound_ext );
 	public final ChocolateParser.compound_ext_return compound_ext() throws RecognitionException {
 		ChocolateParser.compound_ext_return retval = new ChocolateParser.compound_ext_return();
 		retval.start = input.LT(1);
@@ -1559,7 +1560,7 @@ public class ChocolateParser extends Parser {
 		Object RCURLY58_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:131:5: ( ( single_expr RCURLY )=> ( single_expr RCURLY ^) | statements ( declarations )* compound_ext )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:132:5: ( ( single_expr RCURLY )=> ( single_expr RCURLY ^) | statements ( declarations )* compound_ext )
 			int alt16=2;
 			int LA16_0 = input.LA(1);
 			if ( (LA16_0==PLUS) && (synpred2_Chocolate())) {
@@ -1606,21 +1607,21 @@ public class ChocolateParser extends Parser {
 
 			switch (alt16) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:131:9: ( single_expr RCURLY )=> ( single_expr RCURLY ^)
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:132:9: ( single_expr RCURLY )=> ( single_expr RCURLY ^)
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:131:33: ( single_expr RCURLY ^)
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:131:34: single_expr RCURLY ^
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:132:33: ( single_expr RCURLY ^)
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:132:34: single_expr RCURLY ^
 					{
-					pushFollow(FOLLOW_single_expr_in_compound_ext1653);
+					pushFollow(FOLLOW_single_expr_in_compound_ext1678);
 					single_expr57=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) adaptor.addChild(root_0, single_expr57.getTree());
 
-					RCURLY58=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_compound_ext1655); if (state.failed) return retval;
+					RCURLY58=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_compound_ext1680); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					RCURLY58_tree = (Object)adaptor.create(RCURLY58);
 					root_0 = (Object)adaptor.becomeRoot(RCURLY58_tree, root_0);
@@ -1631,18 +1632,18 @@ public class ChocolateParser extends Parser {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:132:9: statements ( declarations )* compound_ext
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:133:9: statements ( declarations )* compound_ext
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					pushFollow(FOLLOW_statements_in_compound_ext1667);
+					pushFollow(FOLLOW_statements_in_compound_ext1692);
 					statements59=statements();
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) adaptor.addChild(root_0, statements59.getTree());
 
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:132:20: ( declarations )*
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:133:20: ( declarations )*
 					loop15:
 					while (true) {
 						int alt15=2;
@@ -1653,9 +1654,9 @@ public class ChocolateParser extends Parser {
 
 						switch (alt15) {
 						case 1 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:132:20: declarations
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:133:20: declarations
 							{
-							pushFollow(FOLLOW_declarations_in_compound_ext1669);
+							pushFollow(FOLLOW_declarations_in_compound_ext1694);
 							declarations60=declarations();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -1669,7 +1670,7 @@ public class ChocolateParser extends Parser {
 						}
 					}
 
-					pushFollow(FOLLOW_compound_ext_in_compound_ext1672);
+					pushFollow(FOLLOW_compound_ext_in_compound_ext1697);
 					compound_ext61=compound_ext();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1707,7 +1708,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "single_expr"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:135:1: single_expr : arithmetic ;
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:136:1: single_expr : arithmetic ;
 	public final ChocolateParser.single_expr_return single_expr() throws RecognitionException {
 		ChocolateParser.single_expr_return retval = new ChocolateParser.single_expr_return();
 		retval.start = input.LT(1);
@@ -1718,13 +1719,13 @@ public class ChocolateParser extends Parser {
 
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:136:5: ( arithmetic )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:136:9: arithmetic
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:137:5: ( arithmetic )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:137:9: arithmetic
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			pushFollow(FOLLOW_arithmetic_in_single_expr1695);
+			pushFollow(FOLLOW_arithmetic_in_single_expr1720);
 			arithmetic62=arithmetic();
 			state._fsp--;
 			if (state.failed) return retval;
@@ -1760,7 +1761,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "arithmetic"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:139:1: arithmetic : arith2 ( OR ^ arith2 )* ;
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:140:1: arithmetic : arith2 ( OR ^ arith2 )* ;
 	public final ChocolateParser.arithmetic_return arithmetic() throws RecognitionException {
 		ChocolateParser.arithmetic_return retval = new ChocolateParser.arithmetic_return();
 		retval.start = input.LT(1);
@@ -1774,19 +1775,19 @@ public class ChocolateParser extends Parser {
 		Object OR64_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:140:5: ( arith2 ( OR ^ arith2 )* )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:140:9: arith2 ( OR ^ arith2 )*
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:141:5: ( arith2 ( OR ^ arith2 )* )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:141:9: arith2 ( OR ^ arith2 )*
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			pushFollow(FOLLOW_arith2_in_arithmetic1714);
+			pushFollow(FOLLOW_arith2_in_arithmetic1739);
 			arith263=arith2();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) adaptor.addChild(root_0, arith263.getTree());
 
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:140:16: ( OR ^ arith2 )*
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:141:16: ( OR ^ arith2 )*
 			loop17:
 			while (true) {
 				int alt17=2;
@@ -1797,15 +1798,15 @@ public class ChocolateParser extends Parser {
 
 				switch (alt17) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:140:17: OR ^ arith2
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:141:17: OR ^ arith2
 					{
-					OR64=(Token)match(input,OR,FOLLOW_OR_in_arithmetic1717); if (state.failed) return retval;
+					OR64=(Token)match(input,OR,FOLLOW_OR_in_arithmetic1742); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					OR64_tree = (Object)adaptor.create(OR64);
 					root_0 = (Object)adaptor.becomeRoot(OR64_tree, root_0);
 					}
 
-					pushFollow(FOLLOW_arith2_in_arithmetic1720);
+					pushFollow(FOLLOW_arith2_in_arithmetic1745);
 					arith265=arith2();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1849,7 +1850,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "arith2"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:143:1: arith2 : arith3 ( AND ^ arith3 )* ;
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:144:1: arith2 : arith3 ( AND ^ arith3 )* ;
 	public final ChocolateParser.arith2_return arith2() throws RecognitionException {
 		ChocolateParser.arith2_return retval = new ChocolateParser.arith2_return();
 		retval.start = input.LT(1);
@@ -1863,19 +1864,19 @@ public class ChocolateParser extends Parser {
 		Object AND67_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:144:5: ( arith3 ( AND ^ arith3 )* )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:144:9: arith3 ( AND ^ arith3 )*
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:145:5: ( arith3 ( AND ^ arith3 )* )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:145:9: arith3 ( AND ^ arith3 )*
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			pushFollow(FOLLOW_arith3_in_arith21745);
+			pushFollow(FOLLOW_arith3_in_arith21770);
 			arith366=arith3();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) adaptor.addChild(root_0, arith366.getTree());
 
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:144:16: ( AND ^ arith3 )*
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:145:16: ( AND ^ arith3 )*
 			loop18:
 			while (true) {
 				int alt18=2;
@@ -1886,15 +1887,15 @@ public class ChocolateParser extends Parser {
 
 				switch (alt18) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:144:17: AND ^ arith3
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:145:17: AND ^ arith3
 					{
-					AND67=(Token)match(input,AND,FOLLOW_AND_in_arith21748); if (state.failed) return retval;
+					AND67=(Token)match(input,AND,FOLLOW_AND_in_arith21773); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					AND67_tree = (Object)adaptor.create(AND67);
 					root_0 = (Object)adaptor.becomeRoot(AND67_tree, root_0);
 					}
 
-					pushFollow(FOLLOW_arith3_in_arith21751);
+					pushFollow(FOLLOW_arith3_in_arith21776);
 					arith368=arith3();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1938,7 +1939,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "arith3"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:147:1: arith3 : arith4 ( ( LESS ^| LESSEQ ^| GREATEQ ^| GREAT ^| EQ ^| NOTEQ ^) arith4 )* ;
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:148:1: arith3 : arith4 ( ( LESS ^| LESSEQ ^| GREATEQ ^| GREAT ^| EQ ^| NOTEQ ^) arith4 )* ;
 	public final ChocolateParser.arith3_return arith3() throws RecognitionException {
 		ChocolateParser.arith3_return retval = new ChocolateParser.arith3_return();
 		retval.start = input.LT(1);
@@ -1962,19 +1963,19 @@ public class ChocolateParser extends Parser {
 		Object NOTEQ75_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:148:5: ( arith4 ( ( LESS ^| LESSEQ ^| GREATEQ ^| GREAT ^| EQ ^| NOTEQ ^) arith4 )* )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:148:9: arith4 ( ( LESS ^| LESSEQ ^| GREATEQ ^| GREAT ^| EQ ^| NOTEQ ^) arith4 )*
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:149:5: ( arith4 ( ( LESS ^| LESSEQ ^| GREATEQ ^| GREAT ^| EQ ^| NOTEQ ^) arith4 )* )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:149:9: arith4 ( ( LESS ^| LESSEQ ^| GREATEQ ^| GREAT ^| EQ ^| NOTEQ ^) arith4 )*
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			pushFollow(FOLLOW_arith4_in_arith31776);
+			pushFollow(FOLLOW_arith4_in_arith31801);
 			arith469=arith4();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) adaptor.addChild(root_0, arith469.getTree());
 
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:148:16: ( ( LESS ^| LESSEQ ^| GREATEQ ^| GREAT ^| EQ ^| NOTEQ ^) arith4 )*
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:149:16: ( ( LESS ^| LESSEQ ^| GREATEQ ^| GREAT ^| EQ ^| NOTEQ ^) arith4 )*
 			loop20:
 			while (true) {
 				int alt20=2;
@@ -1985,9 +1986,9 @@ public class ChocolateParser extends Parser {
 
 				switch (alt20) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:148:17: ( LESS ^| LESSEQ ^| GREATEQ ^| GREAT ^| EQ ^| NOTEQ ^) arith4
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:149:17: ( LESS ^| LESSEQ ^| GREATEQ ^| GREAT ^| EQ ^| NOTEQ ^) arith4
 					{
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:148:17: ( LESS ^| LESSEQ ^| GREATEQ ^| GREAT ^| EQ ^| NOTEQ ^)
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:149:17: ( LESS ^| LESSEQ ^| GREATEQ ^| GREAT ^| EQ ^| NOTEQ ^)
 					int alt19=6;
 					switch ( input.LA(1) ) {
 					case LESS:
@@ -2028,9 +2029,9 @@ public class ChocolateParser extends Parser {
 					}
 					switch (alt19) {
 						case 1 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:148:18: LESS ^
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:149:18: LESS ^
 							{
-							LESS70=(Token)match(input,LESS,FOLLOW_LESS_in_arith31780); if (state.failed) return retval;
+							LESS70=(Token)match(input,LESS,FOLLOW_LESS_in_arith31805); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
 							LESS70_tree = (Object)adaptor.create(LESS70);
 							root_0 = (Object)adaptor.becomeRoot(LESS70_tree, root_0);
@@ -2039,9 +2040,9 @@ public class ChocolateParser extends Parser {
 							}
 							break;
 						case 2 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:148:26: LESSEQ ^
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:149:26: LESSEQ ^
 							{
-							LESSEQ71=(Token)match(input,LESSEQ,FOLLOW_LESSEQ_in_arith31785); if (state.failed) return retval;
+							LESSEQ71=(Token)match(input,LESSEQ,FOLLOW_LESSEQ_in_arith31810); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
 							LESSEQ71_tree = (Object)adaptor.create(LESSEQ71);
 							root_0 = (Object)adaptor.becomeRoot(LESSEQ71_tree, root_0);
@@ -2050,9 +2051,9 @@ public class ChocolateParser extends Parser {
 							}
 							break;
 						case 3 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:148:36: GREATEQ ^
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:149:36: GREATEQ ^
 							{
-							GREATEQ72=(Token)match(input,GREATEQ,FOLLOW_GREATEQ_in_arith31790); if (state.failed) return retval;
+							GREATEQ72=(Token)match(input,GREATEQ,FOLLOW_GREATEQ_in_arith31815); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
 							GREATEQ72_tree = (Object)adaptor.create(GREATEQ72);
 							root_0 = (Object)adaptor.becomeRoot(GREATEQ72_tree, root_0);
@@ -2061,9 +2062,9 @@ public class ChocolateParser extends Parser {
 							}
 							break;
 						case 4 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:148:47: GREAT ^
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:149:47: GREAT ^
 							{
-							GREAT73=(Token)match(input,GREAT,FOLLOW_GREAT_in_arith31795); if (state.failed) return retval;
+							GREAT73=(Token)match(input,GREAT,FOLLOW_GREAT_in_arith31820); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
 							GREAT73_tree = (Object)adaptor.create(GREAT73);
 							root_0 = (Object)adaptor.becomeRoot(GREAT73_tree, root_0);
@@ -2072,9 +2073,9 @@ public class ChocolateParser extends Parser {
 							}
 							break;
 						case 5 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:148:56: EQ ^
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:149:56: EQ ^
 							{
-							EQ74=(Token)match(input,EQ,FOLLOW_EQ_in_arith31800); if (state.failed) return retval;
+							EQ74=(Token)match(input,EQ,FOLLOW_EQ_in_arith31825); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
 							EQ74_tree = (Object)adaptor.create(EQ74);
 							root_0 = (Object)adaptor.becomeRoot(EQ74_tree, root_0);
@@ -2083,9 +2084,9 @@ public class ChocolateParser extends Parser {
 							}
 							break;
 						case 6 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:148:62: NOTEQ ^
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:149:62: NOTEQ ^
 							{
-							NOTEQ75=(Token)match(input,NOTEQ,FOLLOW_NOTEQ_in_arith31805); if (state.failed) return retval;
+							NOTEQ75=(Token)match(input,NOTEQ,FOLLOW_NOTEQ_in_arith31830); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
 							NOTEQ75_tree = (Object)adaptor.create(NOTEQ75);
 							root_0 = (Object)adaptor.becomeRoot(NOTEQ75_tree, root_0);
@@ -2096,7 +2097,7 @@ public class ChocolateParser extends Parser {
 
 					}
 
-					pushFollow(FOLLOW_arith4_in_arith31809);
+					pushFollow(FOLLOW_arith4_in_arith31834);
 					arith476=arith4();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -2140,7 +2141,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "arith4"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:151:1: arith4 : arith5 ( ( PLUS ^| MIN ^) arith5 )* ;
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:152:1: arith4 : arith5 ( ( PLUS ^| MIN ^) arith5 )* ;
 	public final ChocolateParser.arith4_return arith4() throws RecognitionException {
 		ChocolateParser.arith4_return retval = new ChocolateParser.arith4_return();
 		retval.start = input.LT(1);
@@ -2156,19 +2157,19 @@ public class ChocolateParser extends Parser {
 		Object MIN79_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:152:5: ( arith5 ( ( PLUS ^| MIN ^) arith5 )* )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:152:9: arith5 ( ( PLUS ^| MIN ^) arith5 )*
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:153:5: ( arith5 ( ( PLUS ^| MIN ^) arith5 )* )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:153:9: arith5 ( ( PLUS ^| MIN ^) arith5 )*
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			pushFollow(FOLLOW_arith5_in_arith41839);
+			pushFollow(FOLLOW_arith5_in_arith41864);
 			arith577=arith5();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) adaptor.addChild(root_0, arith577.getTree());
 
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:152:16: ( ( PLUS ^| MIN ^) arith5 )*
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:153:16: ( ( PLUS ^| MIN ^) arith5 )*
 			loop22:
 			while (true) {
 				int alt22=2;
@@ -2179,9 +2180,9 @@ public class ChocolateParser extends Parser {
 
 				switch (alt22) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:152:17: ( PLUS ^| MIN ^) arith5
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:153:17: ( PLUS ^| MIN ^) arith5
 					{
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:152:17: ( PLUS ^| MIN ^)
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:153:17: ( PLUS ^| MIN ^)
 					int alt21=2;
 					int LA21_0 = input.LA(1);
 					if ( (LA21_0==PLUS) ) {
@@ -2200,9 +2201,9 @@ public class ChocolateParser extends Parser {
 
 					switch (alt21) {
 						case 1 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:152:18: PLUS ^
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:153:18: PLUS ^
 							{
-							PLUS78=(Token)match(input,PLUS,FOLLOW_PLUS_in_arith41843); if (state.failed) return retval;
+							PLUS78=(Token)match(input,PLUS,FOLLOW_PLUS_in_arith41868); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
 							PLUS78_tree = (Object)adaptor.create(PLUS78);
 							root_0 = (Object)adaptor.becomeRoot(PLUS78_tree, root_0);
@@ -2211,9 +2212,9 @@ public class ChocolateParser extends Parser {
 							}
 							break;
 						case 2 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:152:26: MIN ^
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:153:26: MIN ^
 							{
-							MIN79=(Token)match(input,MIN,FOLLOW_MIN_in_arith41848); if (state.failed) return retval;
+							MIN79=(Token)match(input,MIN,FOLLOW_MIN_in_arith41873); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
 							MIN79_tree = (Object)adaptor.create(MIN79);
 							root_0 = (Object)adaptor.becomeRoot(MIN79_tree, root_0);
@@ -2224,7 +2225,7 @@ public class ChocolateParser extends Parser {
 
 					}
 
-					pushFollow(FOLLOW_arith5_in_arith41852);
+					pushFollow(FOLLOW_arith5_in_arith41877);
 					arith580=arith5();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -2268,7 +2269,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "arith5"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:155:1: arith5 : arith6 ( ( MULT ^| DIV ^| MOD ^) arith6 )* ;
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:156:1: arith5 : arith6 ( ( MULT ^| DIV ^| MOD ^) arith6 )* ;
 	public final ChocolateParser.arith5_return arith5() throws RecognitionException {
 		ChocolateParser.arith5_return retval = new ChocolateParser.arith5_return();
 		retval.start = input.LT(1);
@@ -2286,19 +2287,19 @@ public class ChocolateParser extends Parser {
 		Object MOD84_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:156:5: ( arith6 ( ( MULT ^| DIV ^| MOD ^) arith6 )* )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:156:9: arith6 ( ( MULT ^| DIV ^| MOD ^) arith6 )*
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:157:5: ( arith6 ( ( MULT ^| DIV ^| MOD ^) arith6 )* )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:157:9: arith6 ( ( MULT ^| DIV ^| MOD ^) arith6 )*
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			pushFollow(FOLLOW_arith6_in_arith51883);
+			pushFollow(FOLLOW_arith6_in_arith51908);
 			arith681=arith6();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) adaptor.addChild(root_0, arith681.getTree());
 
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:156:16: ( ( MULT ^| DIV ^| MOD ^) arith6 )*
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:157:16: ( ( MULT ^| DIV ^| MOD ^) arith6 )*
 			loop24:
 			while (true) {
 				int alt24=2;
@@ -2309,9 +2310,9 @@ public class ChocolateParser extends Parser {
 
 				switch (alt24) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:156:17: ( MULT ^| DIV ^| MOD ^) arith6
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:157:17: ( MULT ^| DIV ^| MOD ^) arith6
 					{
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:156:17: ( MULT ^| DIV ^| MOD ^)
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:157:17: ( MULT ^| DIV ^| MOD ^)
 					int alt23=3;
 					switch ( input.LA(1) ) {
 					case MULT:
@@ -2337,9 +2338,9 @@ public class ChocolateParser extends Parser {
 					}
 					switch (alt23) {
 						case 1 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:156:18: MULT ^
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:157:18: MULT ^
 							{
-							MULT82=(Token)match(input,MULT,FOLLOW_MULT_in_arith51887); if (state.failed) return retval;
+							MULT82=(Token)match(input,MULT,FOLLOW_MULT_in_arith51912); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
 							MULT82_tree = (Object)adaptor.create(MULT82);
 							root_0 = (Object)adaptor.becomeRoot(MULT82_tree, root_0);
@@ -2348,9 +2349,9 @@ public class ChocolateParser extends Parser {
 							}
 							break;
 						case 2 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:156:26: DIV ^
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:157:26: DIV ^
 							{
-							DIV83=(Token)match(input,DIV,FOLLOW_DIV_in_arith51892); if (state.failed) return retval;
+							DIV83=(Token)match(input,DIV,FOLLOW_DIV_in_arith51917); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
 							DIV83_tree = (Object)adaptor.create(DIV83);
 							root_0 = (Object)adaptor.becomeRoot(DIV83_tree, root_0);
@@ -2359,9 +2360,9 @@ public class ChocolateParser extends Parser {
 							}
 							break;
 						case 3 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:156:33: MOD ^
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:157:33: MOD ^
 							{
-							MOD84=(Token)match(input,MOD,FOLLOW_MOD_in_arith51897); if (state.failed) return retval;
+							MOD84=(Token)match(input,MOD,FOLLOW_MOD_in_arith51922); if (state.failed) return retval;
 							if ( state.backtracking==0 ) {
 							MOD84_tree = (Object)adaptor.create(MOD84);
 							root_0 = (Object)adaptor.becomeRoot(MOD84_tree, root_0);
@@ -2372,7 +2373,7 @@ public class ChocolateParser extends Parser {
 
 					}
 
-					pushFollow(FOLLOW_arith6_in_arith51901);
+					pushFollow(FOLLOW_arith6_in_arith51926);
 					arith685=arith6();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -2416,7 +2417,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "arith6"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:159:1: arith6 : ( PLUS operand -> ^( POS operand ) | MIN operand -> ^( NEG operand ) | NOT ^ operand | operand );
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:160:1: arith6 : ( PLUS operand -> ^( POS operand ) | MIN operand -> ^( NEG operand ) | NOT ^ operand | operand );
 	public final ChocolateParser.arith6_return arith6() throws RecognitionException {
 		ChocolateParser.arith6_return retval = new ChocolateParser.arith6_return();
 		retval.start = input.LT(1);
@@ -2439,7 +2440,7 @@ public class ChocolateParser extends Parser {
 		RewriteRuleSubtreeStream stream_operand=new RewriteRuleSubtreeStream(adaptor,"rule operand");
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:160:5: ( PLUS operand -> ^( POS operand ) | MIN operand -> ^( NEG operand ) | NOT ^ operand | operand )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:161:5: ( PLUS operand -> ^( POS operand ) | MIN operand -> ^( NEG operand ) | NOT ^ operand | operand )
 			int alt25=4;
 			switch ( input.LA(1) ) {
 			case PLUS:
@@ -2474,12 +2475,12 @@ public class ChocolateParser extends Parser {
 			}
 			switch (alt25) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:160:9: PLUS operand
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:161:9: PLUS operand
 					{
-					PLUS86=(Token)match(input,PLUS,FOLLOW_PLUS_in_arith61934); if (state.failed) return retval; 
+					PLUS86=(Token)match(input,PLUS,FOLLOW_PLUS_in_arith61959); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_PLUS.add(PLUS86);
 
-					pushFollow(FOLLOW_operand_in_arith61936);
+					pushFollow(FOLLOW_operand_in_arith61961);
 					operand87=operand();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -2496,9 +2497,9 @@ public class ChocolateParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (Object)adaptor.nil();
-					// 160:22: -> ^( POS operand )
+					// 161:22: -> ^( POS operand )
 					{
-						// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:160:25: ^( POS operand )
+						// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:161:25: ^( POS operand )
 						{
 						Object root_1 = (Object)adaptor.nil();
 						root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(POS, "POS"), root_1);
@@ -2515,12 +2516,12 @@ public class ChocolateParser extends Parser {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:161:9: MIN operand
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:162:9: MIN operand
 					{
-					MIN88=(Token)match(input,MIN,FOLLOW_MIN_in_arith61955); if (state.failed) return retval; 
+					MIN88=(Token)match(input,MIN,FOLLOW_MIN_in_arith61980); if (state.failed) return retval; 
 					if ( state.backtracking==0 ) stream_MIN.add(MIN88);
 
-					pushFollow(FOLLOW_operand_in_arith61957);
+					pushFollow(FOLLOW_operand_in_arith61982);
 					operand89=operand();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -2537,9 +2538,9 @@ public class ChocolateParser extends Parser {
 					RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.getTree():null);
 
 					root_0 = (Object)adaptor.nil();
-					// 161:21: -> ^( NEG operand )
+					// 162:21: -> ^( NEG operand )
 					{
-						// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:161:24: ^( NEG operand )
+						// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:162:24: ^( NEG operand )
 						{
 						Object root_1 = (Object)adaptor.nil();
 						root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(NEG, "NEG"), root_1);
@@ -2556,18 +2557,18 @@ public class ChocolateParser extends Parser {
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:162:9: NOT ^ operand
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:163:9: NOT ^ operand
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					NOT90=(Token)match(input,NOT,FOLLOW_NOT_in_arith61975); if (state.failed) return retval;
+					NOT90=(Token)match(input,NOT,FOLLOW_NOT_in_arith62000); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					NOT90_tree = (Object)adaptor.create(NOT90);
 					root_0 = (Object)adaptor.becomeRoot(NOT90_tree, root_0);
 					}
 
-					pushFollow(FOLLOW_operand_in_arith61978);
+					pushFollow(FOLLOW_operand_in_arith62003);
 					operand91=operand();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -2576,12 +2577,12 @@ public class ChocolateParser extends Parser {
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:163:9: operand
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:164:9: operand
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					pushFollow(FOLLOW_operand_in_arith61988);
+					pushFollow(FOLLOW_operand_in_arith62013);
 					operand92=operand();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -2619,7 +2620,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "ifthenelse"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:166:1: ifthenelse : IF ^ single_expr THEN ! closed_compound_expr ( ELSE ! closed_compound_expr )? ;
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:167:1: ifthenelse : IF ^ single_expr THEN ! closed_compound_expr ( ELSE ! closed_compound_expr )? ;
 	public final ChocolateParser.ifthenelse_return ifthenelse() throws RecognitionException {
 		ChocolateParser.ifthenelse_return retval = new ChocolateParser.ifthenelse_return();
 		retval.start = input.LT(1);
@@ -2638,32 +2639,32 @@ public class ChocolateParser extends Parser {
 		Object ELSE97_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:167:5: ( IF ^ single_expr THEN ! closed_compound_expr ( ELSE ! closed_compound_expr )? )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:167:9: IF ^ single_expr THEN ! closed_compound_expr ( ELSE ! closed_compound_expr )?
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:168:5: ( IF ^ single_expr THEN ! closed_compound_expr ( ELSE ! closed_compound_expr )? )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:168:9: IF ^ single_expr THEN ! closed_compound_expr ( ELSE ! closed_compound_expr )?
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			IF93=(Token)match(input,IF,FOLLOW_IF_in_ifthenelse2011); if (state.failed) return retval;
+			IF93=(Token)match(input,IF,FOLLOW_IF_in_ifthenelse2036); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
 			IF93_tree = (Object)adaptor.create(IF93);
 			root_0 = (Object)adaptor.becomeRoot(IF93_tree, root_0);
 			}
 
-			pushFollow(FOLLOW_single_expr_in_ifthenelse2014);
+			pushFollow(FOLLOW_single_expr_in_ifthenelse2039);
 			single_expr94=single_expr();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) adaptor.addChild(root_0, single_expr94.getTree());
 
-			THEN95=(Token)match(input,THEN,FOLLOW_THEN_in_ifthenelse2016); if (state.failed) return retval;
-			pushFollow(FOLLOW_closed_compound_expr_in_ifthenelse2019);
+			THEN95=(Token)match(input,THEN,FOLLOW_THEN_in_ifthenelse2041); if (state.failed) return retval;
+			pushFollow(FOLLOW_closed_compound_expr_in_ifthenelse2044);
 			closed_compound_expr96=closed_compound_expr();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) adaptor.addChild(root_0, closed_compound_expr96.getTree());
 
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:167:52: ( ELSE ! closed_compound_expr )?
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:168:52: ( ELSE ! closed_compound_expr )?
 			int alt26=2;
 			int LA26_0 = input.LA(1);
 			if ( (LA26_0==ELSE) ) {
@@ -2671,10 +2672,10 @@ public class ChocolateParser extends Parser {
 			}
 			switch (alt26) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:167:53: ELSE ! closed_compound_expr
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:168:53: ELSE ! closed_compound_expr
 					{
-					ELSE97=(Token)match(input,ELSE,FOLLOW_ELSE_in_ifthenelse2022); if (state.failed) return retval;
-					pushFollow(FOLLOW_closed_compound_expr_in_ifthenelse2025);
+					ELSE97=(Token)match(input,ELSE,FOLLOW_ELSE_in_ifthenelse2047); if (state.failed) return retval;
+					pushFollow(FOLLOW_closed_compound_expr_in_ifthenelse2050);
 					closed_compound_expr98=closed_compound_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -2715,7 +2716,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "whiledo"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:170:1: whiledo : WHILE ^ single_expr DO ! closed_compound_expr ;
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:171:1: whiledo : WHILE ^ single_expr DO ! closed_compound_expr ;
 	public final ChocolateParser.whiledo_return whiledo() throws RecognitionException {
 		ChocolateParser.whiledo_return retval = new ChocolateParser.whiledo_return();
 		retval.start = input.LT(1);
@@ -2731,26 +2732,26 @@ public class ChocolateParser extends Parser {
 		Object DO101_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:171:5: ( WHILE ^ single_expr DO ! closed_compound_expr )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:171:9: WHILE ^ single_expr DO ! closed_compound_expr
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:172:5: ( WHILE ^ single_expr DO ! closed_compound_expr )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:172:9: WHILE ^ single_expr DO ! closed_compound_expr
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			WHILE99=(Token)match(input,WHILE,FOLLOW_WHILE_in_whiledo2050); if (state.failed) return retval;
+			WHILE99=(Token)match(input,WHILE,FOLLOW_WHILE_in_whiledo2075); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {
 			WHILE99_tree = (Object)adaptor.create(WHILE99);
 			root_0 = (Object)adaptor.becomeRoot(WHILE99_tree, root_0);
 			}
 
-			pushFollow(FOLLOW_single_expr_in_whiledo2053);
+			pushFollow(FOLLOW_single_expr_in_whiledo2078);
 			single_expr100=single_expr();
 			state._fsp--;
 			if (state.failed) return retval;
 			if ( state.backtracking==0 ) adaptor.addChild(root_0, single_expr100.getTree());
 
-			DO101=(Token)match(input,DO,FOLLOW_DO_in_whiledo2055); if (state.failed) return retval;
-			pushFollow(FOLLOW_closed_compound_expr_in_whiledo2058);
+			DO101=(Token)match(input,DO,FOLLOW_DO_in_whiledo2080); if (state.failed) return retval;
+			pushFollow(FOLLOW_closed_compound_expr_in_whiledo2083);
 			closed_compound_expr102=closed_compound_expr();
 			state._fsp--;
 			if (state.failed) return retval;
@@ -2786,7 +2787,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "operand"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:175:1: operand : ( IDENTIFIER | NUMBER | LPAREN ^ single_expr RPAREN !| BOOLEAN_OPERATOR | CHAR_OPERATOR );
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:176:1: operand : ( IDENTIFIER | NUMBER | LPAREN ^ single_expr RPAREN !| BOOLEAN_OPERATOR | CHAR_OPERATOR );
 	public final ChocolateParser.operand_return operand() throws RecognitionException {
 		ChocolateParser.operand_return retval = new ChocolateParser.operand_return();
 		retval.start = input.LT(1);
@@ -2809,7 +2810,7 @@ public class ChocolateParser extends Parser {
 		Object CHAR_OPERATOR109_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:176:5: ( IDENTIFIER | NUMBER | LPAREN ^ single_expr RPAREN !| BOOLEAN_OPERATOR | CHAR_OPERATOR )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:177:5: ( IDENTIFIER | NUMBER | LPAREN ^ single_expr RPAREN !| BOOLEAN_OPERATOR | CHAR_OPERATOR )
 			int alt27=5;
 			switch ( input.LA(1) ) {
 			case IDENTIFIER:
@@ -2845,12 +2846,12 @@ public class ChocolateParser extends Parser {
 			}
 			switch (alt27) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:176:9: IDENTIFIER
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:177:9: IDENTIFIER
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					IDENTIFIER103=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_operand2078); if (state.failed) return retval;
+					IDENTIFIER103=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_operand2103); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					IDENTIFIER103_tree = (Object)adaptor.create(IDENTIFIER103);
 					adaptor.addChild(root_0, IDENTIFIER103_tree);
@@ -2859,12 +2860,12 @@ public class ChocolateParser extends Parser {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:177:9: NUMBER
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:178:9: NUMBER
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					NUMBER104=(Token)match(input,NUMBER,FOLLOW_NUMBER_in_operand2088); if (state.failed) return retval;
+					NUMBER104=(Token)match(input,NUMBER,FOLLOW_NUMBER_in_operand2113); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					NUMBER104_tree = (Object)adaptor.create(NUMBER104);
 					adaptor.addChild(root_0, NUMBER104_tree);
@@ -2873,33 +2874,33 @@ public class ChocolateParser extends Parser {
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:178:9: LPAREN ^ single_expr RPAREN !
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:179:9: LPAREN ^ single_expr RPAREN !
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					LPAREN105=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_operand2098); if (state.failed) return retval;
+					LPAREN105=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_operand2123); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					LPAREN105_tree = (Object)adaptor.create(LPAREN105);
 					root_0 = (Object)adaptor.becomeRoot(LPAREN105_tree, root_0);
 					}
 
-					pushFollow(FOLLOW_single_expr_in_operand2101);
+					pushFollow(FOLLOW_single_expr_in_operand2126);
 					single_expr106=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
 					if ( state.backtracking==0 ) adaptor.addChild(root_0, single_expr106.getTree());
 
-					RPAREN107=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_operand2103); if (state.failed) return retval;
+					RPAREN107=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_operand2128); if (state.failed) return retval;
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:179:9: BOOLEAN_OPERATOR
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:180:9: BOOLEAN_OPERATOR
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					BOOLEAN_OPERATOR108=(Token)match(input,BOOLEAN_OPERATOR,FOLLOW_BOOLEAN_OPERATOR_in_operand2114); if (state.failed) return retval;
+					BOOLEAN_OPERATOR108=(Token)match(input,BOOLEAN_OPERATOR,FOLLOW_BOOLEAN_OPERATOR_in_operand2139); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					BOOLEAN_OPERATOR108_tree = (Object)adaptor.create(BOOLEAN_OPERATOR108);
 					adaptor.addChild(root_0, BOOLEAN_OPERATOR108_tree);
@@ -2908,12 +2909,12 @@ public class ChocolateParser extends Parser {
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:180:9: CHAR_OPERATOR
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:181:9: CHAR_OPERATOR
 					{
 					root_0 = (Object)adaptor.nil();
 
 
-					CHAR_OPERATOR109=(Token)match(input,CHAR_OPERATOR,FOLLOW_CHAR_OPERATOR_in_operand2124); if (state.failed) return retval;
+					CHAR_OPERATOR109=(Token)match(input,CHAR_OPERATOR,FOLLOW_CHAR_OPERATOR_in_operand2149); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {
 					CHAR_OPERATOR109_tree = (Object)adaptor.create(CHAR_OPERATOR109);
 					adaptor.addChild(root_0, CHAR_OPERATOR109_tree);
@@ -2951,7 +2952,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "string"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:183:1: string : DQUOTATION ! IDENTIFIER DQUOTATION !;
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:184:1: string : DQUOTATION ! ( graphic )* DQUOTATION !;
 	public final ChocolateParser.string_return string() throws RecognitionException {
 		ChocolateParser.string_return retval = new ChocolateParser.string_return();
 		retval.start = input.LT(1);
@@ -2959,28 +2960,48 @@ public class ChocolateParser extends Parser {
 		Object root_0 = null;
 
 		Token DQUOTATION110=null;
-		Token IDENTIFIER111=null;
 		Token DQUOTATION112=null;
+		ParserRuleReturnScope graphic111 =null;
 
 		Object DQUOTATION110_tree=null;
-		Object IDENTIFIER111_tree=null;
 		Object DQUOTATION112_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:184:5: ( DQUOTATION ! IDENTIFIER DQUOTATION !)
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:184:9: DQUOTATION ! IDENTIFIER DQUOTATION !
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:185:5: ( DQUOTATION ! ( graphic )* DQUOTATION !)
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:185:9: DQUOTATION ! ( graphic )* DQUOTATION !
 			{
 			root_0 = (Object)adaptor.nil();
 
 
-			DQUOTATION110=(Token)match(input,DQUOTATION,FOLLOW_DQUOTATION_in_string2147); if (state.failed) return retval;
-			IDENTIFIER111=(Token)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_string2150); if (state.failed) return retval;
-			if ( state.backtracking==0 ) {
-			IDENTIFIER111_tree = (Object)adaptor.create(IDENTIFIER111);
-			adaptor.addChild(root_0, IDENTIFIER111_tree);
+			DQUOTATION110=(Token)match(input,DQUOTATION,FOLLOW_DQUOTATION_in_string2172); if (state.failed) return retval;
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:185:21: ( graphic )*
+			loop28:
+			while (true) {
+				int alt28=2;
+				int LA28_0 = input.LA(1);
+				if ( ((LA28_0 >= COLON && LA28_0 <= COMMA)||LA28_0==DIGIT||LA28_0==DOT||LA28_0==LETTER||LA28_0==WS) ) {
+					alt28=1;
+				}
+
+				switch (alt28) {
+				case 1 :
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:185:21: graphic
+					{
+					pushFollow(FOLLOW_graphic_in_string2175);
+					graphic111=graphic();
+					state._fsp--;
+					if (state.failed) return retval;
+					if ( state.backtracking==0 ) adaptor.addChild(root_0, graphic111.getTree());
+
+					}
+					break;
+
+				default :
+					break loop28;
+				}
 			}
 
-			DQUOTATION112=(Token)match(input,DQUOTATION,FOLLOW_DQUOTATION_in_string2152); if (state.failed) return retval;
+			DQUOTATION112=(Token)match(input,DQUOTATION,FOLLOW_DQUOTATION_in_string2178); if (state.failed) return retval;
 			}
 
 			retval.stop = input.LT(-1);
@@ -3011,7 +3032,7 @@ public class ChocolateParser extends Parser {
 
 
 	// $ANTLR start "graphic"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:187:1: graphic : ( LETTER | DIGIT );
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:188:1: graphic : ( LETTER | DIGIT | WS | COLON | COMMA | DOT );
 	public final ChocolateParser.graphic_return graphic() throws RecognitionException {
 		ChocolateParser.graphic_return retval = new ChocolateParser.graphic_return();
 		retval.start = input.LT(1);
@@ -3023,14 +3044,14 @@ public class ChocolateParser extends Parser {
 		Object set113_tree=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:188:5: ( LETTER | DIGIT )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:189:5: ( LETTER | DIGIT | WS | COLON | COMMA | DOT )
 			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:
 			{
 			root_0 = (Object)adaptor.nil();
 
 
 			set113=input.LT(1);
-			if ( input.LA(1)==DIGIT||input.LA(1)==LETTER ) {
+			if ( (input.LA(1) >= COLON && input.LA(1) <= COMMA)||input.LA(1)==DIGIT||input.LA(1)==DOT||input.LA(1)==LETTER||input.LA(1)==WS ) {
 				input.consume();
 				if ( state.backtracking==0 ) adaptor.addChild(root_0, (Object)adaptor.create(set113));
 				state.errorRecovery=false;
@@ -3064,12 +3085,12 @@ public class ChocolateParser extends Parser {
 
 	// $ANTLR start synpred1_Chocolate
 	public final void synpred1_Chocolate_fragment() throws RecognitionException {
-		// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:114:9: ( IDENTIFIER ASSIGN ^)
-		// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:114:10: IDENTIFIER ASSIGN ^
+		// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:115:9: ( IDENTIFIER ASSIGN ^)
+		// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:115:10: IDENTIFIER ASSIGN ^
 		{
-		match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_synpred1_Chocolate1491); if (state.failed) return;
+		match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_synpred1_Chocolate1516); if (state.failed) return;
 
-		match(input,ASSIGN,FOLLOW_ASSIGN_in_synpred1_Chocolate1493); if (state.failed) return;
+		match(input,ASSIGN,FOLLOW_ASSIGN_in_synpred1_Chocolate1518); if (state.failed) return;
 
 		}
 
@@ -3078,15 +3099,15 @@ public class ChocolateParser extends Parser {
 
 	// $ANTLR start synpred2_Chocolate
 	public final void synpred2_Chocolate_fragment() throws RecognitionException {
-		// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:131:9: ( single_expr RCURLY )
-		// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:131:10: single_expr RCURLY
+		// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:132:9: ( single_expr RCURLY )
+		// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\SyntacticAnalyzer\\Chocolate.g:132:10: single_expr RCURLY
 		{
-		pushFollow(FOLLOW_single_expr_in_synpred2_Chocolate1645);
+		pushFollow(FOLLOW_single_expr_in_synpred2_Chocolate1670);
 		single_expr();
 		state._fsp--;
 		if (state.failed) return;
 
-		match(input,RCURLY,FOLLOW_RCURLY_in_synpred2_Chocolate1647); if (state.failed) return;
+		match(input,RCURLY,FOLLOW_RCURLY_in_synpred2_Chocolate1672); if (state.failed) return;
 
 		}
 
@@ -3126,119 +3147,119 @@ public class ChocolateParser extends Parser {
 
 
 
-	public static final BitSet FOLLOW_declarations_in_program1093 = new BitSet(new long[]{0x000C220000C02000L});
-	public static final BitSet FOLLOW_statements_in_program1096 = new BitSet(new long[]{0x000C220000C02000L});
-	public static final BitSet FOLLOW_EOF_in_program1100 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_declaration_in_declarations1163 = new BitSet(new long[]{0x0000800000000000L});
-	public static final BitSet FOLLOW_SEMICOLON_in_declarations1165 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CONSTANT_in_declaration1186 = new BitSet(new long[]{0x0000000000400140L});
-	public static final BitSet FOLLOW_type_in_declaration1189 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_declaration1191 = new BitSet(new long[]{0x0000000000000820L});
-	public static final BitSet FOLLOW_COMMA_in_declaration1194 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_declaration1197 = new BitSet(new long[]{0x0000000000000820L});
-	public static final BitSet FOLLOW_ASSIGN_in_declaration1201 = new BitSet(new long[]{0x000000A8C2400280L});
-	public static final BitSet FOLLOW_type_op_in_declaration1204 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_VAR_in_declaration1215 = new BitSet(new long[]{0x0000000000400140L});
-	public static final BitSet FOLLOW_type_in_declaration1218 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_declaration1220 = new BitSet(new long[]{0x0000000000000822L});
-	public static final BitSet FOLLOW_COMMA_in_declaration1223 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_declaration1226 = new BitSet(new long[]{0x0000000000000822L});
-	public static final BitSet FOLLOW_ASSIGN_in_declaration1231 = new BitSet(new long[]{0x000000A8C2400280L});
-	public static final BitSet FOLLOW_type_op_in_declaration1234 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_single_expr_in_type_op1303 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_type_op1313 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_statement_in_statements1334 = new BitSet(new long[]{0x0000800000000000L});
-	public static final BitSet FOLLOW_SEMICOLON_in_statements1336 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_read_in_statement1360 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_print_in_statement1371 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_assign_in_statement1382 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ifthenelse_in_statement1395 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_whiledo_in_statement1405 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_READ_in_read1424 = new BitSet(new long[]{0x0000000040000000L});
-	public static final BitSet FOLLOW_LPAREN_in_read1427 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_read1430 = new BitSet(new long[]{0x0000400000000800L});
-	public static final BitSet FOLLOW_COMMA_in_read1433 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_read1436 = new BitSet(new long[]{0x0000400000000800L});
-	public static final BitSet FOLLOW_RPAREN_in_read1440 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_assign1460 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_ASSIGN_in_assign1462 = new BitSet(new long[]{0x000000A8C2400280L});
-	public static final BitSet FOLLOW_assignexpr_in_assign1466 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_assignexpr1500 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_ASSIGN_in_assignexpr1502 = new BitSet(new long[]{0x000000A8C2400280L});
-	public static final BitSet FOLLOW_assignexpr_in_assignexpr1505 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_single_expr_in_assignexpr1516 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_assignexpr1526 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_PRINT_in_print1549 = new BitSet(new long[]{0x0000000040000000L});
-	public static final BitSet FOLLOW_LPAREN_in_print1552 = new BitSet(new long[]{0x000000A8C2420280L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_print1556 = new BitSet(new long[]{0x0000400000000800L});
-	public static final BitSet FOLLOW_single_expr_in_print1560 = new BitSet(new long[]{0x0000400000000800L});
-	public static final BitSet FOLLOW_string_in_print1564 = new BitSet(new long[]{0x0000400000000800L});
-	public static final BitSet FOLLOW_COMMA_in_print1568 = new BitSet(new long[]{0x000000A8C2420280L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_print1572 = new BitSet(new long[]{0x0000400000000800L});
-	public static final BitSet FOLLOW_single_expr_in_print1576 = new BitSet(new long[]{0x0000400000000800L});
-	public static final BitSet FOLLOW_string_in_print1580 = new BitSet(new long[]{0x0000400000000800L});
-	public static final BitSet FOLLOW_RPAREN_in_print1585 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LCURLY_in_closed_compound_expr1615 = new BitSet(new long[]{0x000C22A8C0C02280L});
-	public static final BitSet FOLLOW_declarations_in_closed_compound_expr1618 = new BitSet(new long[]{0x000C22A8C0C02280L});
-	public static final BitSet FOLLOW_compound_ext_in_closed_compound_expr1621 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_single_expr_in_compound_ext1653 = new BitSet(new long[]{0x0000100000000000L});
-	public static final BitSet FOLLOW_RCURLY_in_compound_ext1655 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_statements_in_compound_ext1667 = new BitSet(new long[]{0x000C22A8C0C02280L});
-	public static final BitSet FOLLOW_declarations_in_compound_ext1669 = new BitSet(new long[]{0x000C22A8C0C02280L});
-	public static final BitSet FOLLOW_compound_ext_in_compound_ext1672 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_arithmetic_in_single_expr1695 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_arith2_in_arithmetic1714 = new BitSet(new long[]{0x0000004000000002L});
-	public static final BitSet FOLLOW_OR_in_arithmetic1717 = new BitSet(new long[]{0x000000A8C0400280L});
-	public static final BitSet FOLLOW_arith2_in_arithmetic1720 = new BitSet(new long[]{0x0000004000000002L});
-	public static final BitSet FOLLOW_arith3_in_arith21745 = new BitSet(new long[]{0x0000000000000012L});
-	public static final BitSet FOLLOW_AND_in_arith21748 = new BitSet(new long[]{0x000000A8C0400280L});
-	public static final BitSet FOLLOW_arith3_in_arith21751 = new BitSet(new long[]{0x0000000000000012L});
-	public static final BitSet FOLLOW_arith4_in_arith31776 = new BitSet(new long[]{0x000000100C380002L});
-	public static final BitSet FOLLOW_LESS_in_arith31780 = new BitSet(new long[]{0x000000A8C0400280L});
-	public static final BitSet FOLLOW_LESSEQ_in_arith31785 = new BitSet(new long[]{0x000000A8C0400280L});
-	public static final BitSet FOLLOW_GREATEQ_in_arith31790 = new BitSet(new long[]{0x000000A8C0400280L});
-	public static final BitSet FOLLOW_GREAT_in_arith31795 = new BitSet(new long[]{0x000000A8C0400280L});
-	public static final BitSet FOLLOW_EQ_in_arith31800 = new BitSet(new long[]{0x000000A8C0400280L});
-	public static final BitSet FOLLOW_NOTEQ_in_arith31805 = new BitSet(new long[]{0x000000A8C0400280L});
-	public static final BitSet FOLLOW_arith4_in_arith31809 = new BitSet(new long[]{0x000000100C380002L});
-	public static final BitSet FOLLOW_arith5_in_arith41839 = new BitSet(new long[]{0x0000008080000002L});
-	public static final BitSet FOLLOW_PLUS_in_arith41843 = new BitSet(new long[]{0x000000A8C0400280L});
-	public static final BitSet FOLLOW_MIN_in_arith41848 = new BitSet(new long[]{0x000000A8C0400280L});
-	public static final BitSet FOLLOW_arith5_in_arith41852 = new BitSet(new long[]{0x0000008080000002L});
-	public static final BitSet FOLLOW_arith6_in_arith51883 = new BitSet(new long[]{0x0000000300008002L});
-	public static final BitSet FOLLOW_MULT_in_arith51887 = new BitSet(new long[]{0x000000A8C0400280L});
-	public static final BitSet FOLLOW_DIV_in_arith51892 = new BitSet(new long[]{0x000000A8C0400280L});
-	public static final BitSet FOLLOW_MOD_in_arith51897 = new BitSet(new long[]{0x000000A8C0400280L});
-	public static final BitSet FOLLOW_arith6_in_arith51901 = new BitSet(new long[]{0x0000000300008002L});
-	public static final BitSet FOLLOW_PLUS_in_arith61934 = new BitSet(new long[]{0x0000002040400280L});
-	public static final BitSet FOLLOW_operand_in_arith61936 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_MIN_in_arith61955 = new BitSet(new long[]{0x0000002040400280L});
-	public static final BitSet FOLLOW_operand_in_arith61957 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NOT_in_arith61975 = new BitSet(new long[]{0x0000002040400280L});
-	public static final BitSet FOLLOW_operand_in_arith61978 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_operand_in_arith61988 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_IF_in_ifthenelse2011 = new BitSet(new long[]{0x000000A8C0400280L});
-	public static final BitSet FOLLOW_single_expr_in_ifthenelse2014 = new BitSet(new long[]{0x0001000000000000L});
-	public static final BitSet FOLLOW_THEN_in_ifthenelse2016 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_ifthenelse2019 = new BitSet(new long[]{0x0000000000040002L});
-	public static final BitSet FOLLOW_ELSE_in_ifthenelse2022 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_ifthenelse2025 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_WHILE_in_whiledo2050 = new BitSet(new long[]{0x000000A8C0400280L});
-	public static final BitSet FOLLOW_single_expr_in_whiledo2053 = new BitSet(new long[]{0x0000000000010000L});
-	public static final BitSet FOLLOW_DO_in_whiledo2055 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_whiledo2058 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_operand2078 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NUMBER_in_operand2088 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LPAREN_in_operand2098 = new BitSet(new long[]{0x000000A8C0400280L});
-	public static final BitSet FOLLOW_single_expr_in_operand2101 = new BitSet(new long[]{0x0000400000000000L});
-	public static final BitSet FOLLOW_RPAREN_in_operand2103 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BOOLEAN_OPERATOR_in_operand2114 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CHAR_OPERATOR_in_operand2124 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_DQUOTATION_in_string2147 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_string2150 = new BitSet(new long[]{0x0000000000020000L});
-	public static final BitSet FOLLOW_DQUOTATION_in_string2152 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_synpred1_Chocolate1491 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_ASSIGN_in_synpred1_Chocolate1493 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_single_expr_in_synpred2_Chocolate1645 = new BitSet(new long[]{0x0000100000000000L});
-	public static final BitSet FOLLOW_RCURLY_in_synpred2_Chocolate1647 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_declarations_in_program1118 = new BitSet(new long[]{0x0018440001802000L});
+	public static final BitSet FOLLOW_statements_in_program1121 = new BitSet(new long[]{0x0018440001802000L});
+	public static final BitSet FOLLOW_EOF_in_program1125 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_declaration_in_declarations1188 = new BitSet(new long[]{0x0001000000000000L});
+	public static final BitSet FOLLOW_SEMICOLON_in_declarations1190 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CONSTANT_in_declaration1211 = new BitSet(new long[]{0x0000000002000140L});
+	public static final BitSet FOLLOW_type_in_declaration1214 = new BitSet(new long[]{0x0000000000800000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_declaration1216 = new BitSet(new long[]{0x0000000000000820L});
+	public static final BitSet FOLLOW_COMMA_in_declaration1219 = new BitSet(new long[]{0x0000000000800000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_declaration1222 = new BitSet(new long[]{0x0000000000000820L});
+	public static final BitSet FOLLOW_ASSIGN_in_declaration1226 = new BitSet(new long[]{0x0000015184800280L});
+	public static final BitSet FOLLOW_type_op_in_declaration1229 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_VAR_in_declaration1240 = new BitSet(new long[]{0x0000000002000140L});
+	public static final BitSet FOLLOW_type_in_declaration1243 = new BitSet(new long[]{0x0000000000800000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_declaration1245 = new BitSet(new long[]{0x0000000000000822L});
+	public static final BitSet FOLLOW_COMMA_in_declaration1248 = new BitSet(new long[]{0x0000000000800000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_declaration1251 = new BitSet(new long[]{0x0000000000000822L});
+	public static final BitSet FOLLOW_ASSIGN_in_declaration1256 = new BitSet(new long[]{0x0000015184800280L});
+	public static final BitSet FOLLOW_type_op_in_declaration1259 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_single_expr_in_type_op1328 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_type_op1338 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_statement_in_statements1359 = new BitSet(new long[]{0x0001000000000000L});
+	public static final BitSet FOLLOW_SEMICOLON_in_statements1361 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_read_in_statement1385 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_print_in_statement1396 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_assign_in_statement1407 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ifthenelse_in_statement1420 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_whiledo_in_statement1430 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_READ_in_read1449 = new BitSet(new long[]{0x0000000080000000L});
+	public static final BitSet FOLLOW_LPAREN_in_read1452 = new BitSet(new long[]{0x0000000000800000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_read1455 = new BitSet(new long[]{0x0000800000000800L});
+	public static final BitSet FOLLOW_COMMA_in_read1458 = new BitSet(new long[]{0x0000000000800000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_read1461 = new BitSet(new long[]{0x0000800000000800L});
+	public static final BitSet FOLLOW_RPAREN_in_read1465 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_assign1485 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_ASSIGN_in_assign1487 = new BitSet(new long[]{0x0000015184800280L});
+	public static final BitSet FOLLOW_assignexpr_in_assign1491 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_assignexpr1525 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_ASSIGN_in_assignexpr1527 = new BitSet(new long[]{0x0000015184800280L});
+	public static final BitSet FOLLOW_assignexpr_in_assignexpr1530 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_single_expr_in_assignexpr1541 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_assignexpr1551 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_PRINT_in_print1574 = new BitSet(new long[]{0x0000000080000000L});
+	public static final BitSet FOLLOW_LPAREN_in_print1577 = new BitSet(new long[]{0x0000015184840280L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_print1581 = new BitSet(new long[]{0x0000800000000800L});
+	public static final BitSet FOLLOW_single_expr_in_print1585 = new BitSet(new long[]{0x0000800000000800L});
+	public static final BitSet FOLLOW_string_in_print1589 = new BitSet(new long[]{0x0000800000000800L});
+	public static final BitSet FOLLOW_COMMA_in_print1593 = new BitSet(new long[]{0x0000015184840280L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_print1597 = new BitSet(new long[]{0x0000800000000800L});
+	public static final BitSet FOLLOW_single_expr_in_print1601 = new BitSet(new long[]{0x0000800000000800L});
+	public static final BitSet FOLLOW_string_in_print1605 = new BitSet(new long[]{0x0000800000000800L});
+	public static final BitSet FOLLOW_RPAREN_in_print1610 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LCURLY_in_closed_compound_expr1640 = new BitSet(new long[]{0x0018455181802280L});
+	public static final BitSet FOLLOW_declarations_in_closed_compound_expr1643 = new BitSet(new long[]{0x0018455181802280L});
+	public static final BitSet FOLLOW_compound_ext_in_closed_compound_expr1646 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_single_expr_in_compound_ext1678 = new BitSet(new long[]{0x0000200000000000L});
+	public static final BitSet FOLLOW_RCURLY_in_compound_ext1680 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_statements_in_compound_ext1692 = new BitSet(new long[]{0x0018455181802280L});
+	public static final BitSet FOLLOW_declarations_in_compound_ext1694 = new BitSet(new long[]{0x0018455181802280L});
+	public static final BitSet FOLLOW_compound_ext_in_compound_ext1697 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_arithmetic_in_single_expr1720 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_arith2_in_arithmetic1739 = new BitSet(new long[]{0x0000008000000002L});
+	public static final BitSet FOLLOW_OR_in_arithmetic1742 = new BitSet(new long[]{0x0000015180800280L});
+	public static final BitSet FOLLOW_arith2_in_arithmetic1745 = new BitSet(new long[]{0x0000008000000002L});
+	public static final BitSet FOLLOW_arith3_in_arith21770 = new BitSet(new long[]{0x0000000000000012L});
+	public static final BitSet FOLLOW_AND_in_arith21773 = new BitSet(new long[]{0x0000015180800280L});
+	public static final BitSet FOLLOW_arith3_in_arith21776 = new BitSet(new long[]{0x0000000000000012L});
+	public static final BitSet FOLLOW_arith4_in_arith31801 = new BitSet(new long[]{0x0000002018700002L});
+	public static final BitSet FOLLOW_LESS_in_arith31805 = new BitSet(new long[]{0x0000015180800280L});
+	public static final BitSet FOLLOW_LESSEQ_in_arith31810 = new BitSet(new long[]{0x0000015180800280L});
+	public static final BitSet FOLLOW_GREATEQ_in_arith31815 = new BitSet(new long[]{0x0000015180800280L});
+	public static final BitSet FOLLOW_GREAT_in_arith31820 = new BitSet(new long[]{0x0000015180800280L});
+	public static final BitSet FOLLOW_EQ_in_arith31825 = new BitSet(new long[]{0x0000015180800280L});
+	public static final BitSet FOLLOW_NOTEQ_in_arith31830 = new BitSet(new long[]{0x0000015180800280L});
+	public static final BitSet FOLLOW_arith4_in_arith31834 = new BitSet(new long[]{0x0000002018700002L});
+	public static final BitSet FOLLOW_arith5_in_arith41864 = new BitSet(new long[]{0x0000010100000002L});
+	public static final BitSet FOLLOW_PLUS_in_arith41868 = new BitSet(new long[]{0x0000015180800280L});
+	public static final BitSet FOLLOW_MIN_in_arith41873 = new BitSet(new long[]{0x0000015180800280L});
+	public static final BitSet FOLLOW_arith5_in_arith41877 = new BitSet(new long[]{0x0000010100000002L});
+	public static final BitSet FOLLOW_arith6_in_arith51908 = new BitSet(new long[]{0x0000000600008002L});
+	public static final BitSet FOLLOW_MULT_in_arith51912 = new BitSet(new long[]{0x0000015180800280L});
+	public static final BitSet FOLLOW_DIV_in_arith51917 = new BitSet(new long[]{0x0000015180800280L});
+	public static final BitSet FOLLOW_MOD_in_arith51922 = new BitSet(new long[]{0x0000015180800280L});
+	public static final BitSet FOLLOW_arith6_in_arith51926 = new BitSet(new long[]{0x0000000600008002L});
+	public static final BitSet FOLLOW_PLUS_in_arith61959 = new BitSet(new long[]{0x0000004080800280L});
+	public static final BitSet FOLLOW_operand_in_arith61961 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_MIN_in_arith61980 = new BitSet(new long[]{0x0000004080800280L});
+	public static final BitSet FOLLOW_operand_in_arith61982 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NOT_in_arith62000 = new BitSet(new long[]{0x0000004080800280L});
+	public static final BitSet FOLLOW_operand_in_arith62003 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_operand_in_arith62013 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IF_in_ifthenelse2036 = new BitSet(new long[]{0x0000015180800280L});
+	public static final BitSet FOLLOW_single_expr_in_ifthenelse2039 = new BitSet(new long[]{0x0002000000000000L});
+	public static final BitSet FOLLOW_THEN_in_ifthenelse2041 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_ifthenelse2044 = new BitSet(new long[]{0x0000000000080002L});
+	public static final BitSet FOLLOW_ELSE_in_ifthenelse2047 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_ifthenelse2050 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_WHILE_in_whiledo2075 = new BitSet(new long[]{0x0000015180800280L});
+	public static final BitSet FOLLOW_single_expr_in_whiledo2078 = new BitSet(new long[]{0x0000000000010000L});
+	public static final BitSet FOLLOW_DO_in_whiledo2080 = new BitSet(new long[]{0x0000000004000000L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_whiledo2083 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_operand2103 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NUMBER_in_operand2113 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LPAREN_in_operand2123 = new BitSet(new long[]{0x0000015180800280L});
+	public static final BitSet FOLLOW_single_expr_in_operand2126 = new BitSet(new long[]{0x0000800000000000L});
+	public static final BitSet FOLLOW_RPAREN_in_operand2128 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BOOLEAN_OPERATOR_in_operand2139 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CHAR_OPERATOR_in_operand2149 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_DQUOTATION_in_string2172 = new BitSet(new long[]{0x0020000020064C00L});
+	public static final BitSet FOLLOW_graphic_in_string2175 = new BitSet(new long[]{0x0020000020064C00L});
+	public static final BitSet FOLLOW_DQUOTATION_in_string2178 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_synpred1_Chocolate1516 = new BitSet(new long[]{0x0000000000000020L});
+	public static final BitSet FOLLOW_ASSIGN_in_synpred1_Chocolate1518 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_single_expr_in_synpred2_Chocolate1670 = new BitSet(new long[]{0x0000200000000000L});
+	public static final BitSet FOLLOW_RCURLY_in_synpred2_Chocolate1672 = new BitSet(new long[]{0x0000000000000002L});
 }

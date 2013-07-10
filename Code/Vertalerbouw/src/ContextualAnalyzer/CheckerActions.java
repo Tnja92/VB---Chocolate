@@ -17,15 +17,15 @@ public class CheckerActions {
 	}
     
     /**
-     * @param s the rep (without heart symbol) of this var
-     * @return the type of this var
+     * @param s the Identifier
+     * @return the type of the Identifier
      * @requires isDeclared(s)
      */
     public String   getType(String s)  				{ return symtab.retrieve(s).getType();  } 
     
     /**
-     * sets the type of this identifier to the type set at the declaration of this identifier. 
-     * @param l the identifier to set the type of
+     * sets the type of this node to the type set at the declaration of the Identifier of the node. 
+     * @param l the node to set the type of
      */
     public void		setTypeId(ChocolateTree l)			{ l.setChocolateType(getType(l.getText()));	}
     
@@ -33,14 +33,14 @@ public class CheckerActions {
     
     /**
      * @param t the type to check for validity
-     * @return true if type t is a valid type, false otherwise.
+     * @return true if t is valid, otherwise false
      */
     public boolean  isValidType(String t)           { return types.contains(t); }
     /**
      * Check if two types match
-     * @param t1 the type that should equal t1
-     * @param t2 the type that should equals 2
-     * @return true if t1 equals t2 and bith are non null
+     * @param t1 the type that should equal t2
+     * @param t2 the type that should equal t1
+     * @return true if t1 equals t2 and both are non null, otherwise false
      */
     public boolean  typeMatch(String t1, String t2) { return t1 == null ? false : t1.equals(t2); }
     
@@ -50,70 +50,62 @@ public class CheckerActions {
     public static final String NO_TYPE = "no_type";
     public static final String VOID_TYPE = "void";
     
-    
-    ///////////////////////////////////////////////////////////
-    // 	OPERAND
-    ///////////////////////////////////////////////////////////
     /**
-     * Checks operand tree of type Char. Performs the following actions:
-     * 	- Sets the type of the provided tree to INT
-     * @param l the tree to check
+     * Sets the type of the provided tree to char
+     * @param l the tree whose type is to be set
      */
 	public void checkOperandChar(ChocolateTree l){
 		l.setChocolateType(CHAR);
 	}
 	/**
-     * Checks operand tree of type BOOL. Performs the following actions:
-     * 	- Sets the type of the provided tree to BOOL
-     * @param l the tree to check
+     * Sets the type of the provided tree to boolean
+     * @param l the tree whose type is to be set
      */
 	public void checkOperandBool(ChocolateTree l){
 		l.setChocolateType(BOOL);
 	}
 	/**
-     * Checks operand tree of type number. Performs the following actions:
-     * 	- Sets the type of the provided tree to INT
-     * @param l the tree to check
+     * Sets the type of the provided tree to integer
+     * @param l the tree whose type is to be set
      */
 	public void checkOperandNumber(ChocolateTree l){
 		l.setChocolateType(INT);
 	}
 	/**
-	 * Checks operand tree of the type identifier (ID). Performs the following actions:
-	 * 	- Checks if the used ID is declared
-	 * 	- Sets the declaring node of the ID to the node that declared this identifier on this level in the symboltable
-	 * 	- Sets the type of this operand tree to the type declared for this ID in it's declaration.
+	 * Checks whether the 'Identifier' of the provided tree is declared, 
+	 * sets the declaring node of the 'Identifier' to the node that declared the 'Identifier' in the SymbolTable 
+	 * and sets the type of this tree to the type of the 'Identifier'
 	 * @param id the operand tree to check
-	 * @throws ChocolateException when ID is not declared/accessible in this scope.
+	 * @throws ChocolateException when ID is not declared or not accessible in the current scope.
 	 */
 	public void checkOperandIdentifier(ChocolateTree id) throws ChocolateException{
 		if (!isDeclared(id.getText()))
-            throw new ChocolateException(id, "is hier niet gedefinieerd");
-		id.setDeclaringNode(symtab.retrieve(id.getText().substring(1)).getNode());
+            throw new ChocolateException(id, "is not defined");
+		id.setDeclaringNode(symtab.retrieve(id.getText()).getNode());
 		setTypeId(id);
 	}
 	/**
-     * Checks operand tree of type ( expression ). Performs the following actions:
-     * 	- Sets the type of the provided operand tree to the type of the expression tree
+     * Checks tree by setting type of provided tree to the type of the expression tree
      * @param l the tree to check
      */
 	public void checkOperandLparen(ChocolateTree root, ChocolateTree e){
 		root.setChocolateType(e.getChocolateType());
 	}
 
-	///////////////////////////////////////////////////////////
-	//	COMPOUND_EXPRESSION
-	///////////////////////////////////////////////////////////
 	/**
-	 * Checks compound expression tree. Performs the following actions:
-	 * 	- sets the type of the compound expression tree to the type of the provided sentence.
+	 * Checks compound expression tree by setting the type of the compound expression tree to the type given by the provided string
 	 * @param root the compound expression
-	 * @param s the sentence
+	 * @param s the string
 	 */
 	public void checkCompoundExpr(ChocolateTree root, String s){
 		root.setChocolateType(s);
 	}
 	
+	/**
+	 * Checks compound expression extension tree by setting the type of the compound expression extension tree to the type of the provided tree
+	 * @param root the compound expression
+	 * @param s the tree
+	 */
 	public void checkCompoundExt(ChocolateTree root, ChocolateTree s) {
 		root.setChocolateType(s.getChocolateType());
 	}
@@ -226,7 +218,7 @@ public class CheckerActions {
 		if (!typeMatch(id.getChocolateType(), e))
            throw new ChocolateException(root, "een type probleempje: je kunt aan de variabele '"+id.getText()+"' van het type '"+id.getChocolateType()
                                      +"' geen expressie van het type '"+e+"' toewijzen");
-		id.setDeclaringNode(symtab.retrieve(id.getText().substring(1)).getNode()); 
+		id.setDeclaringNode(symtab.retrieve(id.getText()).getNode()); 
 		root.setChocolateType(id.getChocolateType());
 	}
 	/**
@@ -242,7 +234,7 @@ public class CheckerActions {
 		 if (symtab.retrieve(id.getText()).getNode().isConstant())
 	            throw new ChocolateException(id, "mag niet worden overschreven");
 			setTypeId(id);
-		 id.setDeclaringNode(symtab.retrieve(id.getText().substring(1)).getNode());
+		 id.setDeclaringNode(symtab.retrieve(id.getText()).getNode());
 		 setTypeId(id);
 		 root.setChocolateType(id.getChocolateType());
 	}
@@ -259,7 +251,7 @@ public class CheckerActions {
 		 if (symtab.retrieve(id.getText()).getNode().isConstant())
 	            throw new ChocolateException(id, "mag niet worden overschreven");
 			setTypeId(id);
-		 id.setDeclaringNode(symtab.retrieve(id.getText().substring(1)).getNode());
+		 id.setDeclaringNode(symtab.retrieve(id.getText()).getNode());
 		 setTypeId(id);
 		 root.setChocolateType(VOID_TYPE);
 	}

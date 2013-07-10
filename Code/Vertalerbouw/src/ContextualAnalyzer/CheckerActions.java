@@ -114,6 +114,10 @@ public class CheckerActions {
 	public void checkCompoundExpr(ChocolateTree root, ChocolateTree s){
 		root.setChocolateType(s.getChocolateType());
 	}
+	
+	public void checkCompoundExt(ChocolateTree root, ChocolateTree s) {
+		root.setChocolateType(s.getChocolateType());
+	}
 
 	///////////////////////////////////////////////////////////
 	//	EXPRESSION
@@ -260,6 +264,11 @@ public class CheckerActions {
 		 setTypeId(id);
 		 root.setChocolateType(VOID_TYPE);
 	}
+	
+	//public void checkExprSingle()
+	
+	//public void checkExprCompound()
+	
 	/**
 	 * Checks a zeg expression tree of a zeg that outputs a single operand. Checks that the operand has a valid type. If this is the case 
 	 * the type of the zeg expression is set to the type of the operand tree
@@ -284,6 +293,8 @@ public class CheckerActions {
 			throw new ChocolateException(op, "kan ik niet zeggen!");
 		root.setChocolateType(VOID_TYPE);
 	}
+	
+	
 
 	///////////////////////////////////////////////////////////
 	//	COMMAND

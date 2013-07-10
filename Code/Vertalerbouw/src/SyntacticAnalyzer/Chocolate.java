@@ -128,14 +128,14 @@ public class Chocolate {
                 tree = checker.program().getTree();
             } */
 
-            if (options.contains(Option.CODE_GENERATOR)) {
+           /* if (options.contains(Option.CODE_GENERATOR)) {
             	  TreeNodeStream nodes = new BufferedTreeNodeStream(tree);
                   ChocolateCodeGenerator generator = new ChocolateCodeGenerator(nodes);
                   StringTemplateGroup stg = new StringTemplateGroup("GenTemplates",new File(".").getCanonicalPath()+"/stringTemplates");
                   generator.setTemplateLib(stg);
                   String genout = generator.program().st.toString();
                   out.write(genout);
-            }
+            }*/
 
             if (options.contains(Option.AST)) {          // print the AST as string
                 System.out.println(tree.toStringTree());

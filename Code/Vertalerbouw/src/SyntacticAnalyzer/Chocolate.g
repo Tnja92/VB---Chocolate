@@ -78,30 +78,6 @@ declaration
     |   VAR^ type IDENTIFIER (COMMA! IDENTIFIER)* (ASSIGN (type_op))?
     ;
     
-//extra_decl
-    //:   COMMA! IDENTIFIER
-    //;
-    
-//constant_extension
-    //:   type IDENTIFIER (extra_decl)* ASSIGN (type_op)
-    //:   INTEGER IDENTIFIER (ASSIGN (single_expr | closed_compound_expr))?
-    //:   INTEGER IDENTIFIER (extra_decl)* ASSIGN (single_expr | closed_compound_expr)
-    //|   CHAR IDENTIFIER (ASSIGN CHAR_OPERATOR)?
-    //|   CHAR IDENTIFIER (extra_decl)* ASSIGN CHAR_OPERATOR
-    //|   BOOLEAN IDENTIFIER (ASSIGN BOOLEAN_OPERATOR)?
-    //|   BOOLEAN IDENTIFIER (extra_decl)* ASSIGN BOOLEAN_OPERATOR
-    //;
-    
-//var_extension
-    //:   type IDENTIFIER (extra_decl)* (ASSIGN (type_op))?
-    //:   INTEGER IDENTIFIER (ASSIGN (single_expr | closed_compound_expr))?
-    //:   INTEGER IDENTIFIER (extra_decl)* (ASSIGN (single_expr | closed_compound_expr))?
-    //|   CHAR IDENTIFIER (ASSIGN CHAR_OPERATOR)?
-    //|   CHAR IDENTIFIER (extra_decl)* (ASSIGN CHAR_OPERATOR)?
-    //|   BOOLEAN IDENTIFIER (ASSIGN BOOLEAN_OPERATOR)?
-    //|   BOOLEAN IDENTIFIER (extra_decl)* (ASSIGN BOOLEAN_OPERATOR)?
-    //;
-    
 type
     :   IDENTIFIER
     |   CHAR
@@ -149,7 +125,6 @@ print
 
 closed_compound_expr
     :   LCURLY^ declarations* compound_ext
-    //:   LCURLY^ (declarations* statements)+ RCURLY!
     ;
     
 compound_ext

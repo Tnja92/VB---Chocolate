@@ -1,0 +1,6 @@
+cacao FOUT: gebruik van print statement zonder komma's
+
+reep melk letter milka 'l';
+bonbon wit getal milka 3;
+
+verkade(letter getal);

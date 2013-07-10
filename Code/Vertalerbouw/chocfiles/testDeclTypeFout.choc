@@ -1,5 +1,8 @@
 cacao FOUT: verkeerde waardes gedeclareerd volgens meegegeven type
 
 reep wit a milka 'p';
-reep melk milka false;
-bonbon puur milka 5;
+reep melk b milka false;
+bonbon puur c milka 5;
+verkade(a);
+verkade(b);
+verkade(c);

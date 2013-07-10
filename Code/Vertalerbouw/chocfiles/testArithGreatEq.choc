@@ -1,0 +1,10 @@
+cacao GOED: test het gebruik van groter dan en gelijk aan (bueno)
+
+reep wit r1 milka 755;
+reep wit r2 milka 34;
+bonbon wit b1 milka 58;
+bonbon wit b2 milka 755;
+bonbon wit b3;
+
+b3 milka r1 bueno b2 bueno b1 bueno r2;
+verkade(b3);

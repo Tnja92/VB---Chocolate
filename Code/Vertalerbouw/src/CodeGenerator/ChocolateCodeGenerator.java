@@ -1,6 +1,8 @@
-// $ANTLR 3.5 C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g 2013-07-09 17:56:01
+// $ANTLR 3.5 C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g 2013-07-10 11:15:40
 
     package CodeGenerator;
+    import SyntacticAnalyzer.Chocolate;
+    import AST.ChocolateTree;
 
 
 import org.antlr.runtime.*;
@@ -131,7 +133,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "program"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:23:1: program : ^( PROGRAM (sections+= section )+ ) -> program(sourceF=Chocolate.getFilename()classN=Chocolate.getClassname()local=100stack=50sections=$sections);
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:25:1: program : ^( PROGRAM (sections+= section )+ ) -> program(sourceF=Chocolate.getFileName()classN=Chocolate.getClassName()local=100stack=50sections=$sections);
 	public final ChocolateCodeGenerator.program_return program() throws RecognitionException {
 		ChocolateCodeGenerator.program_return retval = new ChocolateCodeGenerator.program_return();
 		retval.start = input.LT(1);
@@ -139,12 +141,12 @@ public class ChocolateCodeGenerator extends TreeParser {
 		List<Object> list_sections=null;
 		RuleReturnScope sections = null;
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:24:5: ( ^( PROGRAM (sections+= section )+ ) -> program(sourceF=Chocolate.getFilename()classN=Chocolate.getClassname()local=100stack=50sections=$sections))
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:24:9: ^( PROGRAM (sections+= section )+ )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:26:5: ( ^( PROGRAM (sections+= section )+ ) -> program(sourceF=Chocolate.getFileName()classN=Chocolate.getClassName()local=100stack=50sections=$sections))
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:26:9: ^( PROGRAM (sections+= section )+ )
 			{
-			match(input,PROGRAM,FOLLOW_PROGRAM_in_program100); if (state.failed) return retval;
+			match(input,PROGRAM,FOLLOW_PROGRAM_in_program93); if (state.failed) return retval;
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:24:19: (sections+= section )+
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:26:19: (sections+= section )+
 			int cnt1=0;
 			loop1:
 			while (true) {
@@ -156,9 +158,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 				switch (alt1) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:24:20: sections+= section
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:26:20: sections+= section
 					{
-					pushFollow(FOLLOW_section_in_program105);
+					pushFollow(FOLLOW_section_in_program98);
 					sections=section();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -180,9 +182,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 			// TEMPLATE REWRITE
 			if ( state.backtracking==0 ) {
-			  // 24:51: -> program(sourceF=Chocolate.getFilename()classN=Chocolate.getClassname()local=100stack=50sections=$sections)
+			  // 26:51: -> program(sourceF=Chocolate.getFileName()classN=Chocolate.getClassName()local=100stack=50sections=$sections)
 			  {
-			  	retval.st = templateLib.getInstanceOf("program",new STAttrMap().put("sourceF", Chocolate.getFilename()).put("classN", Chocolate.getClassname()).put("local", 100).put("stack", 50).put("sections", list_sections));
+			  	retval.st = templateLib.getInstanceOf("program",new STAttrMap().put("sourceF", Chocolate.getFileName()).put("classN", Chocolate.getClassName()).put("local", 100).put("stack", 50).put("sections", list_sections));
 			  }
 
 
@@ -211,7 +213,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "section"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:27:1: section : ( (decls+= declaration )* state= statement ) -> section(decls=$declsstate=$state.st);
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:29:1: section : ( (decls+= declaration )* state= statement ) -> section(decls=$declsstate=$state.st);
 	public final ChocolateCodeGenerator.section_return section() throws RecognitionException {
 		ChocolateCodeGenerator.section_return retval = new ChocolateCodeGenerator.section_return();
 		retval.start = input.LT(1);
@@ -220,13 +222,13 @@ public class ChocolateCodeGenerator extends TreeParser {
 		TreeRuleReturnScope state =null;
 		RuleReturnScope decls = null;
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:28:5: ( ( (decls+= declaration )* state= statement ) -> section(decls=$declsstate=$state.st))
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:28:7: ( (decls+= declaration )* state= statement )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:30:5: ( ( (decls+= declaration )* state= statement ) -> section(decls=$declsstate=$state.st))
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:30:7: ( (decls+= declaration )* state= statement )
 			{
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:28:7: ( (decls+= declaration )* state= statement )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:28:8: (decls+= declaration )* state= statement
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:30:7: ( (decls+= declaration )* state= statement )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:30:8: (decls+= declaration )* state= statement
 			{
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:28:13: (decls+= declaration )*
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:30:13: (decls+= declaration )*
 			loop2:
 			while (true) {
 				int alt2=2;
@@ -237,9 +239,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 				switch (alt2) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:28:13: decls+= declaration
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:30:13: decls+= declaration
 					{
-					pushFollow(FOLLOW_declaration_in_section167);
+					pushFollow(FOLLOW_declaration_in_section160);
 					decls=declaration();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -253,7 +255,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 				}
 			}
 
-			pushFollow(FOLLOW_statement_in_section172);
+			pushFollow(FOLLOW_statement_in_section165);
 			state=statement();
 			state._fsp--;
 			if (state.failed) return retval;
@@ -261,7 +263,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 			// TEMPLATE REWRITE
 			if ( state.backtracking==0 ) {
-			  // 28:51: -> section(decls=$declsstate=$state.st)
+			  // 30:51: -> section(decls=$declsstate=$state.st)
 			  {
 			  	retval.st = templateLib.getInstanceOf("section",new STAttrMap().put("decls", list_decls).put("state", (state!=null?((StringTemplate)state.getTemplate()):null)));
 			  }
@@ -292,18 +294,18 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "declaration"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:31:1: declaration : ( ^( CONSTANT t= type (ids+= IDENTIFIER )+ ASSIGN to= type_op ) -> constant(to=$to.textst=storelnr=getLNR();)| ^( VAR t= type (ids+= IDENTIFIER )+ ( ASSIGN to= type_op )? ) -> var(to=$to.textst=storelbl=getLbNr();lnr=getLNr();));
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:33:1: declaration : ( ^( CONSTANT t= type (ids+= IDENTIFIER )+ ASSIGN to= type_op ) -> constant(to=$to.textst=storelnr=getLNr())| ^( VAR t= type (ids+= IDENTIFIER )+ ( ASSIGN to= type_op )? ) -> var(to=$to.textst=storelbl=getLbNr()lnr=getLNr()));
 	public final ChocolateCodeGenerator.declaration_return declaration() throws RecognitionException {
 		ChocolateCodeGenerator.declaration_return retval = new ChocolateCodeGenerator.declaration_return();
 		retval.start = input.LT(1);
 
-		CommonTree ids=null;
+		ChocolateTree ids=null;
 		List<Object> list_ids=null;
 		TreeRuleReturnScope t =null;
 		TreeRuleReturnScope to =null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:32:5: ( ^( CONSTANT t= type (ids+= IDENTIFIER )+ ASSIGN to= type_op ) -> constant(to=$to.textst=storelnr=getLNR();)| ^( VAR t= type (ids+= IDENTIFIER )+ ( ASSIGN to= type_op )? ) -> var(to=$to.textst=storelbl=getLbNr();lnr=getLNr();))
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:34:5: ( ^( CONSTANT t= type (ids+= IDENTIFIER )+ ASSIGN to= type_op ) -> constant(to=$to.textst=storelnr=getLNr())| ^( VAR t= type (ids+= IDENTIFIER )+ ( ASSIGN to= type_op )? ) -> var(to=$to.textst=storelbl=getLbNr()lnr=getLNr()))
 			int alt6=2;
 			int LA6_0 = input.LA(1);
 			if ( (LA6_0==CONSTANT) ) {
@@ -322,15 +324,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 			switch (alt6) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:32:9: ^( CONSTANT t= type (ids+= IDENTIFIER )+ ASSIGN to= type_op )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:34:9: ^( CONSTANT t= type (ids+= IDENTIFIER )+ ASSIGN to= type_op )
 					{
-					match(input,CONSTANT,FOLLOW_CONSTANT_in_declaration216); if (state.failed) return retval;
+					match(input,CONSTANT,FOLLOW_CONSTANT_in_declaration209); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_type_in_declaration220);
+					pushFollow(FOLLOW_type_in_declaration213);
 					t=type();
 					state._fsp--;
 					if (state.failed) return retval;
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:32:30: (ids+= IDENTIFIER )+
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:34:30: (ids+= IDENTIFIER )+
 					int cnt3=0;
 					loop3:
 					while (true) {
@@ -342,9 +344,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 						switch (alt3) {
 						case 1 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:32:30: ids+= IDENTIFIER
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:34:30: ids+= IDENTIFIER
 							{
-							ids=(CommonTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_declaration224); if (state.failed) return retval;
+							ids=(ChocolateTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_declaration217); if (state.failed) return retval;
 							if (list_ids==null) list_ids=new ArrayList<Object>();
 							list_ids.add(ids);
 							}
@@ -359,8 +361,8 @@ public class ChocolateCodeGenerator extends TreeParser {
 						cnt3++;
 					}
 
-					match(input,ASSIGN,FOLLOW_ASSIGN_in_declaration228); if (state.failed) return retval;
-					pushFollow(FOLLOW_type_op_in_declaration232);
+					match(input,ASSIGN,FOLLOW_ASSIGN_in_declaration221); if (state.failed) return retval;
+					pushFollow(FOLLOW_type_op_in_declaration225);
 					to=type_op();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -369,9 +371,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 					if ( state.backtracking==0 ) {store++; for(int i=0;i<ids.length();i++) ids[i].setAddress(store);}
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 33:13: -> constant(to=$to.textst=storelnr=getLNR();)
+					  // 35:13: -> constant(to=$to.textst=storelnr=getLNr())
 					  {
-					  	retval.st = templateLib.getInstanceOf("constant",new STAttrMap().put("to", (to!=null?(input.getTokenStream().toString(input.getTreeAdaptor().getTokenStartIndex(to.start),input.getTreeAdaptor().getTokenStopIndex(to.start))):null)).put("st", store).put("lnr", getLNR();));
+					  	retval.st = templateLib.getInstanceOf("constant",new STAttrMap().put("to", (to!=null?(input.getTokenStream().toString(input.getTreeAdaptor().getTokenStartIndex(to.start),input.getTreeAdaptor().getTokenStopIndex(to.start))):null)).put("st", store).put("lnr", getLNr()));
 					  }
 
 
@@ -380,15 +382,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:34:9: ^( VAR t= type (ids+= IDENTIFIER )+ ( ASSIGN to= type_op )? )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:36:9: ^( VAR t= type (ids+= IDENTIFIER )+ ( ASSIGN to= type_op )? )
 					{
-					match(input,VAR,FOLLOW_VAR_in_declaration275); if (state.failed) return retval;
+					match(input,VAR,FOLLOW_VAR_in_declaration268); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_type_in_declaration279);
+					pushFollow(FOLLOW_type_in_declaration272);
 					t=type();
 					state._fsp--;
 					if (state.failed) return retval;
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:34:25: (ids+= IDENTIFIER )+
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:36:25: (ids+= IDENTIFIER )+
 					int cnt4=0;
 					loop4:
 					while (true) {
@@ -400,9 +402,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 						switch (alt4) {
 						case 1 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:34:25: ids+= IDENTIFIER
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:36:25: ids+= IDENTIFIER
 							{
-							ids=(CommonTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_declaration283); if (state.failed) return retval;
+							ids=(ChocolateTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_declaration276); if (state.failed) return retval;
 							if (list_ids==null) list_ids=new ArrayList<Object>();
 							list_ids.add(ids);
 							}
@@ -417,7 +419,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 						cnt4++;
 					}
 
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:34:39: ( ASSIGN to= type_op )?
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:36:39: ( ASSIGN to= type_op )?
 					int alt5=2;
 					int LA5_0 = input.LA(1);
 					if ( (LA5_0==ASSIGN) ) {
@@ -425,10 +427,10 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					switch (alt5) {
 						case 1 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:34:40: ASSIGN to= type_op
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:36:40: ASSIGN to= type_op
 							{
-							match(input,ASSIGN,FOLLOW_ASSIGN_in_declaration287); if (state.failed) return retval;
-							pushFollow(FOLLOW_type_op_in_declaration291);
+							match(input,ASSIGN,FOLLOW_ASSIGN_in_declaration280); if (state.failed) return retval;
+							pushFollow(FOLLOW_type_op_in_declaration284);
 							to=type_op();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -442,9 +444,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 					if ( state.backtracking==0 ) {store++; for(int i=0;i<ids.length();i++) ids[i].setAddress(store);}
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 35:13: -> var(to=$to.textst=storelbl=getLbNr();lnr=getLNr();)
+					  // 37:13: -> var(to=$to.textst=storelbl=getLbNr()lnr=getLNr())
 					  {
-					  	retval.st = templateLib.getInstanceOf("var",new STAttrMap().put("to", (to!=null?(input.getTokenStream().toString(input.getTreeAdaptor().getTokenStartIndex(to.start),input.getTreeAdaptor().getTokenStopIndex(to.start))):null)).put("st", store).put("lbl", getLbNr();).put("lnr", getLNr();));
+					  	retval.st = templateLib.getInstanceOf("var",new STAttrMap().put("to", (to!=null?(input.getTokenStream().toString(input.getTreeAdaptor().getTokenStartIndex(to.start),input.getTreeAdaptor().getTokenStopIndex(to.start))):null)).put("st", store).put("lbl", getLbNr()).put("lnr", getLNr()));
 					  }
 
 
@@ -475,17 +477,17 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "type"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:38:1: type : (i= INTEGER |c= CHAR |b= BOOLEAN );
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:40:1: type : (i= INTEGER |c= CHAR |b= BOOLEAN );
 	public final ChocolateCodeGenerator.type_return type() throws RecognitionException {
 		ChocolateCodeGenerator.type_return retval = new ChocolateCodeGenerator.type_return();
 		retval.start = input.LT(1);
 
-		CommonTree i=null;
-		CommonTree c=null;
-		CommonTree b=null;
+		ChocolateTree i=null;
+		ChocolateTree c=null;
+		ChocolateTree b=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:39:5: (i= INTEGER |c= CHAR |b= BOOLEAN )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:41:5: (i= INTEGER |c= CHAR |b= BOOLEAN )
 			int alt7=3;
 			switch ( input.LA(1) ) {
 			case INTEGER:
@@ -511,21 +513,21 @@ public class ChocolateCodeGenerator extends TreeParser {
 			}
 			switch (alt7) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:39:9: i= INTEGER
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:41:9: i= INTEGER
 					{
-					i=(CommonTree)match(input,INTEGER,FOLLOW_INTEGER_in_type355); if (state.failed) return retval;
+					i=(ChocolateTree)match(input,INTEGER,FOLLOW_INTEGER_in_type348); if (state.failed) return retval;
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:40:9: c= CHAR
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:42:9: c= CHAR
 					{
-					c=(CommonTree)match(input,CHAR,FOLLOW_CHAR_in_type367); if (state.failed) return retval;
+					c=(ChocolateTree)match(input,CHAR,FOLLOW_CHAR_in_type360); if (state.failed) return retval;
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:41:9: b= BOOLEAN
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:43:9: b= BOOLEAN
 					{
-					b=(CommonTree)match(input,BOOLEAN,FOLLOW_BOOLEAN_in_type379); if (state.failed) return retval;
+					b=(ChocolateTree)match(input,BOOLEAN,FOLLOW_BOOLEAN_in_type372); if (state.failed) return retval;
 					}
 					break;
 
@@ -551,7 +553,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "type_op"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:44:1: type_op : (s= single_expr -> {$s.st}|c= closed_compound_expr -> {$c.st});
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:46:1: type_op : (s= single_expr -> {$s.st}|c= closed_compound_expr -> {$c.st});
 	public final ChocolateCodeGenerator.type_op_return type_op() throws RecognitionException {
 		ChocolateCodeGenerator.type_op_return retval = new ChocolateCodeGenerator.type_op_return();
 		retval.start = input.LT(1);
@@ -560,7 +562,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 		TreeRuleReturnScope c =null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:45:5: (s= single_expr -> {$s.st}|c= closed_compound_expr -> {$c.st})
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:47:5: (s= single_expr -> {$s.st}|c= closed_compound_expr -> {$c.st})
 			int alt8=2;
 			int LA8_0 = input.LA(1);
 			if ( (LA8_0==AND||LA8_0==BOOLEAN_OPERATOR||LA8_0==CHAR_OPERATOR||LA8_0==DIV||(LA8_0 >= EQ && LA8_0 <= IDENTIFIER)||(LA8_0 >= LESS && LA8_0 <= LESSEQ)||(LA8_0 >= LPAREN && LA8_0 <= POS)) ) {
@@ -579,15 +581,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 			switch (alt8) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:45:9: s= single_expr
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:47:9: s= single_expr
 					{
-					pushFollow(FOLLOW_single_expr_in_type_op404);
+					pushFollow(FOLLOW_single_expr_in_type_op397);
 					s=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 45:37: -> {$s.st}
+					  // 47:37: -> {$s.st}
 					  {
 					  	retval.st = (s!=null?((StringTemplate)s.getTemplate()):null);
 					  }
@@ -598,15 +600,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:46:9: c= closed_compound_expr
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:48:9: c= closed_compound_expr
 					{
-					pushFollow(FOLLOW_closed_compound_expr_in_type_op434);
+					pushFollow(FOLLOW_closed_compound_expr_in_type_op427);
 					c=closed_compound_expr();
 					state._fsp--;
 					if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 46:37: -> {$c.st}
+					  // 48:37: -> {$c.st}
 					  {
 					  	retval.st = (c!=null?((StringTemplate)c.getTemplate()):null);
 					  }
@@ -639,7 +641,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "statement"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:66:1: statement : (r= read -> {$r.st}|p= print -> {$p.st}|a= assign -> {$a.st}|ite= ifthenelse -> {$ite.st}|wd= whiledo -> {$wd.st});
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:51:1: statement : (r= read -> {$r.st}|p= print -> {$p.st}|a= assign -> {$a.st}|ite= ifthenelse -> {$ite.st}|wd= whiledo -> {$wd.st});
 	public final ChocolateCodeGenerator.statement_return statement() throws RecognitionException {
 		ChocolateCodeGenerator.statement_return retval = new ChocolateCodeGenerator.statement_return();
 		retval.start = input.LT(1);
@@ -651,7 +653,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 		TreeRuleReturnScope wd =null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:67:5: (r= read -> {$r.st}|p= print -> {$p.st}|a= assign -> {$a.st}|ite= ifthenelse -> {$ite.st}|wd= whiledo -> {$wd.st})
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:52:5: (r= read -> {$r.st}|p= print -> {$p.st}|a= assign -> {$a.st}|ite= ifthenelse -> {$ite.st}|wd= whiledo -> {$wd.st})
 			int alt9=5;
 			switch ( input.LA(1) ) {
 			case READ:
@@ -687,15 +689,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 			}
 			switch (alt9) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:67:9: r= read
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:52:9: r= read
 					{
-					pushFollow(FOLLOW_read_in_statement541);
+					pushFollow(FOLLOW_read_in_statement461);
 					r=read();
 					state._fsp--;
 					if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 67:27: -> {$r.st}
+					  // 52:27: -> {$r.st}
 					  {
 					  	retval.st = (r!=null?((StringTemplate)r.getTemplate()):null);
 					  }
@@ -706,15 +708,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:68:9: p= print
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:53:9: p= print
 					{
-					pushFollow(FOLLOW_print_in_statement568);
+					pushFollow(FOLLOW_print_in_statement488);
 					p=print();
 					state._fsp--;
 					if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 68:27: -> {$p.st}
+					  // 53:27: -> {$p.st}
 					  {
 					  	retval.st = (p!=null?((StringTemplate)p.getTemplate()):null);
 					  }
@@ -725,15 +727,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:69:9: a= assign
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:54:9: a= assign
 					{
-					pushFollow(FOLLOW_assign_in_statement594);
+					pushFollow(FOLLOW_assign_in_statement514);
 					a=assign();
 					state._fsp--;
 					if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 69:27: -> {$a.st}
+					  // 54:27: -> {$a.st}
 					  {
 					  	retval.st = (a!=null?((StringTemplate)a.getTemplate()):null);
 					  }
@@ -744,15 +746,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:70:9: ite= ifthenelse
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:55:9: ite= ifthenelse
 					{
-					pushFollow(FOLLOW_ifthenelse_in_statement619);
+					pushFollow(FOLLOW_ifthenelse_in_statement539);
 					ite=ifthenelse();
 					state._fsp--;
 					if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 70:27: -> {$ite.st}
+					  // 55:27: -> {$ite.st}
 					  {
 					  	retval.st = (ite!=null?((StringTemplate)ite.getTemplate()):null);
 					  }
@@ -763,15 +765,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:71:9: wd= whiledo
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:56:9: wd= whiledo
 					{
-					pushFollow(FOLLOW_whiledo_in_statement638);
+					pushFollow(FOLLOW_whiledo_in_statement558);
 					wd=whiledo();
 					state._fsp--;
 					if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 71:27: -> {$wd.st}
+					  // 56:27: -> {$wd.st}
 					  {
 					  	retval.st = (wd!=null?((StringTemplate)wd.getTemplate()):null);
 					  }
@@ -804,7 +806,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "read"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:74:1: read : ^( READ (ids+= read_one )+ ) -> read(ids=$idslnr=getLNr(););
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:59:1: read : ^( READ (ids+= read_one )+ ) -> read(ids=$idslnr=getLNr());
 	public final ChocolateCodeGenerator.read_return read() throws RecognitionException {
 		ChocolateCodeGenerator.read_return retval = new ChocolateCodeGenerator.read_return();
 		retval.start = input.LT(1);
@@ -812,12 +814,12 @@ public class ChocolateCodeGenerator extends TreeParser {
 		List<Object> list_ids=null;
 		RuleReturnScope ids = null;
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:75:5: ( ^( READ (ids+= read_one )+ ) -> read(ids=$idslnr=getLNr();))
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:75:9: ^( READ (ids+= read_one )+ )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:60:5: ( ^( READ (ids+= read_one )+ ) -> read(ids=$idslnr=getLNr()))
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:60:9: ^( READ (ids+= read_one )+ )
 			{
-			match(input,READ,FOLLOW_READ_in_read673); if (state.failed) return retval;
+			match(input,READ,FOLLOW_READ_in_read593); if (state.failed) return retval;
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:75:16: (ids+= read_one )+
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:60:16: (ids+= read_one )+
 			int cnt10=0;
 			loop10:
 			while (true) {
@@ -829,9 +831,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 				switch (alt10) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:75:17: ids+= read_one
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:60:17: ids+= read_one
 					{
-					pushFollow(FOLLOW_read_one_in_read678);
+					pushFollow(FOLLOW_read_one_in_read598);
 					ids=read_one();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -853,9 +855,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 			// TEMPLATE REWRITE
 			if ( state.backtracking==0 ) {
-			  // 75:49: -> read(ids=$idslnr=getLNr();)
+			  // 60:49: -> read(ids=$idslnr=getLNr())
 			  {
-			  	retval.st = templateLib.getInstanceOf("read",new STAttrMap().put("ids", list_ids).put("lnr", getLNr();));
+			  	retval.st = templateLib.getInstanceOf("read",new STAttrMap().put("ids", list_ids).put("lnr", getLNr()));
 			  }
 
 
@@ -884,22 +886,22 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "read_one"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:78:1: read_one : id= IDENTIFIER -> reado(addr=addr);
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:63:1: read_one : id= IDENTIFIER -> reado(addr=addr);
 	public final ChocolateCodeGenerator.read_one_return read_one() throws RecognitionException {
 		ChocolateCodeGenerator.read_one_return retval = new ChocolateCodeGenerator.read_one_return();
 		retval.start = input.LT(1);
 
-		CommonTree id=null;
+		ChocolateTree id=null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:79:5: (id= IDENTIFIER -> reado(addr=addr))
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:79:9: id= IDENTIFIER
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:64:5: (id= IDENTIFIER -> reado(addr=addr))
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:64:9: id= IDENTIFIER
 			{
-			id=(CommonTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_read_one734); if (state.failed) return retval;
+			id=(ChocolateTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_read_one654); if (state.failed) return retval;
 			if ( state.backtracking==0 ) {addr=id.getAddress();}
 			// TEMPLATE REWRITE
 			if ( state.backtracking==0 ) {
-			  // 79:49: -> reado(addr=addr)
+			  // 64:49: -> reado(addr=addr)
 			  {
 			  	retval.st = templateLib.getInstanceOf("reado",new STAttrMap().put("addr", addr));
 			  }
@@ -930,7 +932,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "print"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:82:1: print : ^( PRINT (r+= print_one )+ ) -> print(r=$rlnr=getLNr(););
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:67:1: print : ^( PRINT (r+= print_one )+ ) -> print(r=$rlnr=getLNr());
 	public final ChocolateCodeGenerator.print_return print() throws RecognitionException {
 		ChocolateCodeGenerator.print_return retval = new ChocolateCodeGenerator.print_return();
 		retval.start = input.LT(1);
@@ -938,12 +940,12 @@ public class ChocolateCodeGenerator extends TreeParser {
 		List<Object> list_r=null;
 		RuleReturnScope r = null;
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:83:5: ( ^( PRINT (r+= print_one )+ ) -> print(r=$rlnr=getLNr();))
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:83:9: ^( PRINT (r+= print_one )+ )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:68:5: ( ^( PRINT (r+= print_one )+ ) -> print(r=$rlnr=getLNr()))
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:68:9: ^( PRINT (r+= print_one )+ )
 			{
-			match(input,PRINT,FOLLOW_PRINT_in_print771); if (state.failed) return retval;
+			match(input,PRINT,FOLLOW_PRINT_in_print691); if (state.failed) return retval;
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:83:17: (r+= print_one )+
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:68:17: (r+= print_one )+
 			int cnt11=0;
 			loop11:
 			while (true) {
@@ -955,9 +957,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 				switch (alt11) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:83:18: r+= print_one
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:68:18: r+= print_one
 					{
-					pushFollow(FOLLOW_print_one_in_print776);
+					pushFollow(FOLLOW_print_one_in_print696);
 					r=print_one();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -979,9 +981,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 			// TEMPLATE REWRITE
 			if ( state.backtracking==0 ) {
-			  // 83:34: -> print(r=$rlnr=getLNr();)
+			  // 68:34: -> print(r=$rlnr=getLNr())
 			  {
-			  	retval.st = templateLib.getInstanceOf("print",new STAttrMap().put("r", list_r).put("lnr", getLNr();));
+			  	retval.st = templateLib.getInstanceOf("print",new STAttrMap().put("r", list_r).put("lnr", getLNr()));
 			  }
 
 
@@ -1010,17 +1012,17 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "print_one"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:86:1: print_one : (r= closed_compound_expr -> printocce(cce=$r.st)|id= IDENTIFIER -> printo(addr=addr)|s= STRING -> printo(addr=addr));
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:71:1: print_one : (r= closed_compound_expr -> printocce(cce=$r.st)|id= IDENTIFIER -> printo(addr=addr)|s= STRING -> printo(addr=addr));
 	public final ChocolateCodeGenerator.print_one_return print_one() throws RecognitionException {
 		ChocolateCodeGenerator.print_one_return retval = new ChocolateCodeGenerator.print_one_return();
 		retval.start = input.LT(1);
 
-		CommonTree id=null;
-		CommonTree s=null;
+		ChocolateTree id=null;
+		ChocolateTree s=null;
 		TreeRuleReturnScope r =null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:87:5: (r= closed_compound_expr -> printocce(cce=$r.st)|id= IDENTIFIER -> printo(addr=addr)|s= STRING -> printo(addr=addr))
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:72:5: (r= closed_compound_expr -> printocce(cce=$r.st)|id= IDENTIFIER -> printo(addr=addr)|s= STRING -> printo(addr=addr))
 			int alt12=3;
 			switch ( input.LA(1) ) {
 			case LCURLY:
@@ -1046,15 +1048,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 			}
 			switch (alt12) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:87:9: r= closed_compound_expr
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:72:9: r= closed_compound_expr
 					{
-					pushFollow(FOLLOW_closed_compound_expr_in_print_one817);
+					pushFollow(FOLLOW_closed_compound_expr_in_print_one737);
 					r=closed_compound_expr();
 					state._fsp--;
 					if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 87:48: -> printocce(cce=$r.st)
+					  // 72:48: -> printocce(cce=$r.st)
 					  {
 					  	retval.st = templateLib.getInstanceOf("printocce",new STAttrMap().put("cce", (r!=null?((StringTemplate)r.getTemplate()):null)));
 					  }
@@ -1065,13 +1067,13 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:88:9: id= IDENTIFIER
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:73:9: id= IDENTIFIER
 					{
-					id=(CommonTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_print_one854); if (state.failed) return retval;
+					id=(ChocolateTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_print_one774); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {addr=id.getAddress();}
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 88:48: -> printo(addr=addr)
+					  // 73:48: -> printo(addr=addr)
 					  {
 					  	retval.st = templateLib.getInstanceOf("printo",new STAttrMap().put("addr", addr));
 					  }
@@ -1082,13 +1084,13 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:89:9: s= STRING
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:74:9: s= STRING
 					{
-					s=(CommonTree)match(input,STRING,FOLLOW_STRING_in_print_one878); if (state.failed) return retval;
+					s=(ChocolateTree)match(input,STRING,FOLLOW_STRING_in_print_one798); if (state.failed) return retval;
 					if ( state.backtracking==0 ) {addr=s.getAddress();}
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 89:48: -> printo(addr=addr)
+					  // 74:48: -> printo(addr=addr)
 					  {
 					  	retval.st = templateLib.getInstanceOf("printo",new STAttrMap().put("addr", addr));
 					  }
@@ -1121,37 +1123,33 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "assign"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:92:1: assign : ^( ASSIGN id= IDENTIFIER (aexpr= assignexpr ) ) -> assign(id=$idassexpr=$aexpr.stlnr=getLNr(););
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:77:1: assign : ^( ASSIGN id= IDENTIFIER aexpr= assignexpr ) -> assign(addr=addrassexpr=$aexpr.stlnr=getLNr());
 	public final ChocolateCodeGenerator.assign_return assign() throws RecognitionException {
 		ChocolateCodeGenerator.assign_return retval = new ChocolateCodeGenerator.assign_return();
 		retval.start = input.LT(1);
 
-		CommonTree id=null;
+		ChocolateTree id=null;
 		TreeRuleReturnScope aexpr =null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:93:5: ( ^( ASSIGN id= IDENTIFIER (aexpr= assignexpr ) ) -> assign(id=$idassexpr=$aexpr.stlnr=getLNr();))
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:93:9: ^( ASSIGN id= IDENTIFIER (aexpr= assignexpr ) )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:78:5: ( ^( ASSIGN id= IDENTIFIER aexpr= assignexpr ) -> assign(addr=addrassexpr=$aexpr.stlnr=getLNr()))
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:78:9: ^( ASSIGN id= IDENTIFIER aexpr= assignexpr )
 			{
-			match(input,ASSIGN,FOLLOW_ASSIGN_in_assign920); if (state.failed) return retval;
+			match(input,ASSIGN,FOLLOW_ASSIGN_in_assign840); if (state.failed) return retval;
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			id=(CommonTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_assign924); if (state.failed) return retval;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:93:32: (aexpr= assignexpr )
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:93:33: aexpr= assignexpr
-			{
-			pushFollow(FOLLOW_assignexpr_in_assign929);
+			id=(ChocolateTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_assign844); if (state.failed) return retval;
+			pushFollow(FOLLOW_assignexpr_in_assign848);
 			aexpr=assignexpr();
 			state._fsp--;
 			if (state.failed) return retval;
-			}
-
 			match(input, Token.UP, null); if (state.failed) return retval;
 
+			if ( state.backtracking==0 ) {addr=id.getAddress();}
 			// TEMPLATE REWRITE
 			if ( state.backtracking==0 ) {
-			  // 93:55: -> assign(id=$idassexpr=$aexpr.stlnr=getLNr();)
+			  // 79:13: -> assign(addr=addrassexpr=$aexpr.stlnr=getLNr())
 			  {
-			  	retval.st = templateLib.getInstanceOf("assign",new STAttrMap().put("id", id).put("assexpr", (aexpr!=null?((StringTemplate)aexpr.getTemplate()):null)).put("lnr", getLNr();));
+			  	retval.st = templateLib.getInstanceOf("assign",new STAttrMap().put("addr", addr).put("assexpr", (aexpr!=null?((StringTemplate)aexpr.getTemplate()):null)).put("lnr", getLNr()));
 			  }
 
 
@@ -1180,55 +1178,80 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "assignexpr"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:96:1: assignexpr : ( ( IDENTIFIER ASSIGN )=> ^( ASSIGN id= IDENTIFIER aexpr= assignexpr ) -> assign(id=$idaexpr=$aexpr.st)|s= single_expr -> {$s.st}|c= closed_compound_expr -> {$c.st});
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:82:1: assignexpr : ( ^( ASSIGN id= IDENTIFIER aexpr= assignexpr ) -> assignex(addr=addraexpr=$aexpr.st)|s= single_expr -> assignexpr(expr=$s.st)|c= closed_compound_expr -> assignexpr(expr=$c.st));
 	public final ChocolateCodeGenerator.assignexpr_return assignexpr() throws RecognitionException {
 		ChocolateCodeGenerator.assignexpr_return retval = new ChocolateCodeGenerator.assignexpr_return();
 		retval.start = input.LT(1);
 
-		CommonTree id=null;
+		ChocolateTree id=null;
 		TreeRuleReturnScope aexpr =null;
 		TreeRuleReturnScope s =null;
 		TreeRuleReturnScope c =null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:97:5: ( ( IDENTIFIER ASSIGN )=> ^( ASSIGN id= IDENTIFIER aexpr= assignexpr ) -> assign(id=$idaexpr=$aexpr.st)|s= single_expr -> {$s.st}|c= closed_compound_expr -> {$c.st})
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:83:5: ( ^( ASSIGN id= IDENTIFIER aexpr= assignexpr ) -> assignex(addr=addraexpr=$aexpr.st)|s= single_expr -> assignexpr(expr=$s.st)|c= closed_compound_expr -> assignexpr(expr=$c.st))
 			int alt13=3;
-			int LA13_0 = input.LA(1);
-			if ( (LA13_0==ASSIGN) && (synpred1_ChocolateCodeGenerator())) {
+			switch ( input.LA(1) ) {
+			case ASSIGN:
+				{
 				alt13=1;
-			}
-			else if ( (LA13_0==AND||LA13_0==BOOLEAN_OPERATOR||LA13_0==CHAR_OPERATOR||LA13_0==DIV||(LA13_0 >= EQ && LA13_0 <= IDENTIFIER)||(LA13_0 >= LESS && LA13_0 <= LESSEQ)||(LA13_0 >= LPAREN && LA13_0 <= POS)) ) {
+				}
+				break;
+			case AND:
+			case BOOLEAN_OPERATOR:
+			case CHAR_OPERATOR:
+			case DIV:
+			case EQ:
+			case GREAT:
+			case GREATEQ:
+			case IDENTIFIER:
+			case LESS:
+			case LESSEQ:
+			case LPAREN:
+			case MIN:
+			case MOD:
+			case MULT:
+			case NEG:
+			case NOT:
+			case NOTEQ:
+			case NUMBER:
+			case OR:
+			case PLUS:
+			case POS:
+				{
 				alt13=2;
-			}
-			else if ( (LA13_0==LCURLY) ) {
+				}
+				break;
+			case LCURLY:
+				{
 				alt13=3;
-			}
-
-			else {
+				}
+				break;
+			default:
 				if (state.backtracking>0) {state.failed=true; return retval;}
 				NoViableAltException nvae =
 					new NoViableAltException("", 13, 0, input);
 				throw nvae;
 			}
-
 			switch (alt13) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:97:9: ( IDENTIFIER ASSIGN )=> ^( ASSIGN id= IDENTIFIER aexpr= assignexpr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:83:9: ^( ASSIGN id= IDENTIFIER aexpr= assignexpr )
 					{
-					match(input,ASSIGN,FOLLOW_ASSIGN_in_assignexpr983); if (state.failed) return retval;
+					match(input,ASSIGN,FOLLOW_ASSIGN_in_assignexpr904); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					id=(CommonTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_assignexpr987); if (state.failed) return retval;
-					pushFollow(FOLLOW_assignexpr_in_assignexpr991);
+					id=(ChocolateTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_assignexpr908); if (state.failed) return retval;
+					pushFollow(FOLLOW_assignexpr_in_assignexpr912);
 					aexpr=assignexpr();
 					state._fsp--;
 					if (state.failed) return retval;
 					match(input, Token.UP, null); if (state.failed) return retval;
 
+					if ( state.backtracking==0 ) {addr=id.getAddress();}
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 97:80: -> assign(id=$idaexpr=$aexpr.st)
+					  // 84:13: -> assignex(addr=addraexpr=$aexpr.st)
 					  {
-					  	retval.st = templateLib.getInstanceOf("assign",new STAttrMap().put("id", id).put("aexpr", (aexpr!=null?((StringTemplate)aexpr.getTemplate()):null)));
+					  	retval.st = templateLib.getInstanceOf("assignex",new STAttrMap().put("addr", addr).put("aexpr", (aexpr!=null?((StringTemplate)aexpr.getTemplate()):null)));
 					  }
 
 
@@ -1237,17 +1260,17 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:98:9: s= single_expr
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:85:9: s= single_expr
 					{
-					pushFollow(FOLLOW_single_expr_in_assignexpr1024);
+					pushFollow(FOLLOW_single_expr_in_assignexpr952);
 					s=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 98:79: -> {$s.st}
+					  // 85:36: -> assignexpr(expr=$s.st)
 					  {
-					  	retval.st = (s!=null?((StringTemplate)s.getTemplate()):null);
+					  	retval.st = templateLib.getInstanceOf("assignexpr",new STAttrMap().put("expr", (s!=null?((StringTemplate)s.getTemplate()):null)));
 					  }
 
 
@@ -1256,17 +1279,17 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:99:9: c= closed_compound_expr
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:86:9: c= closed_compound_expr
 					{
-					pushFollow(FOLLOW_closed_compound_expr_in_assignexpr1096);
+					pushFollow(FOLLOW_closed_compound_expr_in_assignexpr986);
 					c=closed_compound_expr();
 					state._fsp--;
 					if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 99:79: -> {$c.st}
+					  // 86:36: -> assignexpr(expr=$c.st)
 					  {
-					  	retval.st = (c!=null?((StringTemplate)c.getTemplate()):null);
+					  	retval.st = templateLib.getInstanceOf("assignexpr",new STAttrMap().put("expr", (c!=null?((StringTemplate)c.getTemplate()):null)));
 					  }
 
 
@@ -1297,7 +1320,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "ifthenelse"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:102:1: ifthenelse : ^( IF s= single_expr c1= closed_compound_expr c2= closed_compound_expr ) -> ifthenelse(s=$s.stc1=$c1.stc2=$c2.stlbl=getLbNr();lnr=getLNr(););
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:89:1: ifthenelse : ^( IF s= single_expr c1= closed_compound_expr c2= closed_compound_expr ) -> ifthenelse(s=$s.stc1=$c1.stc2=$c2.stlbl=getLbNr()lnr=getLNr());
 	public final ChocolateCodeGenerator.ifthenelse_return ifthenelse() throws RecognitionException {
 		ChocolateCodeGenerator.ifthenelse_return retval = new ChocolateCodeGenerator.ifthenelse_return();
 		retval.start = input.LT(1);
@@ -1307,20 +1330,20 @@ public class ChocolateCodeGenerator extends TreeParser {
 		TreeRuleReturnScope c2 =null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:103:5: ( ^( IF s= single_expr c1= closed_compound_expr c2= closed_compound_expr ) -> ifthenelse(s=$s.stc1=$c1.stc2=$c2.stlbl=getLbNr();lnr=getLNr();))
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:103:9: ^( IF s= single_expr c1= closed_compound_expr c2= closed_compound_expr )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:90:5: ( ^( IF s= single_expr c1= closed_compound_expr c2= closed_compound_expr ) -> ifthenelse(s=$s.stc1=$c1.stc2=$c2.stlbl=getLbNr()lnr=getLNr()))
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:90:9: ^( IF s= single_expr c1= closed_compound_expr c2= closed_compound_expr )
 			{
-			match(input,IF,FOLLOW_IF_in_ifthenelse1171); if (state.failed) return retval;
+			match(input,IF,FOLLOW_IF_in_ifthenelse1023); if (state.failed) return retval;
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			pushFollow(FOLLOW_single_expr_in_ifthenelse1175);
+			pushFollow(FOLLOW_single_expr_in_ifthenelse1027);
 			s=single_expr();
 			state._fsp--;
 			if (state.failed) return retval;
-			pushFollow(FOLLOW_closed_compound_expr_in_ifthenelse1179);
+			pushFollow(FOLLOW_closed_compound_expr_in_ifthenelse1031);
 			c1=closed_compound_expr();
 			state._fsp--;
 			if (state.failed) return retval;
-			pushFollow(FOLLOW_closed_compound_expr_in_ifthenelse1183);
+			pushFollow(FOLLOW_closed_compound_expr_in_ifthenelse1035);
 			c2=closed_compound_expr();
 			state._fsp--;
 			if (state.failed) return retval;
@@ -1328,9 +1351,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 			// TEMPLATE REWRITE
 			if ( state.backtracking==0 ) {
-			  // 103:79: -> ifthenelse(s=$s.stc1=$c1.stc2=$c2.stlbl=getLbNr();lnr=getLNr();)
+			  // 90:79: -> ifthenelse(s=$s.stc1=$c1.stc2=$c2.stlbl=getLbNr()lnr=getLNr())
 			  {
-			  	retval.st = templateLib.getInstanceOf("ifthenelse",new STAttrMap().put("s", (s!=null?((StringTemplate)s.getTemplate()):null)).put("c1", (c1!=null?((StringTemplate)c1.getTemplate()):null)).put("c2", (c2!=null?((StringTemplate)c2.getTemplate()):null)).put("lbl", getLbNr();).put("lnr", getLNr();));
+			  	retval.st = templateLib.getInstanceOf("ifthenelse",new STAttrMap().put("s", (s!=null?((StringTemplate)s.getTemplate()):null)).put("c1", (c1!=null?((StringTemplate)c1.getTemplate()):null)).put("c2", (c2!=null?((StringTemplate)c2.getTemplate()):null)).put("lbl", getLbNr()).put("lnr", getLNr()));
 			  }
 
 
@@ -1359,7 +1382,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "whiledo"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:106:1: whiledo : ^( WHILE s= single_expr c= closed_compound_expr ) -> whiledo(s=$s.stc=$c.stlbl=getLbNr();lnr=getLNr(););
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:93:1: whiledo : ^( WHILE s= single_expr c= closed_compound_expr ) -> whiledo(s=$s.stc=$c.stlbl=getLbNr()lnr=getLNr());
 	public final ChocolateCodeGenerator.whiledo_return whiledo() throws RecognitionException {
 		ChocolateCodeGenerator.whiledo_return retval = new ChocolateCodeGenerator.whiledo_return();
 		retval.start = input.LT(1);
@@ -1368,16 +1391,16 @@ public class ChocolateCodeGenerator extends TreeParser {
 		TreeRuleReturnScope c =null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:107:5: ( ^( WHILE s= single_expr c= closed_compound_expr ) -> whiledo(s=$s.stc=$c.stlbl=getLbNr();lnr=getLNr();))
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:107:9: ^( WHILE s= single_expr c= closed_compound_expr )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:94:5: ( ^( WHILE s= single_expr c= closed_compound_expr ) -> whiledo(s=$s.stc=$c.stlbl=getLbNr()lnr=getLNr()))
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:94:9: ^( WHILE s= single_expr c= closed_compound_expr )
 			{
-			match(input,WHILE,FOLLOW_WHILE_in_whiledo1235); if (state.failed) return retval;
+			match(input,WHILE,FOLLOW_WHILE_in_whiledo1087); if (state.failed) return retval;
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			pushFollow(FOLLOW_single_expr_in_whiledo1239);
+			pushFollow(FOLLOW_single_expr_in_whiledo1091);
 			s=single_expr();
 			state._fsp--;
 			if (state.failed) return retval;
-			pushFollow(FOLLOW_closed_compound_expr_in_whiledo1243);
+			pushFollow(FOLLOW_closed_compound_expr_in_whiledo1095);
 			c=closed_compound_expr();
 			state._fsp--;
 			if (state.failed) return retval;
@@ -1385,9 +1408,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 			// TEMPLATE REWRITE
 			if ( state.backtracking==0 ) {
-			  // 107:79: -> whiledo(s=$s.stc=$c.stlbl=getLbNr();lnr=getLNr();)
+			  // 94:79: -> whiledo(s=$s.stc=$c.stlbl=getLbNr()lnr=getLNr())
 			  {
-			  	retval.st = templateLib.getInstanceOf("whiledo",new STAttrMap().put("s", (s!=null?((StringTemplate)s.getTemplate()):null)).put("c", (c!=null?((StringTemplate)c.getTemplate()):null)).put("lbl", getLbNr();).put("lnr", getLNr();));
+			  	retval.st = templateLib.getInstanceOf("whiledo",new STAttrMap().put("s", (s!=null?((StringTemplate)s.getTemplate()):null)).put("c", (c!=null?((StringTemplate)c.getTemplate()):null)).put("lbl", getLbNr()).put("lnr", getLNr()));
 			  }
 
 
@@ -1416,7 +1439,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "closed_compound_expr"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:114:1: closed_compound_expr : ^( LCURLY (decls+= declaration )* cext= compound_ext ) -> compound(decls=$declscext=$cext.stlnr=getLNr(););
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:96:1: closed_compound_expr : ^( LCURLY (decls+= declaration )* cext= compound_ext ) -> compound(decls=$declscext=$cext.stlnr=getLNr());
 	public final ChocolateCodeGenerator.closed_compound_expr_return closed_compound_expr() throws RecognitionException {
 		ChocolateCodeGenerator.closed_compound_expr_return retval = new ChocolateCodeGenerator.closed_compound_expr_return();
 		retval.start = input.LT(1);
@@ -1425,12 +1448,12 @@ public class ChocolateCodeGenerator extends TreeParser {
 		TreeRuleReturnScope cext =null;
 		RuleReturnScope decls = null;
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:115:5: ( ^( LCURLY (decls+= declaration )* cext= compound_ext ) -> compound(decls=$declscext=$cext.stlnr=getLNr();))
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:115:9: ^( LCURLY (decls+= declaration )* cext= compound_ext )
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:97:5: ( ^( LCURLY (decls+= declaration )* cext= compound_ext ) -> compound(decls=$declscext=$cext.stlnr=getLNr()))
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:97:9: ^( LCURLY (decls+= declaration )* cext= compound_ext )
 			{
-			match(input,LCURLY,FOLLOW_LCURLY_in_closed_compound_expr1325); if (state.failed) return retval;
+			match(input,LCURLY,FOLLOW_LCURLY_in_closed_compound_expr1160); if (state.failed) return retval;
 			match(input, Token.DOWN, null); if (state.failed) return retval;
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:115:23: (decls+= declaration )*
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:97:23: (decls+= declaration )*
 			loop14:
 			while (true) {
 				int alt14=2;
@@ -1441,9 +1464,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 				switch (alt14) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:115:23: decls+= declaration
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:97:23: decls+= declaration
 					{
-					pushFollow(FOLLOW_declaration_in_closed_compound_expr1329);
+					pushFollow(FOLLOW_declaration_in_closed_compound_expr1164);
 					decls=declaration();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1457,7 +1480,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 				}
 			}
 
-			pushFollow(FOLLOW_compound_ext_in_closed_compound_expr1334);
+			pushFollow(FOLLOW_compound_ext_in_closed_compound_expr1169);
 			cext=compound_ext();
 			state._fsp--;
 			if (state.failed) return retval;
@@ -1465,9 +1488,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 			// TEMPLATE REWRITE
 			if ( state.backtracking==0 ) {
-			  // 115:64: -> compound(decls=$declscext=$cext.stlnr=getLNr();)
+			  // 97:64: -> compound(decls=$declscext=$cext.stlnr=getLNr())
 			  {
-			  	retval.st = templateLib.getInstanceOf("compound",new STAttrMap().put("decls", list_decls).put("cext", (cext!=null?((StringTemplate)cext.getTemplate()):null)).put("lnr", getLNr();));
+			  	retval.st = templateLib.getInstanceOf("compound",new STAttrMap().put("decls", list_decls).put("cext", (cext!=null?((StringTemplate)cext.getTemplate()):null)).put("lnr", getLNr()));
 			  }
 
 
@@ -1496,7 +1519,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "compound_ext"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:118:1: compound_ext : ( ( single_expr RCURLY )=> (s= single_expr ) -> compoundend(s=$s.stlnr=getLNr();)|s= statement (decls+= declaration )* cext= compound_ext -> compoundex(s=$s.stdecls=$declscext=$cext.stlnr=getLNr();));
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:100:1: compound_ext : ( ( single_expr RCURLY )=> (s= single_expr ) -> compoundend(s=$s.stlnr=getLNr())|s= statement (decls+= declaration )* cext= compound_ext -> compoundex(s=$s.stdecls=$declscext=$cext.stlnr=getLNr()));
 	public final ChocolateCodeGenerator.compound_ext_return compound_ext() throws RecognitionException {
 		ChocolateCodeGenerator.compound_ext_return retval = new ChocolateCodeGenerator.compound_ext_return();
 		retval.start = input.LT(1);
@@ -1506,70 +1529,70 @@ public class ChocolateCodeGenerator extends TreeParser {
 		TreeRuleReturnScope cext =null;
 		RuleReturnScope decls = null;
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:119:5: ( ( single_expr RCURLY )=> (s= single_expr ) -> compoundend(s=$s.stlnr=getLNr();)|s= statement (decls+= declaration )* cext= compound_ext -> compoundex(s=$s.stdecls=$declscext=$cext.stlnr=getLNr();))
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:101:5: ( ( single_expr RCURLY )=> (s= single_expr ) -> compoundend(s=$s.stlnr=getLNr())|s= statement (decls+= declaration )* cext= compound_ext -> compoundex(s=$s.stdecls=$declscext=$cext.stlnr=getLNr()))
 			int alt16=2;
 			int LA16_0 = input.LA(1);
-			if ( (LA16_0==IDENTIFIER) && (synpred2_ChocolateCodeGenerator())) {
+			if ( (LA16_0==IDENTIFIER) && (synpred1_ChocolateCodeGenerator())) {
 				alt16=1;
 			}
-			else if ( (LA16_0==NUMBER) && (synpred2_ChocolateCodeGenerator())) {
+			else if ( (LA16_0==NUMBER) && (synpred1_ChocolateCodeGenerator())) {
 				alt16=1;
 			}
-			else if ( (LA16_0==LPAREN) && (synpred2_ChocolateCodeGenerator())) {
+			else if ( (LA16_0==LPAREN) && (synpred1_ChocolateCodeGenerator())) {
 				alt16=1;
 			}
-			else if ( (LA16_0==BOOLEAN_OPERATOR) && (synpred2_ChocolateCodeGenerator())) {
+			else if ( (LA16_0==BOOLEAN_OPERATOR) && (synpred1_ChocolateCodeGenerator())) {
 				alt16=1;
 			}
-			else if ( (LA16_0==CHAR_OPERATOR) && (synpred2_ChocolateCodeGenerator())) {
+			else if ( (LA16_0==CHAR_OPERATOR) && (synpred1_ChocolateCodeGenerator())) {
 				alt16=1;
 			}
-			else if ( (LA16_0==OR) && (synpred2_ChocolateCodeGenerator())) {
+			else if ( (LA16_0==OR) && (synpred1_ChocolateCodeGenerator())) {
 				alt16=1;
 			}
-			else if ( (LA16_0==AND) && (synpred2_ChocolateCodeGenerator())) {
+			else if ( (LA16_0==AND) && (synpred1_ChocolateCodeGenerator())) {
 				alt16=1;
 			}
-			else if ( (LA16_0==LESS) && (synpred2_ChocolateCodeGenerator())) {
+			else if ( (LA16_0==LESS) && (synpred1_ChocolateCodeGenerator())) {
 				alt16=1;
 			}
-			else if ( (LA16_0==LESSEQ) && (synpred2_ChocolateCodeGenerator())) {
+			else if ( (LA16_0==LESSEQ) && (synpred1_ChocolateCodeGenerator())) {
 				alt16=1;
 			}
-			else if ( (LA16_0==GREATEQ) && (synpred2_ChocolateCodeGenerator())) {
+			else if ( (LA16_0==GREATEQ) && (synpred1_ChocolateCodeGenerator())) {
 				alt16=1;
 			}
-			else if ( (LA16_0==GREAT) && (synpred2_ChocolateCodeGenerator())) {
+			else if ( (LA16_0==GREAT) && (synpred1_ChocolateCodeGenerator())) {
 				alt16=1;
 			}
-			else if ( (LA16_0==EQ) && (synpred2_ChocolateCodeGenerator())) {
+			else if ( (LA16_0==EQ) && (synpred1_ChocolateCodeGenerator())) {
 				alt16=1;
 			}
-			else if ( (LA16_0==NOTEQ) && (synpred2_ChocolateCodeGenerator())) {
+			else if ( (LA16_0==NOTEQ) && (synpred1_ChocolateCodeGenerator())) {
 				alt16=1;
 			}
-			else if ( (LA16_0==PLUS) && (synpred2_ChocolateCodeGenerator())) {
+			else if ( (LA16_0==PLUS) && (synpred1_ChocolateCodeGenerator())) {
 				alt16=1;
 			}
-			else if ( (LA16_0==MIN) && (synpred2_ChocolateCodeGenerator())) {
+			else if ( (LA16_0==MIN) && (synpred1_ChocolateCodeGenerator())) {
 				alt16=1;
 			}
-			else if ( (LA16_0==MULT) && (synpred2_ChocolateCodeGenerator())) {
+			else if ( (LA16_0==MULT) && (synpred1_ChocolateCodeGenerator())) {
 				alt16=1;
 			}
-			else if ( (LA16_0==DIV) && (synpred2_ChocolateCodeGenerator())) {
+			else if ( (LA16_0==DIV) && (synpred1_ChocolateCodeGenerator())) {
 				alt16=1;
 			}
-			else if ( (LA16_0==MOD) && (synpred2_ChocolateCodeGenerator())) {
+			else if ( (LA16_0==MOD) && (synpred1_ChocolateCodeGenerator())) {
 				alt16=1;
 			}
-			else if ( (LA16_0==POS) && (synpred2_ChocolateCodeGenerator())) {
+			else if ( (LA16_0==POS) && (synpred1_ChocolateCodeGenerator())) {
 				alt16=1;
 			}
-			else if ( (LA16_0==NEG) && (synpred2_ChocolateCodeGenerator())) {
+			else if ( (LA16_0==NEG) && (synpred1_ChocolateCodeGenerator())) {
 				alt16=1;
 			}
-			else if ( (LA16_0==NOT) && (synpred2_ChocolateCodeGenerator())) {
+			else if ( (LA16_0==NOT) && (synpred1_ChocolateCodeGenerator())) {
 				alt16=1;
 			}
 			else if ( (LA16_0==ASSIGN||LA16_0==IF||LA16_0==PRINT||LA16_0==READ||LA16_0==WHILE) ) {
@@ -1585,12 +1608,12 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 			switch (alt16) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:119:9: ( single_expr RCURLY )=> (s= single_expr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:101:9: ( single_expr RCURLY )=> (s= single_expr )
 					{
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:119:33: (s= single_expr )
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:119:34: s= single_expr
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:101:33: (s= single_expr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:101:34: s= single_expr
 					{
-					pushFollow(FOLLOW_single_expr_in_compound_ext1393);
+					pushFollow(FOLLOW_single_expr_in_compound_ext1228);
 					s=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1598,9 +1621,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 119:64: -> compoundend(s=$s.stlnr=getLNr();)
+					  // 101:64: -> compoundend(s=$s.stlnr=getLNr())
 					  {
-					  	retval.st = templateLib.getInstanceOf("compoundend",new STAttrMap().put("s", (s!=null?((StringTemplate)s.getTemplate()):null)).put("lnr", getLNr();));
+					  	retval.st = templateLib.getInstanceOf("compoundend",new STAttrMap().put("s", (s!=null?((StringTemplate)s.getTemplate()):null)).put("lnr", getLNr()));
 					  }
 
 
@@ -1609,13 +1632,13 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:120:9: s= statement (decls+= declaration )* cext= compound_ext
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:102:9: s= statement (decls+= declaration )* cext= compound_ext
 					{
-					pushFollow(FOLLOW_statement_in_compound_ext1434);
+					pushFollow(FOLLOW_statement_in_compound_ext1269);
 					s=statement();
 					state._fsp--;
 					if (state.failed) return retval;
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:120:26: (decls+= declaration )*
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:102:26: (decls+= declaration )*
 					loop15:
 					while (true) {
 						int alt15=2;
@@ -1626,9 +1649,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 						switch (alt15) {
 						case 1 :
-							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:120:26: decls+= declaration
+							// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:102:26: decls+= declaration
 							{
-							pushFollow(FOLLOW_declaration_in_compound_ext1438);
+							pushFollow(FOLLOW_declaration_in_compound_ext1273);
 							decls=declaration();
 							state._fsp--;
 							if (state.failed) return retval;
@@ -1642,15 +1665,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 						}
 					}
 
-					pushFollow(FOLLOW_compound_ext_in_compound_ext1443);
+					pushFollow(FOLLOW_compound_ext_in_compound_ext1278);
 					cext=compound_ext();
 					state._fsp--;
 					if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 120:64: -> compoundex(s=$s.stdecls=$declscext=$cext.stlnr=getLNr();)
+					  // 102:64: -> compoundex(s=$s.stdecls=$declscext=$cext.stlnr=getLNr())
 					  {
-					  	retval.st = templateLib.getInstanceOf("compoundex",new STAttrMap().put("s", (s!=null?((StringTemplate)s.getTemplate()):null)).put("decls", list_decls).put("cext", (cext!=null?((StringTemplate)cext.getTemplate()):null)).put("lnr", getLNr();));
+					  	retval.st = templateLib.getInstanceOf("compoundex",new STAttrMap().put("s", (s!=null?((StringTemplate)s.getTemplate()):null)).put("decls", list_decls).put("cext", (cext!=null?((StringTemplate)cext.getTemplate()):null)).put("lnr", getLNr()));
 					  }
 
 
@@ -1681,7 +1704,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "single_expr"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:123:1: single_expr : (o= operand -> {$o.st}| ^( OR x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( AND x= single_expr y= single_expr ) -> and(ex1=$x.stex2=$y.st)| ^( LESS x= single_expr y= single_expr ) -> less(ex1=$x.stex2=$y.stlbl=getLbNr();)| ^( LESSEQ x= single_expr y= single_expr ) -> lesseq(ex1=$x.stex2=$y.stlbl=getLbNr();)| ^( GREATEQ x= single_expr y= single_expr ) -> greateq(ex1=$x.stex2=$y.stlbl=getLbNr();)| ^( GREAT x= single_expr y= single_expr ) -> great(ex1=$x.stex2=$y.stlbl=getLbNr();)| ^( EQ x= single_expr y= single_expr ) -> eq(ex1=$x.stex2=$y.stlbl=getLbNr();)| ^( NOTEQ x= single_expr y= single_expr ) -> noteq(ex1=$x.stex2=$y.stlbl=getLbNr();)| ^( PLUS x= single_expr y= single_expr ) -> plus(ex1=$x.stex2=$y.st)| ^( MIN x= single_expr y= single_expr ) -> min(ex1=$x.stex2=$y.st)| ^( MULT x= single_expr y= single_expr ) -> mult(ex1=$x.stex2=$y.st)| ^( DIV x= single_expr y= single_expr ) -> div(ex1=$x.stex2=$y.st)| ^( MOD x= single_expr y= single_expr ) -> mod(ex1=$x.stex2=$y.st)| ^( POS x= single_expr ) -> pos(ex1=$x.st)| ^( NEG x= single_expr ) -> neg(ex1=$x.st)| ^( NOT x= single_expr ) -> not(ex1=$x.st));
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:105:1: single_expr : (o= operand -> {$o.st}| ^( OR x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( AND x= single_expr y= single_expr ) -> and(ex1=$x.stex2=$y.st)| ^( LESS x= single_expr y= single_expr ) -> less(ex1=$x.stex2=$y.stlbl=getLbNr())| ^( LESSEQ x= single_expr y= single_expr ) -> lesseq(ex1=$x.stex2=$y.stlbl=getLbNr())| ^( GREATEQ x= single_expr y= single_expr ) -> greateq(ex1=$x.stex2=$y.stlbl=getLbNr())| ^( GREAT x= single_expr y= single_expr ) -> great(ex1=$x.stex2=$y.stlbl=getLbNr())| ^( EQ x= single_expr y= single_expr ) -> eq(ex1=$x.stex2=$y.stlbl=getLbNr())| ^( NOTEQ x= single_expr y= single_expr ) -> noteq(ex1=$x.stex2=$y.stlbl=getLbNr())| ^( PLUS x= single_expr y= single_expr ) -> plus(ex1=$x.stex2=$y.st)| ^( MIN x= single_expr y= single_expr ) -> min(ex1=$x.stex2=$y.st)| ^( MULT x= single_expr y= single_expr ) -> mult(ex1=$x.stex2=$y.st)| ^( DIV x= single_expr y= single_expr ) -> div(ex1=$x.stex2=$y.st)| ^( MOD x= single_expr y= single_expr ) -> mod(ex1=$x.stex2=$y.st)| ^( POS x= single_expr ) -> pos(ex1=$x.st)| ^( NEG x= single_expr ) -> neg(ex1=$x.st)| ^( NOT x= single_expr ) -> not(ex1=$x.st));
 	public final ChocolateCodeGenerator.single_expr_return single_expr() throws RecognitionException {
 		ChocolateCodeGenerator.single_expr_return retval = new ChocolateCodeGenerator.single_expr_return();
 		retval.start = input.LT(1);
@@ -1691,7 +1714,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 		TreeRuleReturnScope y =null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:124:5: (o= operand -> {$o.st}| ^( OR x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( AND x= single_expr y= single_expr ) -> and(ex1=$x.stex2=$y.st)| ^( LESS x= single_expr y= single_expr ) -> less(ex1=$x.stex2=$y.stlbl=getLbNr();)| ^( LESSEQ x= single_expr y= single_expr ) -> lesseq(ex1=$x.stex2=$y.stlbl=getLbNr();)| ^( GREATEQ x= single_expr y= single_expr ) -> greateq(ex1=$x.stex2=$y.stlbl=getLbNr();)| ^( GREAT x= single_expr y= single_expr ) -> great(ex1=$x.stex2=$y.stlbl=getLbNr();)| ^( EQ x= single_expr y= single_expr ) -> eq(ex1=$x.stex2=$y.stlbl=getLbNr();)| ^( NOTEQ x= single_expr y= single_expr ) -> noteq(ex1=$x.stex2=$y.stlbl=getLbNr();)| ^( PLUS x= single_expr y= single_expr ) -> plus(ex1=$x.stex2=$y.st)| ^( MIN x= single_expr y= single_expr ) -> min(ex1=$x.stex2=$y.st)| ^( MULT x= single_expr y= single_expr ) -> mult(ex1=$x.stex2=$y.st)| ^( DIV x= single_expr y= single_expr ) -> div(ex1=$x.stex2=$y.st)| ^( MOD x= single_expr y= single_expr ) -> mod(ex1=$x.stex2=$y.st)| ^( POS x= single_expr ) -> pos(ex1=$x.st)| ^( NEG x= single_expr ) -> neg(ex1=$x.st)| ^( NOT x= single_expr ) -> not(ex1=$x.st))
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:106:5: (o= operand -> {$o.st}| ^( OR x= single_expr y= single_expr ) -> or(ex1=$x.stex2=$y.st)| ^( AND x= single_expr y= single_expr ) -> and(ex1=$x.stex2=$y.st)| ^( LESS x= single_expr y= single_expr ) -> less(ex1=$x.stex2=$y.stlbl=getLbNr())| ^( LESSEQ x= single_expr y= single_expr ) -> lesseq(ex1=$x.stex2=$y.stlbl=getLbNr())| ^( GREATEQ x= single_expr y= single_expr ) -> greateq(ex1=$x.stex2=$y.stlbl=getLbNr())| ^( GREAT x= single_expr y= single_expr ) -> great(ex1=$x.stex2=$y.stlbl=getLbNr())| ^( EQ x= single_expr y= single_expr ) -> eq(ex1=$x.stex2=$y.stlbl=getLbNr())| ^( NOTEQ x= single_expr y= single_expr ) -> noteq(ex1=$x.stex2=$y.stlbl=getLbNr())| ^( PLUS x= single_expr y= single_expr ) -> plus(ex1=$x.stex2=$y.st)| ^( MIN x= single_expr y= single_expr ) -> min(ex1=$x.stex2=$y.st)| ^( MULT x= single_expr y= single_expr ) -> mult(ex1=$x.stex2=$y.st)| ^( DIV x= single_expr y= single_expr ) -> div(ex1=$x.stex2=$y.st)| ^( MOD x= single_expr y= single_expr ) -> mod(ex1=$x.stex2=$y.st)| ^( POS x= single_expr ) -> pos(ex1=$x.st)| ^( NEG x= single_expr ) -> neg(ex1=$x.st)| ^( NOT x= single_expr ) -> not(ex1=$x.st))
 			int alt17=17;
 			switch ( input.LA(1) ) {
 			case BOOLEAN_OPERATOR:
@@ -1791,15 +1814,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 			}
 			switch (alt17) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:124:9: o= operand
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:106:9: o= operand
 					{
-					pushFollow(FOLLOW_operand_in_single_expr1494);
+					pushFollow(FOLLOW_operand_in_single_expr1329);
 					o=operand();
 					state._fsp--;
 					if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 124:49: -> {$o.st}
+					  // 106:49: -> {$o.st}
 					  {
 					  	retval.st = (o!=null?((StringTemplate)o.getTemplate()):null);
 					  }
@@ -1810,15 +1833,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:125:9: ^( OR x= single_expr y= single_expr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:107:9: ^( OR x= single_expr y= single_expr )
 					{
-					match(input,OR,FOLLOW_OR_in_single_expr1539); if (state.failed) return retval;
+					match(input,OR,FOLLOW_OR_in_single_expr1374); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1543);
+					pushFollow(FOLLOW_single_expr_in_single_expr1378);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1547);
+					pushFollow(FOLLOW_single_expr_in_single_expr1382);
 					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1826,7 +1849,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 125:49: -> or(ex1=$x.stex2=$y.st)
+					  // 107:49: -> or(ex1=$x.stex2=$y.st)
 					  {
 					  	retval.st = templateLib.getInstanceOf("or",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)));
 					  }
@@ -1837,15 +1860,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:126:9: ^( AND x= single_expr y= single_expr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:108:9: ^( AND x= single_expr y= single_expr )
 					{
-					match(input,AND,FOLLOW_AND_in_single_expr1578); if (state.failed) return retval;
+					match(input,AND,FOLLOW_AND_in_single_expr1413); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1582);
+					pushFollow(FOLLOW_single_expr_in_single_expr1417);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1586);
+					pushFollow(FOLLOW_single_expr_in_single_expr1421);
 					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1853,7 +1876,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 126:49: -> and(ex1=$x.stex2=$y.st)
+					  // 108:49: -> and(ex1=$x.stex2=$y.st)
 					  {
 					  	retval.st = templateLib.getInstanceOf("and",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)));
 					  }
@@ -1864,15 +1887,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:127:9: ^( LESS x= single_expr y= single_expr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:109:9: ^( LESS x= single_expr y= single_expr )
 					{
-					match(input,LESS,FOLLOW_LESS_in_single_expr1616); if (state.failed) return retval;
+					match(input,LESS,FOLLOW_LESS_in_single_expr1451); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1620);
+					pushFollow(FOLLOW_single_expr_in_single_expr1455);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1624);
+					pushFollow(FOLLOW_single_expr_in_single_expr1459);
 					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1880,9 +1903,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 127:49: -> less(ex1=$x.stex2=$y.stlbl=getLbNr();)
+					  // 109:49: -> less(ex1=$x.stex2=$y.stlbl=getLbNr())
 					  {
-					  	retval.st = templateLib.getInstanceOf("less",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)).put("lbl", getLbNr();));
+					  	retval.st = templateLib.getInstanceOf("less",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)).put("lbl", getLbNr()));
 					  }
 
 
@@ -1891,15 +1914,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:128:9: ^( LESSEQ x= single_expr y= single_expr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:110:9: ^( LESSEQ x= single_expr y= single_expr )
 					{
-					match(input,LESSEQ,FOLLOW_LESSEQ_in_single_expr1657); if (state.failed) return retval;
+					match(input,LESSEQ,FOLLOW_LESSEQ_in_single_expr1492); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1661);
+					pushFollow(FOLLOW_single_expr_in_single_expr1496);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1665);
+					pushFollow(FOLLOW_single_expr_in_single_expr1500);
 					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1907,9 +1930,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 128:49: -> lesseq(ex1=$x.stex2=$y.stlbl=getLbNr();)
+					  // 110:49: -> lesseq(ex1=$x.stex2=$y.stlbl=getLbNr())
 					  {
-					  	retval.st = templateLib.getInstanceOf("lesseq",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)).put("lbl", getLbNr();));
+					  	retval.st = templateLib.getInstanceOf("lesseq",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)).put("lbl", getLbNr()));
 					  }
 
 
@@ -1918,15 +1941,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 6 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:129:9: ^( GREATEQ x= single_expr y= single_expr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:111:9: ^( GREATEQ x= single_expr y= single_expr )
 					{
-					match(input,GREATEQ,FOLLOW_GREATEQ_in_single_expr1696); if (state.failed) return retval;
+					match(input,GREATEQ,FOLLOW_GREATEQ_in_single_expr1531); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1700);
+					pushFollow(FOLLOW_single_expr_in_single_expr1535);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1704);
+					pushFollow(FOLLOW_single_expr_in_single_expr1539);
 					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1934,9 +1957,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 129:49: -> greateq(ex1=$x.stex2=$y.stlbl=getLbNr();)
+					  // 111:49: -> greateq(ex1=$x.stex2=$y.stlbl=getLbNr())
 					  {
-					  	retval.st = templateLib.getInstanceOf("greateq",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)).put("lbl", getLbNr();));
+					  	retval.st = templateLib.getInstanceOf("greateq",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)).put("lbl", getLbNr()));
 					  }
 
 
@@ -1945,15 +1968,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 7 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:130:9: ^( GREAT x= single_expr y= single_expr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:112:9: ^( GREAT x= single_expr y= single_expr )
 					{
-					match(input,GREAT,FOLLOW_GREAT_in_single_expr1734); if (state.failed) return retval;
+					match(input,GREAT,FOLLOW_GREAT_in_single_expr1569); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1738);
+					pushFollow(FOLLOW_single_expr_in_single_expr1573);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1742);
+					pushFollow(FOLLOW_single_expr_in_single_expr1577);
 					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1961,9 +1984,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 130:49: -> great(ex1=$x.stex2=$y.stlbl=getLbNr();)
+					  // 112:49: -> great(ex1=$x.stex2=$y.stlbl=getLbNr())
 					  {
-					  	retval.st = templateLib.getInstanceOf("great",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)).put("lbl", getLbNr();));
+					  	retval.st = templateLib.getInstanceOf("great",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)).put("lbl", getLbNr()));
 					  }
 
 
@@ -1972,15 +1995,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 8 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:131:9: ^( EQ x= single_expr y= single_expr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:113:9: ^( EQ x= single_expr y= single_expr )
 					{
-					match(input,EQ,FOLLOW_EQ_in_single_expr1774); if (state.failed) return retval;
+					match(input,EQ,FOLLOW_EQ_in_single_expr1609); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1778);
+					pushFollow(FOLLOW_single_expr_in_single_expr1613);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1782);
+					pushFollow(FOLLOW_single_expr_in_single_expr1617);
 					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -1988,9 +2011,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 131:49: -> eq(ex1=$x.stex2=$y.stlbl=getLbNr();)
+					  // 113:49: -> eq(ex1=$x.stex2=$y.stlbl=getLbNr())
 					  {
-					  	retval.st = templateLib.getInstanceOf("eq",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)).put("lbl", getLbNr();));
+					  	retval.st = templateLib.getInstanceOf("eq",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)).put("lbl", getLbNr()));
 					  }
 
 
@@ -1999,15 +2022,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 9 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:132:9: ^( NOTEQ x= single_expr y= single_expr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:114:9: ^( NOTEQ x= single_expr y= single_expr )
 					{
-					match(input,NOTEQ,FOLLOW_NOTEQ_in_single_expr1817); if (state.failed) return retval;
+					match(input,NOTEQ,FOLLOW_NOTEQ_in_single_expr1652); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1821);
+					pushFollow(FOLLOW_single_expr_in_single_expr1656);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1825);
+					pushFollow(FOLLOW_single_expr_in_single_expr1660);
 					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -2015,9 +2038,9 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 132:49: -> noteq(ex1=$x.stex2=$y.stlbl=getLbNr();)
+					  // 114:49: -> noteq(ex1=$x.stex2=$y.stlbl=getLbNr())
 					  {
-					  	retval.st = templateLib.getInstanceOf("noteq",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)).put("lbl", getLbNr();));
+					  	retval.st = templateLib.getInstanceOf("noteq",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)).put("lbl", getLbNr()));
 					  }
 
 
@@ -2026,15 +2049,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 10 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:133:9: ^( PLUS x= single_expr y= single_expr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:115:9: ^( PLUS x= single_expr y= single_expr )
 					{
-					match(input,PLUS,FOLLOW_PLUS_in_single_expr1857); if (state.failed) return retval;
+					match(input,PLUS,FOLLOW_PLUS_in_single_expr1692); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1861);
+					pushFollow(FOLLOW_single_expr_in_single_expr1696);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1865);
+					pushFollow(FOLLOW_single_expr_in_single_expr1700);
 					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -2042,7 +2065,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 133:49: -> plus(ex1=$x.stex2=$y.st)
+					  // 115:49: -> plus(ex1=$x.stex2=$y.st)
 					  {
 					  	retval.st = templateLib.getInstanceOf("plus",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)));
 					  }
@@ -2053,15 +2076,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 11 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:134:9: ^( MIN x= single_expr y= single_expr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:116:9: ^( MIN x= single_expr y= single_expr )
 					{
-					match(input,MIN,FOLLOW_MIN_in_single_expr1894); if (state.failed) return retval;
+					match(input,MIN,FOLLOW_MIN_in_single_expr1729); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1898);
+					pushFollow(FOLLOW_single_expr_in_single_expr1733);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1902);
+					pushFollow(FOLLOW_single_expr_in_single_expr1737);
 					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -2069,7 +2092,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 134:49: -> min(ex1=$x.stex2=$y.st)
+					  // 116:49: -> min(ex1=$x.stex2=$y.st)
 					  {
 					  	retval.st = templateLib.getInstanceOf("min",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)));
 					  }
@@ -2080,15 +2103,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 12 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:135:9: ^( MULT x= single_expr y= single_expr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:117:9: ^( MULT x= single_expr y= single_expr )
 					{
-					match(input,MULT,FOLLOW_MULT_in_single_expr1932); if (state.failed) return retval;
+					match(input,MULT,FOLLOW_MULT_in_single_expr1767); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1936);
+					pushFollow(FOLLOW_single_expr_in_single_expr1771);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1940);
+					pushFollow(FOLLOW_single_expr_in_single_expr1775);
 					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -2096,7 +2119,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 135:49: -> mult(ex1=$x.stex2=$y.st)
+					  // 117:49: -> mult(ex1=$x.stex2=$y.st)
 					  {
 					  	retval.st = templateLib.getInstanceOf("mult",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)));
 					  }
@@ -2107,15 +2130,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 13 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:136:9: ^( DIV x= single_expr y= single_expr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:118:9: ^( DIV x= single_expr y= single_expr )
 					{
-					match(input,DIV,FOLLOW_DIV_in_single_expr1969); if (state.failed) return retval;
+					match(input,DIV,FOLLOW_DIV_in_single_expr1804); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1973);
+					pushFollow(FOLLOW_single_expr_in_single_expr1808);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr1977);
+					pushFollow(FOLLOW_single_expr_in_single_expr1812);
 					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -2123,7 +2146,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 136:49: -> div(ex1=$x.stex2=$y.st)
+					  // 118:49: -> div(ex1=$x.stex2=$y.st)
 					  {
 					  	retval.st = templateLib.getInstanceOf("div",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)));
 					  }
@@ -2134,15 +2157,15 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 14 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:137:9: ^( MOD x= single_expr y= single_expr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:119:9: ^( MOD x= single_expr y= single_expr )
 					{
-					match(input,MOD,FOLLOW_MOD_in_single_expr2007); if (state.failed) return retval;
+					match(input,MOD,FOLLOW_MOD_in_single_expr1842); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr2011);
+					pushFollow(FOLLOW_single_expr_in_single_expr1846);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr2015);
+					pushFollow(FOLLOW_single_expr_in_single_expr1850);
 					y=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -2150,7 +2173,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 137:49: -> mod(ex1=$x.stex2=$y.st)
+					  // 119:49: -> mod(ex1=$x.stex2=$y.st)
 					  {
 					  	retval.st = templateLib.getInstanceOf("mod",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)).put("ex2", (y!=null?((StringTemplate)y.getTemplate()):null)));
 					  }
@@ -2161,11 +2184,11 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 15 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:138:9: ^( POS x= single_expr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:120:9: ^( POS x= single_expr )
 					{
-					match(input,POS,FOLLOW_POS_in_single_expr2045); if (state.failed) return retval;
+					match(input,POS,FOLLOW_POS_in_single_expr1880); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr2049);
+					pushFollow(FOLLOW_single_expr_in_single_expr1884);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -2173,7 +2196,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 138:49: -> pos(ex1=$x.st)
+					  // 120:49: -> pos(ex1=$x.st)
 					  {
 					  	retval.st = templateLib.getInstanceOf("pos",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)));
 					  }
@@ -2184,11 +2207,11 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 16 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:139:9: ^( NEG x= single_expr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:121:9: ^( NEG x= single_expr )
 					{
-					match(input,NEG,FOLLOW_NEG_in_single_expr2089); if (state.failed) return retval;
+					match(input,NEG,FOLLOW_NEG_in_single_expr1924); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr2093);
+					pushFollow(FOLLOW_single_expr_in_single_expr1928);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -2196,7 +2219,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 139:49: -> neg(ex1=$x.st)
+					  // 121:49: -> neg(ex1=$x.st)
 					  {
 					  	retval.st = templateLib.getInstanceOf("neg",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)));
 					  }
@@ -2207,11 +2230,11 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 17 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:140:9: ^( NOT x= single_expr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:122:9: ^( NOT x= single_expr )
 					{
-					match(input,NOT,FOLLOW_NOT_in_single_expr2133); if (state.failed) return retval;
+					match(input,NOT,FOLLOW_NOT_in_single_expr1968); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_single_expr2137);
+					pushFollow(FOLLOW_single_expr_in_single_expr1972);
 					x=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -2219,7 +2242,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 140:49: -> not(ex1=$x.st)
+					  // 122:49: -> not(ex1=$x.st)
 					  {
 					  	retval.st = templateLib.getInstanceOf("not",new STAttrMap().put("ex1", (x!=null?((StringTemplate)x.getTemplate()):null)));
 					  }
@@ -2252,19 +2275,19 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 	// $ANTLR start "operand"
-	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:143:1: operand : (id= IDENTIFIER -> identifier(id=$id.text)|n= NUMBER -> number(n=$n.text)| ^( LPAREN s= single_expr ) -> {$s.st}|b= BOOLEAN_OPERATOR -> boolean(b=$b.text)|c= CHAR_OPERATOR -> char(c=$c.text));
+	// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:125:1: operand : (id= IDENTIFIER -> identifier(id=$id.text)|n= NUMBER -> number(n=$n.text)| ^( LPAREN s= single_expr ) -> {$s.st}|b= BOOLEAN_OPERATOR -> boolean(b=$b.text.equals(\"true\") ? true : false)|c= CHAR_OPERATOR -> char(c=$c.text));
 	public final ChocolateCodeGenerator.operand_return operand() throws RecognitionException {
 		ChocolateCodeGenerator.operand_return retval = new ChocolateCodeGenerator.operand_return();
 		retval.start = input.LT(1);
 
-		CommonTree id=null;
-		CommonTree n=null;
-		CommonTree b=null;
-		CommonTree c=null;
+		ChocolateTree id=null;
+		ChocolateTree n=null;
+		ChocolateTree b=null;
+		ChocolateTree c=null;
 		TreeRuleReturnScope s =null;
 
 		try {
-			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:144:5: (id= IDENTIFIER -> identifier(id=$id.text)|n= NUMBER -> number(n=$n.text)| ^( LPAREN s= single_expr ) -> {$s.st}|b= BOOLEAN_OPERATOR -> boolean(b=$b.text)|c= CHAR_OPERATOR -> char(c=$c.text))
+			// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:126:5: (id= IDENTIFIER -> identifier(id=$id.text)|n= NUMBER -> number(n=$n.text)| ^( LPAREN s= single_expr ) -> {$s.st}|b= BOOLEAN_OPERATOR -> boolean(b=$b.text.equals(\"true\") ? true : false)|c= CHAR_OPERATOR -> char(c=$c.text))
 			int alt18=5;
 			switch ( input.LA(1) ) {
 			case IDENTIFIER:
@@ -2300,12 +2323,12 @@ public class ChocolateCodeGenerator extends TreeParser {
 			}
 			switch (alt18) {
 				case 1 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:144:9: id= IDENTIFIER
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:126:9: id= IDENTIFIER
 					{
-					id=(CommonTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_operand2191); if (state.failed) return retval;
+					id=(ChocolateTree)match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_operand2026); if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 144:33: -> identifier(id=$id.text)
+					  // 126:33: -> identifier(id=$id.text)
 					  {
 					  	retval.st = templateLib.getInstanceOf("identifier",new STAttrMap().put("id", (id!=null?id.getText():null)));
 					  }
@@ -2316,12 +2339,12 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 2 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:145:9: n= NUMBER
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:127:9: n= NUMBER
 					{
-					n=(CommonTree)match(input,NUMBER,FOLLOW_NUMBER_in_operand2222); if (state.failed) return retval;
+					n=(ChocolateTree)match(input,NUMBER,FOLLOW_NUMBER_in_operand2057); if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 145:33: -> number(n=$n.text)
+					  // 127:33: -> number(n=$n.text)
 					  {
 					  	retval.st = templateLib.getInstanceOf("number",new STAttrMap().put("n", (n!=null?n.getText():null)));
 					  }
@@ -2332,11 +2355,11 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 3 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:146:9: ^( LPAREN s= single_expr )
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:128:9: ^( LPAREN s= single_expr )
 					{
-					match(input,LPAREN,FOLLOW_LPAREN_in_operand2257); if (state.failed) return retval;
+					match(input,LPAREN,FOLLOW_LPAREN_in_operand2092); if (state.failed) return retval;
 					match(input, Token.DOWN, null); if (state.failed) return retval;
-					pushFollow(FOLLOW_single_expr_in_operand2261);
+					pushFollow(FOLLOW_single_expr_in_operand2096);
 					s=single_expr();
 					state._fsp--;
 					if (state.failed) return retval;
@@ -2344,7 +2367,7 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 146:33: -> {$s.st}
+					  // 128:33: -> {$s.st}
 					  {
 					  	retval.st = (s!=null?((StringTemplate)s.getTemplate()):null);
 					  }
@@ -2355,14 +2378,14 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 4 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:147:9: b= BOOLEAN_OPERATOR
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:129:9: b= BOOLEAN_OPERATOR
 					{
-					b=(CommonTree)match(input,BOOLEAN_OPERATOR,FOLLOW_BOOLEAN_OPERATOR_in_operand2278); if (state.failed) return retval;
+					b=(ChocolateTree)match(input,BOOLEAN_OPERATOR,FOLLOW_BOOLEAN_OPERATOR_in_operand2113); if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 147:33: -> boolean(b=$b.text)
+					  // 129:33: -> boolean(b=$b.text.equals(\"true\") ? true : false)
 					  {
-					  	retval.st = templateLib.getInstanceOf("boolean",new STAttrMap().put("b", (b!=null?b.getText():null)));
+					  	retval.st = templateLib.getInstanceOf("boolean",new STAttrMap().put("b", (b!=null?b.getText():null).equals("true") ? true : false));
 					  }
 
 
@@ -2371,12 +2394,12 @@ public class ChocolateCodeGenerator extends TreeParser {
 					}
 					break;
 				case 5 :
-					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:148:9: c= CHAR_OPERATOR
+					// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:130:9: c= CHAR_OPERATOR
 					{
-					c=(CommonTree)match(input,CHAR_OPERATOR,FOLLOW_CHAR_OPERATOR_in_operand2304); if (state.failed) return retval;
+					c=(ChocolateTree)match(input,CHAR_OPERATOR,FOLLOW_CHAR_OPERATOR_in_operand2139); if (state.failed) return retval;
 					// TEMPLATE REWRITE
 					if ( state.backtracking==0 ) {
-					  // 148:33: -> char(c=$c.text)
+					  // 130:33: -> char(c=$c.text)
 					  {
 					  	retval.st = templateLib.getInstanceOf("char",new STAttrMap().put("c", (c!=null?c.getText():null)));
 					  }
@@ -2402,47 +2425,21 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 	// $ANTLR start synpred1_ChocolateCodeGenerator
 	public final void synpred1_ChocolateCodeGenerator_fragment() throws RecognitionException {
-		// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:97:9: ( IDENTIFIER ASSIGN )
-		// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:97:10: IDENTIFIER ASSIGN
+		// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:101:9: ( single_expr RCURLY )
+		// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:101:10: single_expr RCURLY
 		{
-		match(input,IDENTIFIER,FOLLOW_IDENTIFIER_in_synpred1_ChocolateCodeGenerator975); if (state.failed) return;
-		match(input,ASSIGN,FOLLOW_ASSIGN_in_synpred1_ChocolateCodeGenerator977); if (state.failed) return;
+		pushFollow(FOLLOW_single_expr_in_synpred1_ChocolateCodeGenerator1218);
+		single_expr();
+		state._fsp--;
+		if (state.failed) return;
+		match(input,RCURLY,FOLLOW_RCURLY_in_synpred1_ChocolateCodeGenerator1220); if (state.failed) return;
 		}
 
 	}
 	// $ANTLR end synpred1_ChocolateCodeGenerator
 
-	// $ANTLR start synpred2_ChocolateCodeGenerator
-	public final void synpred2_ChocolateCodeGenerator_fragment() throws RecognitionException {
-		// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:119:9: ( single_expr RCURLY )
-		// C:\\Users\\Tanja\\Documents\\GitHub\\VB---Chocolate\\Code\\Vertalerbouw\\src\\CodeGenerator\\ChocolateCodeGenerator.g:119:10: single_expr RCURLY
-		{
-		pushFollow(FOLLOW_single_expr_in_synpred2_ChocolateCodeGenerator1383);
-		single_expr();
-		state._fsp--;
-		if (state.failed) return;
-		match(input,RCURLY,FOLLOW_RCURLY_in_synpred2_ChocolateCodeGenerator1385); if (state.failed) return;
-		}
-
-	}
-	// $ANTLR end synpred2_ChocolateCodeGenerator
-
 	// Delegated rules
 
-	public final boolean synpred2_ChocolateCodeGenerator() {
-		state.backtracking++;
-		int start = input.mark();
-		try {
-			synpred2_ChocolateCodeGenerator_fragment(); // can never throw exception
-		} catch (RecognitionException re) {
-			System.err.println("impossible: "+re);
-		}
-		boolean success = !state.failed;
-		input.rewind(start);
-		state.backtracking--;
-		state.failed=false;
-		return success;
-	}
 	public final boolean synpred1_ChocolateCodeGenerator() {
 		state.backtracking++;
 		int start = input.mark();
@@ -2460,114 +2457,112 @@ public class ChocolateCodeGenerator extends TreeParser {
 
 
 
-	public static final BitSet FOLLOW_PROGRAM_in_program100 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_section_in_program105 = new BitSet(new long[]{0x000C220000802028L});
-	public static final BitSet FOLLOW_declaration_in_section167 = new BitSet(new long[]{0x000C220000802020L});
-	public static final BitSet FOLLOW_statement_in_section172 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CONSTANT_in_declaration216 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_type_in_declaration220 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_declaration224 = new BitSet(new long[]{0x0000000000400020L});
-	public static final BitSet FOLLOW_ASSIGN_in_declaration228 = new BitSet(new long[]{0x000001FFCE788290L});
-	public static final BitSet FOLLOW_type_op_in_declaration232 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_VAR_in_declaration275 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_type_in_declaration279 = new BitSet(new long[]{0x0000000000400000L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_declaration283 = new BitSet(new long[]{0x0000000000400028L});
-	public static final BitSet FOLLOW_ASSIGN_in_declaration287 = new BitSet(new long[]{0x000001FFCE788290L});
-	public static final BitSet FOLLOW_type_op_in_declaration291 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_INTEGER_in_type355 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CHAR_in_type367 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_BOOLEAN_in_type379 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_single_expr_in_type_op404 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_type_op434 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_read_in_statement541 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_print_in_statement568 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_assign_in_statement594 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ifthenelse_in_statement619 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_whiledo_in_statement638 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_READ_in_read673 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_read_one_in_read678 = new BitSet(new long[]{0x0000000000400008L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_read_one734 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_PRINT_in_print771 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_print_one_in_print776 = new BitSet(new long[]{0x0020000002400008L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_print_one817 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_print_one854 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_STRING_in_print_one878 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_ASSIGN_in_assign920 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_assign924 = new BitSet(new long[]{0x000001FFCE7882B0L});
-	public static final BitSet FOLLOW_assignexpr_in_assign929 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_ASSIGN_in_assignexpr983 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_assignexpr987 = new BitSet(new long[]{0x000001FFCE7882B0L});
-	public static final BitSet FOLLOW_assignexpr_in_assignexpr991 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_single_expr_in_assignexpr1024 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_assignexpr1096 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_IF_in_ifthenelse1171 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_ifthenelse1175 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_ifthenelse1179 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_ifthenelse1183 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_WHILE_in_whiledo1235 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_whiledo1239 = new BitSet(new long[]{0x0000000002000000L});
-	public static final BitSet FOLLOW_closed_compound_expr_in_whiledo1243 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LCURLY_in_closed_compound_expr1325 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_declaration_in_closed_compound_expr1329 = new BitSet(new long[]{0x000C23FFCCF8A2B0L});
-	public static final BitSet FOLLOW_compound_ext_in_closed_compound_expr1334 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_single_expr_in_compound_ext1393 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_statement_in_compound_ext1434 = new BitSet(new long[]{0x000C23FFCCF8A2B0L});
-	public static final BitSet FOLLOW_declaration_in_compound_ext1438 = new BitSet(new long[]{0x000C23FFCCF8A2B0L});
-	public static final BitSet FOLLOW_compound_ext_in_compound_ext1443 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_operand_in_single_expr1494 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_OR_in_single_expr1539 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1543 = new BitSet(new long[]{0x000001FFCC788290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1547 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_AND_in_single_expr1578 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1582 = new BitSet(new long[]{0x000001FFCC788290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1586 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LESS_in_single_expr1616 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1620 = new BitSet(new long[]{0x000001FFCC788290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1624 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_LESSEQ_in_single_expr1657 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1661 = new BitSet(new long[]{0x000001FFCC788290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1665 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_GREATEQ_in_single_expr1696 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1700 = new BitSet(new long[]{0x000001FFCC788290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1704 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_GREAT_in_single_expr1734 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1738 = new BitSet(new long[]{0x000001FFCC788290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1742 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_EQ_in_single_expr1774 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1778 = new BitSet(new long[]{0x000001FFCC788290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1782 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_NOTEQ_in_single_expr1817 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1821 = new BitSet(new long[]{0x000001FFCC788290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1825 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_PLUS_in_single_expr1857 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1861 = new BitSet(new long[]{0x000001FFCC788290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1865 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_MIN_in_single_expr1894 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1898 = new BitSet(new long[]{0x000001FFCC788290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1902 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_MULT_in_single_expr1932 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1936 = new BitSet(new long[]{0x000001FFCC788290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1940 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_DIV_in_single_expr1969 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1973 = new BitSet(new long[]{0x000001FFCC788290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr1977 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_MOD_in_single_expr2007 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr2011 = new BitSet(new long[]{0x000001FFCC788290L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr2015 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_POS_in_single_expr2045 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr2049 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_NEG_in_single_expr2089 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr2093 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_NOT_in_single_expr2133 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_single_expr2137 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_operand2191 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_NUMBER_in_operand2222 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_LPAREN_in_operand2257 = new BitSet(new long[]{0x0000000000000004L});
-	public static final BitSet FOLLOW_single_expr_in_operand2261 = new BitSet(new long[]{0x0000000000000008L});
-	public static final BitSet FOLLOW_BOOLEAN_OPERATOR_in_operand2278 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_CHAR_OPERATOR_in_operand2304 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_IDENTIFIER_in_synpred1_ChocolateCodeGenerator975 = new BitSet(new long[]{0x0000000000000020L});
-	public static final BitSet FOLLOW_ASSIGN_in_synpred1_ChocolateCodeGenerator977 = new BitSet(new long[]{0x0000000000000002L});
-	public static final BitSet FOLLOW_single_expr_in_synpred2_ChocolateCodeGenerator1383 = new BitSet(new long[]{0x0000100000000000L});
-	public static final BitSet FOLLOW_RCURLY_in_synpred2_ChocolateCodeGenerator1385 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_PROGRAM_in_program93 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_section_in_program98 = new BitSet(new long[]{0x000C220000802028L});
+	public static final BitSet FOLLOW_declaration_in_section160 = new BitSet(new long[]{0x000C220000802020L});
+	public static final BitSet FOLLOW_statement_in_section165 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CONSTANT_in_declaration209 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_type_in_declaration213 = new BitSet(new long[]{0x0000000000400000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_declaration217 = new BitSet(new long[]{0x0000000000400020L});
+	public static final BitSet FOLLOW_ASSIGN_in_declaration221 = new BitSet(new long[]{0x000001FFCE788290L});
+	public static final BitSet FOLLOW_type_op_in_declaration225 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_VAR_in_declaration268 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_type_in_declaration272 = new BitSet(new long[]{0x0000000000400000L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_declaration276 = new BitSet(new long[]{0x0000000000400028L});
+	public static final BitSet FOLLOW_ASSIGN_in_declaration280 = new BitSet(new long[]{0x000001FFCE788290L});
+	public static final BitSet FOLLOW_type_op_in_declaration284 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_INTEGER_in_type348 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CHAR_in_type360 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_BOOLEAN_in_type372 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_single_expr_in_type_op397 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_type_op427 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_read_in_statement461 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_print_in_statement488 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_assign_in_statement514 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ifthenelse_in_statement539 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_whiledo_in_statement558 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_READ_in_read593 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_read_one_in_read598 = new BitSet(new long[]{0x0000000000400008L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_read_one654 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_PRINT_in_print691 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_print_one_in_print696 = new BitSet(new long[]{0x0020000002400008L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_print_one737 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_print_one774 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_STRING_in_print_one798 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_ASSIGN_in_assign840 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_assign844 = new BitSet(new long[]{0x000001FFCE7882B0L});
+	public static final BitSet FOLLOW_assignexpr_in_assign848 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_ASSIGN_in_assignexpr904 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_assignexpr908 = new BitSet(new long[]{0x000001FFCE7882B0L});
+	public static final BitSet FOLLOW_assignexpr_in_assignexpr912 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_single_expr_in_assignexpr952 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_assignexpr986 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_IF_in_ifthenelse1023 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_ifthenelse1027 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_ifthenelse1031 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_ifthenelse1035 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_WHILE_in_whiledo1087 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_whiledo1091 = new BitSet(new long[]{0x0000000002000000L});
+	public static final BitSet FOLLOW_closed_compound_expr_in_whiledo1095 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LCURLY_in_closed_compound_expr1160 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_declaration_in_closed_compound_expr1164 = new BitSet(new long[]{0x000C23FFCCF8A2B0L});
+	public static final BitSet FOLLOW_compound_ext_in_closed_compound_expr1169 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_single_expr_in_compound_ext1228 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_statement_in_compound_ext1269 = new BitSet(new long[]{0x000C23FFCCF8A2B0L});
+	public static final BitSet FOLLOW_declaration_in_compound_ext1273 = new BitSet(new long[]{0x000C23FFCCF8A2B0L});
+	public static final BitSet FOLLOW_compound_ext_in_compound_ext1278 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_operand_in_single_expr1329 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_OR_in_single_expr1374 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1378 = new BitSet(new long[]{0x000001FFCC788290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1382 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_AND_in_single_expr1413 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1417 = new BitSet(new long[]{0x000001FFCC788290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1421 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LESS_in_single_expr1451 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1455 = new BitSet(new long[]{0x000001FFCC788290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1459 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_LESSEQ_in_single_expr1492 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1496 = new BitSet(new long[]{0x000001FFCC788290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1500 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_GREATEQ_in_single_expr1531 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1535 = new BitSet(new long[]{0x000001FFCC788290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1539 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_GREAT_in_single_expr1569 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1573 = new BitSet(new long[]{0x000001FFCC788290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1577 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_EQ_in_single_expr1609 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1613 = new BitSet(new long[]{0x000001FFCC788290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1617 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_NOTEQ_in_single_expr1652 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1656 = new BitSet(new long[]{0x000001FFCC788290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1660 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_PLUS_in_single_expr1692 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1696 = new BitSet(new long[]{0x000001FFCC788290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1700 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_MIN_in_single_expr1729 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1733 = new BitSet(new long[]{0x000001FFCC788290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1737 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_MULT_in_single_expr1767 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1771 = new BitSet(new long[]{0x000001FFCC788290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1775 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_DIV_in_single_expr1804 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1808 = new BitSet(new long[]{0x000001FFCC788290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1812 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_MOD_in_single_expr1842 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1846 = new BitSet(new long[]{0x000001FFCC788290L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1850 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_POS_in_single_expr1880 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1884 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_NEG_in_single_expr1924 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1928 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_NOT_in_single_expr1968 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_single_expr1972 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_IDENTIFIER_in_operand2026 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_NUMBER_in_operand2057 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_LPAREN_in_operand2092 = new BitSet(new long[]{0x0000000000000004L});
+	public static final BitSet FOLLOW_single_expr_in_operand2096 = new BitSet(new long[]{0x0000000000000008L});
+	public static final BitSet FOLLOW_BOOLEAN_OPERATOR_in_operand2113 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_CHAR_OPERATOR_in_operand2139 = new BitSet(new long[]{0x0000000000000002L});
+	public static final BitSet FOLLOW_single_expr_in_synpred1_ChocolateCodeGenerator1218 = new BitSet(new long[]{0x0000100000000000L});
+	public static final BitSet FOLLOW_RCURLY_in_synpred1_ChocolateCodeGenerator1220 = new BitSet(new long[]{0x0000000000000002L});
 }

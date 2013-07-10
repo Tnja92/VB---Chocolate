@@ -1,0 +1,15 @@
+cacao GOED: juiste gebruik van het assign statement
+
+bonbon wit g;
+bonbon wit h milka 36;
+bonbon wit i;
+bonbon wit j;
+
+h milka h dove 6;
+verkade(h);
+g milka i milka 5;
+verkade(g);
+verkade(i);
+j milka {reep wit k milka 7;
+		k bounty 3 mars 5;}
+verkade(j);

@@ -1,0 +1,2 @@
+dup
+istore $addr$

@@ -1,0 +1,9 @@
+cacao GOED: test het gebruik van optellen (bounty)
+
+reep wit hond milka 15;
+bonbon wit kat milka 17;
+reep wit muis milka 4;
+bonbon wit kaas;
+
+kaas milka hond bounty kat bounty muis;
+verkade(kaas);

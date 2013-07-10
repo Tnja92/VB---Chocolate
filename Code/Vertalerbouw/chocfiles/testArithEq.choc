@@ -1,0 +1,11 @@
+cacao GOED: test het gebruik van gelijk aan (kitkat)
+
+reep wit a1 milka 27;
+reep wit a2 milka 27;
+reep melk b1 milka 'p';
+reep melk b2 milka 'p';
+reep puur c1 milka true;
+reep puur c2 milka false;
+bonbon puur d;
+
+d milka 

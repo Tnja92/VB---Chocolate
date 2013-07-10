@@ -1,0 +1,12 @@
+cacao GOED: test het gebruik van kleiner dan en gelijk aan (kinder)
+
+reep wit a milka 25;
+reep wit b milka 17;
+reep wit c milka 83;
+reep wit d milka 17;
+bonbon puur e;
+
+e milka b kinder a kinder c;
+verkade(e);
+e milka b kinder d;
+verkade(e);

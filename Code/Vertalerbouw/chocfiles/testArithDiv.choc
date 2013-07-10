@@ -1,0 +1,9 @@
+cacao GOED: test het gebruik van deling (dove)
+
+reep wit a milka 60;
+reep wit b milka 5;
+reep wit c milka 4;
+bonbon wit d;
+
+d milka a dove b dove c;
+verkade (d);

@@ -1,0 +1,8 @@
+cacao FOUT: declaratie van twee variabelen/constanten met dezelfde naam
+
+bonbon wit ham milka 8;
+bonbon melk kaas milka 'k';
+reep wit ham milka 3;
+bonbon melk kaas milka 'b';
+verkade(ham);
+verkade(kaas);

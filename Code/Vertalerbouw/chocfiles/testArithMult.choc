@@ -1,0 +1,11 @@
+cacao GOED: test het gebruik van vermenigvuldiging (milkyway)
+
+bonbon wit rozijnen milka 67;
+reep wit walnoten milka 39;
+bonbon wit honing milka 3;
+reep wit mosterd milka 12;
+bonbon wit sla;
+
+sla milka honing milkyway mosterd;
+sla milka sla milkyway walnoten milkyway rozijnen;
+verkade(sla);

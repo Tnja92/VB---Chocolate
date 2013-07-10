@@ -2,3 +2,4 @@ cacao FOUT: declaratie van een constant zonder het meegeven van een waarde
 
 reep wit l;
 l milka 2;
+verkade(l);

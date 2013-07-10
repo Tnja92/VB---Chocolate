@@ -1,0 +1,9 @@
+cacao FOUT: probeer een assingment te doen op een expressie (i.p.v. een identifier)
+
+bonbon wit a milka 4;
+bonbon wit b;
+bonbon wit c;
+
+b bounty c milka a bounty 1;
+verkade(b);
+verkade(c);

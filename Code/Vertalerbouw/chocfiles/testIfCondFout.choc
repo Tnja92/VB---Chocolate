@@ -1,0 +1,10 @@
+cacao FOUT: de conditie van de if statement is niet van type boolean
+
+reep wit a milka 3;
+reep puur b milka true;
+bonbon wit c milka 77;
+
+if a
+then {c milka c maltesers a; 3;}
+else {c milka c mars a; 3;}
+verkade(c);

@@ -1,0 +1,22 @@
+cacao GOED: test het gebruik van niet gelijk aan (bros)
+
+reep wit a1 milka 46;
+reep wit a2 milka 19;
+reep melk b1 milka 'y';
+reep melk b2 milka 'y';
+reep puur c1 milka true;
+reep puur c2 milka false;
+bonbon puur d;
+
+d milka a1 bros a2;
+verkade(d);
+d milka b1 bros b2;
+verkade(d);
+d milka c1 bros c2;
+verkade(d);
+d milka a2 bros b2;
+verkade(d);
+d milka b2 bros c2;
+verkade(d);
+d milka a2 bros c2;
+verkade(d);

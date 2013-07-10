@@ -1,0 +1,10 @@
+cacao FOUT: de conditie van de while statement is niet van type boolean
+
+reep wit a milka 4;
+reep wit b milka 25;
+bonbon wit c milka 89;
+bonbon puur klaar milka false;
+
+while b do
+	{c milka c bounty a; 3;}
+verkade(c);

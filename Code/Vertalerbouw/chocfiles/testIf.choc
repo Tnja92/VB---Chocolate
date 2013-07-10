@@ -1,0 +1,19 @@
+cacao GOED: juiste gebruik van het if statement
+
+reep wit a milka 3;
+reep puur b milka true;
+bonbon wit c milka 77;
+
+if b
+then {c milka c maltesers a; 3;}
+else {c milka c mars a; 3;};
+verkade(c);
+
+if nuts b
+then {c milka c milkyway a; 3;}
+else {c milka c bounty a; 3;};
+verkade(c);
+
+if (b)
+then {c milka c milkyway c; 3;};
+verkade(c);

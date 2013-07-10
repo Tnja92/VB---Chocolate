@@ -1,0 +1,12 @@
+cacao GOED: test het gebruik van || (twix)
+
+reep puur a milka true;
+reep puur b milka false;
+bonbon puur c;
+
+c milka a twix b;
+verkade(c);
+c milka a twix a;
+verkade(c);
+c milka b twix b;
+verkade(c);

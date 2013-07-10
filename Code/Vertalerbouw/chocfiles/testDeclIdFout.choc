@@ -1,0 +1,9 @@
+cacao FOUT: proberen variabele/constante te declareren met keyword als naam
+
+ reep wit bros milka 4;
+ bonbon puur verkade milka false;
+ reep melk pos milka 'w';
+ 
+ verkade(bros);
+ verkade(verkade);
+ verkade(pos);

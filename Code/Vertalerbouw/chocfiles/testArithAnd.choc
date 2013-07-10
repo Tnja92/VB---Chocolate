@@ -1,0 +1,12 @@
+cacao GOED: test het gebruik van && (rolo)
+
+reep puur a milka false;
+reep puur b milka true;
+bonbon puur c;
+
+c milka a rolo b;
+verkade(c);
+c milka a rolo a;
+verkade(c);
+c milka b rolo b;
+verkade(c);

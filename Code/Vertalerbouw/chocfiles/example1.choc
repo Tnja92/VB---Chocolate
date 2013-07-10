@@ -1,9 +1,9 @@
 cacao voorbeeldje
 
 cacao declaraties
-reep i milka 7;
-reep c milka 'r';
-reep h milka true;
+reep wit i milka 7;
+reep melk c milka 'r';
+reep puur h milka true;
 bonbon puur c;
 
 cacao statements

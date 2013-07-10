@@ -1,0 +1,26 @@
+cacao GOED: ter controle dat de verschillende arith symbolen (+, -, etc) de prioriteit hebben
+
+reep wit a1 milka 5;
+reep wit a2 milka 18;
+reep puur c1 milka true;
+reep puur c2 milka false;
+bonbon wit d;
+bonbon puur f;
+
+cacao *,/,% hebben voorang (hogere prioriteit) op +,-
+d milka a1 bounty 7 milkyway a2 mars 8;
+verkade(d);
+
+cacao +,- hebben voorang (hogere prioriteit) op <,<=,>=,>,==,<>
+f milka a2 bounty a1 lion a2;
+verkade(f);
+f milka a1 bounty a2 kitkat a1 bounty a2;
+verkade(f);
+
+cacao <,<=,>=,>,==,<> hebben voorang (hogere prioriteit) op &&
+f milka c2 kitkat c1 rolo c1 bros c2;
+verkade(f);
+
+cacao && heeft voorang (hogere prioriteit) op ||
+f milka c1 rolo c2 twix c1 rolo c2;
+verkade(f);

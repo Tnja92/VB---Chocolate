@@ -1,0 +1,10 @@
+cacao GOED: test het gebruik van ! (nuts)
+
+reep puur t milka true;
+reep puur f milka false;
+bonbon puur what;
+
+what milka nuts t;
+verkade(what);
+what milka nuts f;
+verkade(what);

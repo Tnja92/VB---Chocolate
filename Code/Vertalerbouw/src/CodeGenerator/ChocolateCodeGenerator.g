@@ -10,7 +10,7 @@ options {
     package CodeGenerator;
     import SyntacticAnalyzer.Chocolate;
     import AST.ChocolateTree;
-}
+} 
 
 @members{
     private int LbNr = 0;

@@ -12,7 +12,6 @@ public class CheckerActions {
     private SymbolTable<IdEntry> symtab = new SymbolTable<IdEntry>();   
     
     public boolean  isDeclared(String s)        { return symtab.retrieve(s) != null; 	}
-    public boolean 	isDeclaredHere(String s)	{ IdEntry ie = symtab.retrieve(s); return ie.getLevel() == symtab.currentLevel();  }
     public void     declare(String s, String t, ChocolateTree node) throws SymbolTableException { 
     	symtab.enter(s, new IdEntry(t, node));  
 	}
@@ -57,7 +56,7 @@ public class CheckerActions {
     ///////////////////////////////////////////////////////////
     /**
      * Checks operand tree of type Char. Performs the following actions:
-     * 	- Sets the type of the provided tree to CHAR
+     * 	- Sets the type of the provided tree to INT
      * @param l the tree to check
      */
 	public void checkOperandChar(ChocolateTree l){
@@ -73,11 +72,11 @@ public class CheckerActions {
 	}
 	/**
      * Checks operand tree of type number. Performs the following actions:
-     * 	- Sets the type of the provided tree to CHAR
+     * 	- Sets the type of the provided tree to INT
      * @param l the tree to check
      */
 	public void checkOperandNumber(ChocolateTree l){
-		l.setChocolateType(CHAR);
+		l.setChocolateType(INT);
 	}
 	/**
 	 * Checks operand tree of the type identifier (ID). Performs the following actions:
@@ -111,8 +110,8 @@ public class CheckerActions {
 	 * @param root the compound expression
 	 * @param s the sentence
 	 */
-	public void checkCompoundExpr(ChocolateTree root, ChocolateTree s){
-		root.setChocolateType(s.getChocolateType());
+	public void checkCompoundExpr(ChocolateTree root, String s){
+		root.setChocolateType(s);
 	}
 	
 	public void checkCompoundExt(ChocolateTree root, ChocolateTree s) {
@@ -157,33 +156,33 @@ public class CheckerActions {
 	}
 	/**
 	 * Checks a comparison tree of two numbers, being tested for inequality, i.e. one being larger or smaller then the other. Checks that both
-	 * the expression trees are of type CHAR, if this is the case, the type of the comparison tree is set to BOOL
+	 * the expression trees are of type INT, if this is the case, the type of the comparison tree is set to BOOL
 	 * @param root the comparison tree to check
 	 * @param e1 the first expression tree in this comparison tree
 	 * @param e2 the second expression tree in this comparison tree
-	 * @throws ChocolateException when either e1 or e2 does not have type CHAR
+	 * @throws ChocolateException when either e1 or e2 does not have type INT
 	 */
 	public void checkExprCompNumber(ChocolateTree root, ChocolateTree e1, ChocolateTree e2) throws ChocolateException{
-		if(!typeMatch(e1.getChocolateType(), CHAR))
-			throw new ChocolateException(root, "een type probleempje: rekenkundige expressies werken alleen op CHARs, niet op: '"+e1.getChocolateType()+"'");
-		if(!typeMatch(e2.getChocolateType(), CHAR))
-			throw new ChocolateException(root, "een type probleempje: rekenkundige expressies werken alleen op CHARs, niet op: '"+e2.getChocolateType()+"'");
+		if(!typeMatch(e1.getChocolateType(), INT))
+			throw new ChocolateException(root, "een type probleempje: rekenkundige expressies werken alleen op INTs, niet op: '"+e1.getChocolateType()+"'");
+		if(!typeMatch(e2.getChocolateType(), INT))
+			throw new ChocolateException(root, "een type probleempje: rekenkundige expressies werken alleen op INTs, niet op: '"+e2.getChocolateType()+"'");
 		root.setChocolateType(BOOL);
 	}
 	/**
-	 * checks a mathematical expression tree. Checks that both the expression trees are of type CHAR, if this is the case, the type of
-	 * the mathematical expression is set to CHAR
+	 * checks a mathematical expression tree. Checks that both the expression trees are of type INT, if this is the case, the type of
+	 * the mathematical expression is set to INT
 	 * @param root the mathematical expression tree to check
 	 * @param e1 the first expression tree in this mathematical expression tree
 	 * @param e2 the second expression tree in this mathematical expression tree
-	 * @throws ChocolateException if either e1 or e2 does not have type CHAR
+	 * @throws ChocolateException if either e1 or e2 does not have type INT
 	 */
 	public void checkExprMath(ChocolateTree root, ChocolateTree e1, ChocolateTree e2) throws ChocolateException{
-		if(!typeMatch(e1.getChocolateType(), CHAR))
-		    throw new ChocolateException(root, "een type probleempje: rekenkundige expressies werken alleen op CHARs, niet op: '"+e1.getChocolateType()+"'");
-		if(!typeMatch(e2.getChocolateType(), CHAR))
-		    throw new ChocolateException(root, "een type probleempje: rekenkundige expressies werken alleen op CHARs, niet op: '"+e2.getChocolateType()+"'");
-		root.setChocolateType(CHAR);
+		if(!typeMatch(e1.getChocolateType(), INT))
+		    throw new ChocolateException(root, "een type probleempje: rekenkundige expressies werken alleen op INTs, niet op: '"+e1.getChocolateType()+"'");
+		if(!typeMatch(e2.getChocolateType(), INT))
+		    throw new ChocolateException(root, "een type probleempje: rekenkundige expressies werken alleen op INTs, niet op: '"+e2.getChocolateType()+"'");
+		root.setChocolateType(INT);
 	}
 	/**
 	 * checks a not expression. Checks that the provided expression tree is of type BOOL, if this is the case the type of the 
@@ -198,16 +197,16 @@ public class CheckerActions {
 		root.setChocolateType(BOOL);
 	}
 	/**
-	 * Checks a negation expression tree. Check that the provided expression tree is of type CHAR, if this is the case, the type of the
-	 * negation expression tree is set to CHAR
+	 * Checks a negation expression tree. Check that the provided expression tree is of type INT, if this is the case, the type of the
+	 * negation expression tree is set to INT
 	 * @param root the negation expression tree to check
 	 * @param e the expression tree in this negation expression tree
-	 * @throws ChocolateException when e does not have type CHAR
+	 * @throws ChocolateException when e does not have type INT
 	 */
 	public void checkExprNegate(ChocolateTree root, ChocolateTree e) throws ChocolateException{
-		if(!typeMatch(e.getChocolateType(), CHAR))
-            throw new ChocolateException(root, "een type probleempje: rekenkundige expressies werken alleen op CHARs, niet op: '"+e.getChocolateType()+"'");
-		root.setChocolateType(CHAR);
+		if(!typeMatch(e.getChocolateType(), INT))
+            throw new ChocolateException(root, "een type probleempje: rekenkundige expressies werken alleen op INTs, niet op: '"+e.getChocolateType()+"'");
+		root.setChocolateType(INT);
 	}
 
 	/**
@@ -218,15 +217,15 @@ public class CheckerActions {
 	 * @param e the expression in this assign expression tree
 	 * @throws ChocolateException when wither id is not declared, or id is not writable, or when the types of id and e don't match
 	 */
-	public void checkExprAssign(ChocolateTree root, ChocolateTree id, ChocolateTree e) throws ChocolateException{
+	public void checkExprAssign(ChocolateTree root, ChocolateTree id, String e) throws ChocolateException{
 		if (!isDeclared(id.getText()))
             throw new ChocolateException(id, "is hier niet gedefinieerd");
 		if (symtab.retrieve(id.getText()).getNode().isConstant())
             throw new ChocolateException(id, "mag niet worden overschreven");
 		setTypeId(id);
-		if (!typeMatch(id.getChocolateType(), e.getChocolateType()))
+		if (!typeMatch(id.getChocolateType(), e))
            throw new ChocolateException(root, "een type probleempje: je kunt aan de variabele '"+id.getText()+"' van het type '"+id.getChocolateType()
-                                     +"' geen expressie van het type '"+e.getChocolateType()+"' toewijzen");
+                                     +"' geen expressie van het type '"+e+"' toewijzen");
 		id.setDeclaringNode(symtab.retrieve(id.getText().substring(1)).getNode()); 
 		root.setChocolateType(id.getChocolateType());
 	}

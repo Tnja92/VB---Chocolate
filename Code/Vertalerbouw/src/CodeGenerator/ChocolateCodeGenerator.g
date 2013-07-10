@@ -27,13 +27,13 @@ program
     ;
     
 section
-    : (decls+=declaration* state=statement)       -> section(decls={$decls},state={$state.st})
+    : (decls+=declaration* stat=statement)       -> section(decls={$decls},state={$stat.st})
     ;
     
 declaration
-    :   ^(CONSTANT t=type ids+=IDENTIFIER+  ASSIGN to=type_op) {store++; for(int i=0;i<ids.length();i++) ids[i].setAddress(store);}
+    :   ^(CONSTANT t=type (ids+=IDENTIFIER)+  ASSIGN to=type_op) {for(Object id:$ids) { store++; ((ChocolateTree)id).setAddress(store); }}
             -> constant(to={$to.text},st={store},lnr={getLNr()})
-    |   ^(VAR t=type ids+=IDENTIFIER+ (ASSIGN to=type_op)?) {store++; for(int i=0;i<ids.length();i++) ids[i].setAddress(store);} 
+    |   ^(VAR t=type (ids+=IDENTIFIER)+ (ASSIGN to=type_op)?) {for(Object id:$ids) { store++; ((ChocolateTree)id).setAddress(store); }} 
             -> var(to={$to.text},st={store},lbl={getLbNr()},lnr={getLNr()})
     ;
     
@@ -61,27 +61,27 @@ read
     ;
     
 read_one
-    :   id=IDENTIFIER {addr=id.getAddress();}   -> reado(addr={addr})
+    :   id=IDENTIFIER  -> reado(addr={$id.getAddress()})
     ;
     
 print
-    :   ^(PRINT (r+=print_one)+) -> print(r={$r},lnr={getLNr()})
+    :   ^(PRINT (r+=print_one)+) -> print(r={$r},lnr={getLNr()}) 
     ;
     
 print_one
     :   r=closed_compound_expr                 -> printocce(cce={$r.st})
-    |   id=IDENTIFIER {addr=id.getAddress();}  -> printo(addr={addr})
-    |   s=STRING {addr=s.getAddress();}        -> printo(addr={addr})
+    |   id=IDENTIFIER                          -> printo(addr={$id.getAddress()})
+    |   s=STRING                               -> printo(addr={$s.getAddress()})
     ;
     
 assign
-    :   ^(ASSIGN id=IDENTIFIER aexpr=assignexpr) {addr=id.getAddress();}
-            -> assign(addr={addr},assexpr={$aexpr.st},lnr={getLNr()})
+    :   ^(ASSIGN id=IDENTIFIER aexpr=assignexpr)
+            -> assign(addr={$id.getAddress()},assexpr={$aexpr.st},lnr={getLNr()})
     ;
     
 assignexpr
-    :   ^(ASSIGN id=IDENTIFIER aexpr=assignexpr) {addr=id.getAddress();}
-            -> assignex(addr={addr},aexpr={$aexpr.st})
+    :   ^(ASSIGN id=IDENTIFIER aexpr=assignexpr)
+            -> assignex(addr={$id.getAddress()},aexpr={$aexpr.st})
     |   s=single_expr              -> assignexpr(expr={$s.st})
     |   c=closed_compound_expr     -> assignexpr(expr={$c.st})
     ;

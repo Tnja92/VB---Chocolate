@@ -11,6 +11,7 @@ package ContextualAnalyzer;
 import java.util.Set;
 import java.util.HashSet;
 import AST.*;
+import ContextualAnalyzer.CheckerActions;
 }
 
 // Alter code generation so catch-clauses get replaced with this action. 
@@ -37,7 +38,7 @@ program
     
 declarations
     :   ^(r=CONSTANT t=type id=IDENTIFIER {ca.checkConstDecl(r, $t.tree, $id.tree);} (COMMA! a=IDENTIFIER{ca.checkConstDecl(r, $t.tree, $a.tree);})*  ASSIGN (t2=type_op{ca.checkConstDecl(r, $t.tree, $t2.tree);}))
-    |   ^(r=VAR t=type id=IDENTIFIER {ca.checkVarDecl(r, $t.tree, $id.tree);}(COMMA! a=IDENTIFIER{ca.checkVarDecl(r, $t.tree, $a.tree);})* (ASSIGN (type_op {ca.checkVarDecl(r, $t.tree, $t2.tree);}))?)
+    |   ^(r=VAR t=type id=IDENTIFIER {ca.checkVarDecl(r, $t.tree, $id.tree);}(COMMA! a=IDENTIFIER{ca.checkVarDecl(r, $t.tree, $a.tree);})* (ASSIGN (t2=type_op {ca.checkVarDecl(r, $t.tree, $t2.tree);}))?)
     ;
    
 statements
@@ -50,16 +51,14 @@ read
 
 assign
     :   ^(r=ASSIGN id=IDENTIFIER ae=assignexpr)
-        {   ca.checkExprAssign(r, id, $ae.tree); }
+        {   ca.checkExprAssign(r, id, $ae.val); }
     ;
     
-assignexpr
+assignexpr returns[String val = CheckerActions.NO_TYPE]
     :   ^(r=ASSIGN id=IDENTIFIER ae=assignexpr) 
-        { ca.checkExprAssign(r, id, $ae.tree); }
-    |   (se=single_expr)
-       // { ca.checkExprSingle($se.tree); }
-    |   (cce=closed_compound_expr)
-       // { ca.checkExprCompound($cce.tree); }
+        { ca.checkExprAssign(r, id, $ae.val); $val=$ae.val;}
+    |   (se=single_expr){ $val = $se.tree.getChocolateType(); }
+    |   (cce=closed_compound_expr) { $val = $cce.tree.getChocolateType(); }
     ;
  
 print
@@ -82,13 +81,12 @@ whiledo
     ;
     
 closed_compound_expr
-    :   ^(r=LCURLY {ca.openScope();}declarations* ce=compound_ext{ ca.checkCompoundExpr(r, $ce.tree); } {ca.closeScope();})
+    :   ^(r=LCURLY {ca.openScope();}declarations* ce=compound_ext{ ca.checkCompoundExpr(r, $ce.val); } {ca.closeScope();})
     ;
 
-compound_ext
-    :   ^(r=RCURLY se=single_expr)
-        { ca.checkCompoundExt(r,$se.tree);}
-    |   statements declarations* compound_ext
+compound_ext returns[String val = CheckerActions.NO_TYPE;]
+    :   ^(r=RCURLY se=single_expr) { ca.checkCompoundExt(r,$se.tree); $val = $se.tree.getChocolateType(); }
+    |   statements declarations* c=compound_ext{$val = $c.val; $c.tree.setChocolateType($val);}
     ;
 
 type_op

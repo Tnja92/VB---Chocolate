@@ -14,8 +14,9 @@ tokens {
     LCURLY      =   '{'     ;
     RCURLY      =   '}'     ;
     COMMA       =   ','     ;
-    QUOTATION   =   '\''     ;
+    QUOTATION   =   '\''    ;
     DQUOTATION  =   '"'     ;
+    DOT         =   '.'     ;
 
     // operators
     PLUS        =   'bounty'    ;
@@ -79,7 +80,7 @@ declaration
     ;
     
 type
-    :   IDENTIFIER
+    :   INTEGER
     |   CHAR
     |   BOOLEAN
     ;
@@ -181,11 +182,11 @@ operand
     ;
     
 string
-    :   DQUOTATION! IDENTIFIER DQUOTATION! //.* voor alle tekens
+    :   DQUOTATION! graphic* DQUOTATION! //.* voor alle tekens
     ;
     
 graphic
-    :   LETTER | DIGIT;
+    :   LETTER | DIGIT | WS | COLON | COMMA | DOT;
 
 // Lexer rules
 

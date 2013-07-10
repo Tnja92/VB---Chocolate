@@ -2,6 +2,8 @@ package SyntacticAnalyzer;
 
 import AST.*;
 
+import jasmin.ClassFile;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,6 +14,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
+import java.io.StringReader;
 import java.io.Writer;
 import java.util.EnumSet;
 import java.util.Set;
@@ -159,7 +162,15 @@ public class Chocolate {
               StringTemplateGroup stg = new StringTemplateGroup("GenTemplates",new File(".").getCanonicalPath()+"/stringTemplates");
               generator.setTemplateLib(stg);
               String genout = generator.program().st.toString();
-              out.write(genout);
+              ClassFile classf = new jasmin.ClassFile();
+              try {
+				classf.readJasmin(new StringReader(genout), outputFile, false);
+				classf.write(outStream);
+  			} catch (Exception e) {
+				// Jasmin error
+  				System.err.println("Jasmin returned an error:"+e.getMessage());
+  				e.printStackTrace();
+			}
         }
 
         if (options.contains(Option.AST)) {          // print the AST as string

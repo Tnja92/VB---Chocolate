@@ -129,7 +129,7 @@ closed_compound_expr
     ;
     
 compound_ext
-    :   (single_expr RCURLY) => (single_expr RCURLY^)
+    :   (single_expr SEMICOLON RCURLY) => (single_expr SEMICOLON! RCURLY^)
     |   statements declarations* compound_ext
     ;
     

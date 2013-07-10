@@ -5,8 +5,10 @@ import AST.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.OutputStreamWriter;
@@ -107,57 +109,67 @@ public class Chocolate {
      * @param args
      */
     public static void main(String[] args) {
-        parseOptions(args);
-
         try {
-            InputStream in = inputFile == null ? System.in : new FileInputStream(inputFile);
-            OutputStream outStream = outputFile == null ? System.out : new FileOutputStream(outputFile);
-            BufferedWriter out = new BufferedWriter(new OutputStreamWriter(outStream));
-            
-            ChocolateLexer lexer = new ChocolateLexer(new ANTLRInputStream(in));
-            CommonTokenStream tokens = new CommonTokenStream(lexer);
-            ChocolateParser parser = new ChocolateParser(tokens);
-            parser.setTreeAdaptor(new ChocolateTreeAdaptor());
-            
-            ChocolateParser.program_return result = parser.program();
-            CommonTree tree = (CommonTree) result.getTree();
-
-            /* if (!options.contains(Option.NO_CHECKER)) {      // check the AST
-                CommonTreeNodeStream nodes = new CommonTreeNodeStream(tree);
-                ChocolateChecker checker = new ChocolateChecker(nodes);
-                tree = checker.program().getTree();
-            } */
-
-           /* if (options.contains(Option.CODE_GENERATOR)) {
-            	  TreeNodeStream nodes = new BufferedTreeNodeStream(tree);
-                  ChocolateCodeGenerator generator = new ChocolateCodeGenerator(nodes);
-                  StringTemplateGroup stg = new StringTemplateGroup("GenTemplates",new File(".").getCanonicalPath()+"/stringTemplates");
-                  generator.setTemplateLib(stg);
-                  String genout = generator.program().st.toString();
-                  out.write(genout);
-            }*/
-
-            if (options.contains(Option.AST)) {          // print the AST as string
-                System.out.println(tree.toStringTree());
-            }
-
-            if (options.contains(Option.DOT)) {   // print the AST as DOT specification
-                DOTTreeGenerator gen = new DOTTreeGenerator();
-                StringTemplate st = gen.toDOT(tree);
-                System.out.println(st);
-            }
-
+            testMain(args);
         } catch (ChocolateException e) {
             System.err.print("ERROR: ChocolateException thrown by compiler: ");
             System.err.println(e.getMessage());
+            System.exit(1);
         } catch (RecognitionException e) {
             System.err.print("ERROR: recognition exception thrown by compiler: ");
             System.err.println(e.getMessage());
-            e.printStackTrace();
+            System.exit(1);
         } catch (Exception e) {
             System.err.print("ERROR: uncaught exception thrown by compiler: ");
             System.err.println(e.getMessage());
-            e.printStackTrace();
+            System.exit(1);
+        }
+    }
+    
+    /**
+     * 
+     * @param args
+     * @throws IOException 
+     * @throws RecognitionException 
+     */
+    public static void testMain(String[] args) throws IOException, RecognitionException{
+    	parseOptions(args);
+        InputStream in = inputFile == null ? System.in : new FileInputStream(inputFile);
+        OutputStream outStream = outputFile == null ? System.out : new FileOutputStream(outputFile);
+        BufferedWriter out = new BufferedWriter(new OutputStreamWriter(outStream));
+        
+        ChocolateLexer lexer = new ChocolateLexer(new ANTLRInputStream(in));
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
+        ChocolateParser parser = new ChocolateParser(tokens);
+        parser.setTreeAdaptor(new ChocolateTreeAdaptor());
+        
+        ChocolateParser.program_return result = parser.program();
+        CommonTree tree = (CommonTree) result.getTree();
+
+        if (!options.contains(Option.NO_CHECKER)) {      // check the AST
+            CommonTreeNodeStream nodes = new CommonTreeNodeStream(tree);
+            ChocolateChecker checker = new ChocolateChecker(nodes);
+            tree = checker.program().getTree();
+        }
+
+       if (options.contains(Option.CODE_GENERATOR)) {
+        	  TreeNodeStream nodes = new BufferedTreeNodeStream(tree);
+              ChocolateCodeGenerator generator = new ChocolateCodeGenerator(nodes);
+              StringTemplate.setLintMode(true);
+              StringTemplateGroup stg = new StringTemplateGroup("GenTemplates",new File(".").getCanonicalPath()+"/stringTemplates");
+              generator.setTemplateLib(stg);
+              String genout = generator.program().st.toString();
+              out.write(genout);
+        }
+
+        if (options.contains(Option.AST)) {          // print the AST as string
+            System.out.println(tree.toStringTree());
+        }
+
+        if (options.contains(Option.DOT)) {   // print the AST as DOT specification
+            DOTTreeGenerator gen = new DOTTreeGenerator();
+            StringTemplate st = gen.toDOT(tree);
+            System.out.println(st);
         }
     }
 
